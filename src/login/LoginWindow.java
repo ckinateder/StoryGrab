@@ -44,6 +44,7 @@ public class LoginWindow extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        kGradientPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         kGradientPanel1.setkEndColor(new java.awt.Color(51, 51, 140));
         kGradientPanel1.setkGradientFocus(250);
         kGradientPanel1.setkStartColor(new java.awt.Color(83, 97, 112));
