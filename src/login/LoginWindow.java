@@ -10,7 +10,7 @@ import keeptoo.Drag;
 
 /**
  *
- * @author calvi
+ * @author calvin kinateder
  */
 public class LoginWindow extends javax.swing.JFrame {
 
@@ -20,7 +20,8 @@ public class LoginWindow extends javax.swing.JFrame {
     public LoginWindow() {
         initComponents();
     }
-
+    AccountManager mngr = new AccountManager();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,17 +32,20 @@ public class LoginWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         LoginPanel = new keeptoo.KGradientPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        userfield = new javax.swing.JTextField();
+        pwdfield = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         kButton3 = new keeptoo.KButton();
         kButton4 = new keeptoo.KButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         MainPanel = new keeptoo.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -69,32 +73,27 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         LoginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new Color(0,0,0,0));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setToolTipText("username");
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        userfield.setBackground(new Color(0,0,0,0));
+        userfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userfield.setForeground(new java.awt.Color(255, 255, 255));
+        userfield.setToolTipText("username");
+        userfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        userfield.setCaretColor(new java.awt.Color(255, 255, 255));
+        userfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        userfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                userfieldActionPerformed(evt);
             }
         });
-        LoginPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 350, 30));
-        jTextField1.getAccessibleContext().setAccessibleName("");
+        LoginPanel.add(userfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 350, 30));
+        userfield.getAccessibleContext().setAccessibleName("");
 
-        jPasswordField1.setBackground(new Color(0,0,0,0));
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        jPasswordField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        LoginPanel.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 350, 30));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("password");
-        LoginPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
+        pwdfield.setBackground(new Color(0,0,0,0));
+        pwdfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pwdfield.setForeground(new java.awt.Color(255, 255, 255));
+        pwdfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        pwdfield.setCaretColor(new java.awt.Color(255, 255, 255));
+        LoginPanel.add(pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 350, 30));
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,6 +124,11 @@ public class LoginWindow extends javax.swing.JFrame {
         kButton3.setkHoverForeGround(new java.awt.Color(255, 255, 255));
         kButton3.setkHoverStartColor(new java.awt.Color(63, 167, 89));
         kButton3.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        kButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                kButton3MouseClicked(evt);
+            }
+        });
         kButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kButton3ActionPerformed(evt);
@@ -157,6 +161,15 @@ public class LoginWindow extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
         LoginPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        LoginPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 400, 20));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("password");
+        LoginPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
 
         getContentPane().add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -194,15 +207,23 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         MainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
+        MainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        MainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 220, 20));
+
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    
+    private void userfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfieldActionPerformed
         // TODO add your handling code here:
      
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_userfieldActionPerformed
 
     private void LoginPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginPanelKeyPressed
         // TODO add your handling code here:
@@ -243,9 +264,18 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void kButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton4MouseClicked
         // TODO add your handling code here:
-        LoginPanel.setVisible(false); //set login panel not visible
-
         
+        //jLabel7
+        User currentusr = //temporary, read only
+                mngr.loginChecker(userfield.getText(),new String(pwdfield.getPassword()));        
+        //pwdfield returns only char[]
+        if(currentusr==null){
+            jLabel9.setText("Sorry! Wrong password or that user doesn't exist.");
+        }
+        else{
+            jLabel7.setText(currentusr.screenName);
+            LoginPanel.setVisible(false); //set login panel not visible
+        }
     }//GEN-LAST:event_kButton4MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -276,8 +306,14 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void kButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kButton3KeyPressed
         // TODO add your handling code here:
-        System.exit(0);
+        
     }//GEN-LAST:event_kButton3KeyPressed
+
+    private void kButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+        
+    }//GEN-LAST:event_kButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -318,15 +354,18 @@ public class LoginWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private keeptoo.KGradientPanel LoginPanel;
     private keeptoo.KGradientPanel MainPanel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel9;
     private keeptoo.KButton kButton3;
     private keeptoo.KButton kButton4;
+    private javax.swing.JPasswordField pwdfield;
+    private javax.swing.JTextField userfield;
     // End of variables declaration//GEN-END:variables
 }
