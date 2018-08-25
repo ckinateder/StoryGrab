@@ -119,12 +119,23 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
+        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabel3MouseDragged(evt);
+            }
+        });
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel3MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel3MouseReleased(evt);
             }
         });
         LoginPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
@@ -148,6 +159,12 @@ public class LoginWindow extends javax.swing.JFrame {
         kButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 kButton3MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kButton3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                kButton3MouseReleased(evt);
             }
         });
         kButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +194,12 @@ public class LoginWindow extends javax.swing.JFrame {
         kButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 kButton4MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kButton4MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                kButton4MouseReleased(evt);
             }
         });
         kButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -231,6 +254,9 @@ public class LoginWindow extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel8MouseEntered(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel8MouseReleased(evt);
+            }
         });
         MainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
@@ -279,6 +305,9 @@ public class LoginWindow extends javax.swing.JFrame {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel13MouseEntered(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel13MouseReleased(evt);
             }
         });
         CreateAccountPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
@@ -352,6 +381,9 @@ public class LoginWindow extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 kButton6MouseClicked(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                kButton6MouseReleased(evt);
+            }
         });
         kButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,6 +411,9 @@ public class LoginWindow extends javax.swing.JFrame {
         kButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 kButton7MouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                kButton7MouseReleased(evt);
             }
         });
         kButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -443,19 +478,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void kButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton4MouseClicked
         // TODO add your handling code here:
-        CreateAccountPanel.setVisible(false);
-        //change to ref not val
-        User currentusr = //temporary, read only
-                mngr.loginChecker(userfield.getText(),new String(pwdfield.getPassword()));        
-        //pwdfield returns only char[]
-        if(currentusr==null){
-            jLabel9.setText("Sorry! Wrong password or that user doesn't exist.");
-        }
-        else{
-            jLabel7.setText(currentusr.screenName);
-            LoginPanel.setVisible(false); //set login panel not visible
-            MainPanel.setVisible(true);
-        }
+        
     }//GEN-LAST:event_kButton4MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -547,10 +570,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void kButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton7MouseClicked
         // TODO add your handling code here:
-        //create account
-        mngr.createAccount(userfield1.getText(), 
-                new String(pwdfield2.getPassword()), fullnamefield.getText());
-        //System.out.println(mngr.users);
+        
     }//GEN-LAST:event_kButton7MouseClicked
 
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
@@ -560,6 +580,80 @@ public class LoginWindow extends javax.swing.JFrame {
     private void kButton7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kButton7KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_kButton7KeyPressed
+
+    private void kButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton4MousePressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_kButton4MousePressed
+
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        // TODO add your handling code here:
+        //System.exit(0);
+    }//GEN-LAST:event_jLabel3MousePressed
+
+    private void jLabel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseDragged
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel3MouseDragged
+
+    private void jLabel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel3MouseReleased
+
+    private void kButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kButton3MousePressed
+
+    private void kButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MouseReleased
+        // TODO add your handling code here:
+        LoginPanel.setVisible(false);
+        MainPanel.setVisible(false);
+        CreateAccountPanel.setVisible(true);
+    }//GEN-LAST:event_kButton3MouseReleased
+
+    private void kButton4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton4MouseReleased
+        // TODO add your handling code here:
+        CreateAccountPanel.setVisible(false);
+        //change to ref not val
+        User currentusr = //temporary, read only
+                mngr.loginChecker(userfield.getText(),new String(pwdfield.getPassword()));        
+        //pwdfield returns only char[]
+        if(currentusr==null){
+            jLabel9.setText("Sorry! Wrong password or that user doesn't exist.");
+        }
+        else{
+            jLabel7.setText(currentusr.screenName);
+            LoginPanel.setVisible(false); //set login panel not visible
+            MainPanel.setVisible(true);
+        }
+    }//GEN-LAST:event_kButton4MouseReleased
+
+    private void kButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton7MouseReleased
+        // TODO add your handling code here:
+        //create account
+        mngr.createAccount(userfield1.getText(), 
+                new String(pwdfield2.getPassword()), fullnamefield.getText());
+        //System.out.println(mngr.users);
+    }//GEN-LAST:event_kButton7MouseReleased
+
+    private void kButton6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton6MouseReleased
+        // TODO add your handling code here:
+        //back to login
+        LoginPanel.setVisible(true);
+        MainPanel.setVisible(false);
+        CreateAccountPanel.setVisible(false);
+    }//GEN-LAST:event_kButton6MouseReleased
+
+    private void jLabel13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseReleased
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel13MouseReleased
+
+    private void jLabel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseReleased
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel8MouseReleased
 
     /**
      * @param args the command line arguments
