@@ -1,2 +1,1 @@
-ckin,1234,calvin kinateder,
-joes,12345678,joe sheridan,
+ckin,1234,Calvin J. Kinateder,

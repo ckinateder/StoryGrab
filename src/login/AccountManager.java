@@ -36,8 +36,10 @@ public class AccountManager {
         return null;//if none exists return that
     }
     public void createAccount(String usrnm, String pwd,String scrNm){
-        users.add(new User(usrnm,pwd,scrNm));
-        writeToFile(new User(usrnm,pwd,scrNm));
+        if(!usrnm.equals("")&&!pwd.equals("")&&!scrNm.equals("")){
+            users.add(new User(usrnm,pwd,scrNm));
+            writeToFile(new User(usrnm,pwd,scrNm));
+        }
     }
     public void loadFromFile(){
         // The name of the file to open.
