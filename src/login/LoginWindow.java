@@ -26,6 +26,7 @@ public class LoginWindow extends javax.swing.JFrame {
      */
     public LoginWindow() {
         initComponents();
+        panelSwitcher(1);
     }
     AccountManager mngr = new AccountManager();
     User currentusr;
