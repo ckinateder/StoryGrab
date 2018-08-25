@@ -15,7 +15,7 @@ import keeptoo.Drag;
 public class LoginWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form SingUP
+     * Creates new form
      */
     public LoginWindow() {
         initComponents();
