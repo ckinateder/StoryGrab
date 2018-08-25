@@ -35,11 +35,13 @@ public class AccountManager {
         }
         return null;//if none exists return that
     }
-    public void createAccount(String usrnm, String pwd,String scrNm){
+    public boolean createAccount(String usrnm, String pwd,String scrNm){
         if(!usrnm.equals("")&&!pwd.equals("")&&!scrNm.equals("")){
             users.add(new User(usrnm,pwd,scrNm));
             writeToFile(new User(usrnm,pwd,scrNm));
+            return true; //for function login();
         }
+        return false;
     }
     public void loadFromFile(){
         // The name of the file to open.

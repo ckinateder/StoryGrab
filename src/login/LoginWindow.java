@@ -37,10 +37,10 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        kButton3 = new keeptoo.KButton();
-        kButton4 = new keeptoo.KButton();
+        tocreateaccountpg = new keeptoo.KButton();
+        loginbtn = new keeptoo.KButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        nouserwithname = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         MainPanel = new keeptoo.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -49,15 +49,16 @@ public class LoginWindow extends javax.swing.JFrame {
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         userfield1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         pwdfield2 = new javax.swing.JPasswordField();
         fullnamefield = new javax.swing.JTextField();
-        kButton6 = new keeptoo.KButton();
+        backfromca = new keeptoo.KButton();
         jLabel16 = new javax.swing.JLabel();
-        kButton7 = new keeptoo.KButton();
+        finalcreate = new keeptoo.KButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -79,6 +80,9 @@ public class LoginWindow extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 LoginPanelMousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LoginPanelMouseReleased(evt);
+            }
         });
         LoginPanel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -90,7 +94,6 @@ public class LoginWindow extends javax.swing.JFrame {
         userfield.setBackground(new Color(0,0,0,0));
         userfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         userfield.setForeground(new java.awt.Color(255, 255, 255));
-        userfield.setToolTipText("");
         userfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         userfield.setCaretColor(new java.awt.Color(255, 255, 255));
         userfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -145,76 +148,76 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel4.setText("username");
         LoginPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 70, -1));
 
-        kButton3.setText("Create Account");
-        kButton3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        kButton3.setkAllowTab(false);
-        kButton3.setkBorderRadius(40);
-        kButton3.setkEndColor(new java.awt.Color(0, 204, 51));
-        kButton3.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        kButton3.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        kButton3.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        kButton3.setkIndicatorThickness(0);
-        kButton3.setkPressedColor(new java.awt.Color(167, 69, 199));
-        kButton3.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        kButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        tocreateaccountpg.setText("Create Account");
+        tocreateaccountpg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tocreateaccountpg.setkAllowTab(false);
+        tocreateaccountpg.setkBorderRadius(40);
+        tocreateaccountpg.setkEndColor(new java.awt.Color(0, 204, 51));
+        tocreateaccountpg.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        tocreateaccountpg.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        tocreateaccountpg.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        tocreateaccountpg.setkIndicatorThickness(0);
+        tocreateaccountpg.setkPressedColor(new java.awt.Color(167, 69, 199));
+        tocreateaccountpg.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        tocreateaccountpg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kButton3MouseClicked(evt);
+                tocreateaccountpgMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                kButton3MousePressed(evt);
+                tocreateaccountpgMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                kButton3MouseReleased(evt);
+                tocreateaccountpgMouseReleased(evt);
             }
         });
-        kButton3.addActionListener(new java.awt.event.ActionListener() {
+        tocreateaccountpg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton3ActionPerformed(evt);
+                tocreateaccountpgActionPerformed(evt);
             }
         });
-        kButton3.addKeyListener(new java.awt.event.KeyAdapter() {
+        tocreateaccountpg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                kButton3KeyPressed(evt);
+                tocreateaccountpgKeyPressed(evt);
             }
         });
-        LoginPanel.add(kButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 150, 40));
+        LoginPanel.add(tocreateaccountpg, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 150, 40));
 
-        kButton4.setText("Login");
-        kButton4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        kButton4.setkAllowTab(false);
-        kButton4.setkBorderRadius(40);
-        kButton4.setkEndColor(new java.awt.Color(0, 204, 51));
-        kButton4.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        kButton4.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        kButton4.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        kButton4.setkIndicatorThickness(0);
-        kButton4.setkPressedColor(new java.awt.Color(167, 69, 199));
-        kButton4.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        kButton4.setName(""); // NOI18N
-        kButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        loginbtn.setText("Login");
+        loginbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        loginbtn.setkAllowTab(false);
+        loginbtn.setkBorderRadius(40);
+        loginbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        loginbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        loginbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        loginbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        loginbtn.setkIndicatorThickness(0);
+        loginbtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        loginbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        loginbtn.setName(""); // NOI18N
+        loginbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kButton4MouseClicked(evt);
+                loginbtnMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                kButton4MousePressed(evt);
+                loginbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                kButton4MouseReleased(evt);
+                loginbtnMouseReleased(evt);
             }
         });
-        kButton4.addActionListener(new java.awt.event.ActionListener() {
+        loginbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton4ActionPerformed(evt);
+                loginbtnActionPerformed(evt);
             }
         });
-        LoginPanel.add(kButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 150, 40));
+        LoginPanel.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 150, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
         LoginPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        LoginPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 400, 20));
+        nouserwithname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        nouserwithname.setForeground(new java.awt.Color(255, 255, 255));
+        LoginPanel.add(nouserwithname, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 400, 20));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -312,15 +315,10 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         CreateAccountPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("username");
-        CreateAccountPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
-
         userfield1.setBackground(new Color(0,0,0,0));
         userfield1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         userfield1.setForeground(new java.awt.Color(255, 255, 255));
-        userfield1.setToolTipText("username");
+        userfield1.setToolTipText("Please use your AEP username");
         userfield1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         userfield1.setCaretColor(new java.awt.Color(255, 255, 255));
         userfield1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -339,12 +337,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("password");
-        CreateAccountPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 70, -1));
+        CreateAccountPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 160, 20));
 
         pwdfield2.setBackground(new Color(0,0,0,0));
         pwdfield2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         pwdfield2.setForeground(new java.awt.Color(255, 255, 255));
+        pwdfield2.setToolTipText("Please use your AEP password");
         pwdfield2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         pwdfield2.setCaretColor(new java.awt.Color(255, 255, 255));
         pwdfield2.setOpaque(false);
@@ -365,68 +363,78 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         CreateAccountPanel.add(fullnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 350, 30));
 
-        kButton6.setText("Back");
-        kButton6.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        kButton6.setkAllowTab(false);
-        kButton6.setkBorderRadius(40);
-        kButton6.setkEndColor(new java.awt.Color(0, 204, 51));
-        kButton6.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        kButton6.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        kButton6.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        kButton6.setkIndicatorThickness(0);
-        kButton6.setkPressedColor(new java.awt.Color(167, 69, 199));
-        kButton6.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        kButton6.setName(""); // NOI18N
-        kButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        backfromca.setText("Back");
+        backfromca.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        backfromca.setkAllowTab(false);
+        backfromca.setkBorderRadius(40);
+        backfromca.setkEndColor(new java.awt.Color(0, 204, 51));
+        backfromca.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        backfromca.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        backfromca.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        backfromca.setkIndicatorThickness(0);
+        backfromca.setkPressedColor(new java.awt.Color(167, 69, 199));
+        backfromca.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        backfromca.setName(""); // NOI18N
+        backfromca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kButton6MouseClicked(evt);
+                backfromcaMouseClicked(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                kButton6MouseReleased(evt);
+                backfromcaMouseReleased(evt);
             }
         });
-        kButton6.addActionListener(new java.awt.event.ActionListener() {
+        backfromca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton6ActionPerformed(evt);
+                backfromcaActionPerformed(evt);
             }
         });
-        CreateAccountPanel.add(kButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, 150, 40));
+        CreateAccountPanel.add(backfromca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, 150, 40));
 
         jLabel16.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("or");
         CreateAccountPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, -1, -1));
 
-        kButton7.setText("Create Account");
-        kButton7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        kButton7.setkAllowTab(false);
-        kButton7.setkBorderRadius(40);
-        kButton7.setkEndColor(new java.awt.Color(0, 204, 51));
-        kButton7.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        kButton7.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        kButton7.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        kButton7.setkIndicatorThickness(0);
-        kButton7.setkPressedColor(new java.awt.Color(167, 69, 199));
-        kButton7.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        kButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+        finalcreate.setText("Create Account");
+        finalcreate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        finalcreate.setkAllowTab(false);
+        finalcreate.setkBorderRadius(40);
+        finalcreate.setkEndColor(new java.awt.Color(0, 204, 51));
+        finalcreate.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        finalcreate.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        finalcreate.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        finalcreate.setkIndicatorThickness(0);
+        finalcreate.setkPressedColor(new java.awt.Color(167, 69, 199));
+        finalcreate.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        finalcreate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kButton7MouseClicked(evt);
+                finalcreateMouseClicked(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                kButton7MouseReleased(evt);
+                finalcreateMouseReleased(evt);
             }
         });
-        kButton7.addActionListener(new java.awt.event.ActionListener() {
+        finalcreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton7ActionPerformed(evt);
+                finalcreateActionPerformed(evt);
             }
         });
-        kButton7.addKeyListener(new java.awt.event.KeyAdapter() {
+        finalcreate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                kButton7KeyPressed(evt);
+                finalcreateKeyPressed(evt);
             }
         });
-        CreateAccountPanel.add(kButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 150, 40));
+        CreateAccountPanel.add(finalcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 150, 40));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("password");
+        CreateAccountPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 70, -1));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("username");
+        CreateAccountPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
 
         getContentPane().add(CreateAccountPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -468,18 +476,18 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel3MouseEntered
 
-    private void kButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton3ActionPerformed
+    private void tocreateaccountpgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tocreateaccountpgActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kButton3ActionPerformed
+    }//GEN-LAST:event_tocreateaccountpgActionPerformed
 
-    private void kButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton4ActionPerformed
+    private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kButton4ActionPerformed
+    }//GEN-LAST:event_loginbtnActionPerformed
 
-    private void kButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton4MouseClicked
+    private void loginbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_kButton4MouseClicked
+    }//GEN-LAST:event_loginbtnMouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
@@ -507,17 +515,17 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_MainPanelKeyPressed
 
-    private void kButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kButton3KeyPressed
+    private void tocreateaccountpgKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tocreateaccountpgKeyPressed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_kButton3KeyPressed
+    }//GEN-LAST:event_tocreateaccountpgKeyPressed
 
-    private void kButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MouseClicked
+    private void tocreateaccountpgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMouseClicked
         // TODO add your handling code here:
         LoginPanel.setVisible(false);
         MainPanel.setVisible(false);
         CreateAccountPanel.setVisible(true);
-    }//GEN-LAST:event_kButton3MouseClicked
+    }//GEN-LAST:event_tocreateaccountpgMouseClicked
 
     private void CreateAccountPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateAccountPanelMouseDragged
         // TODO add your handling code here:
@@ -556,35 +564,35 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fullnamefieldActionPerformed
 
-    private void kButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton6MouseClicked
+    private void backfromcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backfromcaMouseClicked
         // TODO add your handling code here:
         //back to login 
         LoginPanel.setVisible(true);
         MainPanel.setVisible(false);
         CreateAccountPanel.setVisible(false);
-    }//GEN-LAST:event_kButton6MouseClicked
+    }//GEN-LAST:event_backfromcaMouseClicked
 
-    private void kButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton6ActionPerformed
+    private void backfromcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backfromcaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kButton6ActionPerformed
+    }//GEN-LAST:event_backfromcaActionPerformed
 
-    private void kButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton7MouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_kButton7MouseClicked
-
-    private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton7ActionPerformed
-
-    private void kButton7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kButton7KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kButton7KeyPressed
-
-    private void kButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton4MousePressed
+    private void finalcreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finalcreateMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_kButton4MousePressed
+    }//GEN-LAST:event_finalcreateMouseClicked
+
+    private void finalcreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalcreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finalcreateActionPerformed
+
+    private void finalcreateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_finalcreateKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finalcreateKeyPressed
+
+    private void loginbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMousePressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_loginbtnMousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
         // TODO add your handling code here:
@@ -601,49 +609,43 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel3MouseReleased
 
-    private void kButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MousePressed
+    private void tocreateaccountpgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kButton3MousePressed
+    }//GEN-LAST:event_tocreateaccountpgMousePressed
 
-    private void kButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton3MouseReleased
+    private void tocreateaccountpgMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMouseReleased
         // TODO add your handling code here:
-        LoginPanel.setVisible(false);
-        MainPanel.setVisible(false);
-        CreateAccountPanel.setVisible(true);
-    }//GEN-LAST:event_kButton3MouseReleased
+        resetAllFields();
+        panelSwitcher(3);
+    }//GEN-LAST:event_tocreateaccountpgMouseReleased
 
-    private void kButton4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton4MouseReleased
+    private void loginbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMouseReleased
         // TODO add your handling code here:
-        CreateAccountPanel.setVisible(false);
+        //CreateAccountPanel.setVisible(false);
         //change to ref not val
-        User currentusr = //temporary, read only
-                mngr.loginChecker(userfield.getText(),new String(pwdfield.getPassword()));        
-        //pwdfield returns only char[]
-        if(currentusr==null){
-            jLabel9.setText("Sorry! Wrong password or that user doesn't exist.");
-        }
-        else{
-            jLabel7.setText(currentusr.screenName);
-            LoginPanel.setVisible(false); //set login panel not visible
-            MainPanel.setVisible(true);
-        }
-    }//GEN-LAST:event_kButton4MouseReleased
+        login(false);
+    }//GEN-LAST:event_loginbtnMouseReleased
 
-    private void kButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton7MouseReleased
+    private void finalcreateMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finalcreateMouseReleased
         // TODO add your handling code here:
         //create account
-        mngr.createAccount(userfield1.getText(), 
+        boolean r = mngr.createAccount(userfield1.getText(), 
                 new String(pwdfield2.getPassword()), fullnamefield.getText());
+        //resetAllFields();
+        if(r){
+            login(true);
+        }
+        else{
+            jLabel15.setText("Do not leave any fields blank");
+        }
         //System.out.println(mngr.users);
-    }//GEN-LAST:event_kButton7MouseReleased
+    }//GEN-LAST:event_finalcreateMouseReleased
 
-    private void kButton6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kButton6MouseReleased
+    private void backfromcaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backfromcaMouseReleased
         // TODO add your handling code here:
         //back to login
-        LoginPanel.setVisible(true);
-        MainPanel.setVisible(false);
-        CreateAccountPanel.setVisible(false);
-    }//GEN-LAST:event_kButton6MouseReleased
+        panelSwitcher(1);
+    }//GEN-LAST:event_backfromcaMouseReleased
 
     private void jLabel13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseReleased
         // TODO add your handling code here:
@@ -655,6 +657,60 @@ public class LoginWindow extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel8MouseReleased
 
+    private void LoginPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginPanelMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginPanelMouseReleased
+
+    public void resetAllFields(){
+        pwdfield.setText("");
+        pwdfield2.setText("");
+        userfield.setText("");
+        userfield1.setText("");
+        fullnamefield.setText("");
+        nouserwithname.setText("");
+        jLabel15.setText("");
+    }
+    public void panelSwitcher(int sw){
+        resetAllFields();
+        //1 for login,2 for main,3 for create account
+        switch(sw){
+            case 1:
+                LoginPanel.setVisible(true);
+                MainPanel.setVisible(false);
+                CreateAccountPanel.setVisible(false);
+                break;
+            case 2:
+                LoginPanel.setVisible(false);
+                MainPanel.setVisible(true);
+                CreateAccountPanel.setVisible(false);
+                break;
+            case 3:
+                LoginPanel.setVisible(false);
+                MainPanel.setVisible(false);
+                CreateAccountPanel.setVisible(true);
+                break;
+        }
+        
+    }
+    public void login(boolean fromWhere){//true from create account
+        User currentusr;
+        if(fromWhere){
+            currentusr = mngr.users.get(mngr.users.size()-1);//get last made account
+            //this is being called from create account page
+        }
+        else{
+            currentusr = //temporary, read only
+                    mngr.loginChecker(userfield.getText(),new String(pwdfield.getPassword()));        
+            //pwdfield returns only char[]
+        }
+        if(currentusr==null){
+            nouserwithname.setText("Sorry! Wrong password or that user doesn't exist.");
+        }
+        else{
+            jLabel7.setText(currentusr.screenName);
+            panelSwitcher(2);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -691,18 +747,22 @@ public class LoginWindow extends javax.swing.JFrame {
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private keeptoo.KGradientPanel CreateAccountPanel;
     private keeptoo.KGradientPanel LoginPanel;
     private keeptoo.KGradientPanel MainPanel;
+    private keeptoo.KButton backfromca;
+    private keeptoo.KButton finalcreate;
     private javax.swing.JTextField fullnamefield;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -710,13 +770,11 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private keeptoo.KButton kButton3;
-    private keeptoo.KButton kButton4;
-    private keeptoo.KButton kButton6;
-    private keeptoo.KButton kButton7;
+    private keeptoo.KButton loginbtn;
+    private javax.swing.JLabel nouserwithname;
     private javax.swing.JPasswordField pwdfield;
     private javax.swing.JPasswordField pwdfield2;
+    private keeptoo.KButton tocreateaccountpg;
     private javax.swing.JTextField userfield;
     private javax.swing.JTextField userfield1;
     // End of variables declaration//GEN-END:variables
