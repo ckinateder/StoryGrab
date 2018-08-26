@@ -7,6 +7,8 @@ package login;
 
 import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.awt.Color;
+import java.awt.Frame;
+import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +28,7 @@ public class LoginWindow extends javax.swing.JFrame {
      */
     public LoginWindow() {
         initComponents();
+          
         panelSwitcher(1);
     }
     AccountManager mngr = new AccountManager();
@@ -75,10 +78,14 @@ public class LoginWindow extends javax.swing.JFrame {
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
         setUndecorated(true);
+        setShape(new RoundRectangle2D.Double(0, 0, 870, 600, 20, 20));
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LoginPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        LoginPanel.setBackground(new Color(0,0,0,0));
+        LoginPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        LoginPanel.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        LoginPanel.setkBorderRadius(20);
         LoginPanel.setkEndColor(new java.awt.Color(51, 51, 140));
         LoginPanel.setkGradientFocus(250);
         LoginPanel.setkStartColor(new java.awt.Color(83, 97, 112));
@@ -235,7 +242,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel10.setText("password");
         LoginPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 26)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-news-50.png"))); // NOI18N
         jLabel1.setText(" StoryGrab");
@@ -243,10 +250,14 @@ public class LoginWindow extends javax.swing.JFrame {
 
         getContentPane().add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
+        MainPanel.setBackground(new Color(0,0,0,0));
         MainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        MainPanel.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        MainPanel.setkBorderRadius(20);
         MainPanel.setkEndColor(new java.awt.Color(51, 51, 140));
         MainPanel.setkGradientFocus(250);
         MainPanel.setkStartColor(new java.awt.Color(83, 97, 112));
+        MainPanel.setOpaque(false);
         MainPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 MainPanelMouseDragged(evt);
@@ -281,11 +292,11 @@ public class LoginWindow extends javax.swing.JFrame {
         MainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
-        MainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        MainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        MainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 280, 20));
+        MainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 280, 20));
 
         logoutbtn.setText("Logout");
         logoutbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -315,11 +326,14 @@ public class LoginWindow extends javax.swing.JFrame {
                 logoutbtnActionPerformed(evt);
             }
         });
-        MainPanel.add(logoutbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 150, 40));
+        MainPanel.add(logoutbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 150, 40));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
+        CreateAccountPanel.setBackground(new Color(0,0,0,0));
         CreateAccountPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        CreateAccountPanel.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        CreateAccountPanel.setkBorderRadius(20);
         CreateAccountPanel.setkEndColor(new java.awt.Color(51, 51, 140));
         CreateAccountPanel.setkGradientFocus(250);
         CreateAccountPanel.setkStartColor(new java.awt.Color(83, 97, 112));
@@ -482,7 +496,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel18.setText("username");
         CreateAccountPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 26)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-news-50.png"))); // NOI18N
         jLabel9.setText(" StoryGrab");
@@ -755,6 +769,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 LoginPanel.setVisible(false);
                 MainPanel.setVisible(true);
                 CreateAccountPanel.setVisible(false);
+                jLabel7.setText(currentusr.screenName);//this is temporary. probs change to a better place later
                 break;
             case 3:
                 LoginPanel.setVisible(false);
@@ -767,6 +782,7 @@ public class LoginWindow extends javax.swing.JFrame {
     public void login(boolean fromWhere){//true from create account        
         if(fromWhere){
             currentusr = mngr.users.get(mngr.users.size()-1);//get last made account
+            
             //this is being called from create account page
         }
         else{
