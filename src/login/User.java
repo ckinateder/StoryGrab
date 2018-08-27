@@ -23,6 +23,11 @@ public class User {
         password=p;
         screenName=sc;
     }
+    public User(String u, String p){
+        username=u;
+        password=p;
+        screenName=username;
+    }
     public void setPassword(String p){
         password=p; 
     }    

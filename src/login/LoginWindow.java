@@ -118,7 +118,6 @@ public class LoginWindow extends javax.swing.JFrame {
         userfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         userfield.setCaretColor(new java.awt.Color(255, 255, 255));
         userfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        userfield.setOpaque(false);
         userfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userfieldActionPerformed(evt);
@@ -132,7 +131,6 @@ public class LoginWindow extends javax.swing.JFrame {
         pwdfield.setForeground(new java.awt.Color(255, 255, 255));
         pwdfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         pwdfield.setCaretColor(new java.awt.Color(255, 255, 255));
-        pwdfield.setOpaque(false);
         LoginPanel.add(pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 350, 30));
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
@@ -169,7 +167,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel4.setText("username");
         LoginPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 70, -1));
 
-        tocreateaccountpg.setText("Create Account");
+        tocreateaccountpg.setText("Quit");
         tocreateaccountpg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tocreateaccountpg.setkAllowTab(false);
         tocreateaccountpg.setkBorderRadius(40);
@@ -181,14 +179,14 @@ public class LoginWindow extends javax.swing.JFrame {
         tocreateaccountpg.setkPressedColor(new java.awt.Color(167, 69, 199));
         tocreateaccountpg.setkSelectedColor(new java.awt.Color(163, 62, 167));
         tocreateaccountpg.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tocreateaccountpgMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tocreateaccountpgMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tocreateaccountpgMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tocreateaccountpgMouseClicked(evt);
             }
         });
         tocreateaccountpg.addActionListener(new java.awt.event.ActionListener() {
@@ -387,7 +385,6 @@ public class LoginWindow extends javax.swing.JFrame {
         userfield1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         userfield1.setCaretColor(new java.awt.Color(255, 255, 255));
         userfield1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        userfield1.setOpaque(false);
         userfield1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userfield1ActionPerformed(evt);
@@ -402,7 +399,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        CreateAccountPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 160, 20));
+        CreateAccountPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 260, 20));
 
         pwdfield2.setBackground(new Color(0,0,0,0));
         pwdfield2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -410,7 +407,6 @@ public class LoginWindow extends javax.swing.JFrame {
         pwdfield2.setToolTipText("Please use your AEP password");
         pwdfield2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         pwdfield2.setCaretColor(new java.awt.Color(255, 255, 255));
-        pwdfield2.setOpaque(false);
         CreateAccountPanel.add(pwdfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 350, 30));
 
         fullnamefield.setBackground(new Color(0,0,0,0));
@@ -419,7 +415,6 @@ public class LoginWindow extends javax.swing.JFrame {
         fullnamefield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         fullnamefield.setCaretColor(new java.awt.Color(255, 255, 255));
         fullnamefield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        fullnamefield.setOpaque(false);
         fullnamefield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fullnamefieldActionPerformed(evt);
@@ -684,15 +679,16 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void tocreateaccountpgMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMouseReleased
         // TODO add your handling code here:
-        resetAllFields();
-        panelSwitcher(3);
+        //resetAllFields();
+        //panelSwitcher(3);
+        System.exit(0);
     }//GEN-LAST:event_tocreateaccountpgMouseReleased
 
     private void loginbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMouseReleased
         // TODO add your handling code here:
         //CreateAccountPanel.setVisible(false);
         //change to ref not val
-        login(false);
+        login();
     }//GEN-LAST:event_loginbtnMouseReleased
 
     private void finalcreateMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finalcreateMouseReleased
@@ -702,7 +698,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 new String(pwdfield2.getPassword()), fullnamefield.getText());
         //resetAllFields();
         if(r){
-            login(true);
+            login();
         }
         else{
             jLabel15.setText("Do not leave any fields blank");
@@ -783,7 +779,10 @@ public class LoginWindow extends javax.swing.JFrame {
         }
         
     }
-    public void login(boolean fromWhere){//true from create account        
+    public void login(){//SECURE VERSION      
+        currentusr = new User(userfield.getText(),new String(pwdfield.getPassword()));
+    }
+    public void loginwithcreate(boolean fromWhere){//created for a
         if(fromWhere){
             currentusr = mngr.users.get(mngr.users.size()-1);//get last made account
             
