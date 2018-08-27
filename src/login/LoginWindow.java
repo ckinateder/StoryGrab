@@ -167,9 +167,10 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel4.setText("username");
         LoginPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 70, -1));
 
-        tocreateaccountpg.setText("Quit");
+        tocreateaccountpg.setText("Help");
         tocreateaccountpg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         tocreateaccountpg.setkAllowTab(false);
+        tocreateaccountpg.setkBackGroundColor(new java.awt.Color(255, 255, 255));
         tocreateaccountpg.setkBorderRadius(40);
         tocreateaccountpg.setkEndColor(new java.awt.Color(0, 204, 51));
         tocreateaccountpg.setkHoverEndColor(new java.awt.Color(78, 160, 143));
@@ -179,14 +180,14 @@ public class LoginWindow extends javax.swing.JFrame {
         tocreateaccountpg.setkPressedColor(new java.awt.Color(167, 69, 199));
         tocreateaccountpg.setkSelectedColor(new java.awt.Color(163, 62, 167));
         tocreateaccountpg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tocreateaccountpgMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tocreateaccountpgMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tocreateaccountpgMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tocreateaccountpgMouseClicked(evt);
             }
         });
         tocreateaccountpg.addActionListener(new java.awt.event.ActionListener() {
@@ -586,9 +587,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void tocreateaccountpgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMouseClicked
         // TODO add your handling code here:
-        LoginPanel.setVisible(false);
-        MainPanel.setVisible(false);
-        CreateAccountPanel.setVisible(true);
+        
     }//GEN-LAST:event_tocreateaccountpgMouseClicked
 
     private void CreateAccountPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateAccountPanelMouseDragged
@@ -681,7 +680,7 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         //resetAllFields();
         //panelSwitcher(3);
-        System.exit(0);
+        help();
     }//GEN-LAST:event_tocreateaccountpgMouseReleased
 
     private void loginbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMouseReleased
@@ -805,6 +804,11 @@ public class LoginWindow extends javax.swing.JFrame {
     public void logout(){
         currentusr = null;
         panelSwitcher(1);
+    }
+    public void help(){
+        HelpMenu hw = new HelpMenu();
+        String[] sg = new String[0];
+        HelpMenu.main(sg);
     }
     /**
      * @param args the command line arguments
