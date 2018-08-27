@@ -1,6 +1,6 @@
 # StoryGrab
 Required library: Kcontrols
-<br /> I may get rid of the Create Account screeen so usernames & passwords don't need to be stored in a separate file.
+<br /> I got get rid of the Create Account screeen so usernames & passwords don't need to be stored in a separate file. It is more secure as AEP credentials for authenticating web traffic are never stored outside of a temporary variable in the main program.
 
 # Screenshots: 
 Login screen:
