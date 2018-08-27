@@ -1,5 +1,6 @@
 # StoryGrab
 Required library: Kcontrols
+<br /> I may get rid of the Create Account screeen so usernames & passwords don't need to be stored in a separate file.
 
 # Screenshots: 
 Login screen:
