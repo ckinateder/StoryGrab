@@ -781,6 +781,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void login(){//SECURE VERSION      
         currentusr = new User(userfield.getText(),new String(pwdfield.getPassword()));
+        panelSwitcher(2);
     }
     public void loginwithcreate(boolean fromWhere){//created for a
         if(fromWhere){
