@@ -36,6 +36,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     AccountManager mngr = new AccountManager();
     User currentusr;
+    Extractor extractor = new Extractor();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -868,9 +869,8 @@ public class LoginWindow extends javax.swing.JFrame {
         HelpMenu.main(sg);
     }
     public void extract(String fn){
-        String[] args = new String[1];
-        //WebCrawlerWithDepth.main(args);
-        Extractor.parsePage(fn,"http://foxnews.com");
+        extractor.extract("http://www.foxnews.com/",false);
+        
     }
     /**
      * @param args the command line arguments

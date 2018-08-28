@@ -18,20 +18,35 @@ import java.util.List;
 /**
  *
  * @author calvin kinateder
- * https://www.mkyong.com/java/jsoup-basic-web-crawler-example/
  */
 
 public class Extractor {
+    private static final int MAX_DEPTH = 2;
+    private HashSet<String> links;
+    StringBuilder sb;
+    String file="links.txt";
+
     
-    public static void writeToFile(String fileName, String toWrite){
+    public Extractor() {
+        links = new HashSet<>();
+        sb = new StringBuilder();
+        
+    }
+    public Extractor(String f) {
+        links = new HashSet<>();
+        sb = new StringBuilder();
+        file=f;
+    }
+    
+    public void writeToFile(String fileName, String toWrite, boolean append){
         // The name of the file to open.
         //String fileName = "accounts.txt";
 
         try {
             // Assume default encoding.
-            System.out.println("dude");
+            
             FileWriter fileWriter =
-                new FileWriter(fileName);//add true to append
+                new FileWriter(fileName,append);//add true to append
 
             // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter =
@@ -53,34 +68,29 @@ public class Extractor {
             // ex.printStackTrace();
         }
     }
-    
-    public static void parsePage(String fileName, String pg) {
-        try {
-            // fetch the document over HTTP
-            Document doc = Jsoup.connect(pg).get();
-
-            // get the page title
-            String title = doc.title();
-            System.out.println("title: " + title);
-
-            // get all links in page
-            Elements links = doc.select("a[href]");
-            
-            StringBuilder sb = new StringBuilder();
-            for (Element link : links) {
-              // get the value from the href attribute
-              /*
-              System.out.println("\nlink: " + link.attr("href"));
-              System.out.println("text: " + link.text());*/
-              sb.append("link: "+link.attr("href")+"\n"+"Text: "+link.text()+"\n");
-
+    public void getPageLinks(String URL, int depth) {
+        if ((!links.contains(URL) && (depth < MAX_DEPTH))) {
+            System.out.println("Depth: " + depth + " [" + URL + "]");
+            sb.append(URL + "\n");//add to the thing to be written 
+            try {
+                links.add(URL); //add link to the hashset
+                Document document = Jsoup.connect(URL).get();
+                Elements linksOnPage = document.select("a[href]");
+                depth++;
+                for (Element page : linksOnPage) { //iterate through links on page
+                    getPageLinks(page.attr("abs:href"), depth);
+                }                
+             
+            } catch (IOException | IllegalArgumentException e) {
+                System.err.println("For '" + URL + "': " + e.getMessage());
             }
-            //System.out.println(sb.toString());
-            writeToFile(fileName, sb.toString());
-        } 
-        catch (IOException e) {
-        e.printStackTrace();
         }
+    }
+    
+    
+    public void extract(String l,boolean append) {// l is link, append is true if you want to append
+        getPageLinks(l, 0);
+        writeToFile(file,sb.toString(), append);
     }
 
 }
