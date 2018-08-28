@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 public class Extractor {
-    private static final int MAX_DEPTH = 2;
+    public static int MAX_DEPTH = 5;
     private HashSet<String> links;
     StringBuilder sb;
     String file="links.txt";
@@ -90,7 +90,8 @@ public class Extractor {
     
     public void extract(String l,boolean append) {// l is link, append is true if you want to append
         getPageLinks(l, 0);
-        writeToFile(file,sb.toString(), append);
+        writeToFile(file,sb.toString()+"\nEOF", append);
+        System.out.println("Done");
     }
 
 }

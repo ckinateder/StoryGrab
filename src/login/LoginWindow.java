@@ -64,6 +64,14 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         logoutbtn1 = new keeptoo.KButton();
+        jPanel1 = new javax.swing.JPanel();
+        userfield2 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        logoutbtn3 = new keeptoo.KButton();
+        logoutbtn4 = new keeptoo.KButton();
+        logoutbtn5 = new keeptoo.KButton();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -367,6 +375,131 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
         MainPanel.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 100, 40));
+
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        userfield2.setBackground(new Color(0,0,0,0));
+        userfield2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userfield2.setForeground(new java.awt.Color(255, 255, 255));
+        userfield2.setText("http://www.foxnews.com/");
+        userfield2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        userfield2.setCaretColor(new java.awt.Color(255, 255, 255));
+        userfield2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        userfield2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userfield2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(userfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 350, 30));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Depth");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 60, 40));
+
+        logoutbtn3.setText("-");
+        logoutbtn3.setToolTipText("");
+        logoutbtn3.setFont(new java.awt.Font("American Typewriter", 0, 36)); // NOI18N
+        logoutbtn3.setkAllowTab(false);
+        logoutbtn3.setkBorderRadius(40);
+        logoutbtn3.setkEndColor(new java.awt.Color(0, 204, 51));
+        logoutbtn3.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        logoutbtn3.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        logoutbtn3.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        logoutbtn3.setkIndicatorThickness(0);
+        logoutbtn3.setkPressedColor(new java.awt.Color(167, 69, 199));
+        logoutbtn3.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        logoutbtn3.setName(""); // NOI18N
+        logoutbtn3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                logoutbtn3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                logoutbtn3MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutbtn3MouseClicked(evt);
+            }
+        });
+        logoutbtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutbtn3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logoutbtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 40, 40));
+
+        logoutbtn4.setText("Extract");
+        logoutbtn4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        logoutbtn4.setkAllowTab(false);
+        logoutbtn4.setkBorderRadius(40);
+        logoutbtn4.setkEndColor(new java.awt.Color(0, 204, 51));
+        logoutbtn4.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        logoutbtn4.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        logoutbtn4.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        logoutbtn4.setkIndicatorThickness(0);
+        logoutbtn4.setkPressedColor(new java.awt.Color(167, 69, 199));
+        logoutbtn4.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        logoutbtn4.setName(""); // NOI18N
+        logoutbtn4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                logoutbtn4MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                logoutbtn4MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutbtn4MouseClicked(evt);
+            }
+        });
+        logoutbtn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutbtn4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logoutbtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 110, 40));
+
+        logoutbtn5.setText("+");
+        logoutbtn5.setFont(new java.awt.Font("American Typewriter", 0, 36)); // NOI18N
+        logoutbtn5.setkAllowTab(false);
+        logoutbtn5.setkBorderRadius(40);
+        logoutbtn5.setkEndColor(new java.awt.Color(0, 204, 51));
+        logoutbtn5.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        logoutbtn5.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        logoutbtn5.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        logoutbtn5.setkIndicatorThickness(0);
+        logoutbtn5.setkPressedColor(new java.awt.Color(167, 69, 199));
+        logoutbtn5.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        logoutbtn5.setName(""); // NOI18N
+        logoutbtn5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                logoutbtn5MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                logoutbtn5MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutbtn5MouseClicked(evt);
+            }
+        });
+        logoutbtn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutbtn5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(logoutbtn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 40, 40));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("website");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("0");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 20, 40));
+
+        MainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 540, 220));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -789,7 +922,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void tocreateaccountpg1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpg1MouseReleased
         // TODO add your handling code here:
-        extract("links.txt"); //write all the links to the file
+        extract(); //write all the links to the file
     }//GEN-LAST:event_tocreateaccountpg1MouseReleased
 
     private void tocreateaccountpg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tocreateaccountpg1ActionPerformed
@@ -799,6 +932,64 @@ public class LoginWindow extends javax.swing.JFrame {
     private void tocreateaccountpg1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tocreateaccountpg1KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_tocreateaccountpg1KeyPressed
+
+    private void userfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfield2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userfield2ActionPerformed
+
+    private void logoutbtn3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn3MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn3MousePressed
+
+    private void logoutbtn3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn3MouseReleased
+        // TODO add your handling code here:
+        extractor.MAX_DEPTH--;
+        jLabel20.setText(""+extractor.MAX_DEPTH);
+    }//GEN-LAST:event_logoutbtn3MouseReleased
+
+    private void logoutbtn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn3MouseClicked
+
+    private void logoutbtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn3ActionPerformed
+
+    private void logoutbtn4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn4MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn4MousePressed
+
+    private void logoutbtn4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn4MouseReleased
+        // TODO add your handling code here:
+        extract();
+    }//GEN-LAST:event_logoutbtn4MouseReleased
+
+    private void logoutbtn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn4MouseClicked
+
+    private void logoutbtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn4ActionPerformed
+
+    private void logoutbtn5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn5MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn5MousePressed
+
+    private void logoutbtn5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn5MouseReleased
+        // TODO add your handling code here:
+        extractor.MAX_DEPTH++;
+        jLabel20.setText(""+extractor.MAX_DEPTH);
+
+    }//GEN-LAST:event_logoutbtn5MouseReleased
+
+    private void logoutbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn5MouseClicked
+
+    private void logoutbtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn5ActionPerformed
     /*
     Custom code here
     */
@@ -812,6 +1003,8 @@ public class LoginWindow extends javax.swing.JFrame {
         nouserwithname.setText("");
         jLabel15.setText("");
         jLabel7.setText("");
+        jLabel20.setText(""+extractor.MAX_DEPTH);
+
     }
     public void panelSwitcher(int sw){
         resetAllFields();
@@ -868,9 +1061,9 @@ public class LoginWindow extends javax.swing.JFrame {
         String[] sg = new String[0];
         HelpMenu.main(sg);
     }
-    public void extract(String fn){
-        extractor.extract("http://www.foxnews.com/",false);
-        
+    public void extract(){
+        System.out.println(extractor.MAX_DEPTH);
+        extractor.extract(userfield2.getText(),false);        
         
     }
     /**
@@ -920,13 +1113,16 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -934,8 +1130,12 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private keeptoo.KButton loginbtn;
     private keeptoo.KButton logoutbtn1;
+    private keeptoo.KButton logoutbtn3;
+    private keeptoo.KButton logoutbtn4;
+    private keeptoo.KButton logoutbtn5;
     private javax.swing.JLabel nouserwithname;
     private javax.swing.JPasswordField pwdfield;
     private javax.swing.JPasswordField pwdfield2;
@@ -943,5 +1143,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KButton tocreateaccountpg1;
     private javax.swing.JTextField userfield;
     private javax.swing.JTextField userfield1;
+    private javax.swing.JTextField userfield2;
     // End of variables declaration//GEN-END:variables
 }
