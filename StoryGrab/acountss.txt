@@ -1,0 +1,86 @@
+link: /intl/en/about/?fg=1&utm_source=google.com&utm_medium=referral&utm_campaign=hp-header
+Text: About
+link: https://store.google.com/?utm_source=hp_header&utm_medium=google_oo&utm_campaign=GS100042
+Text: Store
+link: https://mail.google.com/mail/?tab=wm
+Text: Gmail
+link: https://www.google.com/imghp?hl=en&tab=wi
+Text: Images
+link: https://www.google.com/intl/en/options/
+Text: 
+link: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/%3Fgws_rd%3Dssl
+Text: Sign in
+link: https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjts4HQ3o_dAhVq4YMKHWDrBZ8QPAgF
+Text: 
+link: //support.google.com/websearch/answer/186645?hl=en
+Text: Learn more
+link: #
+Text: Report inappropriate predictions
+link: https://www.google.com/url?q=https://grow.google/programs/veterans-commitment/%3Futm_source%3Dgooglehpp%26utm_medium%3Dhousepromos%26utm_campaign%3Dveterans&source=hpp&id=19007887&ct=3&usg=AFQjCNFr8IWQuURU-sBSmRwdCQelwAKifg&sa=X&ved=0ahUKEwjts4HQ3o_dAhVq4YMKHWDrBZ8Q8IcBCAo
+Text: Learn how we are empowering our military service members
+link: //www.google.com/intl/en_us/policies/privacy/?fg=1
+Text: Privacy
+link: //www.google.com/intl/en_us/policies/terms/?fg=1
+Text: Terms
+link: https://www.google.com/preferences?hl=en
+Text: Settings
+link: https://www.google.com/preferences?hl=en&fg=1
+Text: Search settings
+link: /advanced_search?hl=en&fg=1
+Text: Advanced search
+link: /history/optout?hl=en&fg=1
+Text: History
+link: //support.google.com/websearch/?p=ws_results_help&hl=en&fg=1
+Text: Search Help
+link: #
+Text: Send feedback
+link: https://www.google.com/intl/en_us/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1
+Text: Advertising
+link: https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1
+Text: Business
+link: https://myaccount.google.com/?utm_source=OGB&utm_medium=app
+Text: Account
+link: https://www.google.com/webhp?tab=ww
+Text: Search
+link: https://maps.google.com/maps?hl=en&tab=wl
+Text: Maps
+link: https://www.youtube.com/?gl=US
+Text: YouTube
+link: https://play.google.com/?hl=en&tab=w8
+Text: Play
+link: https://news.google.com/nwshp?hl=en&tab=wn
+Text: News
+link: https://mail.google.com/mail/?tab=wm
+Text: Gmail
+link: https://contacts.google.com/?hl=en&tab=wC
+Text: Contacts
+link: https://drive.google.com/?tab=wo
+Text: Drive
+link: https://www.google.com/calendar?tab=wc
+Text: Calendar
+link: https://plus.google.com/?gpsrc=ogpy0&tab=wX
+Text: Google+
+link: https://translate.google.com/?hl=en&tab=wT
+Text: Translate
+link: https://photos.google.com/?tab=wq&pageId=none
+Text: Photos
+link: https://www.google.com/intl/en/options/
+Text: More
+link: http://www.google.com/shopping?hl=en&tab=wf
+Text: Shopping
+link: https://www.google.com/finance?tab=we
+Text: Finance
+link: https://docs.google.com/document/?usp=docs_alc
+Text: Docs
+link: https://books.google.com/bkshp?hl=en&tab=wp
+Text: Books
+link: https://www.blogger.com/?tab=wj
+Text: Blogger
+link: https://hangouts.google.com/
+Text: Hangouts
+link: https://keep.google.com/
+Text: Keep
+link: https://earth.google.com/web/
+Text: Earth
+link: https://www.google.com/intl/en/options/
+Text: Even more from Google
