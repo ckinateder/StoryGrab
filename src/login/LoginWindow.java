@@ -31,8 +31,8 @@ public class LoginWindow extends javax.swing.JFrame {
      */
     public LoginWindow() {
         initComponents();
-          
-        panelSwitcher(1);
+        panelSwitcher(1);        
+        
     }
     AccountManager mngr = new AccountManager();
     User currentusr;
@@ -57,6 +57,7 @@ public class LoginWindow extends javax.swing.JFrame {
         nouserwithname = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        tocreateaccountpg1 = new keeptoo.KButton();
         MainPanel = new keeptoo.KGradientPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -249,6 +250,41 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-news-50.png"))); // NOI18N
         jLabel1.setText(" StoryGrab");
         LoginPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 60));
+
+        tocreateaccountpg1.setText("TRY THE EXTRACTOR");
+        tocreateaccountpg1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        tocreateaccountpg1.setkAllowTab(false);
+        tocreateaccountpg1.setkBackGroundColor(new java.awt.Color(255, 255, 255));
+        tocreateaccountpg1.setkBorderRadius(40);
+        tocreateaccountpg1.setkEndColor(new java.awt.Color(255, 51, 51));
+        tocreateaccountpg1.setkHoverEndColor(new java.awt.Color(102, 102, 0));
+        tocreateaccountpg1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        tocreateaccountpg1.setkHoverStartColor(new java.awt.Color(204, 0, 204));
+        tocreateaccountpg1.setkIndicatorThickness(0);
+        tocreateaccountpg1.setkPressedColor(new java.awt.Color(167, 69, 199));
+        tocreateaccountpg1.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        tocreateaccountpg1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tocreateaccountpg1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tocreateaccountpg1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tocreateaccountpg1MouseReleased(evt);
+            }
+        });
+        tocreateaccountpg1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tocreateaccountpg1ActionPerformed(evt);
+            }
+        });
+        tocreateaccountpg1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tocreateaccountpg1KeyPressed(evt);
+            }
+        });
+        LoginPanel.add(tocreateaccountpg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, 350, 40));
 
         getContentPane().add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -741,6 +777,28 @@ public class LoginWindow extends javax.swing.JFrame {
     private void logoutbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutbtn1ActionPerformed
+
+    private void tocreateaccountpg1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpg1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tocreateaccountpg1MouseClicked
+
+    private void tocreateaccountpg1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpg1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tocreateaccountpg1MousePressed
+
+    private void tocreateaccountpg1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpg1MouseReleased
+        // TODO add your handling code here:
+        String[] sg = new String[0];
+        Extractor.main(sg);
+    }//GEN-LAST:event_tocreateaccountpg1MouseReleased
+
+    private void tocreateaccountpg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tocreateaccountpg1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tocreateaccountpg1ActionPerformed
+
+    private void tocreateaccountpg1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tocreateaccountpg1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tocreateaccountpg1KeyPressed
     /*
     Custom code here
     */
@@ -877,6 +935,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwdfield;
     private javax.swing.JPasswordField pwdfield2;
     private keeptoo.KButton tocreateaccountpg;
+    private keeptoo.KButton tocreateaccountpg1;
     private javax.swing.JTextField userfield;
     private javax.swing.JTextField userfield1;
     // End of variables declaration//GEN-END:variables
