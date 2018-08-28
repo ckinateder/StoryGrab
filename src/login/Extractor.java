@@ -31,7 +31,7 @@ public class Extractor {
             // Assume default encoding.
             System.out.println("dude");
             FileWriter fileWriter =
-                new FileWriter(fileName,true);
+                new FileWriter(fileName);//add true to append
 
             // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter =
@@ -54,10 +54,10 @@ public class Extractor {
         }
     }
     
-    public static void parsePage(String fileName) {
+    public static void parsePage(String fileName, String pg) {
         try {
             // fetch the document over HTTP
-            Document doc = Jsoup.connect("http://google.com").get();
+            Document doc = Jsoup.connect(pg).get();
 
             // get the page title
             String title = doc.title();
@@ -65,6 +65,7 @@ public class Extractor {
 
             // get all links in page
             Elements links = doc.select("a[href]");
+            
             StringBuilder sb = new StringBuilder();
             for (Element link : links) {
               // get the value from the href attribute
@@ -74,12 +75,13 @@ public class Extractor {
               sb.append("link: "+link.attr("href")+"\n"+"Text: "+link.text()+"\n");
 
             }
-            System.out.println(sb.toString());
+            //System.out.println(sb.toString());
             writeToFile(fileName, sb.toString());
         } 
         catch (IOException e) {
         e.printStackTrace();
         }
-  }
+    }
+
 }
 

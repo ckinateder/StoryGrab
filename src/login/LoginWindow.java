@@ -868,7 +868,9 @@ public class LoginWindow extends javax.swing.JFrame {
         HelpMenu.main(sg);
     }
     public void extract(String fn){
-        Extractor.parsePage(fn);
+        String[] args = new String[1];
+        //WebCrawlerWithDepth.main(args);
+        Extractor.parsePage(fn,"http://foxnews.com");
     }
     /**
      * @param args the command line arguments
