@@ -68,10 +68,10 @@ public class HelpMenu extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("<html>Use your AEP username and password to login. This<br>is to enable web traffic past the firewall. This data is not stored outside of the JVM and is as such<br>destroyed after termination of the program</html>");
+        jLabel4.setText("<html>Use your AEP username and password to login. This<br>is to enable web traffic past the firewall. This data is not stored outside of the JVM and is as such<br>destroyed after termination of the program.</html>");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         MainPanel.add(jLabel4);
-        jLabel4.setBounds(20, 50, 330, 180);
+        jLabel4.setBounds(20, 50, 330, 110);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
