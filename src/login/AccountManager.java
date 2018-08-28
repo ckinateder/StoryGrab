@@ -24,7 +24,7 @@ public class AccountManager {
     
     public AccountManager(){
         //users.add(new User("calvinkinateder","1234","Calvin Kinateder"));
-        loadFromFile();
+        //loadFromFile();
         //use aep password and login
     }
     public User loginChecker(String usrnm, String pwd){

@@ -788,8 +788,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void tocreateaccountpg1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpg1MouseReleased
         // TODO add your handling code here:
-        String[] sg = new String[0];
-        Extractor.main(sg);
+        extract("links.txt"); //write all the links to the file
     }//GEN-LAST:event_tocreateaccountpg1MouseReleased
 
     private void tocreateaccountpg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tocreateaccountpg1ActionPerformed
@@ -867,6 +866,9 @@ public class LoginWindow extends javax.swing.JFrame {
         HelpMenu hw = new HelpMenu();
         String[] sg = new String[0];
         HelpMenu.main(sg);
+    }
+    public void extract(String fn){
+        Extractor.parsePage(fn);
     }
     /**
      * @param args the command line arguments
