@@ -871,6 +871,7 @@ public class LoginWindow extends javax.swing.JFrame {
     public void extract(String fn){
         extractor.extract("http://www.foxnews.com/",false);
         
+        
     }
     /**
      * @param args the command line arguments
