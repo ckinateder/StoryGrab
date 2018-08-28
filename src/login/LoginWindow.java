@@ -265,14 +265,14 @@ public class LoginWindow extends javax.swing.JFrame {
         tocreateaccountpg1.setkPressedColor(new java.awt.Color(167, 69, 199));
         tocreateaccountpg1.setkSelectedColor(new java.awt.Color(163, 62, 167));
         tocreateaccountpg1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tocreateaccountpg1MouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tocreateaccountpg1MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tocreateaccountpg1MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tocreateaccountpg1MouseClicked(evt);
             }
         });
         tocreateaccountpg1.addActionListener(new java.awt.event.ActionListener() {
