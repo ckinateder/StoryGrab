@@ -925,8 +925,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void logoutbtn3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn3MouseReleased
         // TODO add your handling code here:
-        extractor.MAX_DEPTH--;
-        jLabel20.setText(""+extractor.MAX_DEPTH);
+        extractor.setMaxDepth(extractor.getMaxDepth()-1);
+        jLabel20.setText(""+extractor.getMaxDepth());
     }//GEN-LAST:event_logoutbtn3MouseReleased
 
     private void logoutbtn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn3MouseClicked
@@ -960,8 +960,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void logoutbtn5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn5MouseReleased
         // TODO add your handling code here:
-        extractor.MAX_DEPTH++;
-        jLabel20.setText(""+extractor.MAX_DEPTH);
+        extractor.setMaxDepth(extractor.getMaxDepth()+1);
+        jLabel20.setText(""+extractor.getMaxDepth());
 
     }//GEN-LAST:event_logoutbtn5MouseReleased
 
@@ -985,7 +985,7 @@ public class LoginWindow extends javax.swing.JFrame {
         nouserwithname.setText("");
         jLabel15.setText("");
         jLabel7.setText("");
-        jLabel20.setText(""+extractor.MAX_DEPTH);
+        jLabel20.setText(""+extractor.getMaxDepth());
 
     }
     public void panelSwitcher(int sw){
@@ -1045,7 +1045,8 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void extract(){
         //System.out.println(extractor.MAX_DEPTH);
-        extractor.extract(userfield2.getText());                
+        extractor.setWebpage(userfield2.getText());
+        extractor.run();                
     }
     public void searchTwitter(){
         OAuthSignpostClient oauthClient = new OAuthSignpostClient("", 

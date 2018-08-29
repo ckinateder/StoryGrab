@@ -22,12 +22,13 @@ import java.util.Scanner;
  */
 
 public class Extractor {
-    public static int MAX_DEPTH = 5;
+    public static int maxDepth = 5;
     private HashSet<String> links;
     
     StringBuilder sb;
     String file="links.txt";
-
+    public String webpage = "";
+    
     
     public Extractor() {
         links = new HashSet<>();
@@ -73,7 +74,7 @@ public class Extractor {
     
     public void getPageLinks(String URL, int depth) {
         try {
-            if ((!links.contains(URL) && (depth < MAX_DEPTH))) {
+            if ((!links.contains(URL) && (depth < maxDepth))) {
                 //System.out.println("Depth: " + depth + " [" + URL + "]");
                 //sb.append(URL + "\n");//add to the thing to be written 
                 FileWriter fileWriter =
@@ -109,11 +110,18 @@ public class Extractor {
         }
         
     }
-    
-    
-    public void extract(String l) {// l is link
+    public void setWebpage(String l){
+        webpage = l;
+    }
+    public void setMaxDepth(int i){
+        maxDepth=i;
+    }
+    public int getMaxDepth(){
+        return maxDepth;
+    }
+    public void run() {// l is link
         writeToFile(file,"", false); //overwrite the file
-        getPageLinks(l, 0);
+        getPageLinks(webpage, 0);
         
         System.out.println("Done");
     }
