@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
 /**
  *
  * @author calvin kinateder
@@ -23,6 +24,7 @@ import java.util.List;
 public class Extractor {
     public static int MAX_DEPTH = 5;
     private HashSet<String> links;
+    
     StringBuilder sb;
     String file="links.txt";
 
@@ -68,10 +70,11 @@ public class Extractor {
             // ex.printStackTrace();
         }
     }
+    
     public void getPageLinks(String URL, int depth) {
         try {
             if ((!links.contains(URL) && (depth < MAX_DEPTH))) {
-                System.out.println("Depth: " + depth + " [" + URL + "]");
+                //System.out.println("Depth: " + depth + " [" + URL + "]");
                 //sb.append(URL + "\n");//add to the thing to be written 
                 FileWriter fileWriter =
                 new FileWriter(file,true);//add true to append
@@ -93,7 +96,8 @@ public class Extractor {
                 } catch (IOException | IllegalArgumentException e) {
                     System.err.println("For '" + URL + "': " + e.getMessage());
                 }
-            }            
+            }
+            
 
         }
         catch(IOException ex) {
@@ -108,7 +112,7 @@ public class Extractor {
     
     
     public void extract(String l) {// l is link
-        writeToFile(file,"", false);
+        writeToFile(file,"", false); //overwrite the file
         getPageLinks(l, 0);
         
         System.out.println("Done");

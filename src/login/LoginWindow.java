@@ -1041,7 +1041,7 @@ public class LoginWindow extends javax.swing.JFrame {
         HelpMenu.main(sg);
     }
     public void extract(){
-        System.out.println(extractor.MAX_DEPTH);
+        //System.out.println(extractor.MAX_DEPTH);
         extractor.extract(userfield2.getText());                
     }
     /**
