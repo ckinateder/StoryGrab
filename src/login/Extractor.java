@@ -69,28 +69,48 @@ public class Extractor {
         }
     }
     public void getPageLinks(String URL, int depth) {
-        if ((!links.contains(URL) && (depth < MAX_DEPTH))) {
-            System.out.println("Depth: " + depth + " [" + URL + "]");
-            sb.append(URL + "\n");//add to the thing to be written 
-            try {
-                links.add(URL); //add link to the hashset
-                Document document = Jsoup.connect(URL).get();
-                Elements linksOnPage = document.select("a[href]");
-                depth++;
-                for (Element page : linksOnPage) { //iterate through links on page
-                    getPageLinks(page.attr("abs:href"), depth);
-                }                
-             
-            } catch (IOException | IllegalArgumentException e) {
-                System.err.println("For '" + URL + "': " + e.getMessage());
-            }
+        try {
+            if ((!links.contains(URL) && (depth < MAX_DEPTH))) {
+                System.out.println("Depth: " + depth + " [" + URL + "]");
+                //sb.append(URL + "\n");//add to the thing to be written 
+                FileWriter fileWriter =
+                new FileWriter(file,true);//add true to append
+
+            // Always wrap FileWriter in BufferedWriter.
+                BufferedWriter bufferedWriter =
+                new BufferedWriter(fileWriter);
+                bufferedWriter.write(URL+"\n");
+                bufferedWriter.close();
+                try {
+                    links.add(URL); //add link to the hashset
+                    Document document = Jsoup.connect(URL).get();
+                    Elements linksOnPage = document.select("a[href]");
+                    depth++;
+                    for (Element page : linksOnPage) { //iterate through links on page
+                        getPageLinks(page.attr("abs:href"), depth);
+                    }                
+
+                } catch (IOException | IllegalArgumentException e) {
+                    System.err.println("For '" + URL + "': " + e.getMessage());
+                }
+            }            
+
         }
+        catch(IOException ex) {
+            System.out.println(
+                "Error writing to file '"
+                + file + "'");
+            // Or we could just do this:
+            // ex.printStackTrace();
+        }
+        
     }
     
     
-    public void extract(String l,boolean append) {// l is link, append is true if you want to append
+    public void extract(String l) {// l is link
+        writeToFile(file,"", false);
         getPageLinks(l, 0);
-        writeToFile(file,sb.toString()+"\nEOF", append);
+        
         System.out.println("Done");
     }
 
