@@ -1048,7 +1048,22 @@ public class LoginWindow extends javax.swing.JFrame {
         extractor.extract(userfield2.getText());                
     }
     public void searchTwitter(){
-        
+        OAuthSignpostClient oauthClient = new OAuthSignpostClient("", 
+                "", "oob");
+        System.out.println(oauthClient.authorizeUrl());
+        String v = oauthClient.askUser("Please enter the verification PIN from Twitter");
+        oauthClient.setAuthorizationCode(v);
+        String[] accessToken = oauthClient.getAccessToken();
+// Next time we can use new OAuthSignpostClient(OAUTH_KEY, OAUTH_SECRET, 
+//                    accessToken[0], accessToken[1]) to avoid authenticating again.
+
+// 2. Make a Twitter object
+Twitter twitter = new Twitter("my-name", oauthClient);
+// Print Daniel Winterstein's status
+System.out.println(twitter.getStatus("winterstein"));
+// Set my status
+twitter.setStatus("Messing about in Java");
+
     }
     /**
      * @param args the command line arguments
