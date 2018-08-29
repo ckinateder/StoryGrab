@@ -13,9 +13,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import javax.imageio.ImageIO;
+import javax.management.Query;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import keeptoo.Drag;
+import winterwell.jtwitter.OAuthSignpostClient;
+import winterwell.jtwitter.Twitter;
 
 /**
  *
@@ -1043,6 +1046,9 @@ public class LoginWindow extends javax.swing.JFrame {
     public void extract(){
         //System.out.println(extractor.MAX_DEPTH);
         extractor.extract(userfield2.getText());                
+    }
+    public void searchTwitter(){
+        
     }
     /**
      * @param args the command line arguments
