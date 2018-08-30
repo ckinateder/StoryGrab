@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package login;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -29,16 +32,21 @@ public class Extractor implements Runnable {
     String file="links.txt";
     public String webpage = "";
     
-    
     public Extractor() {
         links = new HashSet<>();
         sb = new StringBuilder();
         
-    }
+    }/*
     public Extractor(String f) {
         links = new HashSet<>();
         sb = new StringBuilder();
         file=f;
+    }*/
+    public Extractor(String w){
+        links = new HashSet<>();
+        sb = new StringBuilder();
+        //file=f;
+        webpage=w;
     }
     
     public void writeToFile(String fileName, String toWrite, boolean append){

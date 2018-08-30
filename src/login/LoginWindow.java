@@ -12,6 +12,8 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.management.Query;
 import javax.swing.ImageIcon;
@@ -67,7 +69,7 @@ public class LoginWindow extends javax.swing.JFrame {
         extractorpanel = new javax.swing.JPanel();
         websitename = new javax.swing.JTextField();
         extractbtn = new keeptoo.KButton();
-        websitelbl = new javax.swing.JLabel();
+        sourceslist = new javax.swing.JLabel();
         depthtogglepanel = new javax.swing.JPanel();
         depthlbl = new javax.swing.JLabel();
         plusdepthbtn = new keeptoo.KButton();
@@ -76,6 +78,8 @@ public class LoginWindow extends javax.swing.JFrame {
         chckboxandlblpanel = new javax.swing.JPanel();
         cblbl1 = new javax.swing.JLabel();
         twitterbtn = new keeptoo.KButton();
+        addsourcebtn = new keeptoo.KButton();
+        websitelbl1 = new javax.swing.JLabel();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -360,7 +364,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 websitenameActionPerformed(evt);
             }
         });
-        extractorpanel.add(websitename, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 350, 30));
+        extractorpanel.add(websitename, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 350, 30));
 
         extractbtn.setText("Extract");
         extractbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -393,10 +397,10 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         extractorpanel.add(extractbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 100, 40));
 
-        websitelbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        websitelbl.setForeground(new java.awt.Color(255, 255, 255));
-        websitelbl.setText("website");
-        extractorpanel.add(websitelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, -1));
+        sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sourceslist.setForeground(new java.awt.Color(255, 255, 255));
+        sourceslist.setText("Add a source");
+        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 480, 190));
 
         depthtogglepanel.setOpaque(false);
 
@@ -495,7 +499,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        extractorpanel.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
+        extractorpanel.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 140, 30));
 
         chckboxandlblpanel.setOpaque(false);
 
@@ -554,7 +558,43 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, 30));
+        extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 130, 30));
+
+        addsourcebtn.setText("Add");
+        addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        addsourcebtn.setkAllowTab(false);
+        addsourcebtn.setkBorderRadius(40);
+        addsourcebtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        addsourcebtn.setkHoverColor(new java.awt.Color(255, 102, 204));
+        addsourcebtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        addsourcebtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        addsourcebtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        addsourcebtn.setkIndicatorThickness(0);
+        addsourcebtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        addsourcebtn.setName(""); // NOI18N
+        addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addsourcebtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseClicked(evt);
+            }
+        });
+        addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addsourcebtnActionPerformed(evt);
+            }
+        });
+        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 80, 40));
+
+        websitelbl1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        websitelbl1.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl1.setText("Add a source");
+        extractorpanel.add(websitelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 90, -1));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 610, 400));
 
@@ -1051,6 +1091,22 @@ public class LoginWindow extends javax.swing.JFrame {
     private void twitterbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twitterbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_twitterbtnActionPerformed
+
+    private void addsourcebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnMouseClicked
+
+    private void addsourcebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnMousePressed
+
+    private void addsourcebtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnMouseReleased
+
+    private void addsourcebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnActionPerformed
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------
@@ -1059,6 +1115,7 @@ public class LoginWindow extends javax.swing.JFrame {
     AccountManager mngr = new AccountManager();
     User currentusr;
     Extractor extractor = new Extractor();
+    ExtractorContainer extractorContainer = new ExtractorContainer();
     
     public void resetAllFields(){
         pwdfield.setText("");
@@ -1129,8 +1186,13 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void extract(){
         //System.out.println(extractor.MAX_DEPTH);
-        extractor.setWebpage(websitename.getText());
-        extractor.main();                
+        //add list of extractors for each source. run simueltaniously
+        //extractor.setWebpage(websitename.getText());
+        //extractor.main();
+        extractorContainer.extract();
+    }
+    public void updateSources(){
+        
     }
     public void searchTwitter(){
         OAuthSignpostClient oauthClient = new OAuthSignpostClient("", 
@@ -1196,6 +1258,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KGradientPanel CreateAccountPanel;
     private keeptoo.KGradientPanel LoginPanel;
     private keeptoo.KGradientPanel MainPanel;
+    private keeptoo.KButton addsourcebtn;
     private keeptoo.KButton backfromca;
     private javax.swing.JLabel cblbl1;
     private javax.swing.JPanel chckboxandlblpanel;
@@ -1228,13 +1291,14 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwdfield;
     private javax.swing.JPasswordField pwdfield2;
     private javax.swing.JLabel pwdlbl;
+    private javax.swing.JLabel sourceslist;
     private keeptoo.KButton tocreateaccountpg;
     private keeptoo.KButton twitterbtn;
     private javax.swing.JTextField userfield;
     private javax.swing.JTextField userfield1;
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
-    private javax.swing.JLabel websitelbl;
+    private javax.swing.JLabel websitelbl1;
     private javax.swing.JTextField websitename;
     // End of variables declaration//GEN-END:variables
 }
