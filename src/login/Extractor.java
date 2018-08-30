@@ -21,7 +21,7 @@ import java.util.Scanner;
  * @author calvin kinateder
  */
 
-public class Extractor {
+public class Extractor implements Runnable {
     public int maxDepth = 5;
     private HashSet<String> links;
     
@@ -113,17 +113,28 @@ public class Extractor {
     public void setWebpage(String l){
         webpage = l;
     }
+    public String getWebpage(){
+        return webpage;
+    }
     public void setMaxDepth(int i){
         maxDepth=i;
     }
     public int getMaxDepth(){
         return maxDepth;
     }
+    @Override
     public void run() {// l is link
+        System.out.println("Extractor running on "+webpage+" at max depth "+maxDepth);
+
         writeToFile(file,"", false); //overwrite the file
         getPageLinks(webpage, 0);
         
         System.out.println("Done");
+    }
+    public void main(){//use this for run
+        Thread ex = new Thread(this);        
+        ex.start();       
+        
     }
 
 }

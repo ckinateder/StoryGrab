@@ -531,7 +531,6 @@
                 <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="cc" red="0" type="rgb"/>
                 </Property>
-                <Property name="kFillButton" type="boolean" value="false"/>
                 <Property name="kHoverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="66" red="ff" type="rgb"/>
                 </Property>
@@ -729,7 +728,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="120" width="130" height="30"/>
+                  <AbsoluteConstraints x="30" y="110" width="130" height="30"/>
                 </Constraint>
               </Constraints>
 

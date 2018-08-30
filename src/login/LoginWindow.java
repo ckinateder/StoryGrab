@@ -367,7 +367,6 @@ public class LoginWindow extends javax.swing.JFrame {
         extractbtn.setkAllowTab(false);
         extractbtn.setkBorderRadius(40);
         extractbtn.setkEndColor(new java.awt.Color(0, 204, 51));
-        extractbtn.setkFillButton(false);
         extractbtn.setkHoverColor(new java.awt.Color(255, 102, 204));
         extractbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
         extractbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
@@ -555,7 +554,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 130, 30));
+        extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, 30));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 610, 400));
 
@@ -1131,7 +1130,7 @@ public class LoginWindow extends javax.swing.JFrame {
     public void extract(){
         //System.out.println(extractor.MAX_DEPTH);
         extractor.setWebpage(websitename.getText());
-        extractor.run();                
+        extractor.main();                
     }
     public void searchTwitter(){
         OAuthSignpostClient oauthClient = new OAuthSignpostClient("", 
