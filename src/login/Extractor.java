@@ -22,7 +22,7 @@ import java.util.Scanner;
  */
 
 public class Extractor {
-    public static int maxDepth = 5;
+    public int maxDepth = 5;
     private HashSet<String> links;
     
     StringBuilder sb;

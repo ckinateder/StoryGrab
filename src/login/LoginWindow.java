@@ -37,9 +37,7 @@ public class LoginWindow extends javax.swing.JFrame {
         panelSwitcher(1);        
         
     }
-    AccountManager mngr = new AccountManager();
-    User currentusr;
-    Extractor extractor = new Extractor();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,29 +50,32 @@ public class LoginWindow extends javax.swing.JFrame {
         LoginPanel = new keeptoo.KGradientPanel();
         userfield = new javax.swing.JTextField();
         pwdfield = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        orlblNI = new javax.swing.JLabel();
+        closelbl = new javax.swing.JLabel();
+        userlbl = new javax.swing.JLabel();
         tocreateaccountpg = new keeptoo.KButton();
         loginbtn = new keeptoo.KButton();
-        jLabel5 = new javax.swing.JLabel();
+        profilelblicon = new javax.swing.JLabel();
         nouserwithname = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        pwdlbl = new javax.swing.JLabel();
+        mainlogowithicon = new javax.swing.JLabel();
         MainPanel = new keeptoo.KGradientPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        closelbl1 = new javax.swing.JLabel();
+        profileiconlbl = new javax.swing.JLabel();
+        usertitlelbl = new javax.swing.JLabel();
         logoutbtn1 = new keeptoo.KButton();
-        jPanel1 = new javax.swing.JPanel();
-        userfield2 = new javax.swing.JTextField();
-        logoutbtn4 = new keeptoo.KButton();
-        jLabel19 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        logoutbtn5 = new keeptoo.KButton();
-        jLabel20 = new javax.swing.JLabel();
-        logoutbtn3 = new keeptoo.KButton();
+        extractorpanel = new javax.swing.JPanel();
+        websitename = new javax.swing.JTextField();
+        extractbtn = new keeptoo.KButton();
+        websitelbl = new javax.swing.JLabel();
+        depthtogglepanel = new javax.swing.JPanel();
+        depthlbl = new javax.swing.JLabel();
+        plusdepthbtn = new keeptoo.KButton();
+        dynamicdepthlbl = new javax.swing.JLabel();
+        minusdepthbtn = new keeptoo.KButton();
+        chckboxandlblpanel = new javax.swing.JPanel();
+        cblbl1 = new javax.swing.JLabel();
+        twitterbtn = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -146,39 +147,39 @@ public class LoginWindow extends javax.swing.JFrame {
         pwdfield.setCaretColor(new java.awt.Color(255, 255, 255));
         LoginPanel.add(pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 350, 30));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("or");
-        LoginPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
+        orlblNI.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        orlblNI.setForeground(new java.awt.Color(255, 255, 255));
+        orlblNI.setText("or");
+        LoginPanel.add(orlblNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
-        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        closelbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        closelbl.setForeground(new java.awt.Color(255, 255, 255));
+        closelbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
+        closelbl.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel3MouseDragged(evt);
+                closelblMouseDragged(evt);
             }
         });
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        closelbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                closelblMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
+                closelblMouseEntered(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
+                closelblMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel3MouseReleased(evt);
+                closelblMouseReleased(evt);
             }
         });
-        LoginPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
+        LoginPanel.add(closelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("username");
-        LoginPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 70, -1));
+        userlbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        userlbl.setForeground(new java.awt.Color(255, 255, 255));
+        userlbl.setText("username");
+        LoginPanel.add(userlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 70, -1));
 
         tocreateaccountpg.setText("Help");
         tocreateaccountpg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -245,23 +246,23 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         LoginPanel.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 150, 40));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
-        LoginPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+        profilelblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
+        LoginPanel.add(profilelblicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
         nouserwithname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         nouserwithname.setForeground(new java.awt.Color(255, 255, 255));
         LoginPanel.add(nouserwithname, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 400, 20));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("password");
-        LoginPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
+        pwdlbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        pwdlbl.setForeground(new java.awt.Color(255, 255, 255));
+        pwdlbl.setText("password");
+        LoginPanel.add(pwdlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 26)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-news-50.png"))); // NOI18N
-        jLabel1.setText(" StoryGrab");
-        LoginPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 60));
+        mainlogowithicon.setFont(new java.awt.Font("Segoe UI Semibold", 0, 26)); // NOI18N
+        mainlogowithicon.setForeground(new java.awt.Color(255, 255, 255));
+        mainlogowithicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-news-50.png"))); // NOI18N
+        mainlogowithicon.setText(" StoryGrab");
+        LoginPanel.add(mainlogowithicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 60));
 
         getContentPane().add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -290,29 +291,29 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        closelbl1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        closelbl1.setForeground(new java.awt.Color(255, 255, 255));
+        closelbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
+        closelbl1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                closelbl1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel8MouseEntered(evt);
+                closelbl1MouseEntered(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel8MouseReleased(evt);
+                closelbl1MouseReleased(evt);
             }
         });
-        MainPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
+        MainPanel.add(closelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
-        MainPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        profileiconlbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
+        MainPanel.add(profileiconlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Calvin J. Kinateder");
-        MainPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 200, 20));
+        usertitlelbl.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        usertitlelbl.setForeground(new java.awt.Color(255, 255, 255));
+        usertitlelbl.setText("Calvin J. Kinateder");
+        MainPanel.add(usertitlelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 200, 20));
 
         logoutbtn1.setText("Logout");
         logoutbtn1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -344,165 +345,219 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         MainPanel.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 100, 40));
 
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        extractorpanel.setOpaque(false);
+        extractorpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userfield2.setBackground(new Color(0,0,0,0));
-        userfield2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        userfield2.setForeground(new java.awt.Color(255, 255, 255));
-        userfield2.setText("http://www.foxnews.com/");
-        userfield2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        userfield2.setCaretColor(new java.awt.Color(255, 255, 255));
-        userfield2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        userfield2.setOpaque(false);
-        userfield2.addActionListener(new java.awt.event.ActionListener() {
+        websitename.setBackground(new Color(0,0,0,0));
+        websitename.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        websitename.setForeground(new java.awt.Color(255, 255, 255));
+        websitename.setText("http://www.foxnews.com/");
+        websitename.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        websitename.setCaretColor(new java.awt.Color(255, 255, 255));
+        websitename.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        websitename.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userfield2ActionPerformed(evt);
+                websitenameActionPerformed(evt);
             }
         });
-        jPanel1.add(userfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 350, 30));
+        extractorpanel.add(websitename, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 350, 30));
 
-        logoutbtn4.setText("Extract");
-        logoutbtn4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        logoutbtn4.setkAllowTab(false);
-        logoutbtn4.setkBorderRadius(40);
-        logoutbtn4.setkEndColor(new java.awt.Color(0, 204, 51));
-        logoutbtn4.setkFillButton(false);
-        logoutbtn4.setkHoverColor(new java.awt.Color(255, 102, 204));
-        logoutbtn4.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        logoutbtn4.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        logoutbtn4.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        logoutbtn4.setkIndicatorThickness(0);
-        logoutbtn4.setkPressedColor(new java.awt.Color(167, 69, 199));
-        logoutbtn4.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        logoutbtn4.setName(""); // NOI18N
-        logoutbtn4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                logoutbtn4MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                logoutbtn4MouseReleased(evt);
-            }
+        extractbtn.setText("Extract");
+        extractbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        extractbtn.setkAllowTab(false);
+        extractbtn.setkBorderRadius(40);
+        extractbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        extractbtn.setkFillButton(false);
+        extractbtn.setkHoverColor(new java.awt.Color(255, 102, 204));
+        extractbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        extractbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        extractbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        extractbtn.setkIndicatorThickness(0);
+        extractbtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        extractbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        extractbtn.setName(""); // NOI18N
+        extractbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutbtn4MouseClicked(evt);
-            }
-        });
-        logoutbtn4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutbtn4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(logoutbtn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 100, 40));
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("website");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, -1));
-
-        jPanel2.setOpaque(false);
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Depth");
-
-        logoutbtn5.setText("+");
-        logoutbtn5.setFont(new java.awt.Font("American Typewriter", 0, 36)); // NOI18N
-        logoutbtn5.setkAllowTab(false);
-        logoutbtn5.setkBorderRadius(40);
-        logoutbtn5.setkEndColor(new java.awt.Color(0, 204, 51));
-        logoutbtn5.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        logoutbtn5.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        logoutbtn5.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        logoutbtn5.setkIndicatorThickness(0);
-        logoutbtn5.setkPressedColor(new java.awt.Color(167, 69, 199));
-        logoutbtn5.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        logoutbtn5.setName(""); // NOI18N
-        logoutbtn5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutbtn5MouseClicked(evt);
+                extractbtnMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                logoutbtn5MousePressed(evt);
+                extractbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                logoutbtn5MouseReleased(evt);
+                extractbtnMouseReleased(evt);
             }
         });
-        logoutbtn5.addActionListener(new java.awt.event.ActionListener() {
+        extractbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutbtn5ActionPerformed(evt);
+                extractbtnActionPerformed(evt);
             }
         });
+        extractorpanel.add(extractbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 100, 40));
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("0");
+        websitelbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        websitelbl.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl.setText("website");
+        extractorpanel.add(websitelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, -1));
 
-        logoutbtn3.setText("-");
-        logoutbtn3.setToolTipText("");
-        logoutbtn3.setFont(new java.awt.Font("American Typewriter", 0, 36)); // NOI18N
-        logoutbtn3.setkAllowTab(false);
-        logoutbtn3.setkBorderRadius(40);
-        logoutbtn3.setkEndColor(new java.awt.Color(0, 204, 51));
-        logoutbtn3.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        logoutbtn3.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        logoutbtn3.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        logoutbtn3.setkIndicatorThickness(0);
-        logoutbtn3.setkPressedColor(new java.awt.Color(167, 69, 199));
-        logoutbtn3.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        logoutbtn3.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        logoutbtn3.setName(""); // NOI18N
-        logoutbtn3.addMouseListener(new java.awt.event.MouseAdapter() {
+        depthtogglepanel.setOpaque(false);
+
+        depthlbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        depthlbl.setForeground(new java.awt.Color(255, 255, 255));
+        depthlbl.setText("Depth");
+
+        plusdepthbtn.setText("+");
+        plusdepthbtn.setFont(new java.awt.Font("American Typewriter", 0, 36)); // NOI18N
+        plusdepthbtn.setkAllowTab(false);
+        plusdepthbtn.setkBorderRadius(40);
+        plusdepthbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        plusdepthbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        plusdepthbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        plusdepthbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        plusdepthbtn.setkIndicatorThickness(0);
+        plusdepthbtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        plusdepthbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        plusdepthbtn.setName(""); // NOI18N
+        plusdepthbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutbtn3MouseClicked(evt);
+                plusdepthbtnMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                logoutbtn3MousePressed(evt);
+                plusdepthbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                logoutbtn3MouseReleased(evt);
+                plusdepthbtnMouseReleased(evt);
             }
         });
-        logoutbtn3.addActionListener(new java.awt.event.ActionListener() {
+        plusdepthbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutbtn3ActionPerformed(evt);
+                plusdepthbtnActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel12)
+        dynamicdepthlbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dynamicdepthlbl.setForeground(new java.awt.Color(255, 255, 255));
+        dynamicdepthlbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dynamicdepthlbl.setText("0");
+
+        minusdepthbtn.setText("-");
+        minusdepthbtn.setToolTipText("");
+        minusdepthbtn.setFont(new java.awt.Font("American Typewriter", 0, 36)); // NOI18N
+        minusdepthbtn.setkAllowTab(false);
+        minusdepthbtn.setkBorderRadius(40);
+        minusdepthbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        minusdepthbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        minusdepthbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        minusdepthbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        minusdepthbtn.setkIndicatorThickness(0);
+        minusdepthbtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        minusdepthbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        minusdepthbtn.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        minusdepthbtn.setName(""); // NOI18N
+        minusdepthbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minusdepthbtnMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                minusdepthbtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                minusdepthbtnMouseReleased(evt);
+            }
+        });
+        minusdepthbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minusdepthbtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout depthtogglepanelLayout = new javax.swing.GroupLayout(depthtogglepanel);
+        depthtogglepanel.setLayout(depthtogglepanelLayout);
+        depthtogglepanelLayout.setHorizontalGroup(
+            depthtogglepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(depthtogglepanelLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(depthlbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(minusdepthbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(dynamicdepthlbl, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logoutbtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logoutbtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addComponent(plusdepthbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(logoutbtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(logoutbtn5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel20))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel12)))
-                .addGap(0, 1, Short.MAX_VALUE))
+        depthtogglepanelLayout.setVerticalGroup(
+            depthtogglepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(depthtogglepanelLayout.createSequentialGroup()
+                .addGroup(depthtogglepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(plusdepthbtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dynamicdepthlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(minusdepthbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(depthlbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 160, 40));
+        extractorpanel.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
 
-        MainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 610, 400));
+        chckboxandlblpanel.setOpaque(false);
+
+        cblbl1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cblbl1.setForeground(new java.awt.Color(255, 255, 255));
+        cblbl1.setText("Twitter");
+
+        twitterbtn.setToolTipText("");
+        twitterbtn.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        twitterbtn.setIconTextGap(0);
+        twitterbtn.setkAllowTab(false);
+        twitterbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        twitterbtn.setkHoverColor(new java.awt.Color(249, 153, 217));
+        twitterbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        twitterbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        twitterbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        twitterbtn.setkIndicatorThickness(0);
+        twitterbtn.setkPressedColor(new java.awt.Color(163, 62, 167));
+        twitterbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        twitterbtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        twitterbtn.setName(""); // NOI18N
+        twitterbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                twitterbtnMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                twitterbtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                twitterbtnMouseReleased(evt);
+            }
+        });
+        twitterbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twitterbtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chckboxandlblpanelLayout = new javax.swing.GroupLayout(chckboxandlblpanel);
+        chckboxandlblpanel.setLayout(chckboxandlblpanelLayout);
+        chckboxandlblpanelLayout.setHorizontalGroup(
+            chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cblbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 14, Short.MAX_VALUE))
+        );
+        chckboxandlblpanelLayout.setVerticalGroup(
+            chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
+                .addGroup(chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(cblbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 130, 30));
+
+        MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 610, 400));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -704,15 +759,15 @@ public class LoginWindow extends javax.swing.JFrame {
          //use mouse always 
     }//GEN-LAST:event_LoginPanelMousePressed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void closelblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMouseClicked
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_closelblMouseClicked
 
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+    private void closelblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMouseEntered
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jLabel3MouseEntered
+    }//GEN-LAST:event_closelblMouseEntered
 
     private void tocreateaccountpgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tocreateaccountpgActionPerformed
         // TODO add your handling code here:
@@ -727,14 +782,14 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_loginbtnMouseClicked
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void closelbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseClicked
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_closelbl1MouseClicked
 
-    private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
+    private void closelbl1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel8MouseEntered
+    }//GEN-LAST:event_closelbl1MouseEntered
 
     private void MainPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MainPanelMouseDragged
         // TODO add your handling code here:
@@ -830,20 +885,20 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_loginbtnMousePressed
 
-    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+    private void closelblMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMousePressed
         // TODO add your handling code here:
         //System.exit(0);
-    }//GEN-LAST:event_jLabel3MousePressed
+    }//GEN-LAST:event_closelblMousePressed
 
-    private void jLabel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseDragged
+    private void closelblMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMouseDragged
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jLabel3MouseDragged
+    }//GEN-LAST:event_closelblMouseDragged
 
-    private void jLabel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseReleased
+    private void closelblMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMouseReleased
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jLabel3MouseReleased
+    }//GEN-LAST:event_closelblMouseReleased
 
     private void tocreateaccountpgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMousePressed
         // TODO add your handling code here:
@@ -889,10 +944,10 @@ public class LoginWindow extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel13MouseReleased
 
-    private void jLabel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseReleased
+    private void closelbl1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseReleased
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jLabel8MouseReleased
+    }//GEN-LAST:event_closelbl1MouseReleased
 
     private void LoginPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginPanelMouseReleased
         // TODO add your handling code here:
@@ -915,66 +970,96 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutbtn1ActionPerformed
 
-    private void userfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfield2ActionPerformed
+    private void websitenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_websitenameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userfield2ActionPerformed
+    }//GEN-LAST:event_websitenameActionPerformed
 
-    private void logoutbtn3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn3MousePressed
+    private void minusdepthbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn3MousePressed
+    }//GEN-LAST:event_minusdepthbtnMousePressed
 
-    private void logoutbtn3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn3MouseReleased
+    private void minusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseReleased
         // TODO add your handling code here:
         extractor.setMaxDepth(extractor.getMaxDepth()-1);
-        jLabel20.setText(""+extractor.getMaxDepth());
-    }//GEN-LAST:event_logoutbtn3MouseReleased
+        dynamicdepthlbl.setText(""+extractor.getMaxDepth());
+    }//GEN-LAST:event_minusdepthbtnMouseReleased
 
-    private void logoutbtn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn3MouseClicked
+    private void minusdepthbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn3MouseClicked
+    }//GEN-LAST:event_minusdepthbtnMouseClicked
 
-    private void logoutbtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn3ActionPerformed
+    private void minusdepthbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minusdepthbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn3ActionPerformed
+    }//GEN-LAST:event_minusdepthbtnActionPerformed
 
-    private void logoutbtn4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn4MousePressed
+    private void extractbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_extractbtnMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn4MousePressed
+    }//GEN-LAST:event_extractbtnMousePressed
 
-    private void logoutbtn4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn4MouseReleased
+    private void extractbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_extractbtnMouseReleased
         // TODO add your handling code here:
         extract();
-    }//GEN-LAST:event_logoutbtn4MouseReleased
+    }//GEN-LAST:event_extractbtnMouseReleased
 
-    private void logoutbtn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn4MouseClicked
+    private void extractbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_extractbtnMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn4MouseClicked
+    }//GEN-LAST:event_extractbtnMouseClicked
 
-    private void logoutbtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn4ActionPerformed
+    private void extractbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extractbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn4ActionPerformed
+    }//GEN-LAST:event_extractbtnActionPerformed
 
-    private void logoutbtn5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn5MousePressed
+    private void plusdepthbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusdepthbtnMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn5MousePressed
+    }//GEN-LAST:event_plusdepthbtnMousePressed
 
-    private void logoutbtn5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn5MouseReleased
+    private void plusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusdepthbtnMouseReleased
         // TODO add your handling code here:
         extractor.setMaxDepth(extractor.getMaxDepth()+1);
-        jLabel20.setText(""+extractor.getMaxDepth());
+        dynamicdepthlbl.setText(""+extractor.getMaxDepth());
 
-    }//GEN-LAST:event_logoutbtn5MouseReleased
+    }//GEN-LAST:event_plusdepthbtnMouseReleased
 
-    private void logoutbtn5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn5MouseClicked
+    private void plusdepthbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusdepthbtnMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn5MouseClicked
+    }//GEN-LAST:event_plusdepthbtnMouseClicked
 
-    private void logoutbtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn5ActionPerformed
+    private void plusdepthbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusdepthbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn5ActionPerformed
+    }//GEN-LAST:event_plusdepthbtnActionPerformed
+
+    private void twitterbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twitterbtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_twitterbtnMouseClicked
+
+    private void twitterbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twitterbtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_twitterbtnMousePressed
+
+    private void twitterbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twitterbtnMouseReleased
+        // TODO add your handling code here:
+       //make toggle btn
+        if(twitterbtn.isSelected()){
+            twitterbtn.setSelected(false);
+            twitterbtn.setText("");
+        }
+        else{
+            twitterbtn.setSelected(true);
+            twitterbtn.setText("X");
+        }
+    }//GEN-LAST:event_twitterbtnMouseReleased
+
+    private void twitterbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twitterbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_twitterbtnActionPerformed
     /*
-    Custom code here
+    Custom code here------------------------------------------------------------
+    ----------------------------------------------------------------------------
+    ----------------------------------------------------------------------------
     */
+    AccountManager mngr = new AccountManager();
+    User currentusr;
+    Extractor extractor = new Extractor();
     
     public void resetAllFields(){
         pwdfield.setText("");
@@ -984,8 +1069,8 @@ public class LoginWindow extends javax.swing.JFrame {
         fullnamefield.setText("");
         nouserwithname.setText("");
         jLabel15.setText("");
-        jLabel7.setText("");
-        jLabel20.setText(""+extractor.getMaxDepth());
+        usertitlelbl.setText("");
+        dynamicdepthlbl.setText(""+extractor.getMaxDepth());
 
     }
     public void panelSwitcher(int sw){
@@ -1001,7 +1086,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 LoginPanel.setVisible(false);
                 MainPanel.setVisible(true);
                 CreateAccountPanel.setVisible(false);
-                jLabel7.setText(currentusr.screenName);//this is temporary. probs change to a better place later
+                usertitlelbl.setText(currentusr.screenName);//this is temporary. probs change to a better place later
                 break;
             case 3:
                 LoginPanel.setVisible(false);
@@ -1030,7 +1115,7 @@ public class LoginWindow extends javax.swing.JFrame {
             nouserwithname.setText("Sorry! Wrong password or that user doesn't exist.");            
         }
         else{
-            jLabel7.setText(currentusr.screenName);
+            usertitlelbl.setText(currentusr.screenName);
             panelSwitcher(2);
         }
     }
@@ -1045,7 +1130,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void extract(){
         //System.out.println(extractor.MAX_DEPTH);
-        extractor.setWebpage(userfield2.getText());
+        extractor.setWebpage(websitename.getText());
         extractor.run();                
     }
     public void searchTwitter(){
@@ -1055,17 +1140,22 @@ public class LoginWindow extends javax.swing.JFrame {
         String v = oauthClient.askUser("Please enter the verification PIN from Twitter");
         oauthClient.setAuthorizationCode(v);
         String[] accessToken = oauthClient.getAccessToken();
-// Next time we can use new OAuthSignpostClient(OAUTH_KEY, OAUTH_SECRET, 
-//                    accessToken[0], accessToken[1]) to avoid authenticating again.
+        // Next time we can use new OAuthSignpostClient(OAUTH_KEY, OAUTH_SECRET, 
+        //                    accessToken[0], accessToken[1]) to avoid authenticating again.
 
-// 2. Make a Twitter object
-Twitter twitter = new Twitter("my-name", oauthClient);
-// Print Daniel Winterstein's status
-System.out.println(twitter.getStatus("winterstein"));
-// Set my status
-twitter.setStatus("Messing about in Java");
+        // 2. Make a Twitter object
+        Twitter twitter = new Twitter("my-name", oauthClient);
+        // Print Daniel Winterstein's status
+        System.out.println(twitter.getStatus("winterstein"));
+        // Set my status
+        twitter.setStatus("Messing about in Java");
 
     }
+    /*
+    Custom code end------------------------------------------------------------
+    ----------------------------------------------------------------------------
+    ----------------------------------------------------------------------------
+    */
     /**
      * @param args the command line arguments
      */
@@ -1093,7 +1183,7 @@ twitter.setStatus("Messing about in Java");
         }
         //</editor-fold>
         //</editor-fold>
-            
+           
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1108,41 +1198,44 @@ twitter.setStatus("Messing about in Java");
     private keeptoo.KGradientPanel LoginPanel;
     private keeptoo.KGradientPanel MainPanel;
     private keeptoo.KButton backfromca;
+    private javax.swing.JLabel cblbl1;
+    private javax.swing.JPanel chckboxandlblpanel;
+    private javax.swing.JLabel closelbl;
+    private javax.swing.JLabel closelbl1;
+    private javax.swing.JLabel depthlbl;
+    private javax.swing.JPanel depthtogglepanel;
+    private javax.swing.JLabel dynamicdepthlbl;
+    private keeptoo.KButton extractbtn;
+    private javax.swing.JPanel extractorpanel;
     private keeptoo.KButton finalcreate;
     private javax.swing.JTextField fullnamefield;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private keeptoo.KButton loginbtn;
     private keeptoo.KButton logoutbtn1;
-    private keeptoo.KButton logoutbtn3;
-    private keeptoo.KButton logoutbtn4;
-    private keeptoo.KButton logoutbtn5;
+    private javax.swing.JLabel mainlogowithicon;
+    private keeptoo.KButton minusdepthbtn;
     private javax.swing.JLabel nouserwithname;
+    private javax.swing.JLabel orlblNI;
+    private keeptoo.KButton plusdepthbtn;
+    private javax.swing.JLabel profileiconlbl;
+    private javax.swing.JLabel profilelblicon;
     private javax.swing.JPasswordField pwdfield;
     private javax.swing.JPasswordField pwdfield2;
+    private javax.swing.JLabel pwdlbl;
     private keeptoo.KButton tocreateaccountpg;
+    private keeptoo.KButton twitterbtn;
     private javax.swing.JTextField userfield;
     private javax.swing.JTextField userfield1;
-    private javax.swing.JTextField userfield2;
+    private javax.swing.JLabel userlbl;
+    private javax.swing.JLabel usertitlelbl;
+    private javax.swing.JLabel websitelbl;
+    private javax.swing.JTextField websitename;
     // End of variables declaration//GEN-END:variables
 }
