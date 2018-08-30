@@ -137,12 +137,10 @@ public class Extractor implements Runnable {
         writeToFile(file,"", false); //overwrite the file
         getPageLinks(webpage, 0);
         
-        System.out.println("Done");
+        System.out.println("Done on "+webpage);
     }
-    public void main(){//use this for run
-        Thread ex = new Thread(this);        
-        ex.start();       
-        
+    public String toString(){
+        return "Page : "+webpage+" Depth : "+maxDepth+" File : "+file;
     }
 
 }

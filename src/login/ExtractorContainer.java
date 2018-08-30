@@ -10,23 +10,25 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
  * @author ckinateder
  */
 public class ExtractorContainer {
-    //ArrayList<Extractor> container = new ArrayList<>();    
+    ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
     ArrayList<String> sources = new ArrayList<>();
     ArrayList<Thread> threads = new ArrayList<>();
-    
+    int maxDepth = 2;
+    private boolean isRunning = false; //changes frequently
     public ExtractorContainer(){
-        createContainer();
+        //createContainer();
     }
     public ExtractorContainer(String f){
         sourcesFile = f;
-        createContainer();
+        //createContainer();
     }
     public void updateSrc(){
         try {
@@ -63,17 +65,38 @@ public class ExtractorContainer {
     public void add(Extractor e){
         threads.add(new Thread(e));
     }
+    public void setMaxDepth(int m){
+        maxDepth = m;
+        for(int i = 0; i<extractors.size();i++){           
+            extractors.get(i).setMaxDepth(maxDepth);
+        }
+    }
+    public int getMaxDepth(){
+        return maxDepth;
+    }
+    
     public void createContainer(){
         updateSrc();
+        extractors.clear();
         threads.clear();
         for(String src : sources){
-            threads.add(new Thread(new Extractor(src)));//make new extractor for each source
+            //if(!src.equals())
+                extractors.add(new Extractor(src));//make new extractor for each source
         }
-        System.out.println(threads.toString());
+        setMaxDepth(maxDepth);
+        System.out.println(extractors.toString());
+    }
+    public boolean isRunning(){
+        return isRunning;
     }
     public void extract(){
-        
+
         createContainer();
+        threads.clear();
+        for(Extractor e : extractors){
+           threads.add(new Thread(e));//make new thread for each extractor
+        }
+        System.out.println(Arrays.toString(threads.toArray()));
         for(Thread t : threads){
             t.start();
         }

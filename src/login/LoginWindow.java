@@ -1019,8 +1019,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void minusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseReleased
         // TODO add your handling code here:
-        extractor.setMaxDepth(extractor.getMaxDepth()-1);
-        dynamicdepthlbl.setText(""+extractor.getMaxDepth());
+        extractorContainer.setMaxDepth(extractorContainer.getMaxDepth()-1);
+        dynamicdepthlbl.setText(""+extractorContainer.getMaxDepth());
     }//GEN-LAST:event_minusdepthbtnMouseReleased
 
     private void minusdepthbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseClicked
@@ -1054,8 +1054,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void plusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusdepthbtnMouseReleased
         // TODO add your handling code here:
-        extractor.setMaxDepth(extractor.getMaxDepth()+1);
-        dynamicdepthlbl.setText(""+extractor.getMaxDepth());
+        extractorContainer.setMaxDepth(extractorContainer.getMaxDepth()+1);
+        dynamicdepthlbl.setText(""+extractorContainer.getMaxDepth());
 
     }//GEN-LAST:event_plusdepthbtnMouseReleased
 
@@ -1114,7 +1114,7 @@ public class LoginWindow extends javax.swing.JFrame {
     */
     AccountManager mngr = new AccountManager();
     User currentusr;
-    Extractor extractor = new Extractor();
+    //Extractor extractor = new Extractor();
     ExtractorContainer extractorContainer = new ExtractorContainer();
     
     public void resetAllFields(){
@@ -1126,7 +1126,7 @@ public class LoginWindow extends javax.swing.JFrame {
         nouserwithname.setText("");
         jLabel15.setText("");
         usertitlelbl.setText("");
-        dynamicdepthlbl.setText(""+extractor.getMaxDepth());
+        dynamicdepthlbl.setText(""+extractorContainer.getMaxDepth());
 
     }
     public void panelSwitcher(int sw){
