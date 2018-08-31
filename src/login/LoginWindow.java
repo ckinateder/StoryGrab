@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.management.Query;
 import javax.swing.ImageIcon;
@@ -80,6 +82,8 @@ public class LoginWindow extends javax.swing.JFrame {
         twitterbtn = new keeptoo.KButton();
         addsourcebtn = new keeptoo.KButton();
         websitelbl1 = new javax.swing.JLabel();
+        websitelbl2 = new javax.swing.JLabel();
+        keywordfield = new javax.swing.JTextField();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -400,7 +404,7 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist.setText("Add a source");
-        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 480, 190));
+        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 480, 100));
 
         depthtogglepanel.setOpaque(false);
 
@@ -595,6 +599,24 @@ public class LoginWindow extends javax.swing.JFrame {
         websitelbl1.setForeground(new java.awt.Color(255, 255, 255));
         websitelbl1.setText("Add a source");
         extractorpanel.add(websitelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 90, -1));
+
+        websitelbl2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl2.setText("Keyword");
+        extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, -1));
+
+        keywordfield.setBackground(new Color(0,0,0,0));
+        keywordfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        keywordfield.setForeground(new java.awt.Color(255, 255, 255));
+        keywordfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        keywordfield.setCaretColor(new java.awt.Color(255, 255, 255));
+        keywordfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        keywordfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keywordfieldActionPerformed(evt);
+            }
+        });
+        extractorpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 350, 30));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 610, 400));
 
@@ -1036,8 +1058,12 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_extractbtnMousePressed
 
     private void extractbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_extractbtnMouseReleased
-        // TODO add your handling code here:
-        extract();
+        try {
+            // TODO add your handling code here:
+            extract();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_extractbtnMouseReleased
 
     private void extractbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_extractbtnMouseClicked
@@ -1107,6 +1133,10 @@ public class LoginWindow extends javax.swing.JFrame {
     private void addsourcebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtnActionPerformed
+
+    private void keywordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywordfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_keywordfieldActionPerformed
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------
@@ -1184,12 +1214,15 @@ public class LoginWindow extends javax.swing.JFrame {
         String[] sg = new String[0];
         HelpMenu.main(sg);
     }
-    public void extract(){
+    public void extract() throws InterruptedException{
         //System.out.println(extractor.MAX_DEPTH);
         //add list of extractors for each source. run simueltaniously
         //extractor.setWebpage(websitename.getText());
         //extractor.main();
-        extractorContainer.extract();
+        //extractorContainer.setSearchFor(keywordfield.getText());
+        //System.out.println("Set search field for "+keywordfield.getText());
+        extractorContainer.extract(keywordfield.getText()); //need to do this for now
+        
     }
     public void updateSources(){
         
@@ -1279,6 +1312,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField keywordfield;
     private keeptoo.KButton loginbtn;
     private keeptoo.KButton logoutbtn1;
     private javax.swing.JLabel mainlogowithicon;
@@ -1299,6 +1333,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
     private javax.swing.JLabel websitelbl1;
+    private javax.swing.JLabel websitelbl2;
     private javax.swing.JTextField websitename;
     // End of variables declaration//GEN-END:variables
 }

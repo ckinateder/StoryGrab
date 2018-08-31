@@ -23,8 +23,9 @@ public class ExtractorContainer {
     ArrayList<Thread> threads = new ArrayList<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
+    
     public ExtractorContainer(){
-        //createContainer();
+        //createContainer(); //called in extract() bc it refreshes
     }
     public ExtractorContainer(String f){
         sourcesFile = f;
@@ -74,7 +75,13 @@ public class ExtractorContainer {
     public int getMaxDepth(){
         return maxDepth;
     }
-    
+    public void setSearchFor(String s){ 
+        //System.out.println(extractors.size());
+        for(int i = 0; i<extractors.size();i++){           
+            extractors.get(i).setSearchFor(s);
+            //System.out.println(extractors.get(i).searchFor);
+        }
+    }
     public void createContainer(){
         updateSrc();
         extractors.clear();
@@ -84,15 +91,17 @@ public class ExtractorContainer {
                 extractors.add(new Extractor(src));//make new extractor for each source
         }
         setMaxDepth(maxDepth);
-        System.out.println(extractors.toString());
+        //System.out.println(extractors.toString());
     }
     public boolean isRunning(){
         return isRunning;
     }
-    public void extract(){
-
+    
+    public void extract(String s) throws InterruptedException{
+        
         createContainer();
-        threads.clear();
+        setSearchFor(s);
+        
         for(Extractor e : extractors){
            threads.add(new Thread(e));//make new thread for each extractor
         }
@@ -100,6 +109,7 @@ public class ExtractorContainer {
         for(Thread t : threads){
             t.start();
         }
+        //add some join thing not sure yet tho
     }
     
 }

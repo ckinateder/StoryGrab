@@ -27,11 +27,11 @@ import java.util.Scanner;
 public class Extractor implements Runnable {
     public int maxDepth = 5;
     private HashSet<String> links;
-    
+    public String searchFor = "politics";
     StringBuilder sb;
     String file="links.txt";
     public String webpage = "";
-    
+    //add search string and accessor
     public Extractor() {
         links = new HashSet<>();
         sb = new StringBuilder();
@@ -118,6 +118,47 @@ public class Extractor implements Runnable {
         }
         
     }
+    public void searchPageLinks(String URL, int depth) {
+        try {
+            if ((!links.contains(URL) && (depth < maxDepth))) {
+                
+                //sb.append(URL + "\n");//add to the thing to be written 
+                FileWriter fileWriter =
+                new FileWriter(file,true);//add true to append
+
+            // Always wrap FileWriter in BufferedWriter.
+                BufferedWriter bufferedWriter =
+                new BufferedWriter(fileWriter);
+                if(URL.contains(searchFor)){
+                    //System.out.println("URL CONTAINS :: "+searchFor);
+                    bufferedWriter.write(URL+"\n"); //only write if theres search term
+                }
+                bufferedWriter.close();
+                try {
+                    links.add(URL); //add link to the hashset
+                    Document document = Jsoup.connect(URL).get();
+                    Elements linksOnPage = document.select("a[href]");
+                    depth++;
+                    for (Element page : linksOnPage) { //iterate through links on page
+                        searchPageLinks(page.attr("abs:href"), depth);
+                    }                
+
+                } catch (IOException | IllegalArgumentException e) {
+                    System.err.println("For '" + URL + "': " + e.getMessage());
+                }
+            }
+            
+
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error writing to file '"
+                + file + "'");
+            // Or we could just do this:
+            // ex.printStackTrace();
+        }
+        
+    }
     public void setWebpage(String l){
         webpage = l;
     }
@@ -130,13 +171,19 @@ public class Extractor implements Runnable {
     public int getMaxDepth(){
         return maxDepth;
     }
+    public void setSearchFor(String s){
+        searchFor = s;
+    }
+    public String getSearchFor(){
+        return searchFor;
+    }
     @Override
     public void run() {// l is link
         System.out.println("Extractor running on "+webpage+" at max depth "+maxDepth);
 
         writeToFile(file,"", false); //overwrite the file
-        getPageLinks(webpage, 0);
-        
+        //getPageLinks(webpage, 0);
+        searchPageLinks(webpage, 0);
         System.out.println("Done on "+webpage);
     }
     public String toString(){
