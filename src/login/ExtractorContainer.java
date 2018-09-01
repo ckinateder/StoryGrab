@@ -28,12 +28,15 @@ public class ExtractorContainer {
     
     public ExtractorContainer(){
         //createContainer(); //called in extract() bc it refreshes
+        updateSrc();
     }
     public ExtractorContainer(String f){
         sourcesFile = f;
+        updateSrc();
         //createContainer();
     }
     public void updateSrc(){
+        sources.clear();
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
