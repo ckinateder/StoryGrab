@@ -391,7 +391,7 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist.setText("Add a source");
-        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 350, 160));
+        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 350, 200));
 
         depthtogglepanel.setOpaque(false);
 
@@ -551,7 +551,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 130, 30));
 
-        addsourcebtn.setText("Add a source");
+        addsourcebtn.setText("Sources Editor");
         addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         addsourcebtn.setkAllowTab(false);
         addsourcebtn.setkBorderRadius(40);
@@ -634,7 +634,7 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist1.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist1.setText("Add a source");
-        extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 420, 160));
+        extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 420, 200));
 
         websitelbl3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         websitelbl3.setForeground(new java.awt.Color(255, 255, 255));
