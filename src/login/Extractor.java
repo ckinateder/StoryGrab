@@ -130,6 +130,7 @@ public class Extractor implements Runnable {
             // Always wrap FileWriter in BufferedWriter.
                 BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
+                System.out.println("Searching  "+URL);
                 if(URL.contains(searchFor)){
                     //System.out.println("URL CONTAINS :: "+searchFor);
                     bufferedWriter.write(URL+"\n"); //only write if theres search term

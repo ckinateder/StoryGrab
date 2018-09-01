@@ -1,4 +1,8 @@
 http://www.msn.com/en-us/news/
 http://www.foxnews.com/
-http://www.news.google.com/
 http://www.bbc.com/
+http://www.huffingtonpost.com/
+http://www.usatoday.com/
+http://www.nytimes.com/
+http://www.reuters.com/news/us
+http://www.yahoo.com/news/

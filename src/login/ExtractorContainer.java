@@ -11,6 +11,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  *
@@ -110,17 +112,16 @@ public class ExtractorContainer {
             t.join();
         }
     }
-    public void extract(String s) throws InterruptedException{
-        
+    public void extract(String s) throws InterruptedException{        
         createContainer();
         setSearchFor(s);
-        
+        ExecutorService executor = Executors.newFixedThreadPool(extractors.size());
         for(Extractor e : extractors){
            threads.add(new Thread(e));//make new thread for each extractor
         }
         System.out.println(Arrays.toString(threads.toArray()));
         for(Thread t : threads){
-            t.start();
+            executor.execute(t);
         }
         
         //add some join thing not sure yet tho
