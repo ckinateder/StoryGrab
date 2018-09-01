@@ -96,7 +96,20 @@ public class ExtractorContainer {
     public boolean isRunning(){
         return isRunning;
     }
-    
+    public boolean isDone(){
+        boolean y = true;
+        for(Thread t : threads){
+            if(t.isAlive()){
+                y=false;
+            }
+        }
+        return y;
+    }
+    public void stopExtract() throws InterruptedException{
+        for(Thread t : threads){
+            t.join();
+        }
+    }
     public void extract(String s) throws InterruptedException{
         
         createContainer();
@@ -109,7 +122,10 @@ public class ExtractorContainer {
         for(Thread t : threads){
             t.start();
         }
+        
         //add some join thing not sure yet tho
     }
+   
+    
     
 }

@@ -84,6 +84,7 @@ public class LoginWindow extends javax.swing.JFrame {
         websitelbl1 = new javax.swing.JLabel();
         websitelbl2 = new javax.swing.JLabel();
         keywordfield = new javax.swing.JTextField();
+        stopbtn = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -618,6 +619,37 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         extractorpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 350, 30));
 
+        stopbtn.setText("Stop");
+        stopbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        stopbtn.setkAllowTab(false);
+        stopbtn.setkBorderRadius(40);
+        stopbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        stopbtn.setkHoverColor(new java.awt.Color(255, 102, 204));
+        stopbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        stopbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        stopbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        stopbtn.setkIndicatorThickness(0);
+        stopbtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        stopbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        stopbtn.setName(""); // NOI18N
+        stopbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stopbtnMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                stopbtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                stopbtnMouseReleased(evt);
+            }
+        });
+        stopbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopbtnActionPerformed(evt);
+            }
+        });
+        extractorpanel.add(stopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 100, 40));
+
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 610, 400));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
@@ -1137,6 +1169,27 @@ public class LoginWindow extends javax.swing.JFrame {
     private void keywordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywordfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_keywordfieldActionPerformed
+
+    private void stopbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtnMouseClicked
+
+    private void stopbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtnMousePressed
+
+    private void stopbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtnMouseReleased
+        try {
+            // TODO add your handling code here:
+            stopExtract();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_stopbtnMouseReleased
+
+    private void stopbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtnActionPerformed
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------
@@ -1223,6 +1276,9 @@ public class LoginWindow extends javax.swing.JFrame {
         //System.out.println("Set search field for "+keywordfield.getText());
         extractorContainer.extract(keywordfield.getText()); //need to do this for now
         
+    }
+    public void stopExtract() throws InterruptedException{
+        extractorContainer.stopExtract();
     }
     public void updateSources(){
         
@@ -1326,6 +1382,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwdfield2;
     private javax.swing.JLabel pwdlbl;
     private javax.swing.JLabel sourceslist;
+    private keeptoo.KButton stopbtn;
     private keeptoo.KButton tocreateaccountpg;
     private keeptoo.KButton twitterbtn;
     private javax.swing.JTextField userfield;

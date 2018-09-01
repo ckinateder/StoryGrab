@@ -31,6 +31,7 @@ public class Extractor implements Runnable {
     StringBuilder sb;
     String file="links.txt";
     public String webpage = "";
+    public boolean done = false;
     //add search string and accessor
     public Extractor() {
         links = new HashSet<>();
@@ -118,7 +119,7 @@ public class Extractor implements Runnable {
         }
         
     }
-    public void searchPageLinks(String URL, int depth) {
+    public boolean searchPageLinks(String URL, int depth) {//returns true when done
         try {
             if ((!links.contains(URL) && (depth < maxDepth))) {
                 
@@ -157,7 +158,7 @@ public class Extractor implements Runnable {
             // Or we could just do this:
             // ex.printStackTrace();
         }
-        
+        return true;
     }
     public void setWebpage(String l){
         webpage = l;
@@ -176,14 +177,20 @@ public class Extractor implements Runnable {
     }
     public String getSearchFor(){
         return searchFor;
+    }/*
+    public void setDone(boolean d){
+        done=d;
     }
+    public boolean isDone(){
+        return done;
+    }*/
     @Override
     public void run() {// l is link
         System.out.println("Extractor running on "+webpage+" at max depth "+maxDepth);
 
         writeToFile(file,"", false); //overwrite the file
         //getPageLinks(webpage, 0);
-        searchPageLinks(webpage, 0);
+        done = searchPageLinks(webpage, 0); //done probs not needed
         System.out.println("Done on "+webpage);
     }
     public String toString(){
