@@ -89,6 +89,7 @@ public class AddASource extends javax.swing.JFrame {
         extractorpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         addsourcebtn.setText("Delete source");
+        addsourcebtn.setToolTipText("Text must match EXACTLY");
         addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         addsourcebtn.setkAllowTab(false);
         addsourcebtn.setkBorderRadius(40);
@@ -193,6 +194,7 @@ public class AddASource extends javax.swing.JFrame {
         extractorpanel.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 100, 40));
 
         addsourcebtn1.setText("Add source");
+        addsourcebtn1.setToolTipText("Text must match EXACTLY");
         addsourcebtn1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         addsourcebtn1.setkAllowTab(false);
         addsourcebtn1.setkBorderRadius(40);
@@ -386,24 +388,22 @@ public class AddASource extends javax.swing.JFrame {
                 new BufferedReader(fileReader);
             String line;
             boolean itsInTheFile = false;
-            System.out.println("To remove: '"+toRemove+"'");
-            while ((line = bufferedReader.readLine()) != null) {
+            
+            while ((line = bufferedReader.readLine()) != null) {                
                     if(line.equals(toRemove)){
                         itsInTheFile=true;
-                    }
-                    
+                    }                    
             }
             fileReader = 
                 new FileReader(sourcesFile);
             bufferedReader = 
                 new BufferedReader(fileReader);
             if(itsInTheFile){
-                while ((line = bufferedReader.readLine()) != null) {
-                    System.out.println(line);
+                while ((line = bufferedReader.readLine()) != null) {                    
+                    //System.out.println("'"+line+"' to 'http://"+toRemove+"'");
                     if(!line.equals(toRemove)){
                         sb.append(line+"\n");
-                    }
-                    
+                    }                    
                 }
                 writeToFile(sourcesFile, sb.toString(), false);  //ow
             }

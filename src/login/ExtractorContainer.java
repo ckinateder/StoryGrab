@@ -126,8 +126,17 @@ public class ExtractorContainer {
         for(Thread t : threads){
             executor.execute(t);
         }
-        
+        executor.shutdown();
         //add some join thing not sure yet tho
+        /*
+        Future<?> f = exec.submit(extractor); //in second loop
+        futures.add(f);
+        
+        boolean allDone = true;
+        for(Future<?> future : futures){
+            allDone &= future.isDone(); // check if future is done
+        }
+        */
     }
    
     

@@ -329,6 +329,8 @@ public class LoginWindow extends javax.swing.JFrame {
         logoutbtn1.setkAllowTab(false);
         logoutbtn1.setkBorderRadius(40);
         logoutbtn1.setkEndColor(new java.awt.Color(0, 204, 51));
+        logoutbtn1.setkFillButton(false);
+        logoutbtn1.setkHoverColor(new java.awt.Color(255, 255, 0));
         logoutbtn1.setkHoverEndColor(new java.awt.Color(78, 160, 143));
         logoutbtn1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
         logoutbtn1.setkHoverStartColor(new java.awt.Color(63, 167, 89));
@@ -352,7 +354,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 logoutbtn1ActionPerformed(evt);
             }
         });
-        MainPanel.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 100, 40));
+        MainPanel.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 100, 40));
 
         extractorpanel.setOpaque(false);
         extractorpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -386,12 +388,13 @@ public class LoginWindow extends javax.swing.JFrame {
                 extractbtnActionPerformed(evt);
             }
         });
-        extractorpanel.add(extractbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 100, 40));
+        extractorpanel.add(extractbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 100, 40));
 
         sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist.setText("Add a source");
-        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 350, 200));
+        sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 200));
 
         depthtogglepanel.setOpaque(false);
 
@@ -490,7 +493,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        extractorpanel.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 140, 30));
+        extractorpanel.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 140, 30));
 
         chckboxandlblpanel.setOpaque(false);
 
@@ -536,9 +539,9 @@ public class LoginWindow extends javax.swing.JFrame {
             .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(cblbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addContainerGap())
         );
         chckboxandlblpanelLayout.setVerticalGroup(
             chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -549,7 +552,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 130, 30));
+        extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 130, 30));
 
         addsourcebtn.setText("Sources Editor");
         addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -580,7 +583,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 addsourcebtnActionPerformed(evt);
             }
         });
-        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 100, 40));
+        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 100, 40));
 
         websitelbl2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
@@ -598,7 +601,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 keywordfieldActionPerformed(evt);
             }
         });
-        extractorpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 350, 30));
+        extractorpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 350, 30));
 
         stopbtn.setText("Stop");
         stopbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -629,17 +632,18 @@ public class LoginWindow extends javax.swing.JFrame {
                 stopbtnActionPerformed(evt);
             }
         });
-        extractorpanel.add(stopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 100, 40));
+        extractorpanel.add(stopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 100, 40));
 
         sourceslist1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist1.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist1.setText("Add a source");
+        sourceslist1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 420, 200));
 
-        websitelbl3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        websitelbl3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         websitelbl3.setForeground(new java.awt.Color(255, 255, 255));
         websitelbl3.setText("Keyword");
-        extractorpanel.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 90, -1));
+        extractorpanel.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 90, -1));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 810, 440));
 
