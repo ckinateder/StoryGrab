@@ -115,7 +115,8 @@ public class ExtractorContainer {
             t.join();
         }
     }
-    public void extract(String s) throws InterruptedException{        
+    public void extract(String s) throws InterruptedException{
+        
         createContainer();
         setSearchFor(s);
         ExecutorService executor = Executors.newFixedThreadPool(extractors.size());
@@ -125,11 +126,13 @@ public class ExtractorContainer {
         System.out.println(Arrays.toString(threads.toArray()));
         for(Thread t : threads){
             executor.execute(t);
+            //t.start();
         }
-        executor.shutdown();
+        executor.shutdown(); 
+        //send no more
         //add some join thing not sure yet tho
         /*
-        Future<?> f = exec.submit(extractor); //in second loop
+        Future<?> f = exec.submit(extractor); 
         futures.add(f);
         
         boolean allDone = true;

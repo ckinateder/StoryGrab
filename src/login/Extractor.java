@@ -131,16 +131,22 @@ public class Extractor implements Runnable {
                 BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
                 System.out.println("Searching  "+URL);
-                if(URL.contains(searchFor)){
-                    //System.out.println("URL CONTAINS :: "+searchFor);
-                    bufferedWriter.write(URL+"\n"); //only write if theres search term
-                }
-                bufferedWriter.close();
+                
+               
                 try {
                     links.add(URL); //add link to the hashset
                     Document document = Jsoup.connect(URL).get();
+                    
                     Elements linksOnPage = document.select("a[href]");
+                    if(document.text().toLowerCase().contains(searchFor.toLowerCase())||
+                            URL.toLowerCase().contains(searchFor.toLowerCase())){//search in doc and link
+                    //System.out.println("URL CONTAINS :: "+searchFor);
+                        bufferedWriter.write(URL+"\n"); //only write if theres search term
+                        //bufferedWriter.write("LINK: "+URL+"\nTEXT:\n"+document.text()+"\n\n");
+                    }
+                    bufferedWriter.close();
                     depth++;
+                    
                     for (Element page : linksOnPage) { //iterate through links on page
                         searchPageLinks(page.attr("abs:href"), depth);
                     }                

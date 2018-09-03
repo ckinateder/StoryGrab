@@ -69,8 +69,12 @@ public class LoginWindow extends javax.swing.JFrame {
         usertitlelbl = new javax.swing.JLabel();
         logoutbtn1 = new keeptoo.KButton();
         extractorpanel = new javax.swing.JPanel();
-        extractbtn = new keeptoo.KButton();
         sourceslist = new javax.swing.JLabel();
+        addsourcebtn = new keeptoo.KButton();
+        websitelbl2 = new javax.swing.JLabel();
+        sourceslist1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        extractbtn = new keeptoo.KButton();
         depthtogglepanel = new javax.swing.JPanel();
         depthlbl = new javax.swing.JLabel();
         plusdepthbtn = new keeptoo.KButton();
@@ -79,11 +83,8 @@ public class LoginWindow extends javax.swing.JFrame {
         chckboxandlblpanel = new javax.swing.JPanel();
         cblbl1 = new javax.swing.JLabel();
         twitterbtn = new keeptoo.KButton();
-        addsourcebtn = new keeptoo.KButton();
-        websitelbl2 = new javax.swing.JLabel();
         keywordfield = new javax.swing.JTextField();
         stopbtn = new keeptoo.KButton();
-        sourceslist1 = new javax.swing.JLabel();
         websitelbl3 = new javax.swing.JLabel();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -359,6 +360,57 @@ public class LoginWindow extends javax.swing.JFrame {
         extractorpanel.setOpaque(false);
         extractorpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sourceslist.setForeground(new java.awt.Color(255, 255, 255));
+        sourceslist.setText("Add a source");
+        sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 200));
+
+        addsourcebtn.setText("Sources Editor");
+        addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        addsourcebtn.setkAllowTab(false);
+        addsourcebtn.setkBorderRadius(40);
+        addsourcebtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        addsourcebtn.setkHoverColor(new java.awt.Color(255, 102, 204));
+        addsourcebtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        addsourcebtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        addsourcebtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        addsourcebtn.setkIndicatorThickness(0);
+        addsourcebtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        addsourcebtn.setName(""); // NOI18N
+        addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addsourcebtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseReleased(evt);
+            }
+        });
+        addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addsourcebtnActionPerformed(evt);
+            }
+        });
+        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 100, 40));
+
+        websitelbl2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl2.setText("Sources:");
+        extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 620, 30));
+
+        sourceslist1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sourceslist1.setForeground(new java.awt.Color(255, 255, 255));
+        sourceslist1.setText("Add a source");
+        sourceslist1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 420, 200));
+
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         extractbtn.setText("Extract");
         extractbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         extractbtn.setkAllowTab(false);
@@ -388,13 +440,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 extractbtnActionPerformed(evt);
             }
         });
-        extractorpanel.add(extractbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 100, 40));
-
-        sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        sourceslist.setForeground(new java.awt.Color(255, 255, 255));
-        sourceslist.setText("Add a source");
-        sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 200));
+        jPanel1.add(extractbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 100, 40));
 
         depthtogglepanel.setOpaque(false);
 
@@ -493,7 +539,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        extractorpanel.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 140, 30));
+        jPanel1.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
         chckboxandlblpanel.setOpaque(false);
 
@@ -552,43 +598,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        extractorpanel.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 130, 30));
-
-        addsourcebtn.setText("Sources Editor");
-        addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        addsourcebtn.setkAllowTab(false);
-        addsourcebtn.setkBorderRadius(40);
-        addsourcebtn.setkEndColor(new java.awt.Color(0, 204, 51));
-        addsourcebtn.setkHoverColor(new java.awt.Color(255, 102, 204));
-        addsourcebtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        addsourcebtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        addsourcebtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        addsourcebtn.setkIndicatorThickness(0);
-        addsourcebtn.setkPressedColor(new java.awt.Color(167, 69, 199));
-        addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        addsourcebtn.setName(""); // NOI18N
-        addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                addsourcebtnMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseReleased(evt);
-            }
-        });
-        addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addsourcebtnActionPerformed(evt);
-            }
-        });
-        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 100, 40));
-
-        websitelbl2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
-        websitelbl2.setText("Sources:");
-        extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 620, 30));
+        jPanel1.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
         keywordfield.setBackground(new Color(0,0,0,0));
         keywordfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -596,12 +606,13 @@ public class LoginWindow extends javax.swing.JFrame {
         keywordfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         keywordfield.setCaretColor(new java.awt.Color(255, 255, 255));
         keywordfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        keywordfield.setOpaque(false);
         keywordfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keywordfieldActionPerformed(evt);
             }
         });
-        extractorpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 350, 30));
+        jPanel1.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 350, 30));
 
         stopbtn.setText("Stop");
         stopbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -632,18 +643,14 @@ public class LoginWindow extends javax.swing.JFrame {
                 stopbtnActionPerformed(evt);
             }
         });
-        extractorpanel.add(stopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 100, 40));
-
-        sourceslist1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        sourceslist1.setForeground(new java.awt.Color(255, 255, 255));
-        sourceslist1.setText("Add a source");
-        sourceslist1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 420, 200));
+        jPanel1.add(stopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 100, 40));
 
         websitelbl3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         websitelbl3.setForeground(new java.awt.Color(255, 255, 255));
         websitelbl3.setText("Keyword");
-        extractorpanel.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 90, -1));
+        jPanel1.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
+
+        extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 380, 180));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 810, 440));
 
@@ -1083,7 +1090,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private void extractbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_extractbtnMouseReleased
         updateSources();
         try {
-            // TODO add your handling code here:
+            // TODO add your handling code here:            
             extract();
         } catch (InterruptedException ex) {
             Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -1275,9 +1282,15 @@ public class LoginWindow extends javax.swing.JFrame {
         //extractorContainer.setSearchFor(keywordfield.getText());
         //System.out.println("Set search field for "+keywordfield.getText());
         updateSources();
-        extractorContainer.extract(keywordfield.getText()); //need to do this for now
+        if(extractorContainer.extractors.isEmpty()){            
+            extractorContainer.extract(keywordfield.getText()); //need to do this for now
+        }
+        else{
+            System.out.println("already running");
+        }        
         
     }
+    
     public void stopExtract() throws InterruptedException{
         extractorContainer.stopExtract();
     }
@@ -1354,7 +1367,8 @@ public class LoginWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginWindow().setVisible(true);
-            }
+                
+            }            
         });
     }
 
@@ -1384,6 +1398,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField keywordfield;
     private keeptoo.KButton loginbtn;
     private keeptoo.KButton logoutbtn1;

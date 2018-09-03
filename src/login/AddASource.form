@@ -45,7 +45,7 @@
         <Property name="debugGraphicsOptions" type="int" value="-1"/>
         <Property name="kBorderRadius" type="int" value="0"/>
         <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="8c" green="33" red="33" type="rgb"/>
+          <Color blue="7c" green="4a" red="4a" type="rgb"/>
         </Property>
         <Property name="kGradientFocus" type="int" value="250"/>
         <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

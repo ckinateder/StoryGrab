@@ -64,7 +64,7 @@ public class AddASource extends javax.swing.JFrame {
         MainPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         MainPanel2.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         MainPanel2.setkBorderRadius(0);
-        MainPanel2.setkEndColor(new java.awt.Color(51, 51, 140));
+        MainPanel2.setkEndColor(new java.awt.Color(74, 74, 124));
         MainPanel2.setkGradientFocus(250);
         MainPanel2.setkStartColor(new java.awt.Color(83, 97, 112));
         MainPanel2.setOpaque(false);
