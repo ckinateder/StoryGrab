@@ -363,7 +363,7 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist.setText("Add a source");
-        sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
         extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 200));
 
         addsourcebtn.setText("Sources Editor");
@@ -405,7 +405,7 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist1.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist1.setText("Add a source");
-        sourceslist1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        sourceslist1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
         extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 420, 200));
 
         jPanel1.setOpaque(false);

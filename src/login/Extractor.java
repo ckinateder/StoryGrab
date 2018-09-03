@@ -148,12 +148,16 @@ public class Extractor implements Runnable {
                     depth++;
                     
                     for (Element page : linksOnPage) { //iterate through links on page
-                        searchPageLinks(page.attr("abs:href"), depth);
+                        
+                            searchPageLinks(page.attr("abs:href"), depth);
+                        
+                        
                     }                
 
                 } catch (IOException | IllegalArgumentException e) {
                     System.err.println("For '" + URL + "': " + e.getMessage());
                 }
+                
             }
             
 

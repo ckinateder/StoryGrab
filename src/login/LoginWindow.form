@@ -500,7 +500,7 @@
                 <Property name="text" type="java.lang.String" value="Add a source"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                    <MatteColorBorder bottom="2" left="0" right="0" top="0">
+                    <MatteColorBorder bottom="0" left="0" right="0" top="0">
                       <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
@@ -583,7 +583,7 @@
                 <Property name="text" type="java.lang.String" value="Add a source"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                    <MatteColorBorder bottom="2" left="0" right="0" top="0">
+                    <MatteColorBorder bottom="0" left="0" right="0" top="0">
                       <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
                     </MatteColorBorder>
                   </Border>

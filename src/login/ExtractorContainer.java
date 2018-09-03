@@ -25,7 +25,7 @@ public class ExtractorContainer {
     ArrayList<Thread> threads = new ArrayList<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
-    
+    ExecutorService executor;
     public ExtractorContainer(){
         //createContainer(); //called in extract() bc it refreshes
         updateSrc();
@@ -111,15 +111,15 @@ public class ExtractorContainer {
         return y;
     }
     public void stopExtract() throws InterruptedException{
-        for(Thread t : threads){
-            t.join();
-        }
+        System.out.println("stopping");
+        executor.shutdownNow();// does nothing currently
+        
     }
     public void extract(String s) throws InterruptedException{
         
         createContainer();
         setSearchFor(s);
-        ExecutorService executor = Executors.newFixedThreadPool(extractors.size());
+        executor = Executors.newFixedThreadPool(extractors.size());
         for(Extractor e : extractors){
            threads.add(new Thread(e));//make new thread for each extractor
         }
