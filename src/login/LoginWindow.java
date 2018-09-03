@@ -86,6 +86,7 @@ public class LoginWindow extends javax.swing.JFrame {
         keywordfield = new javax.swing.JTextField();
         stopbtn = new keeptoo.KButton();
         websitelbl3 = new javax.swing.JLabel();
+        addsourcebtn1 = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -395,7 +396,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 addsourcebtnActionPerformed(evt);
             }
         });
-        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 100, 40));
+        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 100, 40));
 
         websitelbl2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
@@ -651,6 +652,37 @@ public class LoginWindow extends javax.swing.JFrame {
         jPanel1.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
         extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 380, 180));
+
+        addsourcebtn1.setText("Refresh");
+        addsourcebtn1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        addsourcebtn1.setkAllowTab(false);
+        addsourcebtn1.setkBorderRadius(40);
+        addsourcebtn1.setkEndColor(new java.awt.Color(0, 204, 51));
+        addsourcebtn1.setkHoverColor(new java.awt.Color(255, 102, 204));
+        addsourcebtn1.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        addsourcebtn1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        addsourcebtn1.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        addsourcebtn1.setkIndicatorThickness(0);
+        addsourcebtn1.setkPressedColor(new java.awt.Color(167, 69, 199));
+        addsourcebtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        addsourcebtn1.setName(""); // NOI18N
+        addsourcebtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtn1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addsourcebtn1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                addsourcebtn1MouseReleased(evt);
+            }
+        });
+        addsourcebtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addsourcebtn1ActionPerformed(evt);
+            }
+        });
+        extractorpanel.add(addsourcebtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, 40));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 810, 440));
 
@@ -1190,6 +1222,23 @@ public class LoginWindow extends javax.swing.JFrame {
     private void stopbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stopbtnActionPerformed
+
+    private void addsourcebtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtn1MouseClicked
+
+    private void addsourcebtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtn1MousePressed
+
+    private void addsourcebtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MouseReleased
+        // TODO add your handling code here:
+        updateSources();
+    }//GEN-LAST:event_addsourcebtn1MouseReleased
+
+    private void addsourcebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtn1ActionPerformed
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------
@@ -1295,6 +1344,7 @@ public class LoginWindow extends javax.swing.JFrame {
         extractorContainer.stopExtract();
     }
     public void updateSources(){
+        extractorContainer.updateSrc();
         String s = "<html>";
         for(int i = 0; i<extractorContainer.sources.size()/2;i++){
             String se = extractorContainer.sources.get(i);
@@ -1378,6 +1428,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KGradientPanel LoginPanel;
     private keeptoo.KGradientPanel MainPanel;
     private keeptoo.KButton addsourcebtn;
+    private keeptoo.KButton addsourcebtn1;
     private keeptoo.KButton backfromca;
     private javax.swing.JLabel cblbl1;
     private javax.swing.JPanel chckboxandlblpanel;
