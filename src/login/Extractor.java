@@ -16,6 +16,7 @@ import org.jsoup.select.Elements;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
@@ -32,6 +33,8 @@ public class Extractor implements Runnable {
     String file="links.txt";
     public String webpage = "";
     public boolean done = false;
+    private String username="";
+    private String password="";
     //add search string and accessor
     public Extractor() {
         links = new HashSet<>();
@@ -119,8 +122,13 @@ public class Extractor implements Runnable {
         }
         
     }
-    public boolean searchPageLinks(String URL, int depth) {//returns true when done
+    public boolean searchPageLinks(String URL, int depth, String strUserId, String strPassword) {//returns true when done
         try {
+            
+            String authString = strUserId + ":" + strPassword;
+            String encodedString = 
+                    Base64.getEncoder().encodeToString(authString.getBytes());
+            
             if ((!links.contains(URL) && (depth < maxDepth))) {
                 
                 //sb.append(URL + "\n");//add to the thing to be written 
@@ -135,12 +143,14 @@ public class Extractor implements Runnable {
                
                 try {
                     links.add(URL); //add link to the hashset
-                    Document document = Jsoup.connect(URL).get();
+                    Document document = Jsoup.connect(URL)
+                            .header("Authorization", "Basic " + encodedString)
+                            .get();
                     
                     Elements linksOnPage = document.select("a[href]");
                     if(document.text().toLowerCase().contains(searchFor.toLowerCase())||
                             URL.toLowerCase().contains(searchFor.toLowerCase())){//search in doc and link
-                    //System.out.println("URL CONTAINS :: "+searchFor);
+                    //System.out.println("ARTICLE CONTAINS :: "+searchFor);
                         bufferedWriter.write(URL+"\n"); //only write if theres search term
                         //bufferedWriter.write("LINK: "+URL+"\nTEXT:\n"+document.text()+"\n\n");
                     }
@@ -149,7 +159,7 @@ public class Extractor implements Runnable {
                     
                     for (Element page : linksOnPage) { //iterate through links on page
                         
-                            searchPageLinks(page.attr("abs:href"), depth);
+                            searchPageLinks(page.attr("abs:href"), depth,strUserId,strPassword);
                         
                         
                     }                
@@ -188,7 +198,12 @@ public class Extractor implements Runnable {
     }
     public String getSearchFor(){
         return searchFor;
-    }/*
+    }
+    public void setCreds(String u, String p){
+        username = u;
+        password = p;
+    }
+    /*
     public void setDone(boolean d){
         done=d;
     }
@@ -201,7 +216,7 @@ public class Extractor implements Runnable {
 
         writeToFile(file,"", false); //overwrite the file
         //getPageLinks(webpage, 0);
-        done = searchPageLinks(webpage, 0); //done probs not needed
+        done = searchPageLinks(webpage, 0, username, password); //done probs not needed
         System.out.println("Done on "+webpage);
     }
     public String toString(){

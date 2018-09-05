@@ -26,6 +26,8 @@ public class ExtractorContainer {
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
     ExecutorService executor;
+    
+    
     public ExtractorContainer(){
         //createContainer(); //called in extract() bc it refreshes
         updateSrc();
@@ -87,7 +89,7 @@ public class ExtractorContainer {
             //System.out.println(extractors.get(i).searchFor);
         }
     }
-    public void createContainer(){
+    public void createContainer(User u){
         updateSrc();
         extractors.clear();
         threads.clear();
@@ -96,6 +98,7 @@ public class ExtractorContainer {
                 extractors.add(new Extractor(src));//make new extractor for each source
         }
         setMaxDepth(maxDepth);
+        setCreds(u);
         //System.out.println(extractors.toString());
     }
     public boolean isRunning(){
@@ -115,9 +118,14 @@ public class ExtractorContainer {
         executor.shutdownNow();// does nothing currently
         
     }
-    public void extract(String s) throws InterruptedException{
+    public void setCreds(User u){        
+        for(int i = 0; i<extractors.size();i++){           
+            extractors.get(i).setCreds(u.getUser(), u.getPassword());
+        }
+    }
+    public void extract(String s, User u) throws InterruptedException{
         
-        createContainer();
+        createContainer(u);
         setSearchFor(s);
         executor = Executors.newFixedThreadPool(extractors.size());
         for(Extractor e : extractors){

@@ -1287,6 +1287,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void login(){//SECURE VERSION      
         currentusr = new User(userfield.getText(),new String(pwdfield.getPassword()));
+        
         panelSwitcher(2);
     }
     public void loginwithcreate(boolean fromWhere){//created for a
@@ -1332,7 +1333,7 @@ public class LoginWindow extends javax.swing.JFrame {
         //System.out.println("Set search field for "+keywordfield.getText());
         updateSources();
         if(extractorContainer.extractors.isEmpty()){            
-            extractorContainer.extract(keywordfield.getText()); //need to do this for now
+            extractorContainer.extract(keywordfield.getText(),currentusr); //need to do this for now
         }
         else{
             System.out.println("already running");
