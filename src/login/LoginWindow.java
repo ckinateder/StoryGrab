@@ -364,8 +364,9 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist.setText("Add a source");
+        sourceslist.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
-        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 200));
+        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 360, 210));
 
         addsourcebtn.setText("Sources Editor");
         addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -406,8 +407,9 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist1.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist1.setText("Add a source");
+        sourceslist1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         sourceslist1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
-        extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 420, 200));
+        extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 410, 210));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -607,7 +609,6 @@ public class LoginWindow extends javax.swing.JFrame {
         keywordfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         keywordfield.setCaretColor(new java.awt.Color(255, 255, 255));
         keywordfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        keywordfield.setOpaque(false);
         keywordfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keywordfieldActionPerformed(evt);
@@ -701,11 +702,11 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
         CreateAccountPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CreateAccountPanelMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 CreateAccountPanelMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CreateAccountPanelMouseClicked(evt);
             }
         });
         CreateAccountPanel.addKeyListener(new java.awt.event.KeyAdapter() {
