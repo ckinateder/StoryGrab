@@ -86,6 +86,7 @@ public class LoginWindow extends javax.swing.JFrame {
         keywordfield = new javax.swing.JTextField();
         stopbtn = new keeptoo.KButton();
         websitelbl3 = new javax.swing.JLabel();
+        websitelbl4 = new javax.swing.JLabel();
         addsourcebtn1 = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -649,8 +650,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
         websitelbl3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         websitelbl3.setForeground(new java.awt.Color(255, 255, 255));
-        websitelbl3.setText("Keyword");
-        jPanel1.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
+        jPanel1.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 90, 20));
+
+        websitelbl4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        websitelbl4.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl4.setText("Keyword");
+        jPanel1.add(websitelbl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
         extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 380, 180));
 
@@ -1260,6 +1265,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel15.setText("");
         usertitlelbl.setText("");
         dynamicdepthlbl.setText(""+extractorContainer.getMaxDepth());
+        websitelbl3.setText("");
 
     }
     public void panelSwitcher(int sw){
@@ -1335,9 +1341,11 @@ public class LoginWindow extends javax.swing.JFrame {
         updateSources();
         if(extractorContainer.extractors.isEmpty()){            
             extractorContainer.extract(keywordfield.getText(),currentusr); //need to do this for now
+            websitelbl3.setText("Extracting...");//move to a checker once I figure that out
         }
         else{
             System.out.println("already running");
+            websitelbl3.setText("Extracting...");
         }        
         
     }
@@ -1419,7 +1427,7 @@ public class LoginWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginWindow().setVisible(true);
-                
+                 
             }            
         });
     }
@@ -1476,5 +1484,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel usertitlelbl;
     private javax.swing.JLabel websitelbl2;
     private javax.swing.JLabel websitelbl3;
+    private javax.swing.JLabel websitelbl4;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package login;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -43,8 +44,7 @@ public class ExtractorContainer {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
                 new FileReader(sourcesFile);
-
-            // Always wrap FileReader in BufferedReader.
+           
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
             String line;
@@ -59,7 +59,9 @@ public class ExtractorContainer {
         catch(FileNotFoundException ex) {
             System.out.println(
                 "Unable to open file '" + 
-                sourcesFile + "'");                
+                sourcesFile + "'");
+            sources.add("Unable to open file '" + 
+                sourcesFile + "'");
         }
         catch(IOException ex) {
             System.out.println(
@@ -67,6 +69,8 @@ public class ExtractorContainer {
                 + sourcesFile + "'");                  
             // Or we could just do this: 
             // ex.printStackTrace();
+            sources.add("Error reading file '" 
+                + sourcesFile + "'");     
         }
         
     }
