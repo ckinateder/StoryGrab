@@ -28,7 +28,6 @@ public class ExtractorContainer {
     private boolean isRunning = false; //changes frequently
     ExecutorService executor;
     
-    
     public ExtractorContainer(){
         //createContainer(); //called in extract() bc it refreshes
         updateSrc();
@@ -117,11 +116,7 @@ public class ExtractorContainer {
         }
         return y;
     }
-    public void stopExtract() throws InterruptedException{
-        System.out.println("stopping");
-        executor.shutdownNow();// does nothing currently
-        
-    }
+   
     public void setCreds(User u){        
         for(int i = 0; i<extractors.size();i++){           
             extractors.get(i).setCreds(u.getUser(), u.getPassword());
@@ -152,8 +147,7 @@ public class ExtractorContainer {
             allDone &= future.isDone(); // check if future is done
         }
         */
-    }
-   
+    }   
     
     
 }

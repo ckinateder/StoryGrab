@@ -20,6 +20,7 @@ import javax.imageio.ImageIO;
 import javax.management.Query;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingWorker;
 import keeptoo.Drag;
 import winterwell.jtwitter.OAuthSignpostClient;
 import winterwell.jtwitter.Twitter;
@@ -1109,8 +1110,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void minusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseReleased
         // TODO add your handling code here:
-        extractorContainer.setMaxDepth(extractorContainer.getMaxDepth()-1);
-        dynamicdepthlbl.setText(""+extractorContainer.getMaxDepth());
+        loader.extractorContainer.setMaxDepth(loader.extractorContainer.getMaxDepth()-1);
+        dynamicdepthlbl.setText(""+loader.extractorContainer.getMaxDepth());
     }//GEN-LAST:event_minusdepthbtnMouseReleased
 
     private void minusdepthbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseClicked
@@ -1149,8 +1150,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void plusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusdepthbtnMouseReleased
         // TODO add your handling code here:
-        extractorContainer.setMaxDepth(extractorContainer.getMaxDepth()+1);
-        dynamicdepthlbl.setText(""+extractorContainer.getMaxDepth());
+        loader.extractorContainer.setMaxDepth(loader.extractorContainer.getMaxDepth()+1);
+        dynamicdepthlbl.setText(""+loader.extractorContainer.getMaxDepth());
 
     }//GEN-LAST:event_plusdepthbtnMouseReleased
 
@@ -1252,8 +1253,8 @@ public class LoginWindow extends javax.swing.JFrame {
     */
     AccountManager mngr = new AccountManager();
     User currentusr;
-    //Extractor extractor = new Extractor();
-    ExtractorContainer extractorContainer = new ExtractorContainer();
+    BackgroundRunner loader = new BackgroundRunner();
+    SwingWorker backburner = loader.createWorker();
     
     public void resetAllFields(){
         pwdfield.setText("");
@@ -1264,7 +1265,7 @@ public class LoginWindow extends javax.swing.JFrame {
         nouserwithname.setText("");
         jLabel15.setText("");
         usertitlelbl.setText("");
-        dynamicdepthlbl.setText(""+extractorContainer.getMaxDepth());
+        dynamicdepthlbl.setText(""+loader.extractorContainer.getMaxDepth());
         websitelbl3.setText("");
 
     }
@@ -1332,39 +1333,35 @@ public class LoginWindow extends javax.swing.JFrame {
         updateSources();
     }
     public void extract() throws InterruptedException{
-        //System.out.println(extractor.MAX_DEPTH);
-        //add list of extractors for each source. run simueltaniously
-        //extractor.setWebpage(websitename.getText());
-        //extractor.main();
-        //extractorContainer.setSearchFor(keywordfield.getText());
-        //System.out.println("Set search field for "+keywordfield.getText());
+        
         updateSources();
-        if(extractorContainer.extractors.isEmpty()){            
-            extractorContainer.extract(keywordfield.getText(),currentusr); //need to do this for now
+        if(!backburner.isDone()){            
+            loader.setBefore(keywordfield.getText(),currentusr); //need to do this for now
+            backburner.execute();
             websitelbl3.setText("Extracting...");//move to a checker once I figure that out
         }
         else{
             System.out.println("already running");
-            websitelbl3.setText("Extracting...");
+            //websitelbl3.setText("Extracting...");
         }        
         
     }
     
     public void stopExtract() throws InterruptedException{
-        extractorContainer.stopExtract();
+        //loader.extractorContainer.stopExtract();
     }
     public void updateSources(){
-        extractorContainer.updateSrc();
+        loader.extractorContainer.updateSrc();
         String s = "<html>";
-        for(int i = 0; i<extractorContainer.sources.size()/2;i++){
-            String se = extractorContainer.sources.get(i);
+        for(int i = 0; i<loader.extractorContainer.sources.size()/2;i++){
+            String se = loader.extractorContainer.sources.get(i);
             s=s+se+"<br>";
         }
         s+="</html>";
         sourceslist1.setText(s);
         s = "<html>";
-        for(int i = extractorContainer.sources.size()/2; i<extractorContainer.sources.size();i++){
-            String se = extractorContainer.sources.get(i);
+        for(int i = loader.extractorContainer.sources.size()/2; i<loader.extractorContainer.sources.size();i++){
+            String se = loader.extractorContainer.sources.get(i);
             
             s=s+se+"<br>";
         }

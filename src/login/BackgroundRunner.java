@@ -13,12 +13,25 @@ import javax.swing.SwingWorker;
  * @author calvi
  */
 public class BackgroundRunner {
+    public ExtractorContainer extractorContainer;
+    String searchFor;
+    User currentusr;
+    
+    public BackgroundRunner(){
+        extractorContainer = new ExtractorContainer();
+        searchFor="";
+        currentusr=new User();
+    }
+    public void setBefore(String s, User u){//set the variables relevant before running.
+        searchFor = s; currentusr=u;
+    }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, Integer>() {
             @Override
             protected Boolean doInBackground() throws Exception {
                 // Start Progress setProgress(0);                
                 // Example Loop
+                extractorContainer.extract(searchFor,currentusr);
                                 // Finished
                 return true;
             }
