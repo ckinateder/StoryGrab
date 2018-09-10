@@ -203,6 +203,12 @@ public class BackgroundRunner {
                             pc.setText("Extracting... "+percent+"%");
                             //pc.setText(((threads.size()-leftToDo)/threads.size())*100+"%");
                         }
+                      
+                        if(isCancelled()){
+                            System.out.println("awefa efaewcawedcef waef ed");
+                            return false;
+                        }
+                        
                     }
                     if(leftToDo==0){
                         alldone=true;
@@ -228,7 +234,12 @@ public class BackgroundRunner {
                 try {
                     bStatus = get();                   
                     pc.setText("");
+                    if(bStatus ==true){
                     System.out.println("Done on all!");
+                    }
+                    else{
+                        System.out.println("Cancelled by user");
+                    }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }               

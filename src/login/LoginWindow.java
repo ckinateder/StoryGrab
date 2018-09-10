@@ -1344,7 +1344,7 @@ public class LoginWindow extends javax.swing.JFrame {
     
     public void stopExtract() throws InterruptedException{
         backburner.cancel(true);
-        System.out.println("Cancelling...");
+        //System.out.println("Cancelling...");
     }
     public void updateSources(){
         loader.updateSrc();
