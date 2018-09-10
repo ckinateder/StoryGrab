@@ -18,6 +18,7 @@ import java.util.concurrent.Executors;
 /**
  *
  * @author ckinateder
+ * This has been replaced by backgroundrunner
  */
 public class ExtractorContainer {
     ArrayList<Extractor> extractors = new ArrayList<>();    

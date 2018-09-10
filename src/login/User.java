@@ -37,6 +37,8 @@ public class User {
     public String getUser(){
         return username;
     }
-    
+    public String toString(){
+        return screenName;
+    }
     
 }

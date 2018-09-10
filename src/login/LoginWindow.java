@@ -1110,8 +1110,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void minusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseReleased
         // TODO add your handling code here:
-        loader.extractorContainer.setMaxDepth(loader.extractorContainer.getMaxDepth()-1);
-        dynamicdepthlbl.setText(""+loader.extractorContainer.getMaxDepth());
+        loader.setMaxDepth(loader.getMaxDepth()-1);
+        dynamicdepthlbl.setText(""+loader.getMaxDepth());
     }//GEN-LAST:event_minusdepthbtnMouseReleased
 
     private void minusdepthbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseClicked
@@ -1150,8 +1150,8 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void plusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusdepthbtnMouseReleased
         // TODO add your handling code here:
-        loader.extractorContainer.setMaxDepth(loader.extractorContainer.getMaxDepth()+1);
-        dynamicdepthlbl.setText(""+loader.extractorContainer.getMaxDepth());
+        loader.setMaxDepth(loader.getMaxDepth()+1);
+        dynamicdepthlbl.setText(""+loader.getMaxDepth());
 
     }//GEN-LAST:event_plusdepthbtnMouseReleased
 
@@ -1265,7 +1265,7 @@ public class LoginWindow extends javax.swing.JFrame {
         nouserwithname.setText("");
         jLabel15.setText("");
         usertitlelbl.setText("");
-        dynamicdepthlbl.setText(""+loader.extractorContainer.getMaxDepth());
+        dynamicdepthlbl.setText(""+loader.getMaxDepth());
         websitelbl3.setText("");
 
     }
@@ -1348,20 +1348,20 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     
     public void stopExtract() throws InterruptedException{
-        //loader.extractorContainer.stopExtract();
+        //loader.stopExtract();
     }
     public void updateSources(){
-        loader.extractorContainer.updateSrc();
+        loader.updateSrc();
         String s = "<html>";
-        for(int i = 0; i<loader.extractorContainer.sources.size()/2;i++){
-            String se = loader.extractorContainer.sources.get(i);
+        for(int i = 0; i<loader.sources.size()/2;i++){
+            String se = loader.sources.get(i);
             s=s+se+"<br>";
         }
         s+="</html>";
         sourceslist1.setText(s);
         s = "<html>";
-        for(int i = loader.extractorContainer.sources.size()/2; i<loader.extractorContainer.sources.size();i++){
-            String se = loader.extractorContainer.sources.get(i);
+        for(int i = loader.sources.size()/2; i<loader.sources.size();i++){
+            String se = loader.sources.get(i);
             
             s=s+se+"<br>";
         }
