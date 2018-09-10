@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import javax.swing.JLabel;
 import javax.swing.SwingWorker;
 
 /**
@@ -36,12 +37,17 @@ public class BackgroundRunner {
     ExecutorService executor;
     List<Future<?>> futures = new ArrayList<Future<?>>();
     String extractorFile = "links.txt";
+    JLabel pc;
     
     public BackgroundRunner(){
         
         searchFor="";
         currentusr=new User();
         updateSrc();
+    }
+    public void passLbl(JLabel l){
+        pc = l;
+        pc.setText("");
     }
     public void setBefore(String s, User u){//set the variables relevant before running.
         searchFor = s; currentusr=u;
@@ -122,34 +128,7 @@ public class BackgroundRunner {
             extractors.get(i).setCreds(u.getUser(), u.getPassword());
         }
     }
-    public void extract(String s, User u) throws InterruptedException{
-        System.out.println("Search for: "+s+" User: "+u);
-        writeToFile(extractorFile,"", false); //overwrite the file
-        createContainer(u);
-        setSearchFor(s);
-        executor = Executors.newFixedThreadPool(extractors.size());
-        for(Extractor e : extractors){
-           threads.add(new Thread(e));//make new thread for each extractor
-        }
-        System.out.println(Arrays.toString(threads.toArray()));
-        for(Thread t : threads){
-            Future<?> f = executor.submit(t);
-            futures.add(f);
-            //t.start();
-        }
-        executor.shutdown();
-        //send no more
-        //add some join thing not sure yet tho
-        /*
-        Future<?> f = exec.submit(extractor); 
-        futures.add(f);
-        
-        boolean allDone = true;
-        for(Future<?> future : futures){
-            allDone &= future.isDone(); // check if future is done
-        }
-        */
-    }
+    
     public void writeToFile(String fileName, String toWrite, boolean append){
         // The name of the file to open.
         //String fileName = "accounts.txt";
@@ -188,6 +167,7 @@ public class BackgroundRunner {
                 // Example Loop
                 
                 //System.out.println("Search for: "+searchFor+" User: "+currentusr);
+                pc.setText("Extracting...");
                 writeToFile(extractorFile,"", false); //overwrite the file
                 createContainer(currentusr);
                 setSearchFor(searchFor);
@@ -205,6 +185,7 @@ public class BackgroundRunner {
                 */
                 boolean alldone=false;
                 int leftToDo = threads.size();
+                int percent = 0;
                 ArrayList<Thread> used = new ArrayList<>();
                 
                 while(!alldone){
@@ -214,7 +195,13 @@ public class BackgroundRunner {
                             //System.out.println("Done on "+t);
                             used.add(t);
                             leftToDo--;
-                            publish((threads.size()-leftToDo)/threads.size());
+                            //publish(((threads.size()-leftToDo)/threads.size())*100);
+                            double s = threads.size();
+                            double l = leftToDo;
+                            double sm = s-l;
+                            percent=(int) ((sm/s)*100);
+                            pc.setText("Extracting... "+percent+"%");
+                            //pc.setText(((threads.size()-leftToDo)/threads.size())*100+"%");
                         }
                     }
                     if(leftToDo==0){
@@ -227,19 +214,20 @@ public class BackgroundRunner {
                     t.join();
                     
                 }
-                                // Finished
+                // Finished
                 return true;
             }
             protected void process(List<Integer> chunks) {
                 // Get Info
-                
+                //pc.setText(chunks.get(chunks.size()-1)+"%");
             }
             @Override
             protected void done() {
                 
                 boolean bStatus = false;
                 try {
-                    bStatus = get();                    
+                    bStatus = get();                   
+                    pc.setText("");
                     System.out.println("Done on all!");
                 } catch (Exception ex) {
                     ex.printStackTrace();

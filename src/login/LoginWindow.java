@@ -86,8 +86,8 @@ public class LoginWindow extends javax.swing.JFrame {
         twitterbtn = new keeptoo.KButton();
         keywordfield = new javax.swing.JTextField();
         stopbtn = new keeptoo.KButton();
-        websitelbl3 = new javax.swing.JLabel();
-        websitelbl4 = new javax.swing.JLabel();
+        statuslbl = new javax.swing.JLabel();
+        websitelbl5 = new javax.swing.JLabel();
         addsourcebtn1 = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -632,14 +632,14 @@ public class LoginWindow extends javax.swing.JFrame {
         stopbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
         stopbtn.setName(""); // NOI18N
         stopbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                stopbtnMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 stopbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 stopbtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stopbtnMouseClicked(evt);
             }
         });
         stopbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -649,14 +649,14 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         jPanel1.add(stopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 100, 40));
 
-        websitelbl3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        websitelbl3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 90, 20));
+        statuslbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        statuslbl.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 130, 20));
 
-        websitelbl4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        websitelbl4.setForeground(new java.awt.Color(255, 255, 255));
-        websitelbl4.setText("Keyword");
-        jPanel1.add(websitelbl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
+        websitelbl5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        websitelbl5.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl5.setText("Keyword");
+        jPanel1.add(websitelbl5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
         extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 380, 180));
 
@@ -1266,7 +1266,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jLabel15.setText("");
         usertitlelbl.setText("");
         dynamicdepthlbl.setText(""+loader.getMaxDepth());
-        websitelbl3.setText("");
+        statuslbl.setText("");
 
     }
     public void panelSwitcher(int sw){
@@ -1333,12 +1333,11 @@ public class LoginWindow extends javax.swing.JFrame {
         updateSources();
     }
     public void extract() throws InterruptedException{
-        
-        updateSources();
-                   
-            loader.setBefore(keywordfield.getText(),currentusr); //need to do this for now
-            backburner.execute();
-            websitelbl3.setText("Extracting...");//move to a checker once I figure that out
+        loader.passLbl(statuslbl);
+        updateSources();                   
+        loader.setBefore(keywordfield.getText(),currentusr); 
+        backburner.execute();
+        statuslbl.setText("Extracting...");
             
         
     }
@@ -1469,6 +1468,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel pwdlbl;
     private javax.swing.JLabel sourceslist;
     private javax.swing.JLabel sourceslist1;
+    private javax.swing.JLabel statuslbl;
     private keeptoo.KButton stopbtn;
     private keeptoo.KButton tocreateaccountpg;
     private keeptoo.KButton twitterbtn;
@@ -1477,7 +1477,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
     private javax.swing.JLabel websitelbl2;
-    private javax.swing.JLabel websitelbl3;
-    private javax.swing.JLabel websitelbl4;
+    private javax.swing.JLabel websitelbl5;
     // End of variables declaration//GEN-END:variables
 }
