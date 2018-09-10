@@ -6,14 +6,17 @@
 package login;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import javax.swing.SwingWorker;
 
 /**
@@ -31,7 +34,8 @@ public class BackgroundRunner {
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
     ExecutorService executor;
-    
+    List<Future<?>> futures = new ArrayList<Future<?>>();
+    String extractorFile = "links.txt";
     
     public BackgroundRunner(){
         
@@ -112,17 +116,7 @@ public class BackgroundRunner {
     }
     public boolean isRunning(){
         return isRunning;
-    }/*
-    public boolean isDone(){
-        boolean y = true;
-        for(Thread t : threads){
-            if(t.isAlive()){
-                y=false;
-            }
-        }
-        return y;
     }
-   */
     public void setCreds(User u){        
         for(int i = 0; i<extractors.size();i++){           
             extractors.get(i).setCreds(u.getUser(), u.getPassword());
@@ -130,6 +124,7 @@ public class BackgroundRunner {
     }
     public void extract(String s, User u) throws InterruptedException{
         System.out.println("Search for: "+s+" User: "+u);
+        writeToFile(extractorFile,"", false); //overwrite the file
         createContainer(u);
         setSearchFor(s);
         executor = Executors.newFixedThreadPool(extractors.size());
@@ -138,10 +133,11 @@ public class BackgroundRunner {
         }
         System.out.println(Arrays.toString(threads.toArray()));
         for(Thread t : threads){
-            executor.execute(t);
+            Future<?> f = executor.submit(t);
+            futures.add(f);
             //t.start();
         }
-        executor.shutdown(); 
+        executor.shutdown();
         //send no more
         //add some join thing not sure yet tho
         /*
@@ -154,30 +150,102 @@ public class BackgroundRunner {
         }
         */
     }
-    
+    public void writeToFile(String fileName, String toWrite, boolean append){
+        // The name of the file to open.
+        //String fileName = "accounts.txt";
+
+        try {
+            // Assume default encoding.
+            
+            FileWriter fileWriter =
+                new FileWriter(fileName,append);//add true to append
+
+            // Always wrap FileWriter in BufferedWriter.
+            BufferedWriter bufferedWriter =
+                new BufferedWriter(fileWriter);
+
+            // Note that write() does not automatically
+            // append a newline character./*
+            bufferedWriter.write(toWrite);
+            //bufferedWriter.newLine();            
+            
+            // Always close files.
+            bufferedWriter.close();
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error writing to file '"
+                + fileName + "'");
+            // Or we could just do this:
+            // ex.printStackTrace();
+        }
+    }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, Integer>() {
             @Override
             protected Boolean doInBackground() throws Exception {
                 // Start Progress setProgress(0);                
                 // Example Loop
-                extract(searchFor,currentusr);
+                
+                //System.out.println("Search for: "+searchFor+" User: "+currentusr);
+                writeToFile(extractorFile,"", false); //overwrite the file
+                createContainer(currentusr);
+                setSearchFor(searchFor);
+                //executor = Executors.newFixedThreadPool(extractors.size());
+                for(Extractor e : extractors){
+                   threads.add(new Thread(e));//make new thread for each extractor
+                }
+                System.out.println(Arrays.toString(threads.toArray()));
+                for(Thread t : threads){
+                    //Future<?> f = executor.submit(t);
+                    //futures.add(f);
+                    t.start();
+                }/*
+                
+                */
+                boolean alldone=false;
+                int leftToDo = threads.size();
+                ArrayList<Thread> used = new ArrayList<>();
+                
+                while(!alldone){
+                    for(Thread t:threads){
+                        
+                        if(!t.isAlive()&&!used.contains(t)){
+                            //System.out.println("Done on "+t);
+                            used.add(t);
+                            leftToDo--;
+                            publish((threads.size()-leftToDo)/threads.size());
+                        }
+                    }
+                    if(leftToDo==0){
+                        alldone=true;
+                    }
+                }
+                for(Thread t : threads){
+                    //Future<?> f = executor.submit(t);
+                    //futures.add(f);
+                    t.join();
+                    
+                }
                                 // Finished
                 return true;
-            }/*
+            }
             protected void process(List<Integer> chunks) {
                 // Get Info
                 
-            }*/
+            }
             @Override
             protected void done() {
+                
                 boolean bStatus = false;
                 try {
-                    bStatus = get();
+                    bStatus = get();                    
+                    System.out.println("Done on all!");
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                }
-                System.out.println("Finished with status " + bStatus);
+                }               
+                
+                
             }
         };
     } // End of Method: createWorker()

@@ -212,12 +212,13 @@ public class Extractor implements Runnable {
     }*/
     @Override
     public void run() {// l is link
-        System.out.println("Extractor running on "+webpage+" at max depth "+maxDepth);
-
-        writeToFile(file,"", false); //overwrite the file
+       // writeToFile(file,"", false); //overwrite the file
+        System.out.println("Extractor running on "+webpage+" at max depth "+maxDepth);        
         //getPageLinks(webpage, 0);
         done = searchPageLinks(webpage, 0, username, password); //done probs not needed
+         System.out.println("---------------------------------------------------------");
         System.out.println("Done on "+webpage);
+         System.out.println("---------------------------------------------------------");
     }
     public String toString(){
         return "Page : "+webpage+" Depth : "+maxDepth+" File : "+file;

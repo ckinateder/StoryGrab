@@ -1335,20 +1335,17 @@ public class LoginWindow extends javax.swing.JFrame {
     public void extract() throws InterruptedException{
         
         updateSources();
-        if(!backburner.isDone()){            
+                   
             loader.setBefore(keywordfield.getText(),currentusr); //need to do this for now
             backburner.execute();
             websitelbl3.setText("Extracting...");//move to a checker once I figure that out
-        }
-        else{
-            System.out.println("already running");
-            //websitelbl3.setText("Extracting...");
-        }        
+            
         
     }
     
     public void stopExtract() throws InterruptedException{
-        //loader.stopExtract();
+        backburner.cancel(true);
+        System.out.println("Cancelling...");
     }
     public void updateSources(){
         loader.updateSrc();
