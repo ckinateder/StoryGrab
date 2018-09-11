@@ -651,7 +651,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         statuslbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         statuslbl.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 130, 20));
+        jPanel1.add(statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 20));
 
         websitelbl5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         websitelbl5.setForeground(new java.awt.Color(255, 255, 255));
@@ -1254,7 +1254,7 @@ public class LoginWindow extends javax.swing.JFrame {
     AccountManager mngr = new AccountManager();
     User currentusr;
     BackgroundRunner loader = new BackgroundRunner();
-    SwingWorker backburner = loader.createWorker();
+    SwingWorker backburner = loader.createWorker(); //move these to extract.
     
     public void resetAllFields(){
         pwdfield.setText("");

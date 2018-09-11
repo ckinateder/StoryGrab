@@ -10,4 +10,3 @@ http://www.rollcall.com
 http://www.latimes.com
 https://www.newswiretoday.com
 https://www.wired.com
-https://www.ft.com
