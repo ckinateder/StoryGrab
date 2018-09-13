@@ -7,9 +7,11 @@ package login;
 
 import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Frame;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -87,8 +89,10 @@ public class LoginWindow extends javax.swing.JFrame {
         keywordfield = new javax.swing.JTextField();
         stopbtn = new keeptoo.KButton();
         statuslbl = new javax.swing.JLabel();
-        websitelbl5 = new javax.swing.JLabel();
+        websitelbl7 = new javax.swing.JLabel();
         addsourcebtn1 = new keeptoo.KButton();
+        websitelbl6 = new javax.swing.JLabel();
+        addsourcebtn2 = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -653,12 +657,12 @@ public class LoginWindow extends javax.swing.JFrame {
         statuslbl.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 20));
 
-        websitelbl5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        websitelbl5.setForeground(new java.awt.Color(255, 255, 255));
-        websitelbl5.setText("Keyword");
-        jPanel1.add(websitelbl5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
+        websitelbl7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        websitelbl7.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl7.setText("Keyword");
+        jPanel1.add(websitelbl7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
-        extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 380, 180));
+        extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 180));
 
         addsourcebtn1.setText("Refresh");
         addsourcebtn1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -691,7 +695,43 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         extractorpanel.add(addsourcebtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, 40));
 
+        websitelbl6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        websitelbl6.setForeground(new java.awt.Color(255, 255, 255));
+        extractorpanel.add(websitelbl6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 390, 20));
+
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 810, 440));
+
+        addsourcebtn2.setText("Output");
+        addsourcebtn2.setEnabled(false);
+        addsourcebtn2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        addsourcebtn2.setkAllowTab(false);
+        addsourcebtn2.setkBorderRadius(40);
+        addsourcebtn2.setkEndColor(new java.awt.Color(0, 204, 51));
+        addsourcebtn2.setkHoverColor(new java.awt.Color(255, 102, 204));
+        addsourcebtn2.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        addsourcebtn2.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        addsourcebtn2.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        addsourcebtn2.setkIndicatorThickness(0);
+        addsourcebtn2.setkPressedColor(new java.awt.Color(167, 69, 199));
+        addsourcebtn2.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        addsourcebtn2.setName(""); // NOI18N
+        addsourcebtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addsourcebtn2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                addsourcebtn2MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtn2MouseClicked(evt);
+            }
+        });
+        addsourcebtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addsourcebtn2ActionPerformed(evt);
+            }
+        });
+        MainPanel.add(addsourcebtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 550, 100, 40));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -1246,6 +1286,23 @@ public class LoginWindow extends javax.swing.JFrame {
     private void addsourcebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtn1ActionPerformed
+
+    private void addsourcebtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtn2MouseClicked
+
+    private void addsourcebtn2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn2MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtn2MousePressed
+
+    private void addsourcebtn2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn2MouseReleased
+        // TODO add your handling code here:
+        openOutput();
+    }//GEN-LAST:event_addsourcebtn2MouseReleased
+
+    private void addsourcebtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtn2ActionPerformed
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------
@@ -1322,9 +1379,18 @@ public class LoginWindow extends javax.swing.JFrame {
         panelSwitcher(1);
     }
     public void help(){
-        HelpMenu hw = new HelpMenu();
+        //HelpMenu hw = new HelpMenu();
         String[] sg = new String[0];
         HelpMenu.main(sg);
+    }
+    public void openOutput(){/*
+        String[] sg = new String[0];
+        OptionalOutput op = new OptionalOutput();
+        loader.passInitializedOP(websitelbl6);//works within class.
+        op.main(sg);*/ //no
+        
+      
+        
     }
     public void sourcesEditor(){//open sources editor
         
@@ -1334,6 +1400,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void extract() throws InterruptedException{
         loader.passLbl(statuslbl);
+        loader.passInitializedOP(websitelbl6);
         updateSources();                   
         loader.setBefore(keywordfield.getText(),currentusr); 
         backburner.execute();
@@ -1363,6 +1430,7 @@ public class LoginWindow extends javax.swing.JFrame {
         }
         s+="</html>";        
         sourceslist.setText(s);
+        
     }
     
     public void searchTwitter(){
@@ -1432,6 +1500,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KGradientPanel MainPanel;
     private keeptoo.KButton addsourcebtn;
     private keeptoo.KButton addsourcebtn1;
+    private keeptoo.KButton addsourcebtn2;
     private keeptoo.KButton backfromca;
     private javax.swing.JLabel cblbl1;
     private javax.swing.JPanel chckboxandlblpanel;
@@ -1477,6 +1546,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
     private javax.swing.JLabel websitelbl2;
-    private javax.swing.JLabel websitelbl5;
+    private javax.swing.JLabel websitelbl6;
+    private javax.swing.JLabel websitelbl7;
     // End of variables declaration//GEN-END:variables
 }

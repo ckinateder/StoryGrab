@@ -35,6 +35,7 @@ public class Extractor extends Thread {
     public boolean done = false;
     private String username="";
     private String password="";
+    public String toBG = "";//to send to the backgroundrunner
     //add search string and accessor
     public Extractor() {
         links = new HashSet<>();
@@ -139,8 +140,8 @@ public class Extractor extends Thread {
                 BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
                 //System.out.println("Searching  "+URL);//print output
-                
-               
+                toBG="Searching "+URL+"\n";//add to toBG
+               //could use file
                 try {
                     links.add(URL); //add link to the hashset
                     Document document = Jsoup.connect(URL)

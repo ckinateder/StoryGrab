@@ -11,14 +11,16 @@ import keeptoo.Drag;
 
 /**
  *
- * @author calvi
+ * @author ckinateder
  */
-public class HelpMenu extends javax.swing.JFrame {
+public class OptionalOutput extends javax.swing.JFrame {
 
     /**
-     * Creates new form HelpMenu
+     * Creates new form OptionalOutput
      */
-    public HelpMenu() {
+    public static String text = "";
+    
+    public OptionalOutput() {
         initComponents();
     }
 
@@ -37,9 +39,8 @@ public class HelpMenu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(400, 400));
         setUndecorated(true);
-        setShape(new RoundRectangle2D.Double(0, 0, 365, 245, 20, 20));
+        setShape(new RoundRectangle2D.Double(0, 0, 799, 531, 20, 20));
 
         MainPanel.setBackground(new Color(0,0,0,0));
         MainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -68,10 +69,10 @@ public class HelpMenu extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("<html>Use your AEP username and password to login. This is to enable web traffic past the firewall. This data is not stored outside of the JVM and is as such destroyed after termination of the program.</html>");
+        jLabel4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         MainPanel.add(jLabel4);
-        jLabel4.setBounds(20, 50, 330, 110);
+        jLabel4.setBounds(20, 50, 760, 450);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,11 +89,11 @@ public class HelpMenu extends javax.swing.JFrame {
             }
         });
         MainPanel.add(jLabel8);
-        jLabel8.setBounds(320, 10, 30, 32);
+        jLabel8.setBounds(760, 10, 30, 32);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Help Menu");
+        jLabel5.setText("Output");
         MainPanel.add(jLabel5);
         jLabel5.setBounds(20, 10, 140, 30);
 
@@ -100,11 +101,11 @@ public class HelpMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
         );
 
         pack();
@@ -112,7 +113,7 @@ public class HelpMenu extends javax.swing.JFrame {
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
@@ -132,12 +133,10 @@ public class HelpMenu extends javax.swing.JFrame {
     private void MainPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MainPanelMousePressed
         // TODO add your handling code here:
         new Drag(MainPanel).onPress(evt);
-
     }//GEN-LAST:event_MainPanelMousePressed
 
     private void MainPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MainPanelKeyPressed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_MainPanelKeyPressed
 
     /**
@@ -157,27 +156,27 @@ public class HelpMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HelpMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OptionalOutput.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HelpMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OptionalOutput.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HelpMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OptionalOutput.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HelpMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OptionalOutput.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HelpMenu().setVisible(true);
+                new OptionalOutput().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private keeptoo.KGradientPanel MainPanel;
-    private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables

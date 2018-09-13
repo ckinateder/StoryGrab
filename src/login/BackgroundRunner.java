@@ -37,7 +37,8 @@ public class BackgroundRunner {
     ExecutorService executor;
     List<Future<?>> futures = new ArrayList<Future<?>>();
     String extractorFile = "links.txt";
-    JLabel statusLblRef;
+    JLabel statusLblRef, outputlbl;
+    
     
     public BackgroundRunner(){
         
@@ -48,6 +49,11 @@ public class BackgroundRunner {
     public void passLbl(JLabel l){
         statusLblRef = l;
         statusLblRef.setText("");
+        
+    }
+    public void passInitializedOP(JLabel l){
+        outputlbl = l;
+        outputlbl.setText("");
     }
     public void setBefore(String s, User u){//set the variables relevant before running.
         searchFor = s; currentusr=u;
@@ -167,7 +173,7 @@ public class BackgroundRunner {
     }
     
     public SwingWorker createWorker() {
-        return new SwingWorker<Boolean, Integer>() {
+        return new SwingWorker<Boolean, String>() {
             @Override
             protected Boolean doInBackground() throws Exception {
                 // Start Progress setProgress(0);                
@@ -219,7 +225,8 @@ public class BackgroundRunner {
                             statusLblRef.setText("Extracting... "+percent+"%"); //set label
                             
                         }
-                      
+                        publish(t.toBG.toString());//publish output to process
+                        
                         if(isCancelled()){
                             System.out.println("awefa efaewcawedcef waef ed");
                             return false;
@@ -239,9 +246,13 @@ public class BackgroundRunner {
                 // Finished
                 return true;
             }
-            protected void process(List<Integer> chunks) {
+            protected void process(List<String> chunks) {
                 // Get Info
                 //statusLblRef.setText(chunks.get(chunks.size()-1)+"%");
+                String currentOut = "";
+                currentOut= chunks.get(chunks.size()-1);
+                outputlbl.setText(currentOut);
+                
             }
             @Override
             protected void done() {
