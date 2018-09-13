@@ -8,5 +8,4 @@ http://www.usatoday.com/
 http://news.google.com/
 http://www.rollcall.com
 http://www.latimes.com
-https://www.newswiretoday.com
 https://www.wired.com

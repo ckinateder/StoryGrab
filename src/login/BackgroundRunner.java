@@ -31,13 +31,13 @@ public class BackgroundRunner {
     ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
     ArrayList<String> sources = new ArrayList<>();
-    ArrayList<Thread> threads = new ArrayList<>();
+    //ArrayList<Thread> extractors = new ArrayList<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
     ExecutorService executor;
     List<Future<?>> futures = new ArrayList<Future<?>>();
     String extractorFile = "links.txt";
-    JLabel pc;
+    JLabel statusLblRef;
     
     public BackgroundRunner(){
         
@@ -46,8 +46,8 @@ public class BackgroundRunner {
         updateSrc();
     }
     public void passLbl(JLabel l){
-        pc = l;
-        pc.setText("");
+        statusLblRef = l;
+        statusLblRef.setText("");
     }
     public void setBefore(String s, User u){//set the variables relevant before running.
         searchFor = s; currentusr=u;
@@ -90,7 +90,7 @@ public class BackgroundRunner {
         
     }
     public void add(Extractor e){
-        threads.add(new Thread(e));
+        extractors.add(e);
     }
     public void setMaxDepth(int m){
         maxDepth = m;
@@ -111,7 +111,7 @@ public class BackgroundRunner {
     public void createContainer(User u){
         updateSrc();
         extractors.clear();
-        threads.clear();
+        
         for(String src : sources){
             //if(!src.equals())
                 extractors.add(new Extractor(src));//make new extractor for each source
@@ -167,41 +167,44 @@ public class BackgroundRunner {
                 // Example Loop
                 
                 //System.out.println("Search for: "+searchFor+" User: "+currentusr);
-                pc.setText("Extracting...");
+                statusLblRef.setText("Extracting...");
                 writeToFile(extractorFile,"", false); //overwrite the file
                 createContainer(currentusr);
                 setSearchFor(searchFor);
                 //executor = Executors.newFixedThreadPool(extractors.size());
                 for(Extractor e : extractors){
-                   threads.add(new Thread(e));//make new thread for each extractor
-                }
-                System.out.println(Arrays.toString(threads.toArray()));
-                for(Thread t : threads){
+                   e.start();//make new thread for each extractor
+                }/*
+                System.out.println(Arrays.toString(extractors.toArray()));
+                for(Thread t : extractors){
                     //Future<?> f = executor.submit(t);
                     //futures.add(f);
                     t.start();
-                }/*
+                }
+                *//*
                 
                 */
                 boolean alldone=false;
-                int leftToDo = threads.size();
+                int leftToDo = extractors.size();
                 int percent = 0;
                 ArrayList<Thread> used = new ArrayList<>();
-                
+                statusLblRef.setText("Extracting... "+percent+"%");
                 while(!alldone){
-                    for(Thread t:threads){
+                    for(Extractor t:extractors){
                         
                         if(!t.isAlive()&&!used.contains(t)){
                             //System.out.println("Done on "+t);
                             used.add(t);
                             leftToDo--;
-                            //publish(((threads.size()-leftToDo)/threads.size())*100);
-                            double s = threads.size();
+                            //set tmp vars
+                            double s = extractors.size();
                             double l = leftToDo;
                             double sm = s-l;
+                            String wp = t.getWebpage();//send that somehow
+                            
                             percent=(int) ((sm/s)*100);
-                            pc.setText("Extracting... "+percent+"%");
-                            //pc.setText(((threads.size()-leftToDo)/threads.size())*100+"%");
+                            statusLblRef.setText("Extracting... "+percent+"%"); //set label
+                            
                         }
                       
                         if(isCancelled()){
@@ -214,7 +217,7 @@ public class BackgroundRunner {
                         alldone=true;
                     }
                 }
-                for(Thread t : threads){
+                for(Thread t : extractors){
                     //Future<?> f = executor.submit(t);
                     //futures.add(f);
                     t.join();
@@ -225,7 +228,7 @@ public class BackgroundRunner {
             }
             protected void process(List<Integer> chunks) {
                 // Get Info
-                //pc.setText(chunks.get(chunks.size()-1)+"%");
+                //statusLblRef.setText(chunks.get(chunks.size()-1)+"%");
             }
             @Override
             protected void done() {
@@ -233,7 +236,7 @@ public class BackgroundRunner {
                 boolean bStatus = false;
                 try {
                     bStatus = get();                   
-                    pc.setText("");
+                    statusLblRef.setText("");
                     if(bStatus ==true){
                     System.out.println("Done on all!");
                     }

@@ -25,7 +25,7 @@ import java.util.Scanner;
  * @author calvin kinateder
  */
 
-public class Extractor implements Runnable {
+public class Extractor extends Thread {
     public int maxDepth = 5;
     private HashSet<String> links;
     public String searchFor = "politics";
