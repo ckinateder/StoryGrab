@@ -138,7 +138,7 @@ public class Extractor extends Thread {
             // Always wrap FileWriter in BufferedWriter.
                 BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
-                System.out.println("Searching  "+URL);
+                //System.out.println("Searching  "+URL);//print output
                 
                
                 try {
@@ -221,7 +221,7 @@ public class Extractor extends Thread {
          System.out.println("---------------------------------------------------------");
     }
     public String toString(){
-        return "Page : "+webpage+" Depth : "+maxDepth+" File : "+file;
+        return "Page: "+webpage+", Depth: "+maxDepth+", File: "+file;
     }
 
 }

@@ -159,6 +159,13 @@ public class BackgroundRunner {
             // ex.printStackTrace();
         }
     }
+    public void printExtractors(){
+        for(Extractor e : extractors){
+            System.out.println(e);
+        }
+        System.out.println("");
+    }
+    
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, Integer>() {
             @Override
@@ -166,16 +173,17 @@ public class BackgroundRunner {
                 // Start Progress setProgress(0);                
                 // Example Loop
                 
-                //System.out.println("Search for: "+searchFor+" User: "+currentusr);
+                System.out.println("Search for: "+searchFor+" User: "+currentusr);
                 statusLblRef.setText("Extracting...");
                 writeToFile(extractorFile,"", false); //overwrite the file
                 createContainer(currentusr);
                 setSearchFor(searchFor);
-                //executor = Executors.newFixedThreadPool(extractors.size());
+                printExtractors();//print all extractors
                 for(Extractor e : extractors){
                    e.start();//make new thread for each extractor
-                }/*
-                System.out.println(Arrays.toString(extractors.toArray()));
+                }
+                
+                /*                
                 for(Thread t : extractors){
                     //Future<?> f = executor.submit(t);
                     //futures.add(f);
@@ -187,7 +195,7 @@ public class BackgroundRunner {
                 boolean alldone=false;
                 int leftToDo = extractors.size();
                 int percent = 0;
-                ArrayList<Thread> used = new ArrayList<>();
+                ArrayList<Extractor> used = new ArrayList<>();
                 statusLblRef.setText("Extracting... "+percent+"%");
                 while(!alldone){
                     for(Extractor t:extractors){
@@ -201,6 +209,11 @@ public class BackgroundRunner {
                             double l = leftToDo;
                             double sm = s-l;
                             String wp = t.getWebpage();//send that somehow
+                            System.out.println("Done: ");
+                            for(Extractor e : used){
+                                System.out.println("\t"+e);
+                            }
+                            System.out.println("");
                             
                             percent=(int) ((sm/s)*100);
                             statusLblRef.setText("Extracting... "+percent+"%"); //set label
