@@ -91,7 +91,7 @@ public class LoginWindow extends javax.swing.JFrame {
         statuslbl = new javax.swing.JLabel();
         websitelbl7 = new javax.swing.JLabel();
         addsourcebtn1 = new keeptoo.KButton();
-        websitelbl6 = new javax.swing.JLabel();
+        onelineout = new javax.swing.JLabel();
         addsourcebtn2 = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -695,9 +695,9 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         extractorpanel.add(addsourcebtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, 40));
 
-        websitelbl6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        websitelbl6.setForeground(new java.awt.Color(255, 255, 255));
-        extractorpanel.add(websitelbl6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 390, 20));
+        onelineout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        onelineout.setForeground(new java.awt.Color(255, 255, 255));
+        extractorpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 410, 20));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 810, 440));
 
@@ -1387,9 +1387,7 @@ public class LoginWindow extends javax.swing.JFrame {
         String[] sg = new String[0];
         OptionalOutput op = new OptionalOutput();
         loader.passInitializedOP(websitelbl6);//works within class.
-        op.main(sg);*/ //no
-        
-      
+        op.main(sg);*/ //no   
         
     }
     public void sourcesEditor(){//open sources editor
@@ -1399,18 +1397,20 @@ public class LoginWindow extends javax.swing.JFrame {
         updateSources();
     }
     public void extract() throws InterruptedException{
+        
+        backburner = loader.createWorker(); //move these to extract.
+        
         loader.passLbl(statuslbl);
-        loader.passInitializedOP(websitelbl6);
+        loader.passInitializedOP(onelineout);
         updateSources();                   
-        loader.setBefore(keywordfield.getText(),currentusr); 
+        loader.setBefore(keywordfield.getText(),currentusr);//add depth here 
         backburner.execute();
-        statuslbl.setText("Extracting...");
-            
+        statuslbl.setText("Extracting...");            
         
     }
     
     public void stopExtract() throws InterruptedException{
-        backburner.cancel(true);
+        loader.broStop();
         //System.out.println("Cancelling...");
     }
     public void updateSources(){
@@ -1528,6 +1528,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel mainlogowithicon;
     private keeptoo.KButton minusdepthbtn;
     private javax.swing.JLabel nouserwithname;
+    private javax.swing.JLabel onelineout;
     private javax.swing.JLabel orlblNI;
     private keeptoo.KButton plusdepthbtn;
     private javax.swing.JLabel profileiconlbl;
@@ -1546,7 +1547,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
     private javax.swing.JLabel websitelbl2;
-    private javax.swing.JLabel websitelbl6;
     private javax.swing.JLabel websitelbl7;
     // End of variables declaration//GEN-END:variables
 }

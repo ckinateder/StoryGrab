@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -39,7 +40,7 @@ public class BackgroundRunner {
     List<Future<?>> futures = new ArrayList<Future<?>>();
     String extractorFile = "links.txt";
     JLabel statusLblRef, outputlbl;
-    
+    boolean shouldStop = false;
     
     public BackgroundRunner(){
         
@@ -173,6 +174,9 @@ public class BackgroundRunner {
         }
         System.out.println("");
     }
+    public void broStop(){
+        shouldStop = true;
+    }
     
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
@@ -182,7 +186,7 @@ public class BackgroundRunner {
                 // Example Loop
                 
                 System.out.println("Search for: "+searchFor+" User: "+currentusr);
-                statusLblRef.setText("Extracting...");
+                statusLblRef.setText("Starting...");
                 writeToFile(extractorFile,"", false); //overwrite the file
                 createContainer(currentusr);
                 setSearchFor(searchFor);
@@ -190,7 +194,6 @@ public class BackgroundRunner {
                 for(Extractor e : extractors){
                    e.start();//make new thread for each extractor
                 }
-                
                 /*                
                 for(Thread t : extractors){
                     //Future<?> f = executor.submit(t);
@@ -205,6 +208,7 @@ public class BackgroundRunner {
                 int percent = 0;
                 ArrayList<Extractor> used = new ArrayList<>();
                 statusLblRef.setText("Extracting... "+percent+"%");
+                
                 while(!alldone){
                     for(Extractor t:extractors){
                         
@@ -227,18 +231,23 @@ public class BackgroundRunner {
                             statusLblRef.setText("Extracting... "+percent+"%"); //set label
                             
                         }
-                        publish(t.toBG.toString());//publish output to process
-                        
-                        if(isCancelled()){
-                            System.out.println("awefa efaewcawedcef waef ed");
+                        publish(t.toBG.toString());//publish output to process                       
+                        if(shouldStop){
+                            publish("Cancelled by user");
+                            for(Extractor ts : extractors){
+                                ts.interrupt();
+                            }
+                            
+                            shouldStop = false; //so loader can be used again
                             return false;
-                        }
-                        
+                        }      
                     }
                     if(leftToDo==0){
                         alldone=true;
                     }
                 }
+                
+                
                 for(Thread t : extractors){
                     //Future<?> f = executor.submit(t);
                     //futures.add(f);

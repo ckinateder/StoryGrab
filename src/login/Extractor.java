@@ -217,9 +217,9 @@ public class Extractor extends Thread {
         System.out.println("Extractor running on "+webpage+" at max depth "+maxDepth);        
         //getPageLinks(webpage, 0);
         done = searchPageLinks(webpage, 0, username, password); //done probs not needed
-         System.out.println("---------------------------------------------------------");
-        System.out.println("Done on "+webpage);
-         System.out.println("---------------------------------------------------------");
+        //if(Thread.currentThread().isInterrupted()){            
+            System.out.println("Done on "+webpage);            
+        
     }
     public String toString(){
         return "Page: "+webpage+", Depth: "+maxDepth+", File: "+file;
