@@ -30,13 +30,13 @@ public class Scroller {
     public void setWidth(int s){
         scrollEnd = s;
     }
-    public void scroll(java.awt.event.MouseWheelEvent mwheel){
+    public void scrollSources(java.awt.event.MouseWheelEvent mwheel){
         int scAmount = mwheel.getUnitsToScroll();
         //System.out.println(scAmount);
         lr.updateSrc();
         if(scrollStart+scAmount>=0 && scrollEnd+scAmount<lr.sources.size()){
-        scrollStart+=scAmount;         
-        scrollEnd+=scAmount;
+            scrollStart+=scAmount;         
+            scrollEnd+=scAmount;
         }
         updateSources();        
     }

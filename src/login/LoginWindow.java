@@ -1321,7 +1321,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void sourceslistMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslistMouseWheelMoved
         // TODO add your handling code here:
-        sourceScroller.scroll(evt);
+        sourceScroller.scrollSources(evt);
     }//GEN-LAST:event_sourceslistMouseWheelMoved
     /*
     Custom code here------------------------------------------------------------
