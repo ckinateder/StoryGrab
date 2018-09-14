@@ -221,7 +221,7 @@ public class BackgroundRunner {
                             double s = extractors.size();
                             double l = leftToDo;
                             double sm = s-l;
-                            String wp = t.getWebpage();//send that somehow
+                            //String wp = t.getWebpage();//send that somehow
                             System.out.println("Done: ");
                             for(Extractor e : used){
                                 System.out.println("\t"+e);
@@ -232,7 +232,7 @@ public class BackgroundRunner {
                             statusLblRef.setText("Extracting... "+percent+"%"); //set label
                             
                         }
-                        publish(t.toBG.toString());//publish output to process                       
+                        publish(t.toBG);//publish output to process                       
                         if(shouldStop){
                             publish("Cancelled by user");
                             for(Extractor ts : extractors){
@@ -256,6 +256,7 @@ public class BackgroundRunner {
                     t.join();
                     
                 }
+                publish("Completed");
                 isRunning = false;
                 // Finished
                 return true;

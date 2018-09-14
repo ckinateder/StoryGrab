@@ -37,6 +37,7 @@ public class Extractor extends Thread {
     private String password="";
     public String toBG = "";//to send to the backgroundrunner
     //add search string and accessor
+    public String errorMsgs = "";//to send to bg too
     public Extractor() {
         links = new HashSet<>();
         sb = new StringBuilder();
@@ -167,6 +168,7 @@ public class Extractor extends Thread {
 
                 } catch (IOException | IllegalArgumentException e) {
                     System.err.println("For '" + URL + "': " + e.getMessage());
+                    errorMsgs = "Non-fatal " + e.getMessage() + " on "+ URL + "" ;
                 }
                 
             }
@@ -218,7 +220,7 @@ public class Extractor extends Thread {
         //getPageLinks(webpage, 0);
         done = searchPageLinks(webpage, 0, username, password); //done probs not needed
         //if(Thread.currentThread().isInterrupted()){            
-            System.out.println("Done on "+webpage);            
+            System.out.println("Extractor client done on "+webpage);            
         
     }
     public String toString(){

@@ -372,6 +372,11 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist.setText("Add a source");
         sourceslist.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
+        sourceslist.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                sourceslistMouseWheelMoved(evt);
+            }
+        });
         extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 360, 210));
 
         addsourcebtn.setText("Sources Editor");
@@ -415,6 +420,11 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist1.setText("Add a source");
         sourceslist1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         sourceslist1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
+        sourceslist1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                sourceslist1MouseWheelMoved(evt);
+            }
+        });
         extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 410, 210));
 
         jPanel1.setOpaque(false);
@@ -1303,6 +1313,16 @@ public class LoginWindow extends javax.swing.JFrame {
     private void addsourcebtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtn2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtn2ActionPerformed
+
+    private void sourceslist1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslist1MouseWheelMoved
+        // TODO add your handling code here:
+        //System.out.println(evt.getWheelRotation());
+    }//GEN-LAST:event_sourceslist1MouseWheelMoved
+
+    private void sourceslistMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslistMouseWheelMoved
+        // TODO add your handling code here:
+        scrollSources(evt);
+    }//GEN-LAST:event_sourceslistMouseWheelMoved
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------
@@ -1432,7 +1452,9 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist.setText(s);
         
     }
-    
+    public void scrollSources(java.awt.event.MouseWheelEvent mwheel){
+        
+    }
     public void searchTwitter(){
         OAuthSignpostClient oauthClient = new OAuthSignpostClient("", 
                 "", "oob");
