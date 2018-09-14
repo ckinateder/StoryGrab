@@ -1397,16 +1397,16 @@ public class LoginWindow extends javax.swing.JFrame {
         updateSources();
     }
     public void extract() throws InterruptedException{
-        
-        backburner = loader.createWorker(); //move these to extract.
-        
-        loader.passLbl(statuslbl);
-        loader.passInitializedOP(onelineout);
-        updateSources();                   
-        loader.setBefore(keywordfield.getText(),currentusr);//add depth here 
-        backburner.execute();
-        statuslbl.setText("Extracting...");            
-        
+        if(!loader.isRunning()){
+            backburner = loader.createWorker(); //move these to extract.
+
+            loader.passLbl(statuslbl);
+            loader.passInitializedOP(onelineout);
+            updateSources();                   
+            loader.setBefore(keywordfield.getText(),currentusr);//add depth here 
+            backburner.execute();
+            statuslbl.setText("Extracting...");            
+        }
     }
     
     public void stopExtract() throws InterruptedException{

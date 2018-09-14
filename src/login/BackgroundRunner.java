@@ -210,6 +210,7 @@ public class BackgroundRunner {
                 statusLblRef.setText("Extracting... "+percent+"%");
                 
                 while(!alldone){
+                    isRunning = true;
                     for(Extractor t:extractors){
                         
                         if(!t.isAlive()&&!used.contains(t)){
@@ -239,6 +240,7 @@ public class BackgroundRunner {
                             }
                             
                             shouldStop = false; //so loader can be used again
+                            isRunning = false; //update this
                             return false;
                         }      
                     }
@@ -254,6 +256,7 @@ public class BackgroundRunner {
                     t.join();
                     
                 }
+                isRunning = false;
                 // Finished
                 return true;
             }
