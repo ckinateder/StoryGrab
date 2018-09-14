@@ -1321,7 +1321,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void sourceslistMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslistMouseWheelMoved
         // TODO add your handling code here:
-        scrollSources(evt);
+        sourceScroller.scroll(evt);
     }//GEN-LAST:event_sourceslistMouseWheelMoved
     /*
     Custom code here------------------------------------------------------------
@@ -1332,7 +1332,9 @@ public class LoginWindow extends javax.swing.JFrame {
     User currentusr;
     BackgroundRunner loader = new BackgroundRunner();
     SwingWorker backburner = loader.createWorker(); //move these to extract.
-    int scrollStart = 0; int scrollEnd =10; //width 
+    
+    Scroller sourceScroller = new Scroller(loader);
+    
     public void resetAllFields(){
         pwdfield.setText("");
         pwdfield2.setText("");
@@ -1348,6 +1350,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void panelSwitcher(int sw){
         resetAllFields();
+        sourceScroller.setLabel(sourceslist);
         updateSources();
         //1 for login,2 for main,3 for create account
         switch(sw){
@@ -1361,6 +1364,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 MainPanel.setVisible(true);
                 CreateAccountPanel.setVisible(false);
                 usertitlelbl.setText(currentusr.screenName);//this is temporary. probs change to a better place later
+                
                 break;
             case 3:
                 LoginPanel.setVisible(false);
@@ -1433,29 +1437,10 @@ public class LoginWindow extends javax.swing.JFrame {
         loader.broStop();
         //System.out.println("Cancelling...");
     }
-    public void updateSources(){
-        
-        loader.updateSrc();
-        String s = "<html>";
-        for(int i = scrollStart; i<scrollEnd;i++){
-            String se = (i+1)+": "+loader.sources.get(i);
-            s=s+se+"<br>";
-        }
-        s+="</html>";
-        sourceslist.setText(s);
-        
-        
+    public void updateSources(){        
+        sourceScroller.updateSources();
     }
-    public void scrollSources(java.awt.event.MouseWheelEvent mwheel){
-        int scAmount = mwheel.getUnitsToScroll();
-        System.out.println(scAmount);
-        loader.updateSrc();
-        if(scrollStart+scAmount>=0 && scrollEnd+scAmount<loader.sources.size()){
-        scrollStart+=scAmount;         
-        scrollEnd+=scAmount;
-        }
-        updateSources();        
-    }
+    
     public void searchTwitter(){
         OAuthSignpostClient oauthClient = new OAuthSignpostClient("", 
                 "", "oob");
