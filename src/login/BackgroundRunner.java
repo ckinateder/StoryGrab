@@ -39,7 +39,7 @@ public class BackgroundRunner {
     ExecutorService executor;
     List<Future<?>> futures = new ArrayList<Future<?>>();
     String extractorFile = "links.txt";
-    JLabel statusLblRef, outputlbl;
+    JLabel statusLblRef, outputlbl, longout;
     boolean shouldStop = false;
     
     public BackgroundRunner(){
@@ -57,6 +57,9 @@ public class BackgroundRunner {
     public void passInitializedOP(JLabel l){
         outputlbl = l;
         outputlbl.setText("");
+    }
+    void passBigOut(JLabel l) {
+        longout = l;
     }
     public void setBefore(String s, User u){//set the variables relevant before running.
         searchFor = s; currentusr=u;
@@ -138,6 +141,7 @@ public class BackgroundRunner {
         }
     }
     
+    
     public void writeToFile(String fileName, String toWrite, boolean append){
         // The name of the file to open.
         //String fileName = "accounts.txt";
@@ -208,7 +212,9 @@ public class BackgroundRunner {
                 int percent = 0;
                 ArrayList<Extractor> used = new ArrayList<>();
                 statusLblRef.setText("Extracting... "+percent+"%");
-                
+                for(int i = 0; i<11;i++){
+                    publish(""); //fill chunks to ten
+                }
                 while(!alldone){
                     isRunning = true;
                     for(Extractor t:extractors){
@@ -232,7 +238,11 @@ public class BackgroundRunner {
                             statusLblRef.setText("Extracting... "+percent+"%"); //set label
                             
                         }
-                        publish(t.toBG);//publish output to process                       
+                        publish(t.toBG);//publish output to process   
+                        if(!t.errorMsgs.equals("")){
+                             publish(t.errorMsgs);
+                        }
+                       
                         if(shouldStop){
                             publish("Cancelled by user");
                             for(Extractor ts : extractors){
@@ -267,7 +277,14 @@ public class BackgroundRunner {
                 String currentOut = "";
                 currentOut= chunks.get(chunks.size()-1);
                 outputlbl.setText(currentOut);
-                
+                String bo = ""; //no scroll
+                bo = "<html>";
+                for(int i = chunks.size()-10; i<chunks.size();i++){
+                    String se = chunks.get(i).replaceAll("Searching ", "");
+                    bo=bo+se+"<br>";
+                }
+                bo+="</html>";
+                longout.setText(bo);
             }
             @Override
             protected void done() {
@@ -290,4 +307,6 @@ public class BackgroundRunner {
             }
         };
     } // End of Method: createWorker()
+
+    
 }

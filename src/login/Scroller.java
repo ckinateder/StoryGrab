@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 public class Scroller {
     JLabel theLabel;
     int scrollStart = 0;
-    int scrollEnd = 11;
+    int scrollEnd = 10; //add note at bottom that there is more
     BackgroundRunner lr;
     public Scroller(BackgroundRunner lr){
         
@@ -31,7 +31,7 @@ public class Scroller {
         scrollEnd = s;
     }
     public void scrollSources(java.awt.event.MouseWheelEvent mwheel){
-        int scAmount = mwheel.getUnitsToScroll();
+        int scAmount = mwheel.getWheelRotation();
         //System.out.println(scAmount);
         lr.updateSrc();
         if(scrollStart+scAmount>=0 && scrollEnd+scAmount<lr.sources.size()){
@@ -40,6 +40,7 @@ public class Scroller {
         }
         updateSources();        
     }
+    
     public void updateSources(){        
         lr.updateSrc();
         String s = "<html>";

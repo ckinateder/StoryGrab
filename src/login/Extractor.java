@@ -168,7 +168,7 @@ public class Extractor extends Thread {
 
                 } catch (IOException | IllegalArgumentException e) {
                     System.err.println("For '" + URL + "': " + e.getMessage());
-                    errorMsgs = "Non-fatal " + e.getMessage() + " on "+ URL + "" ;
+                    errorMsgs = "E: " + e.getMessage() + " on "+ URL + "" ;
                 }
                 
             }

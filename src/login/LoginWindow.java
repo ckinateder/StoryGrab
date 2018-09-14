@@ -75,7 +75,7 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist = new javax.swing.JLabel();
         addsourcebtn = new keeptoo.KButton();
         websitelbl2 = new javax.swing.JLabel();
-        sourceslist1 = new javax.swing.JLabel();
+        largeoutput = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         extractbtn = new keeptoo.KButton();
         depthtogglepanel = new javax.swing.JPanel();
@@ -370,6 +370,7 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist.setText("Add a source");
+        sourceslist.setToolTipText("scroll for all sources");
         sourceslist.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
         sourceslist.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
@@ -377,7 +378,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 sourceslistMouseWheelMoved(evt);
             }
         });
-        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 360, 210));
+        extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 300, 210));
 
         addsourcebtn.setText("Sources Editor");
         addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -415,17 +416,16 @@ public class LoginWindow extends javax.swing.JFrame {
         websitelbl2.setText("Sources:");
         extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 620, 30));
 
-        sourceslist1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        sourceslist1.setForeground(new java.awt.Color(255, 255, 255));
-        sourceslist1.setText("Add a source");
-        sourceslist1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        sourceslist1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
-        sourceslist1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+        largeoutput.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        largeoutput.setForeground(new java.awt.Color(255, 255, 255));
+        largeoutput.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        largeoutput.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
+        largeoutput.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-                sourceslist1MouseWheelMoved(evt);
+                largeoutputMouseWheelMoved(evt);
             }
         });
-        extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 410, 210));
+        extractorpanel.add(largeoutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 470, 200));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1314,10 +1314,10 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtn2ActionPerformed
 
-    private void sourceslist1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslist1MouseWheelMoved
+    private void largeoutputMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_largeoutputMouseWheelMoved
         // TODO add your handling code here:
         //System.out.println(evt.getWheelRotation());
-    }//GEN-LAST:event_sourceslist1MouseWheelMoved
+    }//GEN-LAST:event_largeoutputMouseWheelMoved
 
     private void sourceslistMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslistMouseWheelMoved
         // TODO add your handling code here:
@@ -1426,6 +1426,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
             loader.passLbl(statuslbl);
             loader.passInitializedOP(onelineout);
+            loader.passBigOut(largeoutput);
             updateSources();                   
             loader.setBefore(keywordfield.getText(),currentusr);//add depth here 
             backburner.execute();
@@ -1531,6 +1532,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField keywordfield;
+    private javax.swing.JLabel largeoutput;
     private keeptoo.KButton loginbtn;
     private keeptoo.KButton logoutbtn1;
     private javax.swing.JLabel mainlogowithicon;
@@ -1545,7 +1547,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwdfield2;
     private javax.swing.JLabel pwdlbl;
     private javax.swing.JLabel sourceslist;
-    private javax.swing.JLabel sourceslist1;
     private javax.swing.JLabel statuslbl;
     private keeptoo.KButton stopbtn;
     private keeptoo.KButton tocreateaccountpg;
