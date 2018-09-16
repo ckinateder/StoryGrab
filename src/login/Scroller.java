@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 public class Scroller {
     JLabel theLabel;
     int scrollStart = 0;
-    int scrollEnd = 10; //add note at bottom that there is more
+    int scrollEnd = 10-1; //add note at bottom that there is more
     BackgroundRunner lr;
     public Scroller(BackgroundRunner lr){
         
@@ -47,6 +47,9 @@ public class Scroller {
         for(int i = scrollStart; i<scrollEnd;i++){
             String se = (i+1)+": "+lr.sources.get(i);
             s=s+se+"<br>";
+        }
+        if(lr.sources.size()-1>scrollEnd){
+            s+="...<br>";
         }
         s+="</html>";
         theLabel.setText(s);
