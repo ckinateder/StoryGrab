@@ -83,15 +83,19 @@ public class LoginWindow extends javax.swing.JFrame {
         plusdepthbtn = new keeptoo.KButton();
         dynamicdepthlbl = new javax.swing.JLabel();
         minusdepthbtn = new keeptoo.KButton();
-        chckboxandlblpanel = new javax.swing.JPanel();
-        cblbl1 = new javax.swing.JLabel();
-        twitterbtn = new keeptoo.KButton();
         keywordfield = new javax.swing.JTextField();
         stopbtn = new keeptoo.KButton();
         statuslbl = new javax.swing.JLabel();
         websitelbl7 = new javax.swing.JLabel();
+        verbosepanel = new javax.swing.JPanel();
+        cblbl2 = new javax.swing.JLabel();
+        verbosebtn = new keeptoo.KButton();
+        chckboxandlblpanel = new javax.swing.JPanel();
+        cblbl1 = new javax.swing.JLabel();
+        twitterbtn = new keeptoo.KButton();
         addsourcebtn1 = new keeptoo.KButton();
         onelineout = new javax.swing.JLabel();
+        websitelbl3 = new javax.swing.JLabel();
         addsourcebtn2 = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -413,18 +417,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
         websitelbl2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
-        websitelbl2.setText("Sources:");
-        extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 620, 30));
+        extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 160, 30));
 
         largeoutput.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         largeoutput.setForeground(new java.awt.Color(255, 255, 255));
         largeoutput.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         largeoutput.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
-        largeoutput.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
-            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-                largeoutputMouseWheelMoved(evt);
-            }
-        });
         extractorpanel.add(largeoutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 470, 200));
 
         jPanel1.setOpaque(false);
@@ -560,65 +558,6 @@ public class LoginWindow extends javax.swing.JFrame {
 
         jPanel1.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
-        chckboxandlblpanel.setOpaque(false);
-
-        cblbl1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cblbl1.setForeground(new java.awt.Color(255, 255, 255));
-        cblbl1.setText("Twitter");
-
-        twitterbtn.setToolTipText("");
-        twitterbtn.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
-        twitterbtn.setIconTextGap(0);
-        twitterbtn.setkAllowTab(false);
-        twitterbtn.setkEndColor(new java.awt.Color(0, 204, 51));
-        twitterbtn.setkHoverColor(new java.awt.Color(249, 153, 217));
-        twitterbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        twitterbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        twitterbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        twitterbtn.setkIndicatorThickness(0);
-        twitterbtn.setkPressedColor(new java.awt.Color(163, 62, 167));
-        twitterbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        twitterbtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        twitterbtn.setName(""); // NOI18N
-        twitterbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                twitterbtnMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                twitterbtnMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                twitterbtnMouseReleased(evt);
-            }
-        });
-        twitterbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                twitterbtnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout chckboxandlblpanelLayout = new javax.swing.GroupLayout(chckboxandlblpanel);
-        chckboxandlblpanel.setLayout(chckboxandlblpanelLayout);
-        chckboxandlblpanelLayout.setHorizontalGroup(
-            chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(cblbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        chckboxandlblpanelLayout.setVerticalGroup(
-            chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
-                .addGroup(chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(cblbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
-
         keywordfield.setBackground(new Color(0,0,0,0));
         keywordfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         keywordfield.setForeground(new java.awt.Color(255, 255, 255));
@@ -672,6 +611,122 @@ public class LoginWindow extends javax.swing.JFrame {
         websitelbl7.setText("Keyword");
         jPanel1.add(websitelbl7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
+        verbosepanel.setOpaque(false);
+
+        cblbl2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cblbl2.setForeground(new java.awt.Color(255, 255, 255));
+        cblbl2.setText("Verbose");
+
+        verbosebtn.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        verbosebtn.setIconTextGap(0);
+        verbosebtn.setkAllowTab(false);
+        verbosebtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        verbosebtn.setkHoverColor(new java.awt.Color(249, 153, 217));
+        verbosebtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        verbosebtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        verbosebtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        verbosebtn.setkIndicatorThickness(0);
+        verbosebtn.setkPressedColor(new java.awt.Color(163, 62, 167));
+        verbosebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        verbosebtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        verbosebtn.setName(""); // NOI18N
+        verbosebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                verbosebtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                verbosebtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verbosebtnMouseClicked(evt);
+            }
+        });
+        verbosebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verbosebtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout verbosepanelLayout = new javax.swing.GroupLayout(verbosepanel);
+        verbosepanel.setLayout(verbosepanelLayout);
+        verbosepanelLayout.setHorizontalGroup(
+            verbosepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(verbosepanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(verbosebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cblbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        verbosepanelLayout.setVerticalGroup(
+            verbosepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(verbosepanelLayout.createSequentialGroup()
+                .addGroup(verbosepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(verbosebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(cblbl2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(verbosepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 110, -1));
+
+        chckboxandlblpanel.setOpaque(false);
+
+        cblbl1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cblbl1.setForeground(new java.awt.Color(255, 255, 255));
+        cblbl1.setText("Twitter");
+
+        twitterbtn.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        twitterbtn.setIconTextGap(0);
+        twitterbtn.setkAllowTab(false);
+        twitterbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        twitterbtn.setkHoverColor(new java.awt.Color(249, 153, 217));
+        twitterbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        twitterbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        twitterbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        twitterbtn.setkIndicatorThickness(0);
+        twitterbtn.setkPressedColor(new java.awt.Color(163, 62, 167));
+        twitterbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        twitterbtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        twitterbtn.setName(""); // NOI18N
+        twitterbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                twitterbtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                twitterbtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                twitterbtnMouseClicked(evt);
+            }
+        });
+        twitterbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twitterbtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chckboxandlblpanelLayout = new javax.swing.GroupLayout(chckboxandlblpanel);
+        chckboxandlblpanel.setLayout(chckboxandlblpanelLayout);
+        chckboxandlblpanelLayout.setHorizontalGroup(
+            chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cblbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        chckboxandlblpanelLayout.setVerticalGroup(
+            chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
+                .addGroup(chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(cblbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 90, -1));
+
         extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 180));
 
         addsourcebtn1.setText("Refresh");
@@ -708,6 +763,11 @@ public class LoginWindow extends javax.swing.JFrame {
         onelineout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         onelineout.setForeground(new java.awt.Color(255, 255, 255));
         extractorpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 410, 20));
+
+        websitelbl3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        websitelbl3.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl3.setText("Sources:");
+        extractorpanel.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 30));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 810, 440));
 
@@ -1314,15 +1374,38 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtn2ActionPerformed
 
-    private void largeoutputMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_largeoutputMouseWheelMoved
-        // TODO add your handling code here:
-        //System.out.println(evt.getWheelRotation());
-    }//GEN-LAST:event_largeoutputMouseWheelMoved
-
     private void sourceslistMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslistMouseWheelMoved
         // TODO add your handling code here:
         sourceScroller.scrollSources(evt);
     }//GEN-LAST:event_sourceslistMouseWheelMoved
+
+    private void verbosebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verbosebtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verbosebtnMouseClicked
+
+    private void verbosebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verbosebtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verbosebtnMousePressed
+
+    private void verbosebtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verbosebtnMouseReleased
+        // TODO add your handling code here:
+        if(verbosebtn.isSelected()){
+            verbosebtn.setSelected(false);
+            verbosebtn.setText("");
+            websitelbl2.setText("");
+            loader.setVerbose(false);
+        }
+        else{
+            verbosebtn.setSelected(true);
+            verbosebtn.setText("X");
+            websitelbl2.setText("Verbose Out:");
+            loader.setVerbose(true);
+        }
+    }//GEN-LAST:event_verbosebtnMouseReleased
+
+    private void verbosebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verbosebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verbosebtnActionPerformed
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------
@@ -1423,12 +1506,13 @@ public class LoginWindow extends javax.swing.JFrame {
     public void extract() throws InterruptedException{
         if(!loader.isRunning()){
             backburner = loader.createWorker(); //move these to extract.
-
+            
             loader.passLbl(statuslbl);
             loader.passInitializedOP(onelineout);
             loader.passBigOut(largeoutput);
             updateSources();                   
             loader.setBefore(keywordfield.getText(),currentusr);//add depth here 
+            
             backburner.execute();
             statuslbl.setText("Extracting...");            
         }
@@ -1512,6 +1596,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KButton addsourcebtn2;
     private keeptoo.KButton backfromca;
     private javax.swing.JLabel cblbl1;
+    private javax.swing.JLabel cblbl2;
     private javax.swing.JPanel chckboxandlblpanel;
     private javax.swing.JLabel closelbl;
     private javax.swing.JLabel closelbl1;
@@ -1555,7 +1640,10 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JTextField userfield1;
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
+    private keeptoo.KButton verbosebtn;
+    private javax.swing.JPanel verbosepanel;
     private javax.swing.JLabel websitelbl2;
+    private javax.swing.JLabel websitelbl3;
     private javax.swing.JLabel websitelbl7;
     // End of variables declaration//GEN-END:variables
 }

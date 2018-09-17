@@ -41,6 +41,7 @@ public class BackgroundRunner {
     String extractorFile = "links.txt";
     JLabel statusLblRef, outputlbl, longout;
     boolean shouldStop = false;
+    boolean verbose = false;
     
     public BackgroundRunner(){
         
@@ -181,7 +182,9 @@ public class BackgroundRunner {
     public void broStop(){
         shouldStop = true;
     }
-    
+    public void setVerbose(boolean j){
+        verbose = j;
+    }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
             @Override
@@ -212,8 +215,8 @@ public class BackgroundRunner {
                 int percent = 0;
                 ArrayList<Extractor> used = new ArrayList<>();
                 statusLblRef.setText("Extracting... "+percent+"%");
-                for(int i = 0; i<11;i++){
-                    publish(""); //fill chunks to ten
+                for(int i = 0; i<12;i++){
+                    publish("Starting..."); //fill chunks to ten
                 }
                 while(!alldone){
                     isRunning = true;
@@ -277,14 +280,23 @@ public class BackgroundRunner {
                 String currentOut = "";
                 currentOut= chunks.get(chunks.size()-1);
                 outputlbl.setText(currentOut);
-                String bo = ""; //no scroll
-                bo = "<html>";
-                for(int i = chunks.size()-10; i<chunks.size();i++){
-                    String se = chunks.get(i).replaceAll("Searching ", "");
-                    bo=bo+se+"<br>";
+                int st = chunks.size()-10;
+                if(st<0){
+                    st=0;
                 }
-                bo+="</html>";
-                longout.setText(bo);
+                if(verbose){
+                    String bo = ""; //no scroll
+                    bo = "<html>";
+                    for(int i = st; i<chunks.size();i++){
+                        String se = chunks.get(i).replaceAll("Searching ", "");
+                        bo=bo+se+"<br>";
+                    }
+                    bo+="</html>";
+                    longout.setText(bo);
+                }
+                else{
+                    longout.setText("");
+                }
             }
             @Override
             protected void done() {
