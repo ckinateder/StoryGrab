@@ -34,7 +34,7 @@ public class Scroller {
         int scAmount = mwheel.getWheelRotation();
         //System.out.println(scAmount);
         lr.updateSrc();
-        if(scrollStart+scAmount>=0 && scrollEnd+scAmount<lr.sources.size()){
+        if(scrollStart+scAmount>=0 && scrollEnd+scAmount<lr.sources.size()+1){
             scrollStart+=scAmount;         
             scrollEnd+=scAmount;
         }

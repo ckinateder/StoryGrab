@@ -79,7 +79,7 @@ public class BackgroundRunner {
             while ((line = bufferedReader.readLine()) != null) {
                  sources.add(line);
             }
-            
+            //System.out.println(sources);
             //System.out.println(users);
             // Always close files.
             bufferedReader.close();         
@@ -313,12 +313,8 @@ public class BackgroundRunner {
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                }               
-                
-                
+                }
             }
         };
-    } // End of Method: createWorker()
-
-    
+    } // End of Method: createWorker()    
 }
