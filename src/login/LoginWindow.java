@@ -1366,8 +1366,12 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_addsourcebtn2MousePressed
 
     private void addsourcebtn2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn2MouseReleased
-        // TODO add your handling code here:
-        openOutput();
+        try {
+            // TODO add your handling code here:
+            openOutput();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_addsourcebtn2MouseReleased
 
     private void addsourcebtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtn2ActionPerformed
@@ -1417,6 +1421,8 @@ public class LoginWindow extends javax.swing.JFrame {
     SwingWorker backburner = loader.createWorker(); //move these to extract.
     
     Scroller sourceScroller = new Scroller(loader);
+    
+    Analyzer an = new Analyzer();
     
     public void resetAllFields(){
         pwdfield.setText("");
@@ -1490,12 +1496,12 @@ public class LoginWindow extends javax.swing.JFrame {
         String[] sg = new String[0];
         HelpMenu.main(sg);
     }
-    public void openOutput(){/*
+    public void openOutput() throws IOException{/*
         String[] sg = new String[0];
         OptionalOutput op = new OptionalOutput();
         loader.passInitializedOP(websitelbl6);//works within class.
         op.main(sg);*/ //no   
-        
+        an.run();
     }
     public void sourcesEditor(){//open sources editor
         
