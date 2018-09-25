@@ -201,15 +201,7 @@ public class BackgroundRunner {
                 for(Extractor e : extractors){
                    e.start();//make new thread for each extractor
                 }
-                /*                
-                for(Thread t : extractors){
-                    //Future<?> f = executor.submit(t);
-                    //futures.add(f);
-                    t.start();
-                }
-                *//*
                 
-                */
                 boolean alldone=false;
                 int leftToDo = extractors.size();
                 int percent = 0;
