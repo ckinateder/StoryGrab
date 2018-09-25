@@ -20,6 +20,7 @@ import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
 /**
  *
  * @author calvin kinateder
@@ -38,42 +39,33 @@ public class Extractor extends Thread {
     public String toBG = "";//to send to the backgroundrunner
     //add search string and accessor
     public String errorMsgs = "";//to send to bg too
+    ConcurrentHashMap passedset;
+    
     public Extractor() {
         links = new HashSet<>();
         sb = new StringBuilder();
         
-    }/*
-    public Extractor(String f) {
+    }
+    public Extractor(String w, ConcurrentHashMap ps){
         links = new HashSet<>();
-        sb = new StringBuilder();
-        file=f;
-    }*/
-    public Extractor(String w){
-        links = new HashSet<>();
-        sb = new StringBuilder();
-        //file=f;
+        sb = new StringBuilder();        
         webpage=w;
+        passedset = ps;
     }
     
     public void writeToFile(String fileName, String toWrite, boolean append){
         // The name of the file to open.
         //String fileName = "accounts.txt";
-
         try {
-            // Assume default encoding.
-            
+            // Assume default encoding.            
             FileWriter fileWriter =
                 new FileWriter(fileName,append);//add true to append
-
             // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
-
             // Note that write() does not automatically
             // append a newline character./*
             bufferedWriter.write(toWrite);
-            //bufferedWriter.newLine();            
-            
             // Always close files.
             bufferedWriter.close();
         }
@@ -93,7 +85,6 @@ public class Extractor extends Thread {
                 //sb.append(URL + "\n");//add to the thing to be written 
                 FileWriter fileWriter =
                 new FileWriter(file,true);//add true to append
-
             // Always wrap FileWriter in BufferedWriter.
                 BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
@@ -112,8 +103,6 @@ public class Extractor extends Thread {
                     System.err.println("For '" + URL + "': " + e.getMessage());
                 }
             }
-            
-
         }
         catch(IOException ex) {
             System.out.println(
@@ -147,33 +136,24 @@ public class Extractor extends Thread {
                     links.add(URL); //add link to the hashset
                     Document document = Jsoup.connect(URL)
                             .header("Authorization", "Basic " + encodedString)
-                            .get();
-                    
+                            .get();                    
                     Elements linksOnPage = document.select("a[href]");
                     if(document.text().toLowerCase().contains(searchFor.toLowerCase())||
-                            URL.toLowerCase().contains(searchFor.toLowerCase())){//search in doc and link
-                    //System.out.println("ARTICLE CONTAINS :: "+searchFor);
+                        URL.toLowerCase().contains(searchFor.toLowerCase())){//search in doc and link
+                        //System.out.println("ARTICLE CONTAINS :: "+searchFor);
                         bufferedWriter.write(URL+"\n"); //only write if theres search term
                         //bufferedWriter.write("LINK: "+URL+"\nTEXT:\n"+document.text()+"\n\n");
                     }
                     bufferedWriter.close();
-                    depth++;
-                    
+                    depth++;                    
                     for (Element page : linksOnPage) { //iterate through links on page
-                        
                             searchPageLinks(page.attr("abs:href"), depth,strUserId,strPassword);
-                        
-                        
-                    }                
-
+                    }
                 } catch (IOException | IllegalArgumentException e) {
                     System.err.println("For '" + URL + "': " + e.getMessage());
                     errorMsgs = "E: " + e.getMessage() + " on "+ URL + "" ;
-                }
-                
+                }                
             }
-            
-
         }
         catch(IOException ex) {
             System.out.println(
@@ -206,13 +186,7 @@ public class Extractor extends Thread {
         username = u;
         password = p;
     }
-    /*
-    public void setDone(boolean d){
-        done=d;
-    }
-    public boolean isDone(){
-        return done;
-    }*/
+   
     @Override
     public void run() {// l is link
        // writeToFile(file,"", false); //overwrite the file

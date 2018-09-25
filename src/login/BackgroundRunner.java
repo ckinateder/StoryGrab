@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CancellationException;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -42,13 +43,16 @@ public class BackgroundRunner {
     JLabel statusLblRef, outputlbl, longout;
     boolean shouldStop = false;
     boolean verbose = false;
-    
+    ConcurrentHashMap passedset;
     public BackgroundRunner(){
         
         searchFor="";
         currentusr=new User();
         updateSrc();
         
+    }
+    public void passHashMap(ConcurrentHashMap h){
+        passedset = h;
     }
     public void passLbl(JLabel l){
         statusLblRef = l;
@@ -127,7 +131,7 @@ public class BackgroundRunner {
         
         for(String src : sources){
             //if(!src.equals())
-                extractors.add(new Extractor(src));//make new extractor for each source
+                extractors.add(new Extractor(src, passedset));//make new extractor for each source
         }
         setMaxDepth(maxDepth);
         setCreds(u);
