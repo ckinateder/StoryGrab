@@ -14,7 +14,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -302,7 +305,14 @@ public class BackgroundRunner {
                     bStatus = get();                   
                     statusLblRef.setText("");
                     if(bStatus ==true){
-                    System.out.println("Done on all!");
+                        System.out.println("Done on all!");
+                        Set set = passedset.entrySet();
+                        Iterator iterator = set.iterator();
+                        while(iterator.hasNext()) {
+                           Map.Entry mentry = (Map.Entry)iterator.next();
+                           System.out.print("key is: "+ mentry.getKey() + " \n& Value is: ");
+                           System.out.println(mentry.getValue());
+                        }
                     }
                     else{
                         System.out.println("Cancelled by user");

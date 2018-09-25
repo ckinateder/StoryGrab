@@ -139,15 +139,14 @@ public class Extractor extends Thread {
                             .get();                    
                     Elements linksOnPage = document.select("a[href]");
                     if(document.text().toLowerCase().contains(searchFor.toLowerCase())||
-                        URL.toLowerCase().contains(searchFor.toLowerCase())){//search in doc and link
-                        //System.out.println("ARTICLE CONTAINS :: "+searchFor);
+                        URL.toLowerCase().contains(searchFor.toLowerCase())){//search in doc and link                        
                         bufferedWriter.write(URL+"\n"); //only write if theres search term
-                        //bufferedWriter.write("LINK: "+URL+"\nTEXT:\n"+document.text()+"\n\n");
+                        passedset.put(URL, new Link(URL));
                     }
                     bufferedWriter.close();
                     depth++;                    
                     for (Element page : linksOnPage) { //iterate through links on page
-                            searchPageLinks(page.attr("abs:href"), depth,strUserId,strPassword);
+                        searchPageLinks(page.attr("abs:href"), depth,strUserId,strPassword);
                     }
                 } catch (IOException | IllegalArgumentException e) {
                     System.err.println("For '" + URL + "': " + e.getMessage());

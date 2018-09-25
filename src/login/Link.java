@@ -17,6 +17,11 @@ public class Link {
         hyperlink = ""; // avoid NullPointerException
         relevance = -1; // not calculated
     }
+    public Link(String hyperlink){
+        this.title = "no title ";
+        this.hyperlink = hyperlink;
+        relevance = -1; //not calculated
+    }
     public Link(String title, String hyperlink){
         this.title = title;
         this.hyperlink = hyperlink;
@@ -44,5 +49,8 @@ public class Link {
     }
     public void setRelevance(double t){
         this.relevance = t;
+    }
+    public String toString(){
+        return "Link: "+hyperlink+" Relevance: "+relevance;
     }
 }
