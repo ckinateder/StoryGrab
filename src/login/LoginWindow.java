@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -1422,7 +1423,7 @@ public class LoginWindow extends javax.swing.JFrame {
     SwingWorker backburner = loader.createWorker(); //move these to extract.
     Scroller sourceScroller = new Scroller(loader);
     Analyzer an = new Analyzer(); //make static
-    ConcurrentHashMap linkset = new ConcurrentHashMap(); //fill with links
+    Vector<Link> linkset = new Vector<>(); //fill with links
     
     public void resetAllFields(){
         pwdfield.setText("");
@@ -1512,7 +1513,7 @@ public class LoginWindow extends javax.swing.JFrame {
     public void extract() throws InterruptedException{
         if(!loader.isRunning()){
             backburner = loader.createWorker(); //move these to extract.
-            loader.passHashMap(linkset);
+            loader.passVec(linkset);
             loader.passLbl(statuslbl);
             loader.passInitializedOP(onelineout);
             loader.passBigOut(largeoutput);

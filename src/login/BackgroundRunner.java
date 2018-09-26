@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Vector;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -46,7 +47,7 @@ public class BackgroundRunner {
     JLabel statusLblRef, outputlbl, longout;
     boolean shouldStop = false;
     boolean verbose = false;
-    ConcurrentHashMap passedset;
+    Vector<Link> passedset;
     public BackgroundRunner(){
         
         searchFor="";
@@ -54,7 +55,7 @@ public class BackgroundRunner {
         updateSrc();
         
     }
-    public void passHashMap(ConcurrentHashMap h){
+    public void passVec(Vector h){
         passedset = h;
     }
     public void passLbl(JLabel l){
@@ -306,12 +307,8 @@ public class BackgroundRunner {
                     statusLblRef.setText("");
                     if(bStatus ==true){
                         System.out.println("Done on all!");
-                        Set set = passedset.entrySet();
-                        Iterator iterator = set.iterator();
-                        while(iterator.hasNext()) {
-                           Map.Entry mentry = (Map.Entry)iterator.next();
-                           System.out.print("key is: "+ mentry.getKey() + " \n& Value is: ");
-                           System.out.println(mentry.getValue());
+                        for(Link l : passedset){
+                            System.out.println(l);
                         }
                     }
                     else{
