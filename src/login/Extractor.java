@@ -34,6 +34,7 @@ public class Extractor extends Thread {
     private String file="links.txt";
     public String webpage = "";
     public boolean done = false;
+    private boolean stop = false;
     private String username="";
     private String password="";
     public String toBG = "";//to send to the backgroundrunner
@@ -80,7 +81,7 @@ public class Extractor extends Thread {
             String authString = strUserId + ":" + strPassword;
             String encodedString = 
                     Base64.getEncoder().encodeToString(authString.getBytes());            
-            if ((!alreadySearched.contains(URL) && (depth < maxDepth))) {
+            if ((!alreadySearched.contains(URL) && (depth < maxDepth))&&!stop) {
                 FileWriter fileWriter =
                 new FileWriter(file,true);//add true to append
             // Always wrap FileWriter in BufferedWriter.
@@ -89,6 +90,7 @@ public class Extractor extends Thread {
                 //System.out.println("Searching  "+URL);//print output
                 toBG="Searching "+URL+"\n";//add to toBG
                //could use file
+                
                 try {
                     alreadySearched.add(URL); //add link to the hashset
                     Document document = Jsoup.connect(URL)
@@ -102,7 +104,7 @@ public class Extractor extends Thread {
                         //search in doc and link                        
                         bufferedWriter.write(URL+"\n"); // write if search term
                         dynamicSet.add(new Link(URL, txt.text()));
-                        System.out.println(dynamicSet.get(dynamicSet.size()-1));
+                        //System.out.println(dynamicSet.get(dynamicSet.size()-1));
                     }
                     bufferedWriter.close();
                     depth++;                    
@@ -114,17 +116,22 @@ public class Extractor extends Thread {
                 } catch (IOException | IllegalArgumentException e) {
                     System.err.println("For '" + URL + "': " + e.getMessage());
                     errorMsgs = "E: " + e.getMessage() + " on "+ URL + "" ;
-                }                
+                }
             }
-        }
-        catch(IOException ex) {
+        }catch(IOException ex) {
             System.out.println(
                 "Error writing to file '"
                 + file + "'");
             // Or we could just do this:
             // ex.printStackTrace();
         }
+        // Or we could just do this:
+        // ex.printStackTrace();
+        
         return true;
+    }
+    public void setStop(boolean t) {
+        stop = t;
     }
     public void setWebpage(String l){
         webpage = l;

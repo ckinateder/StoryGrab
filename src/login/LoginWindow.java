@@ -150,7 +150,7 @@ public class LoginWindow extends javax.swing.JFrame {
         LoginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userfield.setBackground(new Color(0,0,0,0));
-        userfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userfield.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         userfield.setForeground(new java.awt.Color(255, 255, 255));
         userfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         userfield.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -164,13 +164,13 @@ public class LoginWindow extends javax.swing.JFrame {
         userfield.getAccessibleContext().setAccessibleName("");
 
         pwdfield.setBackground(new Color(0,0,0,0));
-        pwdfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pwdfield.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         pwdfield.setForeground(new java.awt.Color(255, 255, 255));
         pwdfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         pwdfield.setCaretColor(new java.awt.Color(255, 255, 255));
         LoginPanel.add(pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 350, 30));
 
-        orlblNI.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        orlblNI.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         orlblNI.setForeground(new java.awt.Color(255, 255, 255));
         orlblNI.setText("or");
         LoginPanel.add(orlblNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
@@ -184,28 +184,28 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
         closelbl.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closelblMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                closelblMouseEntered(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 closelblMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 closelblMouseReleased(evt);
             }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closelblMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closelblMouseEntered(evt);
+            }
         });
         LoginPanel.add(closelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
-        userlbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        userlbl.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         userlbl.setForeground(new java.awt.Color(255, 255, 255));
         userlbl.setText("username");
         LoginPanel.add(userlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 70, -1));
 
         tocreateaccountpg.setText("Help");
-        tocreateaccountpg.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        tocreateaccountpg.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         tocreateaccountpg.setkAllowTab(false);
         tocreateaccountpg.setkBackGroundColor(new java.awt.Color(255, 255, 255));
         tocreateaccountpg.setkBorderRadius(40);
@@ -217,14 +217,14 @@ public class LoginWindow extends javax.swing.JFrame {
         tocreateaccountpg.setkPressedColor(new java.awt.Color(167, 69, 199));
         tocreateaccountpg.setkSelectedColor(new java.awt.Color(163, 62, 167));
         tocreateaccountpg.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tocreateaccountpgMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tocreateaccountpgMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tocreateaccountpgMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tocreateaccountpgMouseClicked(evt);
             }
         });
         tocreateaccountpg.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +240,7 @@ public class LoginWindow extends javax.swing.JFrame {
         LoginPanel.add(tocreateaccountpg, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 150, 40));
 
         loginbtn.setText("Login");
-        loginbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        loginbtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         loginbtn.setkAllowTab(false);
         loginbtn.setkBorderRadius(40);
         loginbtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -252,14 +252,14 @@ public class LoginWindow extends javax.swing.JFrame {
         loginbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
         loginbtn.setName(""); // NOI18N
         loginbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginbtnMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 loginbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 loginbtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginbtnMouseClicked(evt);
             }
         });
         loginbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -276,12 +276,12 @@ public class LoginWindow extends javax.swing.JFrame {
         nouserwithname.setForeground(new java.awt.Color(255, 255, 255));
         LoginPanel.add(nouserwithname, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 400, 20));
 
-        pwdlbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        pwdlbl.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         pwdlbl.setForeground(new java.awt.Color(255, 255, 255));
         pwdlbl.setText("password");
         LoginPanel.add(pwdlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
 
-        mainlogowithicon.setFont(new java.awt.Font("Segoe UI Semibold", 0, 26)); // NOI18N
+        mainlogowithicon.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
         mainlogowithicon.setForeground(new java.awt.Color(255, 255, 255));
         mainlogowithicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-news-50.png"))); // NOI18N
         mainlogowithicon.setText(" StoryGrab");
@@ -318,14 +318,14 @@ public class LoginWindow extends javax.swing.JFrame {
         closelbl1.setForeground(new java.awt.Color(255, 255, 255));
         closelbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
         closelbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                closelbl1MouseReleased(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closelbl1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 closelbl1MouseEntered(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                closelbl1MouseReleased(evt);
             }
         });
         MainPanel.add(closelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
@@ -333,13 +333,13 @@ public class LoginWindow extends javax.swing.JFrame {
         profileiconlbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
         MainPanel.add(profileiconlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        usertitlelbl.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        usertitlelbl.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         usertitlelbl.setForeground(new java.awt.Color(255, 255, 255));
         usertitlelbl.setText("Calvin J. Kinateder");
         MainPanel.add(usertitlelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 200, 20));
 
         logoutbtn1.setText("Logout");
-        logoutbtn1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        logoutbtn1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         logoutbtn1.setkAllowTab(false);
         logoutbtn1.setkBorderRadius(40);
         logoutbtn1.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -353,14 +353,14 @@ public class LoginWindow extends javax.swing.JFrame {
         logoutbtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
         logoutbtn1.setName(""); // NOI18N
         logoutbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutbtn1MouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 logoutbtn1MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 logoutbtn1MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutbtn1MouseClicked(evt);
             }
         });
         logoutbtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -373,7 +373,7 @@ public class LoginWindow extends javax.swing.JFrame {
         extractorpanel.setOpaque(false);
         extractorpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        sourceslist.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sourceslist.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         sourceslist.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist.setText("Add a source");
         sourceslist.setToolTipText("scroll for all sources");
@@ -387,7 +387,7 @@ public class LoginWindow extends javax.swing.JFrame {
         extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 300, 210));
 
         addsourcebtn.setText("Sources Editor");
-        addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        addsourcebtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         addsourcebtn.setkAllowTab(false);
         addsourcebtn.setkBorderRadius(40);
         addsourcebtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -400,14 +400,14 @@ public class LoginWindow extends javax.swing.JFrame {
         addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
         addsourcebtn.setName(""); // NOI18N
         addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 addsourcebtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 addsourcebtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseClicked(evt);
             }
         });
         addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -415,13 +415,13 @@ public class LoginWindow extends javax.swing.JFrame {
                 addsourcebtnActionPerformed(evt);
             }
         });
-        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 100, 40));
+        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 110, 40));
 
-        websitelbl2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        websitelbl2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
         extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 160, 30));
 
-        largeoutput.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        largeoutput.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         largeoutput.setForeground(new java.awt.Color(255, 255, 255));
         largeoutput.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         largeoutput.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
@@ -431,7 +431,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         extractbtn.setText("Extract");
-        extractbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        extractbtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         extractbtn.setkAllowTab(false);
         extractbtn.setkBorderRadius(40);
         extractbtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -444,14 +444,14 @@ public class LoginWindow extends javax.swing.JFrame {
         extractbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
         extractbtn.setName(""); // NOI18N
         extractbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                extractbtnMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 extractbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 extractbtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                extractbtnMouseClicked(evt);
             }
         });
         extractbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -463,12 +463,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
         depthtogglepanel.setOpaque(false);
 
-        depthlbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        depthlbl.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         depthlbl.setForeground(new java.awt.Color(255, 255, 255));
         depthlbl.setText("Depth");
 
         plusdepthbtn.setText("+");
-        plusdepthbtn.setFont(new java.awt.Font("American Typewriter", 0, 36)); // NOI18N
+        plusdepthbtn.setFont(new java.awt.Font("Ubuntu", 0, 30)); // NOI18N
         plusdepthbtn.setkAllowTab(false);
         plusdepthbtn.setkBorderRadius(40);
         plusdepthbtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -503,7 +503,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         minusdepthbtn.setText("-");
         minusdepthbtn.setToolTipText("");
-        minusdepthbtn.setFont(new java.awt.Font("American Typewriter", 0, 36)); // NOI18N
+        minusdepthbtn.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
         minusdepthbtn.setkAllowTab(false);
         minusdepthbtn.setkBorderRadius(40);
         minusdepthbtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -513,7 +513,6 @@ public class LoginWindow extends javax.swing.JFrame {
         minusdepthbtn.setkIndicatorThickness(0);
         minusdepthbtn.setkPressedColor(new java.awt.Color(167, 69, 199));
         minusdepthbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        minusdepthbtn.setMargin(new java.awt.Insets(0, 0, 0, 0));
         minusdepthbtn.setName(""); // NOI18N
         minusdepthbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -561,7 +560,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jPanel1.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
         keywordfield.setBackground(new Color(0,0,0,0));
-        keywordfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        keywordfield.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         keywordfield.setForeground(new java.awt.Color(255, 255, 255));
         keywordfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         keywordfield.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -574,7 +573,7 @@ public class LoginWindow extends javax.swing.JFrame {
         jPanel1.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 350, 30));
 
         stopbtn.setText("Stop");
-        stopbtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        stopbtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         stopbtn.setkAllowTab(false);
         stopbtn.setkBorderRadius(40);
         stopbtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -608,14 +607,14 @@ public class LoginWindow extends javax.swing.JFrame {
         statuslbl.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 20));
 
-        websitelbl7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        websitelbl7.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         websitelbl7.setForeground(new java.awt.Color(255, 255, 255));
         websitelbl7.setText("Keyword");
         jPanel1.add(websitelbl7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
         verbosepanel.setOpaque(false);
 
-        cblbl2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cblbl2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         cblbl2.setForeground(new java.awt.Color(255, 255, 255));
         cblbl2.setText("Verbose");
 
@@ -673,7 +672,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         chckboxandlblpanel.setOpaque(false);
 
-        cblbl1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cblbl1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         cblbl1.setForeground(new java.awt.Color(255, 255, 255));
         cblbl1.setText("Twitter");
 
@@ -732,7 +731,7 @@ public class LoginWindow extends javax.swing.JFrame {
         extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 180));
 
         addsourcebtn1.setText("Refresh");
-        addsourcebtn1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        addsourcebtn1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         addsourcebtn1.setkAllowTab(false);
         addsourcebtn1.setkBorderRadius(40);
         addsourcebtn1.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -745,14 +744,14 @@ public class LoginWindow extends javax.swing.JFrame {
         addsourcebtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
         addsourcebtn1.setName(""); // NOI18N
         addsourcebtn1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtn1MouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 addsourcebtn1MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 addsourcebtn1MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtn1MouseClicked(evt);
             }
         });
         addsourcebtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -762,11 +761,11 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         extractorpanel.add(addsourcebtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, 40));
 
-        onelineout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        onelineout.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         onelineout.setForeground(new java.awt.Color(255, 255, 255));
         extractorpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 410, 20));
 
-        websitelbl3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        websitelbl3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         websitelbl3.setForeground(new java.awt.Color(255, 255, 255));
         websitelbl3.setText("Sources:");
         extractorpanel.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 30));
@@ -775,7 +774,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         addsourcebtn2.setText("Output");
         addsourcebtn2.setEnabled(false);
-        addsourcebtn2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        addsourcebtn2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         addsourcebtn2.setkAllowTab(false);
         addsourcebtn2.setkBorderRadius(40);
         addsourcebtn2.setkEndColor(new java.awt.Color(0, 204, 51));

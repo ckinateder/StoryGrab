@@ -152,25 +152,16 @@ public class BackgroundRunner {
     
     
     public void writeToFile(String fileName, String toWrite, boolean append){
-        // The name of the file to open.
-        //String fileName = "accounts.txt";
-
         try {
-            // Assume default encoding.
-            
+            // Assume default encoding.            
             FileWriter fileWriter =
                 new FileWriter(fileName,append);//add true to append
-
             // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
-
             // Note that write() does not automatically
             // append a newline character./*
             bufferedWriter.write(toWrite);
-            //bufferedWriter.newLine();            
-            
-            // Always close files.
             bufferedWriter.close();
         }
         catch(IOException ex) {
@@ -249,7 +240,7 @@ public class BackgroundRunner {
                         if(shouldStop){
                             publish("Cancelled by user");
                             for(Extractor ts : extractors){
-                                ts.interrupt();
+                                ts.setStop(true);
                             }
                             
                             shouldStop = false; //so loader can be used again
