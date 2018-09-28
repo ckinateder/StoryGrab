@@ -10,7 +10,9 @@ package login;
  * @author ckinateder
  */
 public class Link {
-    private String title, hyperlink, text;
+    private String title;
+    private String hyperlink;
+    private String body;
     private double relevance;
     public Link(){
         title = ""; // avoid NullPointerException
@@ -22,8 +24,8 @@ public class Link {
         this.hyperlink = hyperlink;
         relevance = -1; //not calculated
     }
-    public Link(String hyperlink, String text){
-        this.text = text;
+    public Link(String hyperlink, String body){
+        this.body = body;
         this.hyperlink = hyperlink;
         relevance = -1; //not calculated
     }
@@ -39,7 +41,7 @@ public class Link {
         return hyperlink;
     }
     public String getText(){
-        return text;
+        return body;
     }
     public double getRelevance(){
         return relevance;
@@ -48,7 +50,7 @@ public class Link {
         this.title = t;
     }
     public void setText(String t){
-        this.text = t;
+        this.body = t;
     }
     public void setHyperlink(String t){
         this.hyperlink = t;
@@ -60,6 +62,6 @@ public class Link {
     @Override
     public String toString(){
         return "\nLink: "+hyperlink+""
-                + "\nRelevance: "+relevance+"\nText: "+text;
+                + "\nRelevance: "+relevance+"\nText: "+body;
     }
 }
