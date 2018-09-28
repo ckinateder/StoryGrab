@@ -29,29 +29,24 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Extractor extends Thread {
     public int maxDepth = 5;
-    private HashSet<String> links;
-    public String searchFor = "politics";
-    StringBuilder sb;
-    String file="links.txt";
+    private HashSet<String> alreadySearched;
+    public String searchFor = "";    
+    private String file="links.txt";
     public String webpage = "";
     public boolean done = false;
     private String username="";
     private String password="";
     public String toBG = "";//to send to the backgroundrunner
-    //add search string and accessor
     public String errorMsgs = "";//to send to bg too
-    Vector passedset;
+    public Vector dynamicSet;
     
     public Extractor() {
-        links = new HashSet<>();
-        sb = new StringBuilder();
-        
+        alreadySearched = new HashSet<>();
     }
     public Extractor(String w, Vector ps){
-        links = new HashSet<>();
-        sb = new StringBuilder();        
+        alreadySearched = new HashSet<>();              
         webpage=w;
-        passedset = ps;
+        dynamicSet = ps;
     }
     
     public void writeToFile(String fileName, String toWrite, boolean append){
@@ -65,7 +60,7 @@ public class Extractor extends Thread {
             BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
             // Note that write() does not automatically
-            // append a newline character./*
+            // append a newline character.
             bufferedWriter.write(toWrite);
             // Always close files.
             bufferedWriter.close();
@@ -81,18 +76,13 @@ public class Extractor extends Thread {
     
     public boolean searchPageLinks(String URL, int depth, String strUserId, 
             String strPassword) {//returns true when done
-        try {
-            
+        try {            
             String authString = strUserId + ":" + strPassword;
             String encodedString = 
-                    Base64.getEncoder().encodeToString(authString.getBytes());
-            
-            if ((!links.contains(URL) && (depth < maxDepth))) {
-                
-                //sb.append(URL + "\n");//add to the thing to be written 
+                    Base64.getEncoder().encodeToString(authString.getBytes());            
+            if ((!alreadySearched.contains(URL) && (depth < maxDepth))) {
                 FileWriter fileWriter =
                 new FileWriter(file,true);//add true to append
-
             // Always wrap FileWriter in BufferedWriter.
                 BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
@@ -100,24 +90,24 @@ public class Extractor extends Thread {
                 toBG="Searching "+URL+"\n";//add to toBG
                //could use file
                 try {
-                    links.add(URL); //add link to the hashset
+                    alreadySearched.add(URL); //add link to the hashset
                     Document document = Jsoup.connect(URL)
                             .header("Authorization", "Basic " + encodedString)
                             .get();                    
-                    Elements linksOnPage = document.select("a[href]");
+                    Elements alreadySearchedOnPage = document.select("a[href]");
                     Elements txt = document.select("p");
                     if(document.text().toLowerCase().contains
                             (searchFor.toLowerCase())||
                         URL.toLowerCase().contains(searchFor.toLowerCase())){
                         //search in doc and link                        
                         bufferedWriter.write(URL+"\n"); // write if search term
-                        passedset.add(new Link(URL, txt.text()));
-                        System.out.println(passedset.get(passedset.size()-1));
+                        dynamicSet.add(new Link(URL, txt.text()));
+                        System.out.println(dynamicSet.get(dynamicSet.size()-1));
                     }
                     bufferedWriter.close();
                     depth++;                    
-                    //iterate through links on page
-                    for (Element page : linksOnPage) {
+                    //iterate through alreadySearched on page
+                    for (Element page : alreadySearchedOnPage) {
                         searchPageLinks(page.attr("abs:href"), 
                                 depth,strUserId,strPassword);
                     }
@@ -166,8 +156,7 @@ public class Extractor extends Thread {
         //getPageLinks(webpage, 0);
         done = searchPageLinks(webpage, 0, username, password); //done probs not needed
         //if(Thread.currentThread().isInterrupted()){            
-            System.out.println("Extractor client done on "+webpage);            
-        
+        System.out.println("Extractor client done on "+webpage);
     }
     public String toString(){
         return "Page: "+webpage+", Depth: "+maxDepth+", File: "+file;
