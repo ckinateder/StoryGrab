@@ -45,6 +45,7 @@ public class LoginWindow extends javax.swing.JFrame {
         initComponents();
         panelSwitcher(1);        
         updateSources();
+        refreshChild.execute();
     }
     
     /**
@@ -1423,7 +1424,9 @@ public class LoginWindow extends javax.swing.JFrame {
     Scroller sourceScroller = new Scroller(loader);
     Analyzer an = new Analyzer(); //make static
     Vector<Link> linkset = new Vector<>(); //fill with links
-    
+    AutomaticScrollUpdater refresher =
+            new AutomaticScrollUpdater(sourceScroller);
+    SwingWorker refreshChild = refresher.createWorker();
     public void resetAllFields(){
         pwdfield.setText("");
         pwdfield2.setText("");
@@ -1464,8 +1467,8 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }
     public void login(){//SECURE VERSION      
-        currentusr = new User(userfield.getText(),new String(pwdfield.getPassword()));
-        
+        currentusr = new User(userfield.getText(),
+                new String(pwdfield.getPassword()));        
         panelSwitcher(2);
     }
     public void loginwithcreate(boolean fromWhere){//created for a
@@ -1572,7 +1575,7 @@ public class LoginWindow extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginWindow().setVisible(true);
-                 
+                
             }            
         });
     }

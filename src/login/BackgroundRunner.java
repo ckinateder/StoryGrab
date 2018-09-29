@@ -37,7 +37,7 @@ public class BackgroundRunner {
     User currentusr;
     ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
-    ArrayList<String> sources = new ArrayList<>();
+    ArrayList<Link> sources = new ArrayList<>();
     //ArrayList<Thread> extractors = new ArrayList<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
@@ -84,7 +84,7 @@ public class BackgroundRunner {
                 new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                 sources.add(line);
+                 sources.add(new Link(line));
             }
             //System.out.println(sources);
             //System.out.println(users);
@@ -94,9 +94,9 @@ public class BackgroundRunner {
         catch(FileNotFoundException ex) {
             System.out.println(
                 "Unable to open file '" + 
-                sourcesFile + "'");
+                sourcesFile + "'");/*
             sources.add("Unable to open file '" + 
-                sourcesFile + "'");
+                sourcesFile + "'");*/
         }
         catch(IOException ex) {
             System.out.println(
@@ -104,8 +104,9 @@ public class BackgroundRunner {
                 + sourcesFile + "'");                  
             // Or we could just do this: 
             // ex.printStackTrace();
+            /*
             sources.add("Error reading file '" 
-                + sourcesFile + "'");     
+                + sourcesFile + "'");     */
         }
         
     }
@@ -132,9 +133,9 @@ public class BackgroundRunner {
         updateSrc();
         extractors.clear();
         
-        for(String src : sources){
+        for(Link src : sources){
             //if(!src.equals())
-                extractors.add(new Extractor(src, passedset));//make new extractor for each source
+                extractors.add(new Extractor(src.getHyperlink(), passedset));//make new extractor for each source
         }
         setMaxDepth(maxDepth);
         setCreds(u);
@@ -179,9 +180,18 @@ public class BackgroundRunner {
     }
     public void broStop(){
         shouldStop = true;
+        updateSrc();
     }
     public void setVerbose(boolean j){
         verbose = j;
+    }
+    public Link findSource(String l){
+        for(int i = 0; i<sources.size(); i++){
+            if(sources.get(i).getHyperlink().equals(l)){
+                return sources.get(i);
+            }
+        }
+        return null;
     }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
@@ -189,7 +199,7 @@ public class BackgroundRunner {
             protected Boolean doInBackground() throws Exception {
                 // Start Progress setProgress(0);                
                 // Example Loop
-                
+                updateSrc();
                 System.out.println("Search for: "+searchFor+" User: "+currentusr);
                 statusLblRef.setText("Starting...");
                 writeToFile(extractorFile,"", false); //overwrite the file
@@ -198,8 +208,7 @@ public class BackgroundRunner {
                 printExtractors();//print all extractors
                 for(Extractor e : extractors){
                    e.start();//make new thread for each extractor
-                }
-                
+                }               
                 boolean alldone=false;
                 int leftToDo = extractors.size();
                 int percent = 0;
@@ -221,6 +230,11 @@ public class BackgroundRunner {
                             double l = leftToDo;
                             double sm = s-l;
                             //String wp = t.getWebpage();//send that somehow
+                            //search sources for t.getWeb
+                            //System.out.println(findSource(t.getWebpage()));
+                            findSource(t.getWebpage()).setInProcess(true);
+                            //System.out.println(sources);
+                            System.out.println();
                             System.out.println("Done: ");
                             for(Extractor e : used){
                                 System.out.println("\t"+e);

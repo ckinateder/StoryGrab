@@ -14,20 +14,24 @@ public class Link {
     private String hyperlink;
     private String body;
     private double relevance;
+    private boolean inProcess;
     public Link(){
         title = ""; // avoid NullPointerException
         hyperlink = ""; // avoid NullPointerException
         relevance = -1; // not calculated
+        inProcess = false;
     }
     public Link(String hyperlink){
         this.title = "no title ";
         this.hyperlink = hyperlink;
         relevance = -1; //not calculated
+        inProcess = false;
     }
     public Link(String hyperlink, String body){
         this.body = body;
         this.hyperlink = hyperlink;
         relevance = -1; //not calculated
+        inProcess = false;
     }
     public Link(String title, String hyperlink, double relevance){
         this.title = title;
@@ -46,6 +50,9 @@ public class Link {
     public double getRelevance(){
         return relevance;
     }
+    public boolean isInProcess(){
+        return inProcess;
+    }
     public void setTitle(String t){
         this.title = t;
     }
@@ -58,10 +65,14 @@ public class Link {
     public void setRelevance(double t){
         this.relevance = t;
     }
+    public void setInProcess(boolean t){
+        this.inProcess = t;
+    }
     
     @Override
     public String toString(){
         return "\nLink: "+hyperlink+""
-                + "\nRelevance: "+relevance+"\nText: "+body;
+                + "\nRelevance: "+relevance+"\nText: "
+                +body+"\nIn process? "+inProcess;
     }
 }

@@ -33,7 +33,7 @@ public class Scroller {
     public void scrollSources(java.awt.event.MouseWheelEvent mwheel){
         int scAmount = mwheel.getWheelRotation();
         //System.out.println(scAmount);
-        lblContainer.updateSrc();
+        //lblContainer.updateSrc();
         if(scrollStart+scAmount>=0 && scrollEnd+scAmount<lblContainer.sources.size()+1){
             scrollStart+=scAmount;         
             scrollEnd+=scAmount;
@@ -41,11 +41,18 @@ public class Scroller {
         updateSources();        
     }
     
-    public void updateSources(){        
-        lblContainer.updateSrc();
+    public void updateSources(){
         String s = "<html>";
         for(int i = scrollStart; i<scrollEnd;i++){
-            String se = (i+1)+": "+lblContainer.sources.get(i);
+            String se = "";
+            Link tmpLink = lblContainer.sources.get(i);
+            //System.out.println(tmpLink);
+            if(tmpLink.isInProcess()){
+                se = (i+1)+": <b><font color=green>"+tmpLink.getHyperlink()+"</font></b>";
+            }
+            else{
+                se = (i+1)+": "+tmpLink.getHyperlink();
+            }
             s=s+se+"<br>";
         }
         if(lblContainer.sources.size()-1>scrollEnd){
