@@ -60,8 +60,7 @@ public class BackgroundRunner {
     }
     public void passLbl(JLabel l){
         statusLblRef = l;
-        statusLblRef.setText("");
-        
+        statusLblRef.setText("");        
     }
     public void passInitializedOP(JLabel l){
         outputlbl = l;
