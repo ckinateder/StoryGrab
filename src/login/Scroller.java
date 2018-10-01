@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 public class Scroller {
     JLabel modifiedLbl;
     int scrollStart = 0;
-    int scrollEnd = 10-1; //add note at bottom that there is more
+    int scrollEnd = 11; //add note at bottom that there is more
     BackgroundRunner lblContainer;
     public Scroller(BackgroundRunner lblContainer){
         
@@ -43,6 +43,12 @@ public class Scroller {
     
     public void updateSources(){
         String s = "<html>";
+        if(scrollStart>0){
+            s+="...<br>";
+        }
+        else{
+            s+="<br>";
+        }
         for(int i = scrollStart; i<scrollEnd;i++){
             String se = "";
             Link tmpLink = lblContainer.sources.get(i);

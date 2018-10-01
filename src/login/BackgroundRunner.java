@@ -35,6 +35,7 @@ public class BackgroundRunner {
     
     String searchFor;
     User currentusr;
+    final int OUTSIZE = 14;
     ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
     ArrayList<Link> sources = new ArrayList<>();
@@ -284,7 +285,7 @@ public class BackgroundRunner {
                 String currentOut = "";
                 currentOut= chunks.get(chunks.size()-1);
                 outputlbl.setText(currentOut);
-                int st = chunks.size()-10;
+                int st = chunks.size()-OUTSIZE;
                 if(st<0){
                     st=0;
                 }
