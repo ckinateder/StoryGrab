@@ -15,28 +15,28 @@ import javax.swing.JLabel;
 public class Scroller {
     JLabel modifiedLbl;
     int scrollStart = 0;
-    int scrollEnd = 11; //add note at bottom that there is more
+    int SCROLLSIZE = 10; //add note at bottom that there is more
     BackgroundRunner lblContainer;
     public Scroller(BackgroundRunner lblContainer){
         
         this.lblContainer = lblContainer;
-        if(lblContainer.sources.size()<=scrollEnd){
-            scrollEnd = lblContainer.sources.size();
+        if(lblContainer.sources.size()<=SCROLLSIZE){
+            SCROLLSIZE = lblContainer.sources.size();
         }
     }
     public void setLabel(JLabel l){
         modifiedLbl = l;
     }
     public void setWidth(int s){
-        scrollEnd = s;
+        SCROLLSIZE = s;
     }
     public void scrollSources(java.awt.event.MouseWheelEvent mwheel){
         int scAmount = mwheel.getWheelRotation();
         //System.out.println(scAmount);
         //lblContainer.updateSrc();
-        if(scrollStart+scAmount>=0 && scrollEnd+scAmount<lblContainer.sources.size()+1){
+        if(scrollStart+scAmount>=0 && SCROLLSIZE+scAmount<lblContainer.sources.size()+1){
             scrollStart+=scAmount;         
-            scrollEnd+=scAmount;
+            SCROLLSIZE+=scAmount;
         }
         updateSources();        
     }
@@ -49,7 +49,7 @@ public class Scroller {
         else{
             s+="<br>";
         }
-        for(int i = scrollStart; i<scrollEnd;i++){
+        for(int i = scrollStart; i<SCROLLSIZE;i++){
             String se = "";
             Link tmpLink = lblContainer.sources.get(i);
             //System.out.println(tmpLink);
@@ -61,7 +61,7 @@ public class Scroller {
             }
             s=s+se+"<br>";
         }
-        if(lblContainer.sources.size()-1>scrollEnd){
+        if(lblContainer.sources.size()>SCROLLSIZE){
             s+="...<br>";
         }
         s+="</html>";
