@@ -426,7 +426,7 @@ public class LoginWindow extends javax.swing.JFrame {
         largeoutput.setForeground(new java.awt.Color(255, 255, 255));
         largeoutput.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         largeoutput.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
-        extractorpanel.add(largeoutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 470, 200));
+        extractorpanel.add(largeoutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 470, 210));
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -657,7 +657,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(verbosebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cblbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cblbl2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         verbosepanelLayout.setVerticalGroup(
@@ -669,7 +669,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jPanel1.add(verbosepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 110, -1));
+        jPanel1.add(verbosepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 90, -1));
 
         chckboxandlblpanel.setOpaque(false);
 

@@ -595,7 +595,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="330" y="30" width="470" height="200"/>
+                  <AbsoluteConstraints x="330" y="30" width="470" height="210"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -911,7 +911,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="160" y="70" width="110" height="-1"/>
+                      <AbsoluteConstraints x="160" y="70" width="90" height="-1"/>
                     </Constraint>
                   </Constraints>
 
@@ -922,7 +922,7 @@
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Component id="verbosebtn" min="-2" pref="25" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cblbl2" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="cblbl2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>

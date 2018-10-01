@@ -88,7 +88,7 @@ public class Extractor extends Thread {
                 BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
                 //System.out.println("Searching  "+URL);//print output
-                toBG="Searching "+URL+"\n";//add to toBG
+                toBG=""+URL+"\n";//add to toBG
                //could use file
                 
                 try {

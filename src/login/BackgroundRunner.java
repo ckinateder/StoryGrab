@@ -35,7 +35,7 @@ public class BackgroundRunner {
     
     String searchFor;
     User currentusr;
-    final int OUTSIZE = 14;
+    final int OUTSIZE = 12;
     ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
     ArrayList<Link> sources = new ArrayList<>();
@@ -283,15 +283,16 @@ public class BackgroundRunner {
                 // Get Info
                 //statusLblRef.setText(chunks.get(chunks.size()-1)+"%");
                 String currentOut = "";
-                currentOut= chunks.get(chunks.size()-1);
+                currentOut = chunks.get(chunks.size()-1);
+                //currentOut+="</html>";
                 outputlbl.setText(currentOut);
                 int st = chunks.size()-OUTSIZE;
                 if(st<0){
                     st=0;
                 }
                 if(verbose){
-                    String bo = ""; //no scroll
-                    bo = "<html>";
+                    String bo; //no scroll
+                    bo = "<html><br>";
                     for(int i = st; i<chunks.size();i++){
                         String se = chunks.get(i).replaceAll("Searching ", "");
                         bo=bo+se+"<br>";
