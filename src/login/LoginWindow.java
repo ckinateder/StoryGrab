@@ -975,7 +975,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void closelblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMouseClicked
         // TODO add your handling code here:
-        System.exit(0);
+        quit();
     }//GEN-LAST:event_closelblMouseClicked
 
     private void closelblMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMouseEntered
@@ -998,7 +998,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void closelbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseClicked
         // TODO add your handling code here:
-        System.exit(0);
+        quit();
     }//GEN-LAST:event_closelbl1MouseClicked
 
     private void closelbl1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseEntered
@@ -1050,7 +1050,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
-        System.exit(0);
+        quit();
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
@@ -1101,12 +1101,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void closelblMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMousePressed
         // TODO add your handling code here:
-        //System.exit(0);
+        //quit();
     }//GEN-LAST:event_closelblMousePressed
 
     private void closelblMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMouseDragged
         // TODO add your handling code here:
-        System.exit(0);
+        quit();
     }//GEN-LAST:event_closelblMouseDragged
 
     private void closelblMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelblMouseReleased
@@ -1155,12 +1155,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void jLabel13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseReleased
         // TODO add your handling code here:
-        System.exit(0);
+        quit();
     }//GEN-LAST:event_jLabel13MouseReleased
 
     private void closelbl1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseReleased
         // TODO add your handling code here:
-        System.exit(0);
+        quit();
     }//GEN-LAST:event_closelbl1MouseReleased
 
     private void LoginPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginPanelMouseReleased
@@ -1488,6 +1488,10 @@ public class LoginWindow extends javax.swing.JFrame {
     
     public void searchTwitter(){
         TwitterSkimmer.skim();
+    }
+    public void quit(){
+        dispose();
+        System.exit(0);
     }
     /*
     Custom code end------------------------------------------------------------
