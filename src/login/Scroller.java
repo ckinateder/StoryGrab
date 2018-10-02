@@ -17,11 +17,19 @@ public class Scroller {
     int scrollStart = 0;
     int SCROLLSIZE = 10; //add note at bottom that there is more
     BackgroundRunner lblContainer;
-    public Scroller(BackgroundRunner lblContainer){
-        
+    ArrayList<Link> sources;
+    public Scroller(BackgroundRunner lblContainer){        
         this.lblContainer = lblContainer;
-        if(lblContainer.sources.size()<=SCROLLSIZE){
-            SCROLLSIZE = lblContainer.sources.size();
+        sources = lblContainer.sources;
+        if(sources.size()<=SCROLLSIZE){
+            SCROLLSIZE = sources.size();
+        }
+    }
+    public Scroller(ArrayList lst, int size){
+        SCROLLSIZE = size;
+        sources = lst;
+        if(sources.size()<=SCROLLSIZE){
+            SCROLLSIZE = sources.size();
         }
     }
     public void setLabel(JLabel l){
@@ -34,7 +42,7 @@ public class Scroller {
         int scAmount = mwheel.getWheelRotation();
         //System.out.println(scAmount);
         //lblContainer.updateSrc();
-        if(scrollStart+scAmount>=0 && SCROLLSIZE+scAmount<lblContainer.sources.size()+1){
+        if(scrollStart+scAmount>=0 && SCROLLSIZE+scAmount<sources.size()+1){
             scrollStart+=scAmount;         
             SCROLLSIZE+=scAmount;
         }
@@ -51,7 +59,7 @@ public class Scroller {
         }
         for(int i = scrollStart; i<SCROLLSIZE;i++){
             String se = "";
-            Link tmpLink = lblContainer.sources.get(i);
+            Link tmpLink = sources.get(i);
             //System.out.println(tmpLink);
             if(tmpLink.isInProcess()){
                 se = (i+1)+": <b><font color=green>"+tmpLink.getHyperlink()+"</font></b>";
@@ -61,7 +69,7 @@ public class Scroller {
             }
             s=s+se+"<br>";
         }
-        if(lblContainer.sources.size()>SCROLLSIZE){
+        if(sources.size()>SCROLLSIZE){
             s+="...<br>";
         }
         s+="</html>";

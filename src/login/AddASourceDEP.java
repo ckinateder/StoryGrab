@@ -23,14 +23,15 @@ import keeptoo.Drag;
  *
  * @author calvi
  */
-public class AddASource extends javax.swing.JFrame {
+public class AddASourceDEP extends javax.swing.JFrame {
 
     /**
      * Creates new form AddASource
      */
-    public AddASource() {
+    public AddASourceDEP() {
         initComponents();
         updateSources();
+        scrlr.setLabel(sourceslist2);
     }
 
     /**
@@ -44,19 +45,18 @@ public class AddASource extends javax.swing.JFrame {
 
         MainPanel2 = new keeptoo.KGradientPanel();
         extractorpanel = new javax.swing.JPanel();
-        addsourcebtn = new keeptoo.KButton();
         websitelbl2 = new javax.swing.JLabel();
-        keywordfield = new javax.swing.JTextField();
-        sourceslist1 = new javax.swing.JLabel();
         closelbl1 = new javax.swing.JLabel();
         sourceslist2 = new javax.swing.JLabel();
         logoutbtn1 = new keeptoo.KButton();
         addsourcebtn1 = new keeptoo.KButton();
+        addsourcebtn = new keeptoo.KButton();
+        keywordfield = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 400));
         setUndecorated(true);
-        setShape(new RoundRectangle2D.Double(0, 0, 711, 248, 20, 20)
+        setShape(new RoundRectangle2D.Double(0, 0, 470, 510, 20, 20)
         );
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -88,80 +88,38 @@ public class AddASource extends javax.swing.JFrame {
         extractorpanel.setOpaque(false);
         extractorpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        addsourcebtn.setText("Delete source");
-        addsourcebtn.setToolTipText("Text must match EXACTLY");
-        addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        addsourcebtn.setkAllowTab(false);
-        addsourcebtn.setkBorderRadius(40);
-        addsourcebtn.setkEndColor(new java.awt.Color(0, 204, 51));
-        addsourcebtn.setkHoverColor(new java.awt.Color(255, 102, 204));
-        addsourcebtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        addsourcebtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        addsourcebtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        addsourcebtn.setkIndicatorThickness(0);
-        addsourcebtn.setkPressedColor(new java.awt.Color(167, 69, 199));
-        addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        addsourcebtn.setName(""); // NOI18N
-        addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                addsourcebtnMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseReleased(evt);
-            }
-        });
-        addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addsourcebtnActionPerformed(evt);
-            }
-        });
-        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 100, 40));
-
         websitelbl2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
         extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 90, 20));
-
-        keywordfield.setBackground(new Color(0,0,0,0));
-        keywordfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        keywordfield.setForeground(new java.awt.Color(255, 255, 255));
-        keywordfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        keywordfield.setCaretColor(new java.awt.Color(255, 255, 255));
-        keywordfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        keywordfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                keywordfieldActionPerformed(evt);
-            }
-        });
-        extractorpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 280, 30));
-
-        sourceslist1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        sourceslist1.setForeground(new java.awt.Color(255, 255, 255));
-        sourceslist1.setText("Add a source");
-        extractorpanel.add(sourceslist1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 300, 170));
 
         closelbl1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         closelbl1.setForeground(new java.awt.Color(255, 255, 255));
         closelbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
         closelbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                closelbl1MouseReleased(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closelbl1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 closelbl1MouseEntered(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                closelbl1MouseReleased(evt);
-            }
         });
-        extractorpanel.add(closelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 30, 30));
+        extractorpanel.add(closelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 30, 30));
 
         sourceslist2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sourceslist2.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist2.setText("Add a source");
-        extractorpanel.add(sourceslist2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 300, 170));
+        sourceslist2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        sourceslist2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                sourceslist2MouseWheelMoved(evt);
+            }
+        });
+        extractorpanel.add(sourceslist2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 380, 340));
+
+        MainPanel2.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 450, 390));
 
         logoutbtn1.setText("Close");
         logoutbtn1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -176,14 +134,14 @@ public class AddASource extends javax.swing.JFrame {
         logoutbtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
         logoutbtn1.setName(""); // NOI18N
         logoutbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutbtn1MouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 logoutbtn1MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 logoutbtn1MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutbtn1MouseClicked(evt);
             }
         });
         logoutbtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +149,7 @@ public class AddASource extends javax.swing.JFrame {
                 logoutbtn1ActionPerformed(evt);
             }
         });
-        extractorpanel.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 100, 40));
+        MainPanel2.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 100, 40));
 
         addsourcebtn1.setText("Add source");
         addsourcebtn1.setToolTipText("Text must match EXACTLY");
@@ -208,14 +166,14 @@ public class AddASource extends javax.swing.JFrame {
         addsourcebtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
         addsourcebtn1.setName(""); // NOI18N
         addsourcebtn1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtn1MouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 addsourcebtn1MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 addsourcebtn1MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtn1MouseClicked(evt);
             }
         });
         addsourcebtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -223,66 +181,57 @@ public class AddASource extends javax.swing.JFrame {
                 addsourcebtn1ActionPerformed(evt);
             }
         });
-        extractorpanel.add(addsourcebtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 100, 40));
+        MainPanel2.add(addsourcebtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 130, 40));
 
-        MainPanel2.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 680, 240));
+        addsourcebtn.setText("Delete source");
+        addsourcebtn.setToolTipText("Text must match EXACTLY");
+        addsourcebtn.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        addsourcebtn.setkAllowTab(false);
+        addsourcebtn.setkBorderRadius(40);
+        addsourcebtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        addsourcebtn.setkHoverColor(new java.awt.Color(255, 102, 204));
+        addsourcebtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        addsourcebtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        addsourcebtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        addsourcebtn.setkIndicatorThickness(0);
+        addsourcebtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        addsourcebtn.setName(""); // NOI18N
+        addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addsourcebtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseClicked(evt);
+            }
+        });
+        addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addsourcebtnActionPerformed(evt);
+            }
+        });
+        MainPanel2.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 130, 40));
 
-        getContentPane().add(MainPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 250));
+        keywordfield.setBackground(new Color(0,0,0,0));
+        keywordfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        keywordfield.setForeground(new java.awt.Color(255, 255, 255));
+        keywordfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        keywordfield.setCaretColor(new java.awt.Color(255, 255, 255));
+        keywordfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        keywordfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keywordfieldActionPerformed(evt);
+            }
+        });
+        MainPanel2.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 280, 30));
+
+        getContentPane().add(MainPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void closelbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_closelbl1MouseClicked
-
-    private void closelbl1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closelbl1MouseEntered
-
-    private void closelbl1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseReleased
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_closelbl1MouseReleased
-
-    private void logoutbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn1MouseClicked
-
-    private void logoutbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn1MousePressed
-
-    private void logoutbtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MouseReleased
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_logoutbtn1MouseReleased
-
-    private void logoutbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn1ActionPerformed
-
-    private void addsourcebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtnMouseClicked
-
-    private void addsourcebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtnMousePressed
-
-    private void addsourcebtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseReleased
-        // TODO add your handling code here:
-        removeSource(keywordfield.getText());
-    }//GEN-LAST:event_addsourcebtnMouseReleased
-
-    private void addsourcebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtnActionPerformed
-
-    private void keywordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywordfieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_keywordfieldActionPerformed
 
     private void MainPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MainPanel2MouseDragged
         // TODO add your handling code here:
@@ -300,13 +249,9 @@ public class AddASource extends javax.swing.JFrame {
 
     }//GEN-LAST:event_MainPanel2KeyPressed
 
-    private void addsourcebtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MouseClicked
+    private void addsourcebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtn1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtn1MouseClicked
-
-    private void addsourcebtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtn1MousePressed
+    }//GEN-LAST:event_addsourcebtn1ActionPerformed
 
     private void addsourcebtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MouseReleased
         // TODO add your handling code here:
@@ -314,34 +259,101 @@ public class AddASource extends javax.swing.JFrame {
             writeToFile(sourcesFile,keywordfield.getText()+"\n",true);
         }
         else if(keywordfield.getText().equals("")){
-            
+
         }
         else{
             writeToFile(sourcesFile,"http://"+keywordfield.getText()+"\n",true);
         }
-        
+
     }//GEN-LAST:event_addsourcebtn1MouseReleased
 
-    private void addsourcebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtn1ActionPerformed
+    private void addsourcebtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtn1ActionPerformed
+    }//GEN-LAST:event_addsourcebtn1MousePressed
 
+    private void addsourcebtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtn1MouseClicked
+
+    private void logoutbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn1ActionPerformed
+
+    private void logoutbtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MouseReleased
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_logoutbtn1MouseReleased
+
+    private void logoutbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn1MousePressed
+
+    private void logoutbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutbtn1MouseClicked
+
+    private void closelbl1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseReleased
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_closelbl1MouseReleased
+
+    private void closelbl1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_closelbl1MouseEntered
+
+    private void closelbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_closelbl1MouseClicked
+
+    private void keywordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywordfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_keywordfieldActionPerformed
+
+    private void addsourcebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnActionPerformed
+
+    private void addsourcebtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseReleased
+        // TODO add your handling code here:
+        removeSource(keywordfield.getText());
+    }//GEN-LAST:event_addsourcebtnMouseReleased
+
+    private void addsourcebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnMousePressed
+
+    private void addsourcebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnMouseClicked
+
+    private void sourceslist2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslist2MouseWheelMoved
+        // TODO add your handling code here:
+        scrlr.scrollSources(evt);
+    }//GEN-LAST:event_sourceslist2MouseWheelMoved
+    
+    ArrayList<Link> sources = new ArrayList<>();
+    Scroller scrlr = new Scroller(sources,10);
+    
     String sourcesFile = "sources.txt";
     public void updateSources(){
-        ArrayList<String> sources = new ArrayList<>();
+        updateSrcInList();
+        System.out.println(sources);
+    }
+    public void updateSrcInList(){
+        sources.clear();
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = 
                 new FileReader(sourcesFile);
-
-            // Always wrap FileReader in BufferedReader.
+           
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                 sources.add(line);
+                 sources.add(new Link(line));
             }
-            
+            //System.out.println(sources);
             //System.out.println(users);
             // Always close files.
             bufferedReader.close();         
@@ -349,7 +361,9 @@ public class AddASource extends javax.swing.JFrame {
         catch(FileNotFoundException ex) {
             System.out.println(
                 "Unable to open file '" + 
-                sourcesFile + "'");                
+                sourcesFile + "'");/*
+            sources.add("Unable to open file '" + 
+                sourcesFile + "'");*/
         }
         catch(IOException ex) {
             System.out.println(
@@ -357,24 +371,11 @@ public class AddASource extends javax.swing.JFrame {
                 + sourcesFile + "'");                  
             // Or we could just do this: 
             // ex.printStackTrace();
+            /*
+            sources.add("Error reading file '" 
+                + sourcesFile + "'");     */
         }
         
-        String s = "<html>";
-        for(int i = 0; i<sources.size()/2;i++){
-            String se = sources.get(i);
-            s=s+se+"<br>";
-        }
-        s+="</html>";
-        sourceslist1.setText(s);
-        s = "<html>";
-        for(int i = sources.size()/2; i<sources.size();i++){
-            String se = sources.get(i);
-            
-            s=s+se+"<br>";
-        }
-        s+="</html>";
-        
-        sourceslist2.setText(s);
     }
     public void removeSource(String toRemove){
         try {
@@ -478,40 +479,34 @@ public class AddASource extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddASource.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddASourceDEP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddASource.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddASourceDEP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddASource.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddASourceDEP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddASource.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddASourceDEP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddASource().setVisible(true);
+                new AddASourceDEP().setVisible(true);
                 System.out.println("qef");
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private keeptoo.KGradientPanel MainPanel;
-    private keeptoo.KGradientPanel MainPanel1;
     private keeptoo.KGradientPanel MainPanel2;
     private keeptoo.KButton addsourcebtn;
     private keeptoo.KButton addsourcebtn1;
     private javax.swing.JLabel closelbl1;
     private javax.swing.JPanel extractorpanel;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField keywordfield;
     private keeptoo.KButton logoutbtn1;
-    private javax.swing.JLabel sourceslist1;
     private javax.swing.JLabel sourceslist2;
     private javax.swing.JLabel websitelbl2;
     // End of variables declaration//GEN-END:variables

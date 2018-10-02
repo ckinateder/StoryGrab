@@ -1509,7 +1509,7 @@ public class LoginWindow extends javax.swing.JFrame {
     public void sourcesEditor(){//open sources editor
         
         String[] sg = new String[0];
-        AddASource.main(sg);
+        //AddASourceDEP.main(sg);
         updateSources();
     }
     public void extract() throws InterruptedException{
