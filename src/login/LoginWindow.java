@@ -76,7 +76,6 @@ public class LoginWindow extends javax.swing.JFrame {
         logoutbtn1 = new keeptoo.KButton();
         extractorpanel = new javax.swing.JPanel();
         sourceslist = new javax.swing.JLabel();
-        addsourcebtn = new keeptoo.KButton();
         websitelbl2 = new javax.swing.JLabel();
         largeoutput = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -96,10 +95,10 @@ public class LoginWindow extends javax.swing.JFrame {
         chckboxandlblpanel = new javax.swing.JPanel();
         cblbl1 = new javax.swing.JLabel();
         twitterbtn = new keeptoo.KButton();
-        addsourcebtn1 = new keeptoo.KButton();
         onelineout = new javax.swing.JLabel();
         websitelbl3 = new javax.swing.JLabel();
         addsourcebtn2 = new keeptoo.KButton();
+        addsourcebtn = new keeptoo.KButton();
         CreateAccountPanel = new keeptoo.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -386,37 +385,6 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
         extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 300, 210));
-
-        addsourcebtn.setText("Sources Editor");
-        addsourcebtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        addsourcebtn.setkAllowTab(false);
-        addsourcebtn.setkBorderRadius(40);
-        addsourcebtn.setkEndColor(new java.awt.Color(0, 204, 51));
-        addsourcebtn.setkHoverColor(new java.awt.Color(255, 102, 204));
-        addsourcebtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        addsourcebtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        addsourcebtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        addsourcebtn.setkIndicatorThickness(0);
-        addsourcebtn.setkPressedColor(new java.awt.Color(167, 69, 199));
-        addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        addsourcebtn.setName(""); // NOI18N
-        addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                addsourcebtnMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseClicked(evt);
-            }
-        });
-        addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addsourcebtnActionPerformed(evt);
-            }
-        });
-        extractorpanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 110, 40));
 
         websitelbl2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
@@ -731,37 +699,6 @@ public class LoginWindow extends javax.swing.JFrame {
 
         extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 180));
 
-        addsourcebtn1.setText("Refresh");
-        addsourcebtn1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        addsourcebtn1.setkAllowTab(false);
-        addsourcebtn1.setkBorderRadius(40);
-        addsourcebtn1.setkEndColor(new java.awt.Color(0, 204, 51));
-        addsourcebtn1.setkHoverColor(new java.awt.Color(255, 102, 204));
-        addsourcebtn1.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        addsourcebtn1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        addsourcebtn1.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        addsourcebtn1.setkIndicatorThickness(0);
-        addsourcebtn1.setkPressedColor(new java.awt.Color(167, 69, 199));
-        addsourcebtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        addsourcebtn1.setName(""); // NOI18N
-        addsourcebtn1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                addsourcebtn1MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                addsourcebtn1MouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtn1MouseClicked(evt);
-            }
-        });
-        addsourcebtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addsourcebtn1ActionPerformed(evt);
-            }
-        });
-        extractorpanel.add(addsourcebtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, 40));
-
         onelineout.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         onelineout.setForeground(new java.awt.Color(255, 255, 255));
         extractorpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 410, 20));
@@ -804,6 +741,37 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
         MainPanel.add(addsourcebtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 550, 100, 40));
+
+        addsourcebtn.setText("Sources Editor");
+        addsourcebtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        addsourcebtn.setkAllowTab(false);
+        addsourcebtn.setkBorderRadius(40);
+        addsourcebtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        addsourcebtn.setkHoverColor(new java.awt.Color(255, 102, 204));
+        addsourcebtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        addsourcebtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        addsourcebtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        addsourcebtn.setkIndicatorThickness(0);
+        addsourcebtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        addsourcebtn.setName(""); // NOI18N
+        addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addsourcebtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseClicked(evt);
+            }
+        });
+        addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addsourcebtnActionPerformed(evt);
+            }
+        });
+        MainPanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, 120, 40));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -1342,23 +1310,6 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_stopbtnActionPerformed
 
-    private void addsourcebtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtn1MouseClicked
-
-    private void addsourcebtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtn1MousePressed
-
-    private void addsourcebtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn1MouseReleased
-        // TODO add your handling code here:
-        updateSources();
-    }//GEN-LAST:event_addsourcebtn1MouseReleased
-
-    private void addsourcebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtn1ActionPerformed
-
     private void addsourcebtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtn2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtn2MouseClicked
@@ -1509,7 +1460,7 @@ public class LoginWindow extends javax.swing.JFrame {
     public void sourcesEditor(){//open sources editor
         
         String[] sg = new String[0];
-        //AddASourceDEP.main(sg);
+        SourceEditor.main(sg);
         updateSources();
     }
     public void extract() throws InterruptedException{
@@ -1586,7 +1537,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KGradientPanel LoginPanel;
     private keeptoo.KGradientPanel MainPanel;
     private keeptoo.KButton addsourcebtn;
-    private keeptoo.KButton addsourcebtn1;
     private keeptoo.KButton addsourcebtn2;
     private keeptoo.KButton backfromca;
     private javax.swing.JLabel cblbl1;
