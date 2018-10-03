@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class AutomaticScrollUpdater {
     Scroller scroller;
+    final int WAIT = 250;
     public AutomaticScrollUpdater(Scroller s){
         scroller = s;
     }
@@ -23,7 +24,7 @@ public class AutomaticScrollUpdater {
                 setProgress(0);
                 while(true){
                     scroller.updateSources();
-                    waitFor(100);
+                    waitFor(WAIT);
                 }                
                 // Finished
                 //return true;

@@ -1378,6 +1378,7 @@ public class LoginWindow extends javax.swing.JFrame {
     AutomaticScrollUpdater refresher =
             new AutomaticScrollUpdater(sourceScroller);
     SwingWorker refreshChild = refresher.createWorker();
+    
     public void resetAllFields(){
         pwdfield.setText("");
         pwdfield2.setText("");
