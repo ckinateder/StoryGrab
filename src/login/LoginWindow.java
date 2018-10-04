@@ -99,6 +99,9 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslbl = new javax.swing.JLabel();
         addsourcebtn2 = new keeptoo.KButton();
         addsourcebtn = new keeptoo.KButton();
+        tipsbtnpanel = new javax.swing.JPanel();
+        cblbl3 = new javax.swing.JLabel();
+        tipsbtn = new keeptoo.KButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -669,8 +672,8 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cblbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(cblbl1)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         twitterbtnpanelLayout.setVerticalGroup(
             twitterbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -758,6 +761,64 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
         MainPanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, 120, 40));
+
+        tipsbtnpanel.setOpaque(false);
+
+        cblbl3.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        cblbl3.setForeground(new java.awt.Color(255, 255, 255));
+        cblbl3.setText("Tips");
+
+        tipsbtn.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        tipsbtn.setIconTextGap(0);
+        tipsbtn.setkAllowTab(false);
+        tipsbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        tipsbtn.setkHoverColor(new java.awt.Color(249, 153, 217));
+        tipsbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        tipsbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        tipsbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        tipsbtn.setkIndicatorThickness(0);
+        tipsbtn.setkPressedColor(new java.awt.Color(163, 62, 167));
+        tipsbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        tipsbtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        tipsbtn.setName(""); // NOI18N
+        tipsbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tipsbtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tipsbtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tipsbtnMouseClicked(evt);
+            }
+        });
+        tipsbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipsbtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tipsbtnpanelLayout = new javax.swing.GroupLayout(tipsbtnpanel);
+        tipsbtnpanel.setLayout(tipsbtnpanelLayout);
+        tipsbtnpanelLayout.setHorizontalGroup(
+            tipsbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tipsbtnpanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(tipsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cblbl3)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+        tipsbtnpanelLayout.setVerticalGroup(
+            tipsbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tipsbtnpanelLayout.createSequentialGroup()
+                .addGroup(tipsbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tipsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(cblbl3, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
+        MainPanel.add(tipsbtnpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, -1));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -917,7 +978,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void minusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusdepthbtnMouseReleased
         // TODO add your handling code here:
-        loader.setMaxDepth(loader.getMaxDepth()-1);
+        changeDepth(-1);
         dynamicdepthlbl.setText(""+loader.getMaxDepth());
     }//GEN-LAST:event_minusdepthbtnMouseReleased
 
@@ -934,7 +995,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_extractbtnMousePressed
 
     private void extractbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_extractbtnMouseReleased
-        updateSources();
+        
         try {
             // TODO add your handling code here:            
             extract();
@@ -957,7 +1018,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void plusdepthbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusdepthbtnMouseReleased
         // TODO add your handling code here:
-        loader.setMaxDepth(loader.getMaxDepth()+1);
+        changeDepth(1);
         dynamicdepthlbl.setText(""+loader.getMaxDepth());
 
     }//GEN-LAST:event_plusdepthbtnMouseReleased
@@ -1077,19 +1138,45 @@ public class LoginWindow extends javax.swing.JFrame {
             verbosebtn.setSelected(false);
             verbosebtn.setText("");
             verboselbl.setText("");
-            loader.setVerbose(false);
+            setVerbose(false);
         }
         else{
             verbosebtn.setSelected(true);
             verbosebtn.setText("X");
             verboselbl.setText("Verbose Out:");
-            loader.setVerbose(true);
+            setVerbose(true);
         }
     }//GEN-LAST:event_verbosebtnMouseReleased
 
     private void verbosebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verbosebtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verbosebtnActionPerformed
+
+    private void tipsbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tipsbtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipsbtnMousePressed
+
+    private void tipsbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tipsbtnMouseReleased
+        // TODO add your handling code here:
+        if(tipsbtn.isSelected()){
+            tipsbtn.setSelected(false);
+            tipsbtn.setText("");
+            setTips(false);
+        }
+        else{
+            tipsbtn.setSelected(true);
+            tipsbtn.setText("X");
+            setTips(true);            
+        }
+    }//GEN-LAST:event_tipsbtnMouseReleased
+
+    private void tipsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tipsbtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipsbtnMouseClicked
+
+    private void tipsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipsbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipsbtnActionPerformed
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------
@@ -1117,7 +1204,20 @@ public class LoginWindow extends javax.swing.JFrame {
         usertitlelbl.setText("");
         dynamicdepthlbl.setText(""+loader.getMaxDepth());
         statuslbl.setText("");
-
+    }
+    public void changeDepth(int t){
+        loader.setMaxDepth(loader.getMaxDepth()+t);
+    }
+    public void setVerbose(boolean t){
+        loader.setVerbose(t);
+    }
+    public void setTips(boolean t){
+        if(t){
+            //add all the tooltiptexts
+        }
+        else{
+            
+        }
     }
     public void panelSwitcher(int sw){
         resetAllFields();
@@ -1271,6 +1371,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KButton addsourcebtn2;
     private javax.swing.JLabel cblbl1;
     private javax.swing.JLabel cblbl2;
+    private javax.swing.JLabel cblbl3;
     private javax.swing.JLabel closelbl;
     private javax.swing.JLabel closelbl1;
     private javax.swing.JLabel depthlbl;
@@ -1297,6 +1398,8 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel sourceslist;
     private javax.swing.JLabel statuslbl;
     private keeptoo.KButton stopbtn;
+    private keeptoo.KButton tipsbtn;
+    private javax.swing.JPanel tipsbtnpanel;
     private keeptoo.KButton tocreateaccountpg;
     private keeptoo.KButton twitterbtn;
     private javax.swing.JPanel twitterbtnpanel;
