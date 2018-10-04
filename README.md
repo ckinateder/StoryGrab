@@ -5,4 +5,4 @@ Required library: KControls and Jsoup. All included in repository
 Login screen:
 ![alt text](screenshots/sglogin.PNG "Login screen")
 Main screen (current):
-![alt text](screenshots/storygrabmain.PNG "Main screen") 
+![alt text](screenshots/sgmain.png "Main screen") 
