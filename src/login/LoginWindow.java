@@ -1214,9 +1214,36 @@ public class LoginWindow extends javax.swing.JFrame {
     public void setTips(boolean t){
         if(t){
             //add all the tooltiptexts
+            userfield.setToolTipText("Use AEP username");
+            pwdfield.setToolTipText("Use AEP password\nNone of this is stored"
+                    + " outside of the JVM");
+            loginbtn.setToolTipText("Open the operations window");
+            sourceslist.setToolTipText("All sources");
+            keywordfield.setToolTipText("Keyword to search for");
+            depthtogglepanel.setToolTipText("Set how deep the extractor will "
+                    + "recursively explore");
+            verbosepanel.setToolTipText("Verbose output");
+            twitterbtn.setToolTipText("Include twitter in sources");
+            extractbtn.setToolTipText("Start extracting");
+            stopbtn.setToolTipText("Stop extracting");
+            tipsbtnpanel.setToolTipText("Tips");
+            logoutbtn1.setToolTipText("Logout");
+            addsourcebtn.setToolTipText("Edit sources");
         }
         else{
-            
+            userfield.setToolTipText(null);
+            pwdfield.setToolTipText(null);                    
+            loginbtn.setToolTipText(null);
+            sourceslist.setToolTipText(null);
+            keywordfield.setToolTipText(null);
+            depthtogglepanel.setToolTipText(null);
+            verbosepanel.setToolTipText(null);
+            twitterbtn.setToolTipText(null);
+            extractbtn.setToolTipText(null);
+            stopbtn.setToolTipText(null);
+            tipsbtnpanel.setToolTipText(null);
+            logoutbtn1.setToolTipText(null);
+            addsourcebtn.setToolTipText(null);
         }
     }
     public void panelSwitcher(int sw){
