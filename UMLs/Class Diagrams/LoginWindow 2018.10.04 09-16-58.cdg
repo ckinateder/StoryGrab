@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="LoginWindow">
+  <ClassDiagramComponents>
+    <Class name="LoginWindow" package="login" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="mngr" type="AccountManager" visibility="package"/>
+        <Field name="currentusr" type="User" visibility="package"/>
+        <Field name="loader" type="BackgroundRunner" visibility="package"/>
+        <Field name="backburner" type="SwingWorker" visibility="package"/>
+        <Field name="sourceScroller" type="Scroller" visibility="package"/>
+        <Field name="an" type="Analyzer" visibility="package"/>
+        <Field name="linkset" type="Vector&lt;Link&gt;" visibility="package"/>
+        <Field name="refresher" type="AutomaticScrollUpdater" visibility="package"/>
+        <Field name="refreshChild" type="SwingWorker" visibility="package"/>
+        <Field name="CreateAccountPanel" type="keeptoo.KGradientPanel" visibility="private"/>
+        <Field name="LoginPanel" type="keeptoo.KGradientPanel" visibility="private"/>
+        <Field name="MainPanel" type="keeptoo.KGradientPanel" visibility="private"/>
+        <Field name="addsourcebtn" type="keeptoo.KButton" visibility="private"/>
+        <Field name="addsourcebtn2" type="keeptoo.KButton" visibility="private"/>
+        <Field name="backfromca" type="keeptoo.KButton" visibility="private"/>
+        <Field name="cblbl1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="cblbl2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="chckboxandlblpanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="closelbl" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="closelbl1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="depthlbl" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="depthtogglepanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="dynamicdepthlbl" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="extractbtn" type="keeptoo.KButton" visibility="private"/>
+        <Field name="extractorpanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="finalcreate" type="keeptoo.KButton" visibility="private"/>
+        <Field name="fullnamefield" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel14" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel15" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel16" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel17" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel18" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="keywordfield" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="largeoutput" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="loginbtn" type="keeptoo.KButton" visibility="private"/>
+        <Field name="logoutbtn1" type="keeptoo.KButton" visibility="private"/>
+        <Field name="mainlogowithicon" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="minusdepthbtn" type="keeptoo.KButton" visibility="private"/>
+        <Field name="nouserwithname" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="onelineout" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="orlblNI" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="plusdepthbtn" type="keeptoo.KButton" visibility="private"/>
+        <Field name="profileiconlbl" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="profilelblicon" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="pwdfield" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="pwdfield2" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="pwdlbl" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="sourceslist" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="statuslbl" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="stopbtn" type="keeptoo.KButton" visibility="private"/>
+        <Field name="tocreateaccountpg" type="keeptoo.KButton" visibility="private"/>
+        <Field name="twitterbtn" type="keeptoo.KButton" visibility="private"/>
+        <Field name="userfield" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="userfield1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="userlbl" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="usertitlelbl" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="verbosebtn" type="keeptoo.KButton" visibility="private"/>
+        <Field name="verbosepanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="websitelbl2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="websitelbl3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="websitelbl7" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="userfieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="LoginPanelKeyPressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="LoginPanelMouseDragged" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="LoginPanelMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closelblMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closelblMouseEntered" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="tocreateaccountpgActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="loginbtnActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="loginbtnMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closelbl1MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closelbl1MouseEntered" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="MainPanelMouseDragged" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="MainPanelMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="MainPanelKeyPressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="tocreateaccountpgKeyPressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="tocreateaccountpgMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="CreateAccountPanelMouseDragged" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="CreateAccountPanelMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="CreateAccountPanelKeyPressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="jLabel13MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jLabel13MouseEntered" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="CreateAccountPanelMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="userfield1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="fullnamefieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="backfromcaMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="backfromcaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="finalcreateMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="finalcreateActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="finalcreateKeyPressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="loginbtnMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closelblMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closelblMouseDragged" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closelblMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="tocreateaccountpgMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="tocreateaccountpgMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="loginbtnMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="finalcreateMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="backfromcaMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jLabel13MouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="closelbl1MouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="LoginPanelMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="logoutbtn1MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="logoutbtn1MousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="logoutbtn1MouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="logoutbtn1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="minusdepthbtnMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="minusdepthbtnMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="minusdepthbtnMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="minusdepthbtnActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="extractbtnMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="extractbtnMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="extractbtnMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="extractbtnActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="plusdepthbtnMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="plusdepthbtnMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="plusdepthbtnMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="plusdepthbtnActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="twitterbtnMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="twitterbtnMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="twitterbtnMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="twitterbtnActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="addsourcebtnMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="addsourcebtnMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="addsourcebtnMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="addsourcebtnActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="keywordfieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="stopbtnMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="stopbtnMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="stopbtnMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="stopbtnActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="addsourcebtn2MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="addsourcebtn2MousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="addsourcebtn2MouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="addsourcebtn2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="sourceslistMouseWheelMoved" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseWheelEvent" name="evt"/>
+        </Method>
+        <Method name="verbosebtnMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="verbosebtnMousePressed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="verbosebtnMouseReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="verbosebtnActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="resetAllFields" returnType="void" visibility="public"/>
+        <Method name="panelSwitcher" returnType="void" visibility="public">
+          <Argument type="int" name="sw"/>
+        </Method>
+        <Method name="login" returnType="void" visibility="public"/>
+        <Method name="loginwithcreate" returnType="void" visibility="public">
+          <Argument type="boolean" name="fromWhere"/>
+        </Method>
+        <Method name="logout" returnType="void" visibility="public"/>
+        <Method name="help" returnType="void" visibility="public"/>
+        <Method name="openOutput" returnType="void" visibility="public"/>
+        <Method name="sourcesEditor" returnType="void" visibility="public"/>
+        <Method name="extract" returnType="void" visibility="public"/>
+        <Method name="stopExtract" returnType="void" visibility="public"/>
+        <Method name="updateSources" returnType="void" visibility="public"/>
+        <Method name="searchTwitter" returnType="void" visibility="public"/>
+        <Method name="quit" returnType="void" visibility="public"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

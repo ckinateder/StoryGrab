@@ -60,7 +60,7 @@ public class LoginWindow extends javax.swing.JFrame {
         LoginPanel = new keeptoo.KGradientPanel();
         userfield = new javax.swing.JTextField();
         pwdfield = new javax.swing.JPasswordField();
-        orlblNI = new javax.swing.JLabel();
+        orlabel = new javax.swing.JLabel();
         closelbl = new javax.swing.JLabel();
         userlbl = new javax.swing.JLabel();
         tocreateaccountpg = new keeptoo.KButton();
@@ -76,9 +76,9 @@ public class LoginWindow extends javax.swing.JFrame {
         logoutbtn1 = new keeptoo.KButton();
         extractorpanel = new javax.swing.JPanel();
         sourceslist = new javax.swing.JLabel();
-        websitelbl2 = new javax.swing.JLabel();
+        verboselbl = new javax.swing.JLabel();
         largeoutput = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        maincontrolpanel = new javax.swing.JPanel();
         extractbtn = new keeptoo.KButton();
         depthtogglepanel = new javax.swing.JPanel();
         depthlbl = new javax.swing.JLabel();
@@ -92,27 +92,13 @@ public class LoginWindow extends javax.swing.JFrame {
         verbosepanel = new javax.swing.JPanel();
         cblbl2 = new javax.swing.JLabel();
         verbosebtn = new keeptoo.KButton();
-        chckboxandlblpanel = new javax.swing.JPanel();
+        twitterbtnpanel = new javax.swing.JPanel();
         cblbl1 = new javax.swing.JLabel();
         twitterbtn = new keeptoo.KButton();
         onelineout = new javax.swing.JLabel();
-        websitelbl3 = new javax.swing.JLabel();
+        sourceslbl = new javax.swing.JLabel();
         addsourcebtn2 = new keeptoo.KButton();
         addsourcebtn = new keeptoo.KButton();
-        CreateAccountPanel = new keeptoo.KGradientPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        userfield1 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        pwdfield2 = new javax.swing.JPasswordField();
-        fullnamefield = new javax.swing.JTextField();
-        backfromca = new keeptoo.KButton();
-        jLabel16 = new javax.swing.JLabel();
-        finalcreate = new keeptoo.KButton();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -170,10 +156,10 @@ public class LoginWindow extends javax.swing.JFrame {
         pwdfield.setCaretColor(new java.awt.Color(255, 255, 255));
         LoginPanel.add(pwdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 350, 30));
 
-        orlblNI.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        orlblNI.setForeground(new java.awt.Color(255, 255, 255));
-        orlblNI.setText("or");
-        LoginPanel.add(orlblNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
+        orlabel.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        orlabel.setForeground(new java.awt.Color(255, 255, 255));
+        orlabel.setText("or");
+        LoginPanel.add(orlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
 
         closelbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         closelbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -386,9 +372,9 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 300, 210));
 
-        websitelbl2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        websitelbl2.setForeground(new java.awt.Color(255, 255, 255));
-        extractorpanel.add(websitelbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 160, 30));
+        verboselbl.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        verboselbl.setForeground(new java.awt.Color(255, 255, 255));
+        extractorpanel.add(verboselbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 160, 30));
 
         largeoutput.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         largeoutput.setForeground(new java.awt.Color(255, 255, 255));
@@ -396,8 +382,8 @@ public class LoginWindow extends javax.swing.JFrame {
         largeoutput.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
         extractorpanel.add(largeoutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 470, 210));
 
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        maincontrolpanel.setOpaque(false);
+        maincontrolpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         extractbtn.setText("Extract");
         extractbtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
@@ -428,7 +414,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 extractbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(extractbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 100, 40));
+        maincontrolpanel.add(extractbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 100, 40));
 
         depthtogglepanel.setOpaque(false);
 
@@ -526,7 +512,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jPanel1.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+        maincontrolpanel.add(depthtogglepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
         keywordfield.setBackground(new Color(0,0,0,0));
         keywordfield.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
@@ -539,7 +525,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 keywordfieldActionPerformed(evt);
             }
         });
-        jPanel1.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 350, 30));
+        maincontrolpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 350, 30));
 
         stopbtn.setText("Stop");
         stopbtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
@@ -570,16 +556,16 @@ public class LoginWindow extends javax.swing.JFrame {
                 stopbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(stopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 100, 40));
+        maincontrolpanel.add(stopbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 100, 40));
 
         statuslbl.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         statuslbl.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 20));
+        maincontrolpanel.add(statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 20));
 
         websitelbl7.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         websitelbl7.setForeground(new java.awt.Color(255, 255, 255));
         websitelbl7.setText("Keyword");
-        jPanel1.add(websitelbl7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
+        maincontrolpanel.add(websitelbl7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
         verbosepanel.setOpaque(false);
 
@@ -637,9 +623,9 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jPanel1.add(verbosepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 90, -1));
+        maincontrolpanel.add(verbosepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 90, -1));
 
-        chckboxandlblpanel.setOpaque(false);
+        twitterbtnpanel.setOpaque(false);
 
         cblbl1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         cblbl1.setForeground(new java.awt.Color(255, 255, 255));
@@ -675,38 +661,38 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout chckboxandlblpanelLayout = new javax.swing.GroupLayout(chckboxandlblpanel);
-        chckboxandlblpanel.setLayout(chckboxandlblpanelLayout);
-        chckboxandlblpanelLayout.setHorizontalGroup(
-            chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout twitterbtnpanelLayout = new javax.swing.GroupLayout(twitterbtnpanel);
+        twitterbtnpanel.setLayout(twitterbtnpanelLayout);
+        twitterbtnpanelLayout.setHorizontalGroup(
+            twitterbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(twitterbtnpanelLayout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cblbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        chckboxandlblpanelLayout.setVerticalGroup(
-            chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chckboxandlblpanelLayout.createSequentialGroup()
-                .addGroup(chckboxandlblpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        twitterbtnpanelLayout.setVerticalGroup(
+            twitterbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(twitterbtnpanelLayout.createSequentialGroup()
+                .addGroup(twitterbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(cblbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jPanel1.add(chckboxandlblpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 90, -1));
+        maincontrolpanel.add(twitterbtnpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 90, -1));
 
-        extractorpanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 180));
+        extractorpanel.add(maincontrolpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 180));
 
         onelineout.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         onelineout.setForeground(new java.awt.Color(255, 255, 255));
         extractorpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 410, 20));
 
-        websitelbl3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        websitelbl3.setForeground(new java.awt.Color(255, 255, 255));
-        websitelbl3.setText("Sources:");
-        extractorpanel.add(websitelbl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 30));
+        sourceslbl.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        sourceslbl.setForeground(new java.awt.Color(255, 255, 255));
+        sourceslbl.setText("Sources:");
+        extractorpanel.add(sourceslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 30));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 810, 440));
 
@@ -774,177 +760,6 @@ public class LoginWindow extends javax.swing.JFrame {
         MainPanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, 120, 40));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
-
-        CreateAccountPanel.setBackground(new Color(0,0,0,0));
-        CreateAccountPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        CreateAccountPanel.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        CreateAccountPanel.setkBorderRadius(20);
-        CreateAccountPanel.setkEndColor(new java.awt.Color(51, 51, 140));
-        CreateAccountPanel.setkGradientFocus(250);
-        CreateAccountPanel.setkStartColor(new java.awt.Color(83, 97, 112));
-        CreateAccountPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                CreateAccountPanelMouseDragged(evt);
-            }
-        });
-        CreateAccountPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                CreateAccountPanelMousePressed(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CreateAccountPanelMouseClicked(evt);
-            }
-        });
-        CreateAccountPanel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                CreateAccountPanelKeyPressed(evt);
-            }
-        });
-        CreateAccountPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
-        CreateAccountPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel13MouseEntered(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel13MouseReleased(evt);
-            }
-        });
-        CreateAccountPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
-
-        userfield1.setBackground(new Color(0,0,0,0));
-        userfield1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        userfield1.setForeground(new java.awt.Color(255, 255, 255));
-        userfield1.setToolTipText("Please use your AEP username");
-        userfield1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        userfield1.setCaretColor(new java.awt.Color(255, 255, 255));
-        userfield1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        userfield1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userfield1ActionPerformed(evt);
-            }
-        });
-        CreateAccountPanel.add(userfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 350, 30));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("full name");
-        CreateAccountPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 70, -1));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        CreateAccountPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 260, 20));
-
-        pwdfield2.setBackground(new Color(0,0,0,0));
-        pwdfield2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pwdfield2.setForeground(new java.awt.Color(255, 255, 255));
-        pwdfield2.setToolTipText("Please use your AEP password");
-        pwdfield2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        pwdfield2.setCaretColor(new java.awt.Color(255, 255, 255));
-        CreateAccountPanel.add(pwdfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 350, 30));
-
-        fullnamefield.setBackground(new Color(0,0,0,0));
-        fullnamefield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        fullnamefield.setForeground(new java.awt.Color(255, 255, 255));
-        fullnamefield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        fullnamefield.setCaretColor(new java.awt.Color(255, 255, 255));
-        fullnamefield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        fullnamefield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullnamefieldActionPerformed(evt);
-            }
-        });
-        CreateAccountPanel.add(fullnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 350, 30));
-
-        backfromca.setText("Back");
-        backfromca.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        backfromca.setkAllowTab(false);
-        backfromca.setkBorderRadius(40);
-        backfromca.setkEndColor(new java.awt.Color(0, 204, 51));
-        backfromca.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        backfromca.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        backfromca.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        backfromca.setkIndicatorThickness(0);
-        backfromca.setkPressedColor(new java.awt.Color(167, 69, 199));
-        backfromca.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        backfromca.setName(""); // NOI18N
-        backfromca.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backfromcaMouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                backfromcaMouseReleased(evt);
-            }
-        });
-        backfromca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backfromcaActionPerformed(evt);
-            }
-        });
-        CreateAccountPanel.add(backfromca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, 150, 40));
-
-        jLabel16.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("or");
-        CreateAccountPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, -1, -1));
-
-        finalcreate.setText("Create Account");
-        finalcreate.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        finalcreate.setkAllowTab(false);
-        finalcreate.setkBorderRadius(40);
-        finalcreate.setkEndColor(new java.awt.Color(0, 204, 51));
-        finalcreate.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        finalcreate.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        finalcreate.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        finalcreate.setkIndicatorThickness(0);
-        finalcreate.setkPressedColor(new java.awt.Color(167, 69, 199));
-        finalcreate.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        finalcreate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                finalcreateMouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                finalcreateMouseReleased(evt);
-            }
-        });
-        finalcreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalcreateActionPerformed(evt);
-            }
-        });
-        finalcreate.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                finalcreateKeyPressed(evt);
-            }
-        });
-        CreateAccountPanel.add(finalcreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 150, 40));
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("password");
-        CreateAccountPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 70, -1));
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("username");
-        CreateAccountPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 70, -1));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 26)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-news-50.png"))); // NOI18N
-        jLabel9.setText(" StoryGrab");
-        CreateAccountPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 60));
-
-        getContentPane().add(CreateAccountPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1032,68 +847,6 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tocreateaccountpgMouseClicked
 
-    private void CreateAccountPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateAccountPanelMouseDragged
-        // TODO add your handling code here:
-                new Drag(LoginPanel).moveWindow(evt);
-
-    }//GEN-LAST:event_CreateAccountPanelMouseDragged
-
-    private void CreateAccountPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateAccountPanelMousePressed
-        // TODO add your handling code here:
-                 new Drag(LoginPanel).onPress(evt);
-
-    }//GEN-LAST:event_CreateAccountPanelMousePressed
-
-    private void CreateAccountPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CreateAccountPanelKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CreateAccountPanelKeyPressed
-
-    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        // TODO add your handling code here:
-        quit();
-    }//GEN-LAST:event_jLabel13MouseClicked
-
-    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel13MouseEntered
-
-    private void CreateAccountPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateAccountPanelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CreateAccountPanelMouseClicked
-
-    private void userfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfield1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userfield1ActionPerformed
-
-    private void fullnamefieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullnamefieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fullnamefieldActionPerformed
-
-    private void backfromcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backfromcaMouseClicked
-        // TODO add your handling code here:
-        //back to login 
-        LoginPanel.setVisible(true);
-        MainPanel.setVisible(false);
-        CreateAccountPanel.setVisible(false);
-    }//GEN-LAST:event_backfromcaMouseClicked
-
-    private void backfromcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backfromcaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backfromcaActionPerformed
-
-    private void finalcreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finalcreateMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_finalcreateMouseClicked
-
-    private void finalcreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalcreateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_finalcreateActionPerformed
-
-    private void finalcreateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_finalcreateKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_finalcreateKeyPressed
-
     private void loginbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMousePressed
         // TODO add your handling code here:
         
@@ -1131,32 +884,6 @@ public class LoginWindow extends javax.swing.JFrame {
         //change to ref not val
         login();
     }//GEN-LAST:event_loginbtnMouseReleased
-
-    private void finalcreateMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finalcreateMouseReleased
-        // TODO add your handling code here:
-        //create account
-        boolean r = mngr.createAccount(userfield1.getText(), 
-                new String(pwdfield2.getPassword()), fullnamefield.getText());
-        //resetAllFields();
-        if(r){
-            login();
-        }
-        else{
-            jLabel15.setText("Do not leave any fields blank");
-        }
-        //System.out.println(mngr.users);
-    }//GEN-LAST:event_finalcreateMouseReleased
-
-    private void backfromcaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backfromcaMouseReleased
-        // TODO add your handling code here:
-        //back to login
-        panelSwitcher(1);
-    }//GEN-LAST:event_backfromcaMouseReleased
-
-    private void jLabel13MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseReleased
-        // TODO add your handling code here:
-        quit();
-    }//GEN-LAST:event_jLabel13MouseReleased
 
     private void closelbl1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closelbl1MouseReleased
         // TODO add your handling code here:
@@ -1349,13 +1076,13 @@ public class LoginWindow extends javax.swing.JFrame {
         if(verbosebtn.isSelected()){
             verbosebtn.setSelected(false);
             verbosebtn.setText("");
-            websitelbl2.setText("");
+            verboselbl.setText("");
             loader.setVerbose(false);
         }
         else{
             verbosebtn.setSelected(true);
             verbosebtn.setText("X");
-            websitelbl2.setText("Verbose Out:");
+            verboselbl.setText("Verbose Out:");
             loader.setVerbose(true);
         }
     }//GEN-LAST:event_verbosebtnMouseReleased
@@ -1381,12 +1108,12 @@ public class LoginWindow extends javax.swing.JFrame {
     
     public void resetAllFields(){
         pwdfield.setText("");
-        pwdfield2.setText("");
+        //pwdfield2.setText("");
         userfield.setText("");
-        userfield1.setText("");
-        fullnamefield.setText("");
+        //userfield1.setText("");
+        //fullnamefield.setText("");
         nouserwithname.setText("");
-        jLabel15.setText("");
+        //jLabel15.setText("");
         usertitlelbl.setText("");
         dynamicdepthlbl.setText(""+loader.getMaxDepth());
         statuslbl.setText("");
@@ -1401,19 +1128,19 @@ public class LoginWindow extends javax.swing.JFrame {
             case 1:
                 LoginPanel.setVisible(true);
                 MainPanel.setVisible(false);
-                CreateAccountPanel.setVisible(false);
+          //      CreateAccountPanel.setVisible(false);
                 break;
             case 2:
                 LoginPanel.setVisible(false);
                 MainPanel.setVisible(true);
-                CreateAccountPanel.setVisible(false);
+ //               CreateAccountPanel.setVisible(false);
                 usertitlelbl.setText(currentusr.screenName);//this is temporary. probs change to a better place later
                 
                 break;
             case 3:
                 LoginPanel.setVisible(false);
                 MainPanel.setVisible(false);
-                CreateAccountPanel.setVisible(true);
+//                CreateAccountPanel.setVisible(true);
                 break;
         }
         
@@ -1471,7 +1198,7 @@ public class LoginWindow extends javax.swing.JFrame {
             loader.passLbl(statuslbl);
             loader.passInitializedOP(onelineout);
             loader.passBigOut(largeoutput);
-            updateSources();                   
+            updateSources();    
             loader.setBefore(keywordfield.getText(),currentusr);//add depth here 
             
             backburner.execute();
@@ -1538,15 +1265,12 @@ public class LoginWindow extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private keeptoo.KGradientPanel CreateAccountPanel;
     private keeptoo.KGradientPanel LoginPanel;
     private keeptoo.KGradientPanel MainPanel;
     private keeptoo.KButton addsourcebtn;
     private keeptoo.KButton addsourcebtn2;
-    private keeptoo.KButton backfromca;
     private javax.swing.JLabel cblbl1;
     private javax.swing.JLabel cblbl2;
-    private javax.swing.JPanel chckboxandlblpanel;
     private javax.swing.JLabel closelbl;
     private javax.swing.JLabel closelbl1;
     private javax.swing.JLabel depthlbl;
@@ -1554,45 +1278,34 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel dynamicdepthlbl;
     private keeptoo.KButton extractbtn;
     private javax.swing.JPanel extractorpanel;
-    private keeptoo.KButton finalcreate;
-    private javax.swing.JTextField fullnamefield;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField keywordfield;
     private javax.swing.JLabel largeoutput;
     private keeptoo.KButton loginbtn;
     private keeptoo.KButton logoutbtn1;
+    private javax.swing.JPanel maincontrolpanel;
     private javax.swing.JLabel mainlogowithicon;
     private keeptoo.KButton minusdepthbtn;
     private javax.swing.JLabel nouserwithname;
     private javax.swing.JLabel onelineout;
-    private javax.swing.JLabel orlblNI;
+    private javax.swing.JLabel orlabel;
     private keeptoo.KButton plusdepthbtn;
     private javax.swing.JLabel profileiconlbl;
     private javax.swing.JLabel profilelblicon;
     private javax.swing.JPasswordField pwdfield;
-    private javax.swing.JPasswordField pwdfield2;
     private javax.swing.JLabel pwdlbl;
+    private javax.swing.JLabel sourceslbl;
     private javax.swing.JLabel sourceslist;
     private javax.swing.JLabel statuslbl;
     private keeptoo.KButton stopbtn;
     private keeptoo.KButton tocreateaccountpg;
     private keeptoo.KButton twitterbtn;
+    private javax.swing.JPanel twitterbtnpanel;
     private javax.swing.JTextField userfield;
-    private javax.swing.JTextField userfield1;
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
     private keeptoo.KButton verbosebtn;
+    private javax.swing.JLabel verboselbl;
     private javax.swing.JPanel verbosepanel;
-    private javax.swing.JLabel websitelbl2;
-    private javax.swing.JLabel websitelbl3;
     private javax.swing.JLabel websitelbl7;
     // End of variables declaration//GEN-END:variables
 }
