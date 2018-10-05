@@ -824,7 +824,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    // <editor-fold defaultstate="collapsed" desc="Label and Button Functions">
     private void userfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfieldActionPerformed
         // TODO add your handling code here:
      
@@ -1177,6 +1177,8 @@ public class LoginWindow extends javax.swing.JFrame {
     private void tipsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipsbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipsbtnActionPerformed
+    
+    // </editor-fold> 
     /*
     Custom code here------------------------------------------------------------
     ----------------------------------------------------------------------------

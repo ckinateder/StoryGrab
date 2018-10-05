@@ -159,7 +159,8 @@ public class Extractor extends Thread {
     @Override
     public void run() {// l is link
        // writeToFile(file,"", false); //overwrite the file
-        System.out.println("Extractor running on "+webpage+" at max depth "+maxDepth);        
+        System.out.println("Extractor running on "+webpage+" at max depth "
+                +maxDepth);        
         //getPageLinks(webpage, 0);
         done = searchPageLinks(webpage, 0, username, password); //done probs not needed
         //if(Thread.currentThread().isInterrupted()){            
