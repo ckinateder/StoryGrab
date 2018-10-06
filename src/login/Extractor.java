@@ -77,17 +77,14 @@ public class Extractor extends Thread {
             String strPassword) {//returns true when done
         try {            
             String authString = strUserId + ":" + strPassword;
-            String encodedString = 
+            String encodedString = //need to authenticate for firewall
                     Base64.getEncoder().encodeToString(authString.getBytes());            
             if ((!alreadySearched.contains(URL) && (depth < maxDepth))&&!stop) {
                 FileWriter fileWriter =
-                new FileWriter(file,true);//add true to append
-            // Always wrap FileWriter in BufferedWriter.
+                    new FileWriter(file,true);//add true to append
                 BufferedWriter bufferedWriter =
-                new BufferedWriter(fileWriter);
-                //System.out.println("Searching  "+URL);//print output
+                    new BufferedWriter(fileWriter);                
                 toBG=""+URL+"\n";//add to toBG
-               //could use file                
                 try {
                     alreadySearched.add(URL); //add link to the hashset
                     Document document = Jsoup.connect(URL)
@@ -98,10 +95,9 @@ public class Extractor extends Thread {
                     if(document.text().toLowerCase().contains
                             (searchFor.toLowerCase())||
                         URL.toLowerCase().contains(searchFor.toLowerCase())){
-                        //search in doc and link                        
+                        //search in doc and link
                         bufferedWriter.write(URL+"\n");
-                        dynamicSet.add(new Link(URL, txt.text()));
-                        //System.out.println(dynamicSet.get(dynamicSet.size()-1));
+                        dynamicSet.add(new Link(URL, txt.text()));                        
                     }
                     bufferedWriter.close();
                     depth++;
