@@ -50,9 +50,7 @@ public class Extractor extends Thread {
         dynamicSet = ps;
     }
     
-    public void writeToFile(String fileName, String toWrite, boolean append){
-        // The name of the file to open.
-        //String fileName = "accounts.txt";
+    public void writeToFile(String fileName, String toWrite, boolean append){        
         try {
             // Assume default encoding.            
             FileWriter fileWriter =
@@ -89,8 +87,7 @@ public class Extractor extends Thread {
                 new BufferedWriter(fileWriter);
                 //System.out.println("Searching  "+URL);//print output
                 toBG=""+URL+"\n";//add to toBG
-               //could use file
-                
+               //could use file                
                 try {
                     alreadySearched.add(URL); //add link to the hashset
                     Document document = Jsoup.connect(URL)
@@ -102,13 +99,12 @@ public class Extractor extends Thread {
                             (searchFor.toLowerCase())||
                         URL.toLowerCase().contains(searchFor.toLowerCase())){
                         //search in doc and link                        
-                        bufferedWriter.write(URL+"\n"); // write if search term
+                        bufferedWriter.write(URL+"\n");
                         dynamicSet.add(new Link(URL, txt.text()));
                         //System.out.println(dynamicSet.get(dynamicSet.size()-1));
                     }
                     bufferedWriter.close();
-                    depth++;                    
-                    //iterate through alreadySearched on page
+                    depth++;
                     for (Element page : alreadySearchedOnPage) {
                         searchPageLinks(page.attr("abs:href"), 
                                 depth,strUserId,strPassword);
@@ -122,12 +118,7 @@ public class Extractor extends Thread {
             System.out.println(
                 "Error writing to file '"
                 + file + "'");
-            // Or we could just do this:
-            // ex.printStackTrace();
         }
-        // Or we could just do this:
-        // ex.printStackTrace();
-        
         return true;
     }
     public void setStop(boolean t) {
@@ -158,13 +149,11 @@ public class Extractor extends Thread {
    
     @Override
     public void run() {// l is link
-       // writeToFile(file,"", false); //overwrite the file
         System.out.println("Extractor running on "+webpage+" at max depth "
-                +maxDepth);        
-        //getPageLinks(webpage, 0);
+                +maxDepth);
         done = searchPageLinks(webpage, 0, username, password); //done probs not needed
         if(stop){
-            System.out.println("Exteactoe error finishing on "+webpage);
+            System.out.println("Extractor error finishing on "+webpage);
         }else{
             System.out.println("Extractor client successful on "+webpage);
         }        
@@ -172,6 +161,5 @@ public class Extractor extends Thread {
     public String toString(){
         return "Page: "+webpage+", Depth: "+maxDepth+", File: "+file;
     }
-
 }
 
