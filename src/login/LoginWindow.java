@@ -368,7 +368,6 @@ public class LoginWindow extends javax.swing.JFrame {
         sourceslist.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         sourceslist.setForeground(new java.awt.Color(255, 255, 255));
         sourceslist.setText("Add a source");
-        sourceslist.setToolTipText("scroll for all sources");
         sourceslist.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         sourceslist.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255)));
         sourceslist.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
@@ -689,11 +688,11 @@ public class LoginWindow extends javax.swing.JFrame {
 
         maincontrolpanel.add(twitterbtnpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 90, -1));
 
-        extractorpanel.add(maincontrolpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 370, 180));
-
         onelineout.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         onelineout.setForeground(new java.awt.Color(255, 255, 255));
-        extractorpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 410, 20));
+        maincontrolpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 410, 20));
+
+        extractorpanel.add(maincontrolpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 780, 180));
 
         sourceslbl.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         sourceslbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -717,14 +716,14 @@ public class LoginWindow extends javax.swing.JFrame {
         addsourcebtn2.setkSelectedColor(new java.awt.Color(163, 62, 167));
         addsourcebtn2.setName(""); // NOI18N
         addsourcebtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtn2MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 addsourcebtn2MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 addsourcebtn2MouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtn2MouseClicked(evt);
             }
         });
         addsourcebtn2.addActionListener(new java.awt.event.ActionListener() {
@@ -748,14 +747,14 @@ public class LoginWindow extends javax.swing.JFrame {
         addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
         addsourcebtn.setName(""); // NOI18N
         addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 addsourcebtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 addsourcebtnMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseClicked(evt);
             }
         });
         addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1068,8 +1067,13 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_addsourcebtnMousePressed
 
     private void addsourcebtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseReleased
-        // TODO add your handling code here:
-        sourcesEditor();
+        try {
+            // TODO add your handling code here:
+            //sourcesEditor();
+            openSources();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_addsourcebtnMouseReleased
 
     private void addsourcebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtnActionPerformed
@@ -1188,6 +1192,8 @@ public class LoginWindow extends javax.swing.JFrame {
     ----------------------------------------------------------------------------
     */
     String iconFile = "icons8-news-50.png";
+    String sourceFile = "sources.txt";
+    String outputFile = "links.txt";
     AccountManager mngr = new AccountManager();
     User currentusr;
     BackgroundRunner loader = new BackgroundRunner();
@@ -1217,6 +1223,17 @@ public class LoginWindow extends javax.swing.JFrame {
     public void setVerbose(boolean t){
         loader.setVerbose(t);
     }
+    public void openSources() throws IOException{
+        File file = new File(sourceFile);        
+        //first check if Desktop is supported by Platform or not
+        if(!Desktop.isDesktopSupported()){
+            System.out.println("Desktop is not supported");
+            return;
+        }        
+        Desktop desktop = Desktop.getDesktop();
+        if(file.exists()) desktop.open(file);        
+    }
+    
     public void setTips(boolean t){
         if(t){
             //add all the tooltiptexts
@@ -1316,7 +1333,16 @@ public class LoginWindow extends javax.swing.JFrame {
         OptionalOutput op = new OptionalOutput();
         loader.passInitializedOP(websitelbl6);//works within class.
         op.main(sg);*/ //no   
-        an.run();
+        File file = new File(outputFile);
+        
+        //first check if Desktop is supported by Platform or not
+        if(!Desktop.isDesktopSupported()){
+            System.out.println("Desktop is not supported");
+            return;
+        }
+        
+        Desktop desktop = Desktop.getDesktop();
+        if(file.exists()) desktop.open(file);
     }
     public void sourcesEditor(){//open sources editor
         
