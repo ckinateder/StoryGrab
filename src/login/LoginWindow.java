@@ -9,6 +9,7 @@ import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Frame;
+import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -43,6 +44,7 @@ public class LoginWindow extends javax.swing.JFrame {
      */
     public LoginWindow() {
         initComponents();
+        setIcon();
         panelSwitcher(1);        
         updateSources();
         refreshChild.execute();
@@ -104,6 +106,7 @@ public class LoginWindow extends javax.swing.JFrame {
         tipsbtn = new keeptoo.KButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("StoryGrab");
         setLocation(new java.awt.Point(0, 0));
         setLocationByPlatform(true);
         setUndecorated(true);
@@ -576,7 +579,7 @@ public class LoginWindow extends javax.swing.JFrame {
         cblbl2.setForeground(new java.awt.Color(255, 255, 255));
         cblbl2.setText("Verbose");
 
-        verbosebtn.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        verbosebtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         verbosebtn.setIconTextGap(0);
         verbosebtn.setkAllowTab(false);
         verbosebtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -590,14 +593,14 @@ public class LoginWindow extends javax.swing.JFrame {
         verbosebtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
         verbosebtn.setName(""); // NOI18N
         verbosebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verbosebtnMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 verbosebtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 verbosebtnMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                verbosebtnMouseClicked(evt);
             }
         });
         verbosebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -634,7 +637,7 @@ public class LoginWindow extends javax.swing.JFrame {
         cblbl1.setForeground(new java.awt.Color(255, 255, 255));
         cblbl1.setText("Twitter");
 
-        twitterbtn.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        twitterbtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         twitterbtn.setIconTextGap(0);
         twitterbtn.setkAllowTab(false);
         twitterbtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -648,14 +651,14 @@ public class LoginWindow extends javax.swing.JFrame {
         twitterbtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
         twitterbtn.setName(""); // NOI18N
         twitterbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                twitterbtnMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 twitterbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 twitterbtnMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                twitterbtnMouseClicked(evt);
             }
         });
         twitterbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -768,7 +771,7 @@ public class LoginWindow extends javax.swing.JFrame {
         cblbl3.setForeground(new java.awt.Color(255, 255, 255));
         cblbl3.setText("Tips");
 
-        tipsbtn.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14)); // NOI18N
+        tipsbtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         tipsbtn.setIconTextGap(0);
         tipsbtn.setkAllowTab(false);
         tipsbtn.setkEndColor(new java.awt.Color(0, 204, 51));
@@ -782,14 +785,14 @@ public class LoginWindow extends javax.swing.JFrame {
         tipsbtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
         tipsbtn.setName(""); // NOI18N
         tipsbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tipsbtnMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tipsbtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tipsbtnMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tipsbtnMouseClicked(evt);
             }
         });
         tipsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -807,7 +810,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addComponent(tipsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cblbl3)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tipsbtnpanelLayout.setVerticalGroup(
             tipsbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1184,6 +1187,7 @@ public class LoginWindow extends javax.swing.JFrame {
     ----------------------------------------------------------------------------
     ----------------------------------------------------------------------------
     */
+    String iconFile = "icons8-news-50.png";
     AccountManager mngr = new AccountManager();
     User currentusr;
     BackgroundRunner loader = new BackgroundRunner();
@@ -1346,6 +1350,9 @@ public class LoginWindow extends javax.swing.JFrame {
     public void searchTwitter(){
         TwitterSkimmer.skim();
     }
+    private void setIcon() {        
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(iconFile)));
+    }
     public void quit(){
         dispose();
         System.exit(0);
@@ -1440,4 +1447,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JPanel verbosepanel;
     private javax.swing.JLabel websitelbl7;
     // End of variables declaration//GEN-END:variables
+
+    
 }
