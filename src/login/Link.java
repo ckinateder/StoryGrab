@@ -15,6 +15,8 @@ public class Link {
     private String body;
     private double relevance;
     private boolean inProcess;
+    private boolean failed = false;
+    
     public Link(){
         title = ""; // avoid NullPointerException
         hyperlink = ""; // avoid NullPointerException
@@ -53,6 +55,9 @@ public class Link {
     public boolean isInProcess(){
         return inProcess;
     }
+    public boolean isFailed(){
+        return failed;
+    }
     public void setTitle(String t){
         this.title = t;
     }
@@ -68,7 +73,9 @@ public class Link {
     public void setInProcess(boolean t){
         this.inProcess = t;
     }
-    
+    public void setFailed(boolean t){
+        this.failed = t;
+    }
     @Override
     public String toString(){
         return "\nLink: "+hyperlink+""

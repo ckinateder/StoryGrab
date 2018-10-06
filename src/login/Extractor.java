@@ -163,8 +163,11 @@ public class Extractor extends Thread {
                 +maxDepth);        
         //getPageLinks(webpage, 0);
         done = searchPageLinks(webpage, 0, username, password); //done probs not needed
-        //if(Thread.currentThread().isInterrupted()){            
-        System.out.println("Extractor client done on "+webpage);
+        if(stop){
+            System.out.println("Exteactoe error finishing on "+webpage);
+        }else{
+            System.out.println("Extractor client successful on "+webpage);
+        }        
     }
     public String toString(){
         return "Page: "+webpage+", Depth: "+maxDepth+", File: "+file;
