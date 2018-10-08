@@ -23,7 +23,7 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 /**
- *
+ * This class is what searches the webpage
  * @author calvin kinateder
  */
 

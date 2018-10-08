@@ -31,7 +31,7 @@ import winterwell.jtwitter.OAuthSignpostClient;
 import winterwell.jtwitter.Twitter;
 
 /**
- *
+ * Main class
  * @author calvin kinateder
  * git log --date=short --pretty=format:"Work on code,%s, ,%ad %ar"               
  * https://youtu.be/TOgTPm_AU_c

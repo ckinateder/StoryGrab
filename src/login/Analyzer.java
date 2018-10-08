@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * May delete later
+ * This class is the wrapper for the python LDA
  * @author ckinateder
  */
 public class Analyzer {

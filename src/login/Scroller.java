@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 
 /**
- *
+ * Controls the scrolling methods
  * @author ckinateder
  */
 public class Scroller {

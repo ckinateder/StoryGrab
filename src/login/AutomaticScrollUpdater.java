@@ -7,7 +7,7 @@ package login;
 import javax.swing.*;
 import java.util.List;
 /**
- *
+ * Refreshes the state of Link objects once every WAIT ms
  * @author calvin
  */
 public class AutomaticScrollUpdater {

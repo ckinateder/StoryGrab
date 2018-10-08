@@ -6,7 +6,7 @@
 package login;
 
 /**
- *
+ * Holds a user and their data
  * @author ckinateder
  */
 public class User {

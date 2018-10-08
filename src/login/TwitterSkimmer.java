@@ -21,7 +21,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.json.simple.JSONValue;
 
 /**
- *
+ * Searches twitter
  * @author ckinateder
  */
 public class TwitterSkimmer {
