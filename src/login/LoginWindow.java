@@ -1374,7 +1374,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     
     public void searchTwitter(){
-        TwitterSkimmer.skim();
+        //TwitterSkimmer.skim();
     }
     private void setIcon() {        
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(iconFile)));

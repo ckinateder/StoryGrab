@@ -268,8 +268,6 @@ public class BackgroundRunner {
                         alldone=true;
                     }
                 }
-                
-                
                 for(Thread t : extractors){
                     //Future<?> f = executor.submit(t);
                     //futures.add(f);
