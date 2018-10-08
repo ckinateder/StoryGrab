@@ -33,8 +33,8 @@ import winterwell.jtwitter.Twitter;
 /**
  *
  * @author calvin kinateder
- *                          
- *                             https://youtu.be/TOgTPm_AU_c
+ * git log --date=short --pretty=format:"Work on code,%s, ,%ad %ar"               
+ * https://youtu.be/TOgTPm_AU_c
  * 
  */
 public class LoginWindow extends javax.swing.JFrame {
@@ -747,14 +747,14 @@ public class LoginWindow extends javax.swing.JFrame {
         addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
         addsourcebtn.setName(""); // NOI18N
         addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 addsourcebtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 addsourcebtnMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseClicked(evt);
             }
         });
         addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1058,28 +1058,6 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_twitterbtnActionPerformed
 
-    private void addsourcebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtnMouseClicked
-
-    private void addsourcebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtnMousePressed
-
-    private void addsourcebtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseReleased
-        try {
-            // TODO add your handling code here:
-            //sourcesEditor();
-            openSources();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_addsourcebtnMouseReleased
-
-    private void addsourcebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addsourcebtnActionPerformed
-
     private void keywordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywordfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_keywordfieldActionPerformed
@@ -1184,6 +1162,28 @@ public class LoginWindow extends javax.swing.JFrame {
     private void tipsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipsbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipsbtnActionPerformed
+
+    private void addsourcebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsourcebtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnActionPerformed
+
+    private void addsourcebtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseReleased
+        try {
+            // TODO add your handling code here:
+            //sourcesEditor();
+            openSources();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addsourcebtnMouseReleased
+
+    private void addsourcebtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnMousePressed
+
+    private void addsourcebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addsourcebtnMouseClicked
     
     // </editor-fold> 
     /*
@@ -1224,14 +1224,19 @@ public class LoginWindow extends javax.swing.JFrame {
         loader.setVerbose(t);
     }
     public void openSources() throws IOException{
-        File file = new File(sourceFile);        
-        //first check if Desktop is supported by Platform or not
-        if(!Desktop.isDesktopSupported()){
-            System.out.println("Desktop is not supported");
-            return;
-        }        
-        Desktop desktop = Desktop.getDesktop();
-        if(file.exists()) desktop.open(file);        
+        if(!loader.isRunning()){
+            File file = new File(sourceFile);        
+            //first check if Desktop is supported by Platform or not
+            if(!Desktop.isDesktopSupported()){
+                System.out.println("Desktop is not supported");
+                return;
+            }        
+            Desktop desktop = Desktop.getDesktop();
+            if(file.exists()) desktop.open(file); 
+        } 
+        else{
+            //send messsage
+        }
     }
     
     public void setTips(boolean t){

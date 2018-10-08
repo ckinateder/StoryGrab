@@ -13,5 +13,5 @@ http://www.cnn.com
 http://www.npr.org
 http://abcnews.go.com/
 https://www.usnews.com/news
-https://www.yahoo.com/news/
-https://www.ap.org/en-us/
+http://www.yahoo.com/news/
+http://www.ap.org/en-us/

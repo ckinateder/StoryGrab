@@ -30,7 +30,7 @@ public class SourceEditor extends javax.swing.JFrame {
         updateSrc();
         //scroller.sources = sources;
         //System.out.println(sources);
-        scroller.setLabel(sourceslist);
+       // scroller.setLabel(sourceslist);
     }
 
     /**
@@ -294,10 +294,10 @@ public class SourceEditor extends javax.swing.JFrame {
 
     private void sourceslistMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslistMouseWheelMoved
         // TODO add your handling code here:
-        scroller.scrollSources(evt);
+      //  scroller.scrollSources(evt);
     }//GEN-LAST:event_sourceslistMouseWheelMoved
     ArrayList<Link> sources = new ArrayList<>();
-    Scroller scroller = new Scroller(sources, 9);
+    //Scroller scroller = new Scroller(sources, 9);
     
     String sourcesFile = "sources.txt";
     public void updateSrc(){

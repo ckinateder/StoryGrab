@@ -77,41 +77,46 @@ public class BackgroundRunner {
     }
     
     public void updateSrc(){
-        sources.clear();
-        try {
-            // FileReader reads text files in the default encoding.
-            FileReader fileReader = 
-                new FileReader(sourcesFile);
-           
-            BufferedReader bufferedReader = 
-                new BufferedReader(fileReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                 sources.add(new Link(line));
+        //check if sources in proc
+        /*
+        boolean anyInProc = false;
+        for(Link l : sources){
+            if(l.isInProcess()){
+                anyInProc = true;
             }
-            //System.out.println(sources);
-            //System.out.println(users);
-            // Always close files.
-            bufferedReader.close();         
+        }*/
+        if(!isRunning){
+            //none in proc
+            sources.clear();
+            try {
+                // FileReader reads text files in the default encoding.
+                FileReader fileReader = 
+                    new FileReader(sourcesFile);
+
+                BufferedReader bufferedReader = 
+                    new BufferedReader(fileReader);
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                     sources.add(new Link(line));
+                }            
+                // Always close files.
+                bufferedReader.close();         
+            }
+            catch(FileNotFoundException ex) {
+                System.out.println(
+                    "Unable to open file '" + 
+                    sourcesFile + "'");
+            }
+            catch(IOException ex) {
+                System.out.println(
+                    "Error reading file '" 
+                    + sourcesFile + "'");
+            }
         }
-        catch(FileNotFoundException ex) {
-            System.out.println(
-                "Unable to open file '" + 
-                sourcesFile + "'");/*
-            sources.add("Unable to open file '" + 
-                sourcesFile + "'");*/
+        else{
+            //currently running, do nothing
+            //send a message 
         }
-        catch(IOException ex) {
-            System.out.println(
-                "Error reading file '" 
-                + sourcesFile + "'");                  
-            // Or we could just do this: 
-            // ex.printStackTrace();
-            /*
-            sources.add("Error reading file '" 
-                + sourcesFile + "'");     */
-        }
-        
     }
     public void add(Extractor e){
         extractors.add(e);
@@ -136,9 +141,8 @@ public class BackgroundRunner {
         updateSrc();
         extractors.clear();
         
-        for(Link src : sources){
-            //if(!src.equals())
-                extractors.add(new Extractor(src.getHyperlink(), passedset));//make new extractor for each source
+        for(Link src : sources){            
+            extractors.add(new Extractor(src.getHyperlink(), passedset));//make new extractor for each source
         }
         setMaxDepth(maxDepth);
         setCreds(u);
@@ -222,8 +226,7 @@ public class BackgroundRunner {
                 }
                 while(!alldone){
                     isRunning = true;
-                    for(Extractor t:extractors){
-                        
+                    for(Extractor t:extractors){                        
                         if(!t.isAlive()&&!used.contains(t)){
                             //System.out.println("Done on "+t);
                             used.add(t);
@@ -235,8 +238,7 @@ public class BackgroundRunner {
                             //String wp = t.getWebpage();//send that somehow
                             //search sources for t.getWeb
                             //System.out.println(findSource(t.getWebpage()));
-                            findSource(t.getWebpage()).setInProcess(true);
-                            //System.out.println(sources);
+                            findSource(t.getWebpage()).setInProcess(true);                            
                             System.out.println();
                             System.out.println("Done: ");
                             for(Extractor e : used){
@@ -269,10 +271,7 @@ public class BackgroundRunner {
                     }
                 }
                 for(Thread t : extractors){
-                    //Future<?> f = executor.submit(t);
-                    //futures.add(f);
-                    t.join();
-                    
+                    t.join();                    
                 }
                 publish("Completed");
                 isRunning = false;
@@ -305,8 +304,7 @@ public class BackgroundRunner {
                 }
             }
             @Override
-            protected void done() {
-                
+            protected void done() {                
                 boolean bStatus = false;
                 try {
                     bStatus = get();                   

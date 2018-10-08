@@ -31,7 +31,7 @@ public class AddASourceDEP extends javax.swing.JFrame {
     public AddASourceDEP() {
         initComponents();
         updateSources();
-        scrlr.setLabel(sourceslist2);
+        //scrlr.setLabel(sourceslist2);
     }
 
     /**
@@ -329,11 +329,11 @@ public class AddASourceDEP extends javax.swing.JFrame {
 
     private void sourceslist2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_sourceslist2MouseWheelMoved
         // TODO add your handling code here:
-        scrlr.scrollSources(evt);
+       // scrlr.scrollSources(evt);
     }//GEN-LAST:event_sourceslist2MouseWheelMoved
     
     ArrayList<Link> sources = new ArrayList<>();
-    Scroller scrlr = new Scroller(sources,10);
+    //Scroller scrlr = new Scroller(sources,10);
     
     String sourcesFile = "sources.txt";
     public void updateSources(){

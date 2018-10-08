@@ -17,21 +17,21 @@ public class Scroller {
     int scrollStart = 0;
     int SCROLLSIZE = 10; //add note at bottom that there is more
     BackgroundRunner lblContainer;
-    ArrayList<Link> sources;
+    //ArrayList<Link> sources;
     public Scroller(BackgroundRunner lblContainer){        
         this.lblContainer = lblContainer;
-        sources = lblContainer.sources;
-        if(sources.size()<=SCROLLSIZE){
-            SCROLLSIZE = sources.size();
+        //sources = lblContainer.sources;
+        if(lblContainer.sources.size()<=SCROLLSIZE){
+            SCROLLSIZE = lblContainer.sources.size();
         }
-    }
+    }/*
     public Scroller(ArrayList lst, int size){
         SCROLLSIZE = size;
         sources = lst;
         if(sources.size()<=SCROLLSIZE){
             SCROLLSIZE = sources.size();
         }
-    }
+    }*/
     public void setLabel(JLabel l){
         modifiedLbl = l;
     }
@@ -41,8 +41,8 @@ public class Scroller {
     public void scrollSources(java.awt.event.MouseWheelEvent mwheel){
         int scAmount = mwheel.getWheelRotation();
         //System.out.println(scAmount);
-        //lblContainer.updateSrc();
-        if(scrollStart+scAmount>=0 && SCROLLSIZE+scAmount<sources.size()+1){
+        //add empty catch in here
+        if(scrollStart+scAmount>=0 && SCROLLSIZE+scAmount<lblContainer.sources.size()+1){
             scrollStart+=scAmount;         
             SCROLLSIZE+=scAmount;
         }
@@ -50,6 +50,7 @@ public class Scroller {
     }
     
     public void updateSources(){
+        lblContainer.updateSrc(); 
         String s = "<html>";
         if(scrollStart>0){
             s+="...<br>";
@@ -59,7 +60,7 @@ public class Scroller {
         }
         for(int i = scrollStart; i<SCROLLSIZE;i++){
             String se = "";
-            Link tmpLink = sources.get(i);
+            Link tmpLink = lblContainer.sources.get(i);
             //System.out.println(tmpLink);
             if(tmpLink.isInProcess()){
                 se = (i+1)+": <b><font color=green>"+tmpLink.getHyperlink()+"</font></b>";
@@ -69,7 +70,7 @@ public class Scroller {
             }
             s=s+se+"<br>";
         }
-        if(sources.size()>SCROLLSIZE){
+        if(lblContainer.sources.size()>SCROLLSIZE){
             s+="...<br>";
         }
         s+="</html>";
