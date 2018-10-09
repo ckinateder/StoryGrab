@@ -40,7 +40,8 @@ public class BackgroundRunner {
     final int OUTSIZE = 12;
     ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
-    ArrayList<Link> sources = new ArrayList<>();
+    //ArrayList<Link> sources = new ArrayList<>();
+    Vector<Link> sources = new Vector<>();
     //ArrayList<Thread> extractors = new ArrayList<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently

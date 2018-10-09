@@ -104,6 +104,7 @@ public class LoginWindow extends javax.swing.JFrame {
         tipsbtnpanel = new javax.swing.JPanel();
         cblbl3 = new javax.swing.JLabel();
         tipsbtn = new keeptoo.KButton();
+        stopbtn1 = new keeptoo.KButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("StoryGrab");
@@ -822,6 +823,37 @@ public class LoginWindow extends javax.swing.JFrame {
 
         MainPanel.add(tipsbtnpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, -1));
 
+        stopbtn1.setText("Search Settings");
+        stopbtn1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        stopbtn1.setkAllowTab(false);
+        stopbtn1.setkBorderRadius(40);
+        stopbtn1.setkEndColor(new java.awt.Color(0, 204, 51));
+        stopbtn1.setkHoverColor(new java.awt.Color(255, 102, 204));
+        stopbtn1.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        stopbtn1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        stopbtn1.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        stopbtn1.setkIndicatorThickness(0);
+        stopbtn1.setkPressedColor(new java.awt.Color(167, 69, 199));
+        stopbtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        stopbtn1.setName(""); // NOI18N
+        stopbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                stopbtn1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                stopbtn1MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stopbtn1MouseClicked(evt);
+            }
+        });
+        stopbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopbtn1ActionPerformed(evt);
+            }
+        });
+        MainPanel.add(stopbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 140, 40));
+
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
         pack();
@@ -1184,6 +1216,22 @@ public class LoginWindow extends javax.swing.JFrame {
     private void addsourcebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addsourcebtnMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtnMouseClicked
+
+    private void stopbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtn1MousePressed
+
+    private void stopbtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtn1MouseReleased
+
+    private void stopbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtn1MouseClicked
+
+    private void stopbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtn1ActionPerformed
     
     // </editor-fold> 
     /*
@@ -1465,6 +1513,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel sourceslist;
     private javax.swing.JLabel statuslbl;
     private keeptoo.KButton stopbtn;
+    private keeptoo.KButton stopbtn1;
     private keeptoo.KButton tipsbtn;
     private javax.swing.JPanel tipsbtnpanel;
     private keeptoo.KButton tocreateaccountpg;
