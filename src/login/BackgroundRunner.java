@@ -253,7 +253,10 @@ public class BackgroundRunner {
                         }
                         publish(t.toBG);//publish output to process   
                         if(!t.errorMsgs.equals("")){
-                             publish(t.errorMsgs);
+                             publish("<font color=FA8900>"+t.errorMsgs+"</font>");
+                             //maybe find source and flash it for .2 s
+                             findSource(t.getWebpage()).setNonFatalE(true);
+                             //maybe have a waitfor
                         }
                        
                         if(shouldStop){
@@ -285,7 +288,7 @@ public class BackgroundRunner {
                 String currentOut = "";
                 currentOut = chunks.get(chunks.size()-1);
                 //currentOut+="</html>";
-                outputlbl.setText(currentOut);
+                outputlbl.setText("<html>"+currentOut+"</html>");
                 int st = chunks.size()-OUTSIZE;
                 if(st<0){
                     st=0;

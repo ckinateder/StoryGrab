@@ -44,6 +44,9 @@ public class LoginWindow extends javax.swing.JFrame {
      */
     public LoginWindow() {
         initComponents();
+        verbosebtn.setSelected(true);
+        verbosebtn.setText("X");
+        setVerbose(true);
         setIcon();
         panelSwitcher(1);        
         updateSources();
@@ -78,7 +81,6 @@ public class LoginWindow extends javax.swing.JFrame {
         logoutbtn1 = new keeptoo.KButton();
         extractorpanel = new javax.swing.JPanel();
         sourceslist = new javax.swing.JLabel();
-        verboselbl = new javax.swing.JLabel();
         largeoutput = new javax.swing.JLabel();
         maincontrolpanel = new javax.swing.JPanel();
         extractbtn = new keeptoo.KButton();
@@ -377,10 +379,6 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
         extractorpanel.add(sourceslist, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 300, 210));
-
-        verboselbl.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        verboselbl.setForeground(new java.awt.Color(255, 255, 255));
-        extractorpanel.add(verboselbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 160, 30));
 
         largeoutput.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         largeoutput.setForeground(new java.awt.Color(255, 255, 255));
@@ -691,7 +689,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         onelineout.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         onelineout.setForeground(new java.awt.Color(255, 255, 255));
-        maincontrolpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 410, 20));
+        maincontrolpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 410, 40));
 
         extractorpanel.add(maincontrolpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 780, 180));
 
@@ -837,14 +835,14 @@ public class LoginWindow extends javax.swing.JFrame {
         stopbtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
         stopbtn1.setName(""); // NOI18N
         stopbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stopbtn1MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 stopbtn1MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 stopbtn1MouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                stopbtn1MouseClicked(evt);
             }
         });
         stopbtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -1154,13 +1152,11 @@ public class LoginWindow extends javax.swing.JFrame {
         if(verbosebtn.isSelected()){
             verbosebtn.setSelected(false);
             verbosebtn.setText("");
-            verboselbl.setText("");
             setVerbose(false);
         }
         else{
             verbosebtn.setSelected(true);
             verbosebtn.setText("X");
-            verboselbl.setText("Verbose Out:");
             setVerbose(true);
         }
     }//GEN-LAST:event_verbosebtnMouseReleased
@@ -1222,7 +1218,8 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_stopbtn1MousePressed
 
     private void stopbtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MouseReleased
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+        SearchSettings.main(null);
     }//GEN-LAST:event_stopbtn1MouseReleased
 
     private void stopbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MouseClicked
@@ -1355,8 +1352,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void loginwithcreate(boolean fromWhere){//created for a
         if(fromWhere){
-            currentusr = mngr.users.get(mngr.users.size()-1);//get last made account
-            
+            currentusr = mngr.users.get(mngr.users.size()-1);//get last made account            
             //this is being called from create account page
         }
         else{
@@ -1523,7 +1519,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
     private keeptoo.KButton verbosebtn;
-    private javax.swing.JLabel verboselbl;
     private javax.swing.JPanel verbosepanel;
     private javax.swing.JLabel websitelbl7;
     // End of variables declaration//GEN-END:variables
