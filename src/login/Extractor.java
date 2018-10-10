@@ -40,6 +40,7 @@ public class Extractor extends Thread {
     public String toBG = "";//to send to the backgroundrunner
     public String errorMsgs = "";//to send to bg too
     public Vector dynamicSet;
+    public int errorCount = 0;
     
     public Extractor() {
         alreadySearched = new HashSet<>();
@@ -107,7 +108,9 @@ public class Extractor extends Thread {
                     }
                 } catch (IOException | IllegalArgumentException e) {
                     System.err.println("For '" + URL + "': " + e.getMessage());
-                    errorMsgs = "E: " + e.getMessage() + " on "+ URL + "" ;
+                   // errorMsgs = "E: " + e.getMessage() + " on "+ URL + "" ;
+                    errorMsgs = "E:"+URL;
+                    errorCount++;
                 }
             }
         }catch(IOException ex) {

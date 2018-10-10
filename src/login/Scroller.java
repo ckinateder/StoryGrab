@@ -51,30 +51,39 @@ public class Scroller {
     
     public void updateSources(){
         lblContainer.updateSrc(); 
-        String s = "<html>";
+        String finalOut = "<html>";
         if(scrollStart>0){
-            s+="...<br>";
+            finalOut+="...<br>";
         }
         else{
-            s+="<br>";
+            finalOut+="<br>";
         }
         for(int i = scrollStart; i<SCROLLSIZE;i++){
             String se = "";
             Link tmpLink = lblContainer.sources.get(i);
             //System.out.println(tmpLink);
-            if(tmpLink.isInProcess()){
-                se = (i+1)+": <b><font color=green>"+tmpLink.getHyperlink()+"</font></b>";
+            if(tmpLink.islinkDone()){ //really done, maybe change var name
+                se = (i+1)+": <b><font color=31E13C>"+tmpLink.getHyperlink()+"</font></b>";
+            }
+            else if(!tmpLink.islinkDone()&&tmpLink.errors()>10){
+                se = (i+1)+": <b><font color=FF7777>"+tmpLink.getHyperlink()+"</font></b>";
+            }/*
+            else if(!tmpLink.islinkDone()&&tmpLink.errors()>5){
+                se = (i+1)+": <font color=FA8500>"+tmpLink.getHyperlink()+"</font>";
+            }*/
+            else if(!tmpLink.islinkDone()&&tmpLink.errors()>0){
+                se = (i+1)+": <b><font color=FFD126>"+tmpLink.getHyperlink()+"</font></b>";
             }
             else{
                 se = (i+1)+": "+tmpLink.getHyperlink();
             }
-            s=s+se+"<br>";
+            finalOut=finalOut+se+"<br>";
         }
         if(lblContainer.sources.size()>SCROLLSIZE){
-            s+="...<br>";
+            finalOut+="...<br>";
         }
-        s+="</html>";
-        modifiedLbl.setText(s);
+        finalOut+="</html>";
+        modifiedLbl.setText(finalOut);
         
         
     }

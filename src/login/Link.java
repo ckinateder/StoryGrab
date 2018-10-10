@@ -14,27 +14,27 @@ public class Link {
     private String hyperlink;
     private String body;
     private double relevance;
-    private boolean inProcess;
+    private boolean linkDone;
     private boolean failed = false;
-    private boolean nonFatalE = false;
+    private int errors = 0;
     
     public Link(){
         title = ""; // avoid NullPointerException
         hyperlink = ""; // avoid NullPointerException
         relevance = -1; // not calculated
-        inProcess = false;
+        linkDone = false;
     }
     public Link(String hyperlink){
         this.title = "no title ";
         this.hyperlink = hyperlink;
         relevance = -1; //not calculated
-        inProcess = false;
+        linkDone = false;
     }
     public Link(String hyperlink, String body){
         this.body = body;
         this.hyperlink = hyperlink;
         relevance = -1; //not calculated
-        inProcess = false;
+        linkDone = false;
     }
     public Link(String title, String hyperlink, double relevance){
         this.title = title;
@@ -53,14 +53,14 @@ public class Link {
     public double getRelevance(){
         return relevance;
     }
-    public boolean isInProcess(){
-        return inProcess;
+    public boolean islinkDone(){
+        return linkDone;
     }
     public boolean isFailed(){
         return failed;
     }
-    public boolean getNonFatalE() {
-        return nonFatalE;
+    public int errors() {
+        return errors;
     }
     public void setTitle(String t){
         this.title = t;
@@ -74,20 +74,20 @@ public class Link {
     public void setRelevance(double t){
         this.relevance = t;
     }
-    public void setInProcess(boolean t){
-        this.inProcess = t;
+    public void setlinkDone(boolean t){
+        this.linkDone = t;
     }
     public void setFailed(boolean t){
         this.failed = t;
     }
-    public void setNonFatalE(boolean t){
-        this.nonFatalE = true;
+    public void setError(int t){
+        this.errors=t;
     }
     @Override
     public String toString(){
         return "\nLink: "+hyperlink+""
                 + "\nRelevance: "+relevance+"\nText: "
-                +body+"\nIn process? "+inProcess;
+                +body+"\nIn process? "+linkDone;
     }
 
     

@@ -82,7 +82,7 @@ public class BackgroundRunner {
         /*
         boolean anyInProc = false;
         for(Link l : sources){
-            if(l.isInProcess()){
+            if(l.islinkDone()){
                 anyInProc = true;
             }
         }*/
@@ -201,6 +201,13 @@ public class BackgroundRunner {
         }
         return null;
     }
+    public int totalErrors(){
+        int l = 0;
+        for(int i = 0; i<sources.size(); i++){
+            l+=sources.get(i).errors();
+        }
+        return l;
+    }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
             @Override
@@ -239,7 +246,7 @@ public class BackgroundRunner {
                             //String wp = t.getWebpage();//send that somehow
                             //search sources for t.getWeb
                             //System.out.println(findSource(t.getWebpage()));
-                            findSource(t.getWebpage()).setInProcess(true);                            
+                            findSource(t.getWebpage()).setlinkDone(true);                            
                             System.out.println();
                             System.out.println("Done: ");
                             for(Extractor e : used){
@@ -255,8 +262,9 @@ public class BackgroundRunner {
                         if(!t.errorMsgs.equals("")){
                              publish("<font color=FA8900>"+t.errorMsgs+"</font>");
                              //maybe find source and flash it for .2 s
-                             findSource(t.getWebpage()).setNonFatalE(true);
+                             findSource(t.getWebpage()).setError(t.errorCount);
                              //maybe have a waitfor
+                             
                         }
                        
                         if(shouldStop){
