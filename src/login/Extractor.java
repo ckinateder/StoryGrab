@@ -41,7 +41,6 @@ public class Extractor extends Thread {
     public String errorMsgs = "";//to send to bg too
     public Vector dynamicSet;
     public int errorCount = 0;
-    
     public Extractor() {
         alreadySearched = new HashSet<>();
     }
@@ -75,7 +74,7 @@ public class Extractor extends Thread {
     }
     
     public boolean searchPageLinks(String URL, int depth, String strUserId, 
-            String strPassword) {//returns true when done
+            String strPassword) {//returns true when done        
         try {            
             String authString = strUserId + ":" + strPassword;
             String encodedString = //need to authenticate for firewall
@@ -96,9 +95,12 @@ public class Extractor extends Thread {
                     if(document.text().toLowerCase().contains
                             (searchFor.toLowerCase())||
                         URL.toLowerCase().contains(searchFor.toLowerCase())){
-                        //search in doc and link
+                        //HIT------------------------------------------
+                        //System.out.println("found "+searchFor);
+                        //search in doc and link                        
                         bufferedWriter.write(URL+"\n");
-                        dynamicSet.add(new Link(URL, txt.text()));                        
+                        dynamicSet.add(new Link(URL, txt.text()));      
+                        
                     }
                     bufferedWriter.close();
                     depth++;
@@ -150,7 +152,7 @@ public class Extractor extends Thread {
     public void run() {// l is link
         System.out.println("Extractor running on "+webpage+" at max depth "
                 +maxDepth);
-        done = searchPageLinks(webpage, 0, username, password); //done probs not needed
+        done = searchPageLinks(webpage, 0, username, password);
         if(stop){
             System.out.println("Extractor error finishing on "+webpage);
         }else{

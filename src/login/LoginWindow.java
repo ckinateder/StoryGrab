@@ -47,6 +47,7 @@ public class LoginWindow extends javax.swing.JFrame {
         verbosebtn.setSelected(true);
         verbosebtn.setText("X");
         setVerbose(true);
+//        refresher.passV(loader.hitLinks);
         setIcon();
         panelSwitcher(1);        
         updateSources();
@@ -92,7 +93,7 @@ public class LoginWindow extends javax.swing.JFrame {
         keywordfield = new javax.swing.JTextField();
         stopbtn = new keeptoo.KButton();
         statuslbl = new javax.swing.JLabel();
-        websitelbl7 = new javax.swing.JLabel();
+        htslbl = new javax.swing.JLabel();
         verbosepanel = new javax.swing.JPanel();
         cblbl2 = new javax.swing.JLabel();
         verbosebtn = new keeptoo.KButton();
@@ -100,6 +101,7 @@ public class LoginWindow extends javax.swing.JFrame {
         cblbl1 = new javax.swing.JLabel();
         twitterbtn = new keeptoo.KButton();
         onelineout = new javax.swing.JLabel();
+        websitelbl8 = new javax.swing.JLabel();
         sourceslbl = new javax.swing.JLabel();
         addsourcebtn2 = new keeptoo.KButton();
         addsourcebtn = new keeptoo.KButton();
@@ -566,10 +568,9 @@ public class LoginWindow extends javax.swing.JFrame {
         statuslbl.setForeground(new java.awt.Color(255, 255, 255));
         maincontrolpanel.add(statuslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 130, 20));
 
-        websitelbl7.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        websitelbl7.setForeground(new java.awt.Color(255, 255, 255));
-        websitelbl7.setText("Keyword");
-        maincontrolpanel.add(websitelbl7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
+        htslbl.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        htslbl.setForeground(new java.awt.Color(255, 255, 255));
+        maincontrolpanel.add(htslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 60, 30));
 
         verbosepanel.setOpaque(false);
 
@@ -690,6 +691,11 @@ public class LoginWindow extends javax.swing.JFrame {
         onelineout.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         onelineout.setForeground(new java.awt.Color(255, 255, 255));
         maincontrolpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 410, 40));
+
+        websitelbl8.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        websitelbl8.setForeground(new java.awt.Color(255, 255, 255));
+        websitelbl8.setText("Keyword");
+        maincontrolpanel.add(websitelbl8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
         extractorpanel.add(maincontrolpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 780, 180));
 
@@ -1406,6 +1412,7 @@ public class LoginWindow extends javax.swing.JFrame {
             loader.passLbl(statuslbl);
             loader.passInitializedOP(onelineout);
             loader.passBigOut(largeoutput);
+            loader.passHitsLbl(htslbl);
             updateSources();    
             loader.setBefore(keywordfield.getText(),currentusr);//add depth here 
             
@@ -1490,6 +1497,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel dynamicdepthlbl;
     private keeptoo.KButton extractbtn;
     private javax.swing.JPanel extractorpanel;
+    private javax.swing.JLabel htslbl;
     private javax.swing.JTextField keywordfield;
     private javax.swing.JLabel largeoutput;
     private keeptoo.KButton loginbtn;
@@ -1520,7 +1528,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel usertitlelbl;
     private keeptoo.KButton verbosebtn;
     private javax.swing.JPanel verbosepanel;
-    private javax.swing.JLabel websitelbl7;
+    private javax.swing.JLabel websitelbl8;
     // End of variables declaration//GEN-END:variables
 
     

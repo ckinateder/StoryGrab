@@ -48,10 +48,10 @@ public class BackgroundRunner {
     ExecutorService executor;
     List<Future<?>> futures = new ArrayList<Future<?>>();
     String extractorFile = "links.txt";
-    JLabel statusLblRef, outputlbl, longout;
+    JLabel statusLblRef, outputlbl, longout, hitslbl;
     boolean shouldStop = false;
     boolean verbose = false;
-    Vector<Link> passedset;
+    Vector<Link> hitLinks;
     public BackgroundRunner(){
         
         searchFor="";
@@ -60,7 +60,7 @@ public class BackgroundRunner {
         
     }
     public void passVec(Vector h){
-        passedset = h;
+        hitLinks = h;
     }
     public void passLbl(JLabel l){
         statusLblRef = l;
@@ -72,6 +72,9 @@ public class BackgroundRunner {
     }
     void passBigOut(JLabel l) {
         longout = l;
+    }
+    void passHitsLbl(JLabel l) {
+        hitslbl = l;
     }
     public void setBefore(String s, User u){//set the variables relevant before running.
         searchFor = s; currentusr=u;
@@ -141,9 +144,9 @@ public class BackgroundRunner {
     public void createContainer(User u){
         updateSrc();
         extractors.clear();
-        
+        hitLinks.clear();
         for(Link src : sources){            
-            extractors.add(new Extractor(src.getHyperlink(), passedset));//make new extractor for each source
+            extractors.add(new Extractor(src.getHyperlink(), hitLinks));//make new extractor for each source
         }
         setMaxDepth(maxDepth);
         setCreds(u);
@@ -214,7 +217,7 @@ public class BackgroundRunner {
             protected Boolean doInBackground() throws Exception {
                 // Start Progress setProgress(0);                
                 // Example Loop
-                updateSrc();
+                //updateSrc();
                 System.out.println("Search for: "+searchFor+" User: "+currentusr);
                 statusLblRef.setText("Starting...");
                 writeToFile(extractorFile,"", false); //overwrite the file
@@ -234,7 +237,8 @@ public class BackgroundRunner {
                 }
                 while(!alldone){
                     isRunning = true;
-                    for(Extractor t:extractors){                        
+                    for(int i = 0;i<extractors.size();i++){ 
+                        Extractor t=extractors.get(i);
                         if(!t.isAlive()&&!used.contains(t)){
                             //System.out.println("Done on "+t);
                             used.add(t);
@@ -257,14 +261,13 @@ public class BackgroundRunner {
                             percent=(int) ((sm/s)*100);
                             statusLblRef.setText("Extracting... "+percent+"%"); //set label
                             
-                        }
+                        }                        
                         publish(t.toBG);//publish output to process   
                         if(!t.errorMsgs.equals("")){
-                             publish("<font color=FA8900>"+t.errorMsgs+"</font>");
+                             publish("<font color=FFD126>"+t.errorMsgs+"</font>");
                              //maybe find source and flash it for .2 s
                              findSource(t.getWebpage()).setError(t.errorCount);
                              //maybe have a waitfor
-                             
                         }
                        
                         if(shouldStop){
@@ -293,6 +296,7 @@ public class BackgroundRunner {
             protected void process(List<String> chunks) {
                 // Get Info
                 //statusLblRef.setText(chunks.get(chunks.size()-1)+"%");
+                
                 String currentOut = "";
                 currentOut = chunks.get(chunks.size()-1);
                 //currentOut+="</html>";
@@ -314,6 +318,7 @@ public class BackgroundRunner {
                 else{
                     longout.setText("");
                 }
+                hitslbl.setText(/*"Hits: "+*/hitLinks.size()+"");
             }
             @Override
             protected void done() {                
@@ -323,7 +328,7 @@ public class BackgroundRunner {
                     statusLblRef.setText("");
                     if(bStatus ==true){
                         System.out.println("Done on all!");
-                        for(Link l : passedset){
+                        for(Link l : hitLinks){
                             System.out.println(l);
                         }
                     }

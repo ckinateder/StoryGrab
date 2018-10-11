@@ -6,26 +6,31 @@
 package login;
 import javax.swing.*;
 import java.util.List;
+import java.util.Vector;
 /**
  * Refreshes the state of Link objects once every WAIT ms
  * @author calvin
  */
 public class AutomaticScrollUpdater {
     Scroller scroller;
-    final int WAIT = 250;
+    final int WAIT = 200;
+    
     public AutomaticScrollUpdater(Scroller s){
         scroller = s;
     }
+    
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, Integer>() {
             @Override
             protected Boolean doInBackground() throws Exception {
                 // Start Progress
+                waitFor(1000);
                 setProgress(0);
                 while(true){
                     scroller.updateSources();
+                    
                     waitFor(WAIT);
-                }                
+                }
                 // Finished
                 //return true;
             }
