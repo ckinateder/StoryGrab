@@ -183,6 +183,7 @@ public class BackgroundRunner {
             // ex.printStackTrace();
         }
     }
+    
     public void printExtractors(){
         for(Extractor e : extractors){
             System.out.println(e);
@@ -225,6 +226,7 @@ public class BackgroundRunner {
                 setSearchFor(searchFor);
                 printExtractors();//print all extractors
                 for(Extractor e : extractors){
+                    e.setModes(new boolean[] {true, true});
                    e.start();//make new thread for each extractor
                 }               
                 boolean alldone=false;

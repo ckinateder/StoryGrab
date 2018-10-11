@@ -41,6 +41,7 @@ public class Extractor extends Thread {
     public String errorMsgs = "";//to send to bg too
     public Vector dynamicSet;
     public int errorCount = 0;
+    public boolean[] modes = {false, false};
     public Extractor() {
         alreadySearched = new HashSet<>();
     }
@@ -49,7 +50,9 @@ public class Extractor extends Thread {
         webpage=w;
         dynamicSet = ps;
     }
-    
+    public void setModes(boolean[] m){
+        modes = m;
+    }
     public void writeToFile(String fileName, String toWrite, boolean append){        
         try {
             // Assume default encoding.            
@@ -92,9 +95,10 @@ public class Extractor extends Thread {
                             .get();                    
                     Elements alreadySearchedOnPage = document.select("a[href]");
                     Elements txt = document.select("p");
-                    if(document.text().toLowerCase().contains
-                            (searchFor.toLowerCase())||
-                        URL.toLowerCase().contains(searchFor.toLowerCase())){
+                    if((document.text().toLowerCase().contains
+                            (searchFor.toLowerCase()) && modes[0])||
+                        (URL.toLowerCase().contains(searchFor.toLowerCase())&&
+                            modes[1])){
                         //HIT------------------------------------------
                         //System.out.println("found "+searchFor);
                         //search in doc and link                        
