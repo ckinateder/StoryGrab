@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
+import org.apache.commons.lang.StringUtils;
 /**
  * This class is what searches the webpage
  * @author calvin kinateder
@@ -75,7 +76,21 @@ public class Extractor extends Thread {
             // ex.printStackTrace();
         }
     }
-    
+    public int getFreq(String str, String word){
+        // split the string by spaces in a 
+        String a[] = str.split(" "); 
+
+        // search for pattern in a 
+        int count = 0; 
+        for (int i = 0; i < a.length; i++)  
+        { 
+        // if match found increase count 
+        if (word.equals(a[i])) 
+            count++; 
+        } 
+
+        return count; 
+    }
     public boolean searchPageLinks(String URL, int depth, String strUserId, 
             String strPassword) {//returns true when done        
         try {            
@@ -95,16 +110,20 @@ public class Extractor extends Thread {
                             .get();                    
                     Elements alreadySearchedOnPage = document.select("a[href]");
                     Elements txt = document.select("p");
-                    if((document.text().toLowerCase().contains
-                            (searchFor.toLowerCase()) && modes[0])||
+                    String article = txt.text();
+                    if((article.toLowerCase().contains
+                            (searchFor.toLowerCase()) && modes[0]))/*||
                         (URL.toLowerCase().contains(searchFor.toLowerCase())&&
-                            modes[1])){
+                            modes[1]))*/{
                         //HIT------------------------------------------
                         //System.out.println("found "+searchFor);
                         //search in doc and link                        
-                        bufferedWriter.write(URL+"\n");
-                        dynamicSet.add(new Link(URL, txt.text()));      
                         
+                        int f = getFreq(article.toLowerCase(), searchFor.toLowerCase()); //doesnt work rn
+                                            
+                        dynamicSet.add(new Link(URL, article,searchFor,f));
+                        System.out.println((dynamicSet.get(dynamicSet.size()-1)));
+                        bufferedWriter.write(URL+"\n");//write link                     
                     }
                     bufferedWriter.close();
                     depth++;

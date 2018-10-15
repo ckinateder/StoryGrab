@@ -51,6 +51,8 @@ public class Scroller {
     
     public void updateSources(){
         lblContainer.updateSrc(); 
+        //sort sources list with not done at the top...
+        
         String finalOut = "<html>";
         if(scrollStart>0){
             finalOut+="...<br>";

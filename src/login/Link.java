@@ -13,10 +13,12 @@ public class Link {
     private String title;
     private String hyperlink;
     private String body;
+    private String searchFor;
     private double relevance;
     private boolean linkDone;
     private boolean failed = false;
     private int errors = 0;
+    private int termFreq;
     
     public Link(){
         title = ""; // avoid NullPointerException
@@ -36,11 +38,20 @@ public class Link {
         relevance = -1; //not calculated
         linkDone = false;
     }
+    public Link(String hyperlink, String body, String sf, int f){
+        this.body = body;
+        this.hyperlink = hyperlink;
+        relevance = -1; //not calculated
+        linkDone = false;
+        searchFor = sf;
+        termFreq = f;
+    }
     public Link(String title, String hyperlink, double relevance){
         this.title = title;
         this.hyperlink = hyperlink;
         this.relevance = relevance;
     }
+    // <editor-fold defaultstate="collapsed" desc="Accessors/Modifiers">
     public String getTitle(){
         return title;
     }
@@ -49,6 +60,9 @@ public class Link {
     }
     public String getText(){
         return body;
+    }
+    public String getSearchFor(){
+        return searchFor;
     }
     public double getRelevance(){
         return relevance;
@@ -62,6 +76,9 @@ public class Link {
     public int errors() {
         return errors;
     }
+    public int getTermFreq() {
+        return termFreq;
+    }
     public void setTitle(String t){
         this.title = t;
     }
@@ -70,6 +87,9 @@ public class Link {
     }
     public void setHyperlink(String t){
         this.hyperlink = t;
+    }
+    public void setSearchFor(String t){
+        this.searchFor = t;
     }
     public void setRelevance(double t){
         this.relevance = t;
@@ -83,12 +103,24 @@ public class Link {
     public void setError(int t){
         this.errors=t;
     }
+    public void setTermFreq(int t){
+        this.termFreq=t;
+    }
+    
+    public void incrementTermFreq(){
+        this.termFreq++;
+    }
+    // </editor-fold> 
     @Override
     public String toString(){
         return "\nLink: "+hyperlink+""
-                + "\nRelevance: "+relevance+"\nText: "
-                +body+"\nIn process? "+linkDone;
+                + "\nRelevance: "+relevance+"\nErrors: "+errors+
+                "\nSearchFor: '"+searchFor+"'\nFrequency in body: "+termFreq;
+    }
+    public String shortPrint(){
+        return "--------\nLink: "+hyperlink+"\nTermFreq: "+termFreq;
     }
 
+    
     
 }

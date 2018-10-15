@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -330,8 +331,9 @@ public class BackgroundRunner {
                     statusLblRef.setText("");
                     if(bStatus ==true){
                         System.out.println("Done on all!");
+                        
                         for(Link l : hitLinks){
-                            System.out.println(l);
+                            System.out.println(l.shortPrint());
                         }
                     }
                     else{

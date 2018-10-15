@@ -1250,8 +1250,9 @@ public class LoginWindow extends javax.swing.JFrame {
     BackgroundRunner loader = new BackgroundRunner();
     SwingWorker backburner = loader.createWorker(); //move these to extract.
     Scroller sourceScroller = new Scroller(loader);
-    Analyzer an = new Analyzer(); //make static
+     //make static
     Vector<Link> linkset = new Vector<>(); //fill with links
+    Analyzer an = new Analyzer(linkset);
     AutomaticScrollUpdater refresher =
             new AutomaticScrollUpdater(sourceScroller);
     SwingWorker refreshChild = refresher.createWorker();
