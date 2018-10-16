@@ -523,6 +523,7 @@ public class LoginWindow extends javax.swing.JFrame {
         keywordfield.setBackground(new Color(0,0,0,0));
         keywordfield.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         keywordfield.setForeground(new java.awt.Color(255, 255, 255));
+        keywordfield.setText("kavanaugh");
         keywordfield.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         keywordfield.setCaretColor(new java.awt.Color(255, 255, 255));
         keywordfield.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));

@@ -93,7 +93,8 @@ public class Extractor extends Thread {
     }
     public boolean searchPageLinks(String URL, int depth, String strUserId, 
             String strPassword) {//returns true when done        
-        try {            
+        try {
+            errorMsgs = "";            
             String authString = strUserId + ":" + strPassword;
             String encodedString = //need to authenticate for firewall
                     Base64.getEncoder().encodeToString(authString.getBytes());            
@@ -103,7 +104,7 @@ public class Extractor extends Thread {
                 BufferedWriter bufferedWriter =
                     new BufferedWriter(fileWriter);                
                 toBG=""+URL+"\n";//add to toBG
-                try {
+                try {                    
                     alreadySearched.add(URL); //add link to the hashset
                     Document document = Jsoup.connect(URL)
                             .header("Authorization", "Basic " + encodedString)
@@ -116,9 +117,7 @@ public class Extractor extends Thread {
                         (URL.toLowerCase().contains(searchFor.toLowerCase())&&
                             modes[1]))*/{
                         //HIT------------------------------------------
-                        //System.out.println("found "+searchFor);
-                        //search in doc and link                        
-                        
+                        //System.out.println("found "+searchFor);                        
                         int f = getFreq(article.toLowerCase(), searchFor.toLowerCase()); //doesnt work rn
                                             
                         dynamicSet.add(new Link(URL, article,searchFor,f));
