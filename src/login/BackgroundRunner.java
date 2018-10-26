@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,12 +64,8 @@ public class BackgroundRunner {
     public BackgroundRunner() {        
         searchFor="";
         currentusr=new User();
-        updateSrc();        
-        try {
-            Connection conn = DriverManager.getConnection(DB_URL, "calvin", "2255");
-        } catch (SQLException ex) {
-            Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        updateSrc();    
+        //saveToDB();
         
     }
     public void passVec(Vector h){
@@ -196,6 +193,28 @@ public class BackgroundRunner {
         }
     }
     
+    public void saveToDB() {
+        //sort hitLinks
+        Collections.sort(hitLinks);
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, "calvin", "2255");
+            PreparedStatement dlt = conn.prepareStatement("DELETE FROM LINKS WHERE 1=1");
+            dlt.executeUpdate();
+            PreparedStatement ps = conn.prepareStatement("insert into LINKS(RELEVANCE,ERRORS,FAILED,URL)"
+                        + "values(?,?,?,?)");
+            
+            for(Link l : hitLinks){                
+                ps.setDouble(1, l.getRelevance());                    
+                ps.setInt(2, l.errors());
+                ps.setBoolean(3, l.isFailed());
+                ps.setString(4, l.getHyperlink());
+                //System.out.println(ps.executeUpdate());
+                ps.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void printExtractors(){
         for(Extractor e : extractors){
             System.out.println(e);
@@ -285,7 +304,7 @@ public class BackgroundRunner {
                         }
                        
                         if(shouldStop){
-                            publish("Cancelled by user");
+                            publish("Cancelled by user - saving to database");
                             for(Extractor ts : extractors){
                                 ts.setStop(true);
                             }
@@ -340,14 +359,15 @@ public class BackgroundRunner {
                 try {
                     bStatus = get();                   
                     statusLblRef.setText("");
+                    saveToDB();
                     if(bStatus ==true){
                         System.out.println("Done on all!");                        
                         for(Link l : hitLinks){
                             System.out.println(l.shortPrint());
-                        }
-                        saveToDB(hitLinks);
-                    }
+                        }                        
+                    } 
                     else{
+                        publish("Cancelled by user");
                         System.out.println("Cancelled by user");
                     }
                 } catch (Exception ex) {
@@ -355,9 +375,6 @@ public class BackgroundRunner {
                 }
             }
 
-            private void saveToDB(Vector<Link> hitLinks) {
-                
-            }
         };
     } // End of Method: createWorker()    
 }

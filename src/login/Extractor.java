@@ -113,7 +113,9 @@ public class Extractor extends Thread {
                     Elements txt = document.select("p");
                     String article = txt.text();
                     if((article.toLowerCase().contains
-                            (searchFor.toLowerCase()) && modes[0]))/*||
+                            (searchFor.toLowerCase()) && modes[0] || 
+                            document.text().toLowerCase().contains(
+                                    searchFor.toLowerCase())))/*||
                         (URL.toLowerCase().contains(searchFor.toLowerCase())&&
                             modes[1]))*/{
                         //HIT------------------------------------------

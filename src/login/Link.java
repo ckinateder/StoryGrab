@@ -9,7 +9,7 @@ package login;
  * The link object stores the link, title, relevance constant
  * @author ckinateder
  */
-public class Link {
+public class Link implements Comparable<Link>{
     private String title;
     private String hyperlink;
     private String body;
@@ -44,7 +44,7 @@ public class Link {
         relevance = -1; //not calculated
         linkDone = false;
         searchFor = sf;
-        termFreq = f;
+        termFreq = f; relevance = f;
     }
     public Link(String title, String hyperlink, double relevance){
         this.title = title;
@@ -121,6 +121,11 @@ public class Link {
         return "--------\nLink: "+hyperlink+"\nTermFreq: "+termFreq;
     }
 
+    @Override
+    public int compareTo(Link o) {
+        return Double.compare(this.relevance, o.getRelevance());
+    }
+    
     
     
 }
