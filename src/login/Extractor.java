@@ -119,9 +119,8 @@ public class Extractor extends Thread {
                         //HIT------------------------------------------
                         //System.out.println("found "+searchFor);                        
                         int f = getFreq(article.toLowerCase(), searchFor.toLowerCase()); //doesnt work rn
-                                            
                         dynamicSet.add(new Link(URL, article,searchFor,f));
-                        System.out.println((dynamicSet.get(dynamicSet.size()-1)));
+                        //System.out.println((dynamicSet.get(dynamicSet.size()-1)));
                         bufferedWriter.write(URL+"\n");//write link                     
                     }
                     bufferedWriter.close();

@@ -14,6 +14,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,6 +30,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.SwingWorker;
 
@@ -53,11 +58,17 @@ public class BackgroundRunner {
     boolean shouldStop = false;
     boolean verbose = false;
     Vector<Link> hitLinks;
-    public BackgroundRunner(){
-        
+    final String DB_URL = "jdbc:derby://localhost:1527/FinalLinks";
+    
+    public BackgroundRunner() {        
         searchFor="";
         currentusr=new User();
-        updateSrc();
+        updateSrc();        
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, "calvin", "2255");
+        } catch (SQLException ex) {
+            Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     public void passVec(Vector h){
@@ -330,11 +341,11 @@ public class BackgroundRunner {
                     bStatus = get();                   
                     statusLblRef.setText("");
                     if(bStatus ==true){
-                        System.out.println("Done on all!");
-                        
+                        System.out.println("Done on all!");                        
                         for(Link l : hitLinks){
                             System.out.println(l.shortPrint());
                         }
+                        saveToDB(hitLinks);
                     }
                     else{
                         System.out.println("Cancelled by user");
@@ -342,6 +353,10 @@ public class BackgroundRunner {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+            }
+
+            private void saveToDB(Vector<Link> hitLinks) {
+                
             }
         };
     } // End of Method: createWorker()    
