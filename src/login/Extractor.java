@@ -78,14 +78,14 @@ public class Extractor extends Thread {
     }
     public int getFreq(String str, String word){
         // split the string by spaces in a 
-        String a[] = str.split(" "); 
+        String a[] = str.split(" |\\.|\\,"); 
 
         // search for pattern in a 
         int count = 0; 
         for (int i = 0; i < a.length; i++)  
         { 
         // if match found increase count 
-        if (word.equals(a[i])) 
+        if (word.toLowerCase().equals(a[i].toLowerCase())) 
             count++; 
         } 
 
@@ -112,17 +112,15 @@ public class Extractor extends Thread {
                     Elements alreadySearchedOnPage = document.select("a[href]");
                     Elements txt = document.select("p");
                     String article = txt.text();
-                    if((article.toLowerCase().contains
-                            (searchFor.toLowerCase()) && modes[0] || 
-                            document.text().toLowerCase().contains(
-                                    searchFor.toLowerCase())))/*||
+                    /*if(article.toLowerCase().contains
+                            (searchFor.toLowerCase()))||
                         (URL.toLowerCase().contains(searchFor.toLowerCase())&&
-                            modes[1]))*/{
+                            modes[1]))*/
+                    if(getFreq(article, searchFor)>1){
                         //HIT------------------------------------------
                         //System.out.println("found "+searchFor);                        
-                        int f = getFreq(article.toLowerCase(), searchFor.toLowerCase()); //doesnt work rn
-                        dynamicSet.add(new Link(URL, article,searchFor,f));
-                        //System.out.println((dynamicSet.get(dynamicSet.size()-1)));
+                        int f = getFreq(article, searchFor); //doesnt work rn
+                        dynamicSet.add(new Link(URL, article,searchFor,f));                        
                         bufferedWriter.write(URL+"\n");//write link                     
                     }
                     bufferedWriter.close();

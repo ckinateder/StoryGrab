@@ -243,6 +243,11 @@ public class BackgroundRunner {
         }
         return l;
     }
+    public void cleanup(){
+        shouldStop = true;
+        Collections.sort(hitLinks);
+        saveToDB();
+    }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
             @Override

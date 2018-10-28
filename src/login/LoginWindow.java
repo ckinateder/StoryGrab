@@ -1439,6 +1439,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void quit(){
         dispose();
+        loader.cleanup();
         System.exit(0);
     }
     /*
