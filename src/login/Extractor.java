@@ -31,6 +31,7 @@ import org.apache.commons.lang.StringUtils;
 public class Extractor extends Thread {
     public int maxDepth = 5;
     private HashSet<String> alreadySearched;
+    private HashSet<String> bodiesSearched = new HashSet<>();
     public String searchFor = "";    
     private String file="links.txt";
     public String webpage = "";
@@ -53,94 +54,55 @@ public class Extractor extends Thread {
     }
     public void setModes(boolean[] m){
         modes = m;
-    }
-    public void writeToFile(String fileName, String toWrite, boolean append){        
-        try {
-            // Assume default encoding.            
-            FileWriter fileWriter =
-                new FileWriter(fileName,append);//add true to append
-            // Always wrap FileWriter in BufferedWriter.
-            BufferedWriter bufferedWriter =
-                new BufferedWriter(fileWriter);
-            // Note that write() does not automatically
-            // append a newline character.
-            bufferedWriter.write(toWrite);
-            // Always close files.
-            bufferedWriter.close();
-        }
-        catch(IOException ex) {
-            System.out.println(
-                "Error writing to file '"
-                + fileName + "'");
-            // Or we could just do this:
-            // ex.printStackTrace();
-        }
-    }
+    }    
     public int getFreq(String str, String word){
-        // split the string by spaces in a 
         String a[] = str.split(" |\\.|\\,"); 
-
-        // search for pattern in a 
         int count = 0; 
-        for (int i = 0; i < a.length; i++)  
-        { 
+        for (int i = 0; i < a.length; i++){ 
         // if match found increase count 
-        if (word.toLowerCase().equals(a[i].toLowerCase())) 
-            count++; 
+            if (word.toLowerCase().equals(a[i].toLowerCase())) 
+                count++; 
         } 
-
         return count; 
     }
     public boolean searchPageLinks(String URL, int depth, String strUserId, 
             String strPassword) {//returns true when done        
-        try {
-            errorMsgs = "";            
-            String authString = strUserId + ":" + strPassword;
-            String encodedString = //need to authenticate for firewall
-                    Base64.getEncoder().encodeToString(authString.getBytes());            
-            if ((!alreadySearched.contains(URL) && (depth < maxDepth))&&!stop) {
-                FileWriter fileWriter =
-                    new FileWriter(file,true);//add true to append
-                BufferedWriter bufferedWriter =
-                    new BufferedWriter(fileWriter);                
-                toBG=""+URL+"\n";//add to toBG
-                try {                    
-                    alreadySearched.add(URL); //add link to the hashset
-                    Document document = Jsoup.connect(URL)
-                            .header("Authorization", "Basic " + encodedString)
-                            .get();                    
-                    Elements alreadySearchedOnPage = document.select("a[href]");
-                    Elements txt = document.select("p");
-                    String article = txt.text();
-                    /*if(article.toLowerCase().contains
-                            (searchFor.toLowerCase()))||
-                        (URL.toLowerCase().contains(searchFor.toLowerCase())&&
-                            modes[1]))*/
-                    if(getFreq(article, searchFor)>1){
-                        //HIT------------------------------------------
-                        //System.out.println("found "+searchFor);                        
-                        int f = getFreq(article, searchFor); //doesnt work rn
-                        dynamicSet.add(new Link(URL, article,searchFor,f));                        
-                        bufferedWriter.write(URL+"\n");//write link                     
-                    }
-                    bufferedWriter.close();
-                    depth++;
-                    for (Element page : alreadySearchedOnPage) {
-                        searchPageLinks(page.attr("abs:href"), 
-                                depth,strUserId,strPassword);
-                    }
-                } catch (IOException | IllegalArgumentException e) {
-                    System.err.println("For '" + URL + "': " + e.getMessage());
-                   // errorMsgs = "E: " + e.getMessage() + " on "+ URL + "" ;
-                    errorMsgs = "E:"+URL;
-                    errorCount++;
+        errorMsgs = "";            
+        String authString = strUserId + ":" + strPassword;
+        String encodedString = //need to authenticate for firewall
+                Base64.getEncoder().encodeToString(authString.getBytes());            
+        if ((!alreadySearched.contains(URL) && (depth < maxDepth))&&!stop) {                               
+            toBG=""+URL+"\n";//add to toBG
+            try {                    
+                alreadySearched.add(URL); //add link to the hashset
+                Document document = Jsoup.connect(URL)
+                        .header("Authorization", "Basic " + encodedString)
+                        .get();                    
+                Elements alreadySearchedOnPage = document.select("a[href]");
+                Elements txt = document.select("p");
+                String article = txt.text();
+                //bodiesSearched.add(article);
+                /*if(article.toLowerCase().contains
+                        (searchFor.toLowerCase()))||
+                    (URL.toLowerCase().contains(searchFor.toLowerCase())&&
+                        modes[1]))*/
+                if(getFreq(article, searchFor)>1){                                        
+                    int f = getFreq(article, searchFor); //doesnt work rn
+                    dynamicSet.add(new Link(URL, article,searchFor,f));
                 }
+                depth++;
+                for (Element page : alreadySearchedOnPage) {
+                    searchPageLinks(page.attr("abs:href"), 
+                            depth,strUserId,strPassword);
+                }
+            } catch (IOException | IllegalArgumentException e) {
+                System.err.println("For '" + URL + "': " + e.getMessage());
+               // errorMsgs = "E: " + e.getMessage() + " on "+ URL + "" ;
+                errorMsgs = "E:"+URL;
+                errorCount++;
             }
-        }catch(IOException ex) {
-            System.out.println(
-                "Error writing to file '"
-                + file + "'");
         }
+        
         return true;
     }
     public void setStop(boolean t) {

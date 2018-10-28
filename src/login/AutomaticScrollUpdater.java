@@ -13,12 +13,10 @@ import java.util.Vector;
  */
 public class AutomaticScrollUpdater {
     Scroller scroller;
-    final int WAIT = 200;
-    
+    final int WAIT = 200;    
     public AutomaticScrollUpdater(Scroller s){
         scroller = s;
-    }
-    
+    }    
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, Integer>() {
             @Override
@@ -27,15 +25,10 @@ public class AutomaticScrollUpdater {
                 waitFor(1000);
                 setProgress(0);
                 while(true){
-                    scroller.updateSources();
-                    
+                    scroller.updateSources();                    
                     waitFor(WAIT);
-                }
-                // Finished
-                //return true;
-            }
-            
-
+                }                
+            }          
             @Override
             protected void done() {
                 boolean bStatus = false;

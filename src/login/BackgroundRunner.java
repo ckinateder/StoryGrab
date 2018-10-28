@@ -169,30 +169,7 @@ public class BackgroundRunner {
             extractors.get(i).setCreds(u.getUser(), u.getPassword());
         }
     }
-    
-    
-    public void writeToFile(String fileName, String toWrite, boolean append){
-        try {
-            // Assume default encoding. 
-            FileWriter fileWriter =
-                new FileWriter(fileName,append);//add true to append
-            // Always wrap FileWriter in BufferedWriter.
-            BufferedWriter bufferedWriter =
-                new BufferedWriter(fileWriter);
-            // Note that write() does not automatically
-            // append a newline character./*
-            bufferedWriter.write(toWrite);
-            bufferedWriter.close();
-        }
-        catch(IOException ex) {
-            System.out.println(
-                "Error writing to file '"
-                + fileName + "'");
-            // Or we could just do this:
-            // ex.printStackTrace();
-        }
-    }
-    
+        
     public void saveToDB() {
         //sort hitLinks
         Collections.sort(hitLinks);
@@ -200,18 +177,38 @@ public class BackgroundRunner {
             Connection conn = DriverManager.getConnection(DB_URL, "calvin", "2255");
             PreparedStatement dlt = conn.prepareStatement("DELETE FROM LINKS WHERE 1=1");
             dlt.executeUpdate();
-            PreparedStatement ps = conn.prepareStatement("insert into LINKS(RELEVANCE,ERRORS,FAILED,URL)"
-                        + "values(?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("insert into LINKS(RELEVANCE,URL)"
+                        + "values(?,?)");
             
             for(Link l : hitLinks){                
                 ps.setDouble(1, l.getRelevance());                    
-                ps.setInt(2, l.errors());
-                ps.setBoolean(3, l.isFailed());
-                ps.setString(4, l.getHyperlink());
+                //ps.setInt(2, l.errors());
+                //ps.setBoolean(3, l.isFailed());
+                ps.setString(2, l.getHyperlink());
                 //System.out.println(ps.executeUpdate());
                 ps.executeUpdate();
             }
         } catch (SQLException ex) {
+            Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void saveToCSV(){
+        String delim = "-split-";
+         FileWriter fileWriter =
+                    null;
+        try {
+            fileWriter = new FileWriter("links.csv",false); //add true to append
+            BufferedWriter bufferedWriter =
+                    new BufferedWriter(fileWriter);
+            for(Link l : hitLinks){
+                bufferedWriter.write(""+l.getRelevance()+delim);  //delim -s ','            
+                bufferedWriter.write(l.getHyperlink()+delim);
+                bufferedWriter.write(l.getText()+"\n");             
+            }
+            bufferedWriter.close();
+            fileWriter.close();
+        } 
+        catch (IOException ex) {
             Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -247,6 +244,7 @@ public class BackgroundRunner {
         shouldStop = true;
         Collections.sort(hitLinks);
         saveToDB();
+        saveToCSV();
     }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
@@ -257,7 +255,7 @@ public class BackgroundRunner {
                 //updateSrc();
                 System.out.println("Search for: "+searchFor+" User: "+currentusr);
                 statusLblRef.setText("Starting...");
-                writeToFile(extractorFile,"", false); //overwrite the file
+                Tools.writeToFile(extractorFile,"", false); //overwrite the file
                 createContainer(currentusr);
                 setSearchFor(searchFor);
                 printExtractors();//print all extractors
@@ -365,11 +363,8 @@ public class BackgroundRunner {
                     bStatus = get();                   
                     statusLblRef.setText("");
                     saveToDB();
-                    if(bStatus ==true){
-                        System.out.println("Done on all!");                        
-                        for(Link l : hitLinks){
-                            System.out.println(l.shortPrint());
-                        }                        
+                    if(bStatus ==true){                        
+                        System.out.println("Done on all!");
                     } 
                     else{
                         publish("Cancelled by user");
