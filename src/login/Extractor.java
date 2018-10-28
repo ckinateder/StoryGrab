@@ -81,15 +81,16 @@ public class Extractor extends Thread {
                 Elements alreadySearchedOnPage = document.select("a[href]");
                 Elements txt = document.select("p");
                 String article = txt.text();
-                //bodiesSearched.add(article);
+                
                 /*if(article.toLowerCase().contains
                         (searchFor.toLowerCase()))||
                     (URL.toLowerCase().contains(searchFor.toLowerCase())&&
                         modes[1]))*/
-                if(getFreq(article, searchFor)>1){                                        
+                if(getFreq(article, searchFor)>1&&!bodiesSearched.contains(article)){                                        
                     int f = getFreq(article, searchFor); //doesnt work rn
                     dynamicSet.add(new Link(URL, article,searchFor,f));
                 }
+                bodiesSearched.add(article);
                 depth++;
                 for (Element page : alreadySearchedOnPage) {
                     searchPageLinks(page.attr("abs:href"), 
