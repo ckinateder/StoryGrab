@@ -1,3 +1,6 @@
+#https://www.analyticsvidhya.com/blog/2016/08/beginners-guide-to-topic-modeling-in-python/
+#https://machinelearningmastery.com/clean-text-machine-learning-python/
+
 from numpy import *
 import csv
 from pandas import *
@@ -7,6 +10,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 import string
 import gensim
 from gensim import corpora
+import string
 
 stop = set(stopwords.words('english'))
 exclude = set(string.punctuation) 
@@ -17,7 +21,6 @@ path = "C:\\Users\\calvi\\Documents\\NetBeansProjects\\StoryGrab\\links.csv"
 df = DataFrame.from_csv(path, sep='---split---')
 array = df.values
 #print(array)
-#https://www.analyticsvidhya.com/blog/2016/08/beginners-guide-to-topic-modeling-in-python/
 
 #doc_complete = [df.iloc[0][2],df.iloc[1][2],df.iloc[2][2],df.iloc[3][2]]
 doc_complete = [None] * df.shape[0]
@@ -28,6 +31,7 @@ def clean(doc):
     stop_free = " ".join([i for i in doc.lower().split() if i not in stop])
     punc_free = ''.join(ch for ch in stop_free if ch not in exclude)
     normalized = " ".join(lemma.lemmatize(word) for word in punc_free.split())
+    normalized = normalized.encode('ascii',errors='ignore')
     return normalized
 doc_clean = [clean(doc).split() for doc in doc_complete]   
 #print(df.iloc[0][2])
@@ -37,5 +41,5 @@ doc_term_matrix = [dictionary.doc2bow(doc) for doc in doc_clean]
 Lda = gensim.models.ldamodel.LdaModel
 
 # Running and Trainign LDA model on the document term matrix.
-ldamodel = Lda(doc_term_matrix, num_topics=6, id2word = dictionary, passes=50)
-print(ldamodel.print_topics(num_topics=6, num_words=3))
+ldamodel = Lda(doc_term_matrix, num_topics=4, id2word = dictionary, passes=50)
+print(ldamodel.print_topics(num_topics=4, num_words=3))
