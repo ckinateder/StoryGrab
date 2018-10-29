@@ -54,7 +54,7 @@ public class BackgroundRunner {
     private boolean isRunning = false; //changes frequently
     ExecutorService executor;
     List<Future<?>> futures = new ArrayList<Future<?>>();
-    String extractorFile = "links.txt";
+    String forClassifier = "src/login/datasets/links.csv";
     JLabel statusLblRef, outputlbl, longout, hitslbl;
     boolean shouldStop = false;
     boolean verbose = false;
@@ -197,7 +197,7 @@ public class BackgroundRunner {
          FileWriter fileWriter =
                     null;
         try {
-            fileWriter = new FileWriter("links.csv",false); //add true to append
+            fileWriter = new FileWriter(forClassifier,false); //add true to append
             BufferedWriter bufferedWriter =
                     new BufferedWriter(fileWriter);
             for(Link l : hitLinks){
@@ -243,8 +243,8 @@ public class BackgroundRunner {
     public void cleanup(){
         shouldStop = true;
         Collections.sort(hitLinks);
-        saveToDB();
         saveToCSV();
+        saveToDB();        
     }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
@@ -255,7 +255,7 @@ public class BackgroundRunner {
                 //updateSrc();
                 System.out.println("Search for: "+searchFor+" User: "+currentusr);
                 statusLblRef.setText("Starting...");
-                Tools.writeToFile(extractorFile,"", false); //overwrite the file
+                //Tools.writeToFile(extractorFile,"", false); //overwrite the file
                 createContainer(currentusr);
                 setSearchFor(searchFor);
                 printExtractors();//print all extractors
@@ -362,7 +362,7 @@ public class BackgroundRunner {
                 try {
                     bStatus = get();                   
                     statusLblRef.setText("");
-                    saveToDB();
+                    cleanup();
                     if(bStatus ==true){                        
                         System.out.println("Done on all!");
                     } 
