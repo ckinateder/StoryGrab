@@ -193,7 +193,7 @@ public class BackgroundRunner {
         }
     }
     public void saveToCSV(){
-        String delim = "-split-";
+       // String delim = "---split---";
          FileWriter fileWriter =
                     null;
         try {
@@ -201,8 +201,8 @@ public class BackgroundRunner {
             BufferedWriter bufferedWriter =
                     new BufferedWriter(fileWriter);
             for(Link l : hitLinks){
-                bufferedWriter.write(""+l.getRelevance()+delim);  //delim -s ','            
-                bufferedWriter.write(l.getHyperlink()+delim);
+                bufferedWriter.write(Tools.delim+l.getRelevance()+Tools.delim);  //delim -s ','            
+                bufferedWriter.write(l.getHyperlink()+Tools.delim);
                 bufferedWriter.write(l.getText()+"\n");             
             }
             bufferedWriter.close();

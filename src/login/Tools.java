@@ -14,6 +14,7 @@ import java.io.IOException;
  * @author calvi
  */
 public abstract class Tools {
+    public static String delim ="---split---";
     public static void writeToFile(String fileName, String toWrite, boolean append){        
         try {
             // Assume default encoding.            
