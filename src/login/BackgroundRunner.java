@@ -212,6 +212,14 @@ public class BackgroundRunner {
             Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void saveToHTML(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("<!DOCTYPE html>\n"+"<html>\n"+"<body>");
+        for(int i = hitLinks.size()-10; i<hitLinks.size(); i++){
+            sb.append(hitLinks.get(i).getHyperlink()+"\n");
+        }
+        
+    }
     public void printExtractors(){
         for(Extractor e : extractors){
             System.out.println(e);
