@@ -44,6 +44,6 @@ doc_term_matrix = [dictionary.doc2bow(doc) for doc in doc_clean]
 Lda = gensim.models.ldamodel.LdaModel
 print("LDA created - now training")
 # Running and Trainign LDA model on the document term matrix.
-ldamodel = Lda(doc_term_matrix, num_topics=6, id2word = dictionary, passes=75)
+ldamodel = Lda(doc_term_matrix, num_topics=4, id2word = dictionary, passes=75)
 print("Finished")
 pprint(ldamodel.print_topics(num_words=3))

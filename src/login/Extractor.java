@@ -65,6 +65,16 @@ public class Extractor extends Thread {
         } 
         return count; 
     }
+    public int getFreq2(String str, String word){
+        String a[] = str.split(" |\\.|\\,"); 
+        int count = 0; 
+        for (String i : a){ 
+        // if match found increase count 
+            if (i.toLowerCase().contains(word.toLowerCase())) 
+                count++; 
+        } 
+        return count; 
+    }
     public boolean searchPageLinks(String URL, int depth, String strUserId, 
             String strPassword) {//returns true when done        
         errorMsgs = "";            
@@ -75,19 +85,15 @@ public class Extractor extends Thread {
             toBG=""+URL+"\n";//add to toBG
             try {                    
                 alreadySearched.add(URL); //add link to the hashset
-                Document document = Jsoup.connect(URL)
+                Document document = Jsoup.connect(URL) //connect to doc
                         .header("Authorization", "Basic " + encodedString)
                         .get();                    
                 Elements alreadySearchedOnPage = document.select("a[href]");
                 Elements txt = document.select("p");
                 String article = txt.text();
                 
-                /*if(article.toLowerCase().contains
-                        (searchFor.toLowerCase()))||
-                    (URL.toLowerCase().contains(searchFor.toLowerCase())&&
-                        modes[1]))*/
                 if(getFreq(article, searchFor)>1&&!bodiesSearched.contains(article)){                                        
-                    int f = getFreq(article, searchFor); //doesnt work rn
+                    int f = getFreq2(article, searchFor); 
                     dynamicSet.add(new Link(URL, article,searchFor,f));
                 }
                 bodiesSearched.add(article);
@@ -98,7 +104,6 @@ public class Extractor extends Thread {
                 }
             } catch (IOException | IllegalArgumentException e) {
                 System.err.println("For '" + URL + "': " + e.getMessage());
-               // errorMsgs = "E: " + e.getMessage() + " on "+ URL + "" ;
                 errorMsgs = "E:"+URL;
                 errorCount++;
             }
