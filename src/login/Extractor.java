@@ -32,6 +32,7 @@ public class Extractor extends Thread {
     public int maxDepth = 5;
     private HashSet<String> alreadySearched;
     private HashSet<String> bodiesSearched = new HashSet<>();
+    private HashSet<String> titlesSearched = new HashSet<>();
     public String searchFor = "";    
     private String file="links.txt";
     public String webpage = "";
@@ -91,12 +92,16 @@ public class Extractor extends Thread {
                 Elements alreadySearchedOnPage = document.select("a[href]");
                 Elements txt = document.select("p");
                 String article = txt.text();
-                
-                if(getFreq(article, searchFor)>1&&!bodiesSearched.contains(article)){                                        
+                String title = document.title();
+                if(getFreq(article, searchFor)>1
+                        &&!bodiesSearched.contains(article)
+                        &&!titlesSearched.contains(title)){ 
+                    
                     int f = getFreq2(article, searchFor); 
-                    dynamicSet.add(new Link(URL, article,searchFor,f));
+                    dynamicSet.add(new Link(URL, article,searchFor,title,f));
                 }
                 bodiesSearched.add(article);
+                titlesSearched.add(title);
                 depth++;
                 for (Element page : alreadySearchedOnPage) {
                     searchPageLinks(page.attr("abs:href"), 

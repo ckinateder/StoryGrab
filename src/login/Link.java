@@ -38,12 +38,13 @@ public class Link implements Comparable<Link>{
         relevance = -1; //not calculated
         linkDone = false;
     }
-    public Link(String hyperlink, String body, String sf, int f){
+    public Link(String hyperlink, String body, String sf, String title, int f){
         this.body = body;
         this.hyperlink = hyperlink;
         relevance = -1; //not calculated
         linkDone = false;
         searchFor = sf;
+        this.title = title;
         termFreq = f; relevance = f;
     }
     public Link(String title, String hyperlink, double relevance){

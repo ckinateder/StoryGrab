@@ -11,6 +11,7 @@ import string
 import gensim
 from gensim import corpora
 import string
+from gensim.test.utils import datapath
 from pprint import pprint
 
 stop = set(stopwords.words('english'))
@@ -18,7 +19,7 @@ exclude = set(string.punctuation)
 lemma = WordNetLemmatizer()
 print("Initialized WordNetLemmatizer")
 dirname = os.path.dirname(__file__)
-path = "datasets\\links.csv"
+
 path = "datasets/links.csv"
 df = DataFrame.from_csv(path, sep='---split---')
 array = df.values
@@ -45,5 +46,7 @@ Lda = gensim.models.ldamodel.LdaModel
 print("LDA created - now training")
 # Running and Trainign LDA model on the document term matrix.
 ldamodel = Lda(doc_term_matrix, num_topics=4, id2word = dictionary, passes=75)
+temp_file = datapath("model")
+ldamodel.save(temp_file)
 print("Finished")
 pprint(ldamodel.print_topics(num_words=3))

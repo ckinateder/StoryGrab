@@ -47,6 +47,7 @@ public class BackgroundRunner {
     final int OUTSIZE = 12;
     ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
+    String finalHTML = "storygrab.html";
     //ArrayList<Link> sources = new ArrayList<>();
     Vector<Link> sources = new Vector<>();
     //ArrayList<Thread> extractors = new ArrayList<>();
@@ -169,7 +170,7 @@ public class BackgroundRunner {
             extractors.get(i).setCreds(u.getUser(), u.getPassword());
         }
     }
-        
+    /*    
     public void saveToDB() {
         //sort hitLinks
         Collections.sort(hitLinks);
@@ -193,7 +194,6 @@ public class BackgroundRunner {
         }
     }
     public void saveToCSV(){
-       // String delim = "---split---";
          FileWriter fileWriter =
                     null;
         try {
@@ -213,13 +213,36 @@ public class BackgroundRunner {
         }
     }
     public void saveToHTML(){
+        //Collections.sort(hitLinks);
         StringBuilder sb = new StringBuilder();
-        sb.append("<!DOCTYPE html>\n"+"<html>\n"+"<body>");
-        for(int i = hitLinks.size()-10; i<hitLinks.size(); i++){
-            sb.append(hitLinks.get(i).getHyperlink()+"\n");
+        sb.append("<!DOCTYPE html>\n"+"<html>\n"+"<body>"+"\n");
+        sb.append("<h2>Top Suggestions</h2>");
+        sb.append("<h3>Search Term: \""+searchFor+"\"</h3>");
+        sb.append("<h4>Total hits: "+hitLinks.size()+"</h4>");
+        Collections.reverse(hitLinks);
+        for(int i = 0; i<hitLinks.size();i++){
+            sb.append("Frequency: "+hitLinks.get(i).getTermFreq()+
+                    " - <a href=\""+hitLinks.get(i).getHyperlink()+"\">"+
+                    hitLinks.get(i).getTitle()+"</a><br>");
         }
+        Collections.sort(hitLinks);
+        sb.append("</body>\n</html>");
         
+        FileWriter fileWriter =
+                    null;
+        try {
+            fileWriter = new FileWriter(finalHTML,false); //add true to append
+            BufferedWriter bufferedWriter =
+                    new BufferedWriter(fileWriter);            
+            bufferedWriter.write(sb.toString());
+            bufferedWriter.close();
+            fileWriter.close();
+        }
+        catch (IOException ex){
+            System.out.println("no html");
+        }
     }
+    */
     public void printExtractors(){
         for(Extractor e : extractors){
             System.out.println(e);
@@ -251,8 +274,9 @@ public class BackgroundRunner {
     public void cleanup(){
         shouldStop = true;
         Collections.sort(hitLinks);
-        saveToCSV();
-        saveToDB();        
+        Tools.saveToCSV(hitLinks, forClassifier);
+        Tools.saveToDB(hitLinks, DB_URL); 
+        Tools.saveToHTML(hitLinks, finalHTML, searchFor);       
     }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
@@ -315,11 +339,14 @@ public class BackgroundRunner {
                         }
                        
                         if(shouldStop){
-                            publish("Cancelled by user - saving to database");
+                            publish("Cancelled by user - syncing threads");
                             for(Extractor ts : extractors){
                                 ts.setStop(true);
                             }
-                            
+                            for(Thread tt : extractors){
+                                tt.join();                    
+                            }
+                            publish("Saving to database");
                             shouldStop = false; //so loader can be used again
                             isRunning = false; //update this
                             return false;
@@ -329,6 +356,7 @@ public class BackgroundRunner {
                         alldone=true;
                     }
                 }
+                publish("Finished successfully - saving to database");
                 for(Thread t : extractors){
                     t.join();                    
                 }
@@ -369,14 +397,14 @@ public class BackgroundRunner {
                 boolean bStatus = false;
                 try {
                     bStatus = get();                   
-                    statusLblRef.setText("");
+                    statusLblRef.setText("");                    
                     cleanup();
                     if(bStatus ==true){                        
                         System.out.println("Done on all!");
                     } 
                     else{
-                        publish("Cancelled by user");
-                        System.out.println("Cancelled by user");
+                        publish("Finished");
+                        //System.out.println("Cancelled by user");
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
