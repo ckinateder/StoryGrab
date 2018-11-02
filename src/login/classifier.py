@@ -20,12 +20,13 @@ lemma = WordNetLemmatizer()
 print("Initialized WordNetLemmatizer")
 dirname = os.path.dirname(__file__)
 
-path = "datasets/links.csv"
+path = "datasets/trump3073.csv"
 df = DataFrame.from_csv(path, sep='---split---')
 array = df.values
 print("DataFrame loaded")
 #doc_complete = [df.iloc[0][2],df.iloc[1][2],df.iloc[2][2],df.iloc[3][2]]
 doc_complete = [None] * df.shape[0]
+print("Size: "+str(df.shape[0])+" by "+str(df.shape[1]))
 for x in range(0,df.shape[0]):
 	doc_complete[x] = df.iloc[x][2]
 print("DataFrame into list - now cleaning")

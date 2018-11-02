@@ -15,3 +15,4 @@ http://abcnews.go.com/
 https://www.usnews.com/news
 http://www.yahoo.com/news/
 http://www.ap.org/en-us/
+http://www.pewresearch.org/
