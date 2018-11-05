@@ -532,7 +532,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 keywordfieldActionPerformed(evt);
             }
         });
-        maincontrolpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 350, 30));
+        maincontrolpanel.add(keywordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 440, 30));
 
         stopbtn.setText("Stop");
         stopbtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N

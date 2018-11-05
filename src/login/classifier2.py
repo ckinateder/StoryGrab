@@ -5,6 +5,8 @@ from numpy import *
 import csv
 from pandas import *
 import os
+import re
+from gensim import corpora, models
 from nltk.corpus import stopwords 
 from nltk.stem.wordnet import WordNetLemmatizer
 import string
@@ -33,7 +35,7 @@ print("DataFrame loaded")
 
 def sent_to_words(sentences):
     for sentence in sentences:
-        yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))  # deacc=True removes punctuations
+        yield(gensim.utils.simple_preprocess(str(sentence).encode('utf8'), deacc=True))  # deacc=True removes punctuations
 
 data_words = list(sent_to_words(array))
 print("Cleaning")
@@ -90,16 +92,15 @@ texts = data_lemmatized
 corpus = [id2word.doc2bow(text) for text in texts]
 
 # View
-print("Training mallet")
-#print(corpus[:1])
-lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
+print("Training model")
+#print(corpus[:1]) gensim.models.ldamodel.LdaModel
+lda_model = models.LdaMulticore(corpus=corpus,
                                            id2word=id2word,
-                                           num_topics=20, 
+                                           num_topics=6, 
                                            random_state=100,
-                                           update_every=1,
                                            chunksize=100,
                                            passes=10,
-                                           alpha='auto',
+                                           workers=4,
                                            per_word_topics=True)
 pprint(lda_model.print_topics())
 print('\nPerplexity: ', lda_model.log_perplexity(corpus))  # a measure of how good the model is. lower the better.
