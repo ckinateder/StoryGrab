@@ -16,6 +16,7 @@ from gensim.test.utils import datapath
 from gensim.utils import simple_preprocess
 from pprint import pprint
 from nltk.corpus import stopwords
+from gensim.models import CoherenceModel
 # Enable logging for gensim - optional
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.ERROR)
@@ -36,7 +37,7 @@ def sent_to_words(sentences):
 
 data_words = list(sent_to_words(array))
 print("Cleaning")
-print(data_words[:1])
+#print(data_words[:1])
 # Build the bigram and trigram models
 bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
 trigram = gensim.models.Phrases(bigram[data_words], threshold=100)  
@@ -46,7 +47,7 @@ bigram_mod = gensim.models.phrases.Phraser(bigram)
 trigram_mod = gensim.models.phrases.Phraser(trigram)
 
 # See trigram example
-print(trigram_mod[bigram_mod[data_words[0]]])
+#print(trigram_mod[bigram_mod[data_words[0]]])
 # Define functions for stopwords, bigrams, trigrams and lemmatization
 def remove_stopwords(texts):
     return [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in texts]
@@ -73,11 +74,11 @@ data_words_bigrams = make_bigrams(data_words_nostops)
 # Initialize spacy 'en' model, keeping only tagger component (for efficiency)
 # python3 -m spacy download en
 nlp = spacy.load('en', disable=['parser', 'ner'])
-
+print("Lemmatizing")
 # Do lemmatization keeping only noun, adj, vb, adv
 data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
 
-print(data_lemmatized[:1])
+#print(data_lemmatized[:1])
 
 # Create Dictionary
 id2word = corpora.Dictionary(data_lemmatized)
@@ -90,8 +91,31 @@ corpus = [id2word.doc2bow(text) for text in texts]
 
 # View
 print("Training mallet")
-print(corpus[:1])
-mallet_path = '..../mallet-2.0.8/bin/mallet'
+#print(corpus[:1])
+lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
+                                           id2word=id2word,
+                                           num_topics=20, 
+                                           random_state=100,
+                                           update_every=1,
+                                           chunksize=100,
+                                           passes=10,
+                                           alpha='auto',
+                                           per_word_topics=True)
+pprint(lda_model.print_topics())
+print('\nPerplexity: ', lda_model.log_perplexity(corpus))  # a measure of how good the model is. lower the better.
+
+# Compute Coherence Score
+coherence_model_lda = CoherenceModel(model=lda_model, texts=data_lemmatized, dictionary=id2word, coherence='c_v')
+coherence_lda = coherence_model_lda.get_coherence()
+
+print('\nCoherence Score: ', coherence_lda)
+
+pyLDAvis.enable_notebook()
+vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
+vis
+
+mallet_path = '../../mallet-2.0.8/bin/mallet'
+mallet_path = "C:\\Users\\calvi\\Documents\\NetBeansProjects\\StoryGrab\\mallet-2.0.8\\bin\\mallet"
 ldamallet = gensim.models.wrappers.LdaMallet(mallet_path, corpus=corpus, num_topics=10, id2word=id2word)
 
 pprint(ldamallet.show_topics(formatted=False))
@@ -140,3 +164,5 @@ plt.legend(("coherence_values"), loc='best')
 plt.show()
 
 
+if __name__ == '__main__':
+    freeze_support()
