@@ -21,10 +21,10 @@ from nltk.corpus import stopwords
 from gensim.models import CoherenceModel
 # Enable logging for gensim - optional
 import logging
-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.ERROR)
+#logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.ERROR)
 
 import warnings
-warnings.filterwarnings("ignore",category=DeprecationWarning)
+#warnings.filterwarnings("ignore",category=DeprecationWarning)
 
 stop_words = stopwords.words('english')
 
@@ -94,13 +94,12 @@ corpus = [id2word.doc2bow(text) for text in texts]
 # View
 print("Training model")
 #print(corpus[:1]) gensim.models.ldamodel.LdaModel
-lda_model = models.LdaMulticore(corpus=corpus,
+lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
                                            id2word=id2word,
                                            num_topics=6, 
                                            random_state=100,
                                            chunksize=100,
                                            passes=10,
-                                           workers=4,
                                            per_word_topics=True)
 pprint(lda_model.print_topics())
 print('\nPerplexity: ', lda_model.log_perplexity(corpus))  # a measure of how good the model is. lower the better.
@@ -163,7 +162,3 @@ plt.xlabel("Num Topics")
 plt.ylabel("Coherence score")
 plt.legend(("coherence_values"), loc='best')
 plt.show()
-
-
-if __name__ == '__main__':
-    freeze_support()

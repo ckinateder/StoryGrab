@@ -88,23 +88,38 @@ public abstract class Tools {
     }
     public static void saveToHTML(Vector<Link> hitLinks, String finalHTML, String searchFor){
         //Collections.sort(hitLinks);
+        Vector<Link> copy = new Vector(hitLinks);
+        Collections.sort(copy);
         StringBuilder sb = new StringBuilder();
-        sb.append("<!DOCTYPE html>\n"+"<html>\n");
-        sb.append("<head>\n" +
-            "  <title>StoryGrab</title>\n" +
-            "</head>");
-        sb.append("<body>"+"\n");
-        sb.append("<h2>Top Suggestions</h2>");
-        sb.append("<h3>Search Term: \""+searchFor+"\"</h3>");
-        sb.append("<h4>Total hits: "+hitLinks.size()+"</h4>");
-        Collections.reverse(hitLinks);
-        for(int i = 0; i<hitLinks.size();i++){
-            sb.append("Frequency: "+hitLinks.get(i).getTermFreq()+
-                    " - <a href=\""+hitLinks.get(i).getHyperlink()+"\">"+
-                    hitLinks.get(i).getTitle()+"</a><br>");
+        sb.append("<!DOCTYPE html>\n" +
+"<html>\n" +
+"	<head>\n" +
+"		<title>StoryGrab</title>\n" +
+"		<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">\n" +
+"	</head>\n" +
+"	<body>\n" +
+"		<div class=\"gee\">\n" +
+"			<span class=\"title1\">StoryGrab</span>\n" +
+                "<span class=\"hits\">Hits: "+copy.size()+" - Search Term: \""+
+                        searchFor+"\"</span>"+ 
+"		</div>\n" +
+"		<div class=\"heading\">			\n" +
+"			\n" +
+"		</div>\n" +
+"		<div class=\"out\">\n" +
+"			<span class=\"txt\">");
+        Collections.reverse(copy);
+        for(int i = 0; i<copy.size();i++){
+            sb.append("Frequency: "+copy.get(i).getTermFreq()+
+                    " - <a href=\""+copy.get(i).getHyperlink()+"\">"+
+                    copy.get(i).getTitle()+"</a><br>\n");
         }
-        Collections.sort(hitLinks);
-        sb.append("</body>\n</html>");
+        sb.append("			</span>\n" +
+"		</div>\n" +
+"	</body>\n" +
+"</html>");
+        Collections.sort(copy);
+        //sb.append("</body>\n</html>");
         
         FileWriter fileWriter =
                     null;

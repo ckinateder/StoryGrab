@@ -61,6 +61,7 @@ public class BackgroundRunner {
     boolean verbose = false;
     Vector<Link> hitLinks;
     final String DB_URL = "jdbc:derby://localhost:1527/FinalLinks";
+    private boolean dynamic = true;
     
     public BackgroundRunner() {        
         searchFor="";
@@ -198,6 +199,9 @@ public class BackgroundRunner {
         }
         return l;
     }
+    void setDynamic(boolean t) {
+        dynamic = t;
+    }
     public void cleanup(){
         shouldStop = true;
         Collections.sort(hitLinks);
@@ -294,8 +298,7 @@ public class BackgroundRunner {
             }
             protected void process(List<String> chunks) {
                 // Get Info
-                //statusLblRef.setText(chunks.get(chunks.size()-1)+"%");
-                
+                //statusLblRef.setText(chunks.get(chunks.size()-1)+"%");                
                 String currentOut = "";
                 currentOut = chunks.get(chunks.size()-1);
                 //currentOut+="</html>";
@@ -318,6 +321,7 @@ public class BackgroundRunner {
                     longout.setText("");
                 }
                 hitslbl.setText(/*"Hits: "+*/hitLinks.size()+"");
+                if(dynamic){Tools.saveToHTML(hitLinks, finalHTML, searchFor);}  
             }
             @Override
             protected void done() {                

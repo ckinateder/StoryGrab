@@ -1,0 +1,76 @@
+*{
+	margin:0;
+	padding:0;
+}
+html, body{
+	height:100%;
+}
+body{
+	background-color: #34358B;
+	background-position: center;
+	background-size: cover;
+	background-blend-mode: soft-light;
+}
+.heading{
+	width: 800px;
+	height:300px;
+	margin:auto;
+	position:absolute;
+	top:0px; bottom:1px;right:0px;left:0px;
+}
+.gee{
+	margin:auto;
+	position:absolute;
+	top:10px; bottom:0px;right:0px;left:20px;
+}
+.title1{
+	display: block;
+	text-align: left;
+	color:white;
+	font-size: 30pt;
+	font-family: ubuntu;
+}
+
+.out{
+	width: 800px;
+	height:600px;
+	margin:auto;
+	position:absolute;
+	top:-100px; bottom:0px;right:0px;left:-60px;
+}
+.txt{
+	display: block;
+	text-align: left;
+	color:white;
+	font-size: 11pt;
+	font-family: ubuntu;
+}
+.hits{
+	display: block;
+	text-align: left;
+	color:white;
+	font-size: 14pt;
+	font-family: ubuntu;
+}
+/* unvisited link */
+a:link {
+    color: yellow;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+::selection {
+  background: #ccffff; /* WebKit/Blink Browsers */
+}
