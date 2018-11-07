@@ -16,7 +16,7 @@ body{
 	height:300px;
 	margin:auto;
 	position:absolute;
-	top:0px; bottom:1px;right:0px;left:0px;
+	top:0px; bottom:0px;right:0px;left:0px;
 }
 .gee{
 	margin:auto;
@@ -33,7 +33,7 @@ body{
 
 .out{
 	width: 90vw;
-	height:80vh;
+	height:70vh;
 	margin:auto;
 	position:absolute;
 	top:0px; bottom:0px;right:0px;left:00px;
