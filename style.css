@@ -32,11 +32,11 @@ body{
 }
 
 .out{
-	width: 800px;
-	height:600px;
+	width: 90vw;
+	height:80vh;
 	margin:auto;
 	position:absolute;
-	top:-100px; bottom:0px;right:0px;left:-60px;
+	top:0px; bottom:0px;right:0px;left:00px;
 }
 .txt{
 	display: block;
