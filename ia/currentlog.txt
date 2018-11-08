@@ -1,0 +1,344 @@
+* 9ce9c2b - Wed, 7 Nov 2018 18:24:13 -0500 (3 hours ago) (HEAD -> master, origin/master)
+|           sync - Calvin
+* 59fbce3 - Tue, 6 Nov 2018 21:59:01 -0500 (24 hours ago)
+|           fixed width issues - calvin kinateder
+* e3c7cd5 - Tue, 6 Nov 2018 21:54:10 -0500 (24 hours ago)
+|           output looks nicer also fixed the sorting issue by making a temp copy of the hitLinks - calvin kinateder
+* c18dea2 - Mon, 5 Nov 2018 12:04:24 -0500 (2 days ago)
+|           changed to LDA multicore - Calvin
+* 33a2253 - Mon, 5 Nov 2018 07:02:45 -0500 (3 days ago)
+|           syncing classifier2 still crashes on CoherenceModel - calvin kinateder
+* e651149 - Fri, 2 Nov 2018 14:24:44 -0400 (5 days ago)
+|           added mallet and trump3078 dataset - Calvin
+* 6123ab1 - Thu, 1 Nov 2018 22:36:57 -0400 (6 days ago)
+|           biggest dataset - calvin kinateder
+* 91e44f2 - Thu, 1 Nov 2018 14:44:42 -0400 (6 days ago)
+|           html works well - Calvin
+* 22b658b - Wed, 31 Oct 2018 22:10:40 -0400 (7 days ago)
+|           updated links.csv - calvin kinateder
+* 4ecd6de - Wed, 31 Oct 2018 15:01:44 -0400 (7 days ago)
+|           started saveToHTML() - Calvin
+* b6cbb72 - Wed, 31 Oct 2018 14:57:02 -0400 (7 days ago)
+|           added getFreq2() - Calvin
+* ed6e59c - Tue, 30 Oct 2018 11:09:26 -0400 (9 days ago)
+|           updated classifier.py - calvin kinateder
+* cd79d34 - Mon, 29 Oct 2018 15:01:37 -0400 (9 days ago)
+|           classifier updated and moved some stuff around - Calvin
+* 45ec391 - Mon, 29 Oct 2018 11:25:06 -0400 (9 days ago)
+|           updated classifier.py - calvin kinateder
+* 51a1805 - Mon, 29 Oct 2018 01:29:36 -0400 (10 days ago)
+|           topic modeling ACTUALLY KIND OF WORKS!!! - calvin kinateder
+* 341f3ff - Sun, 28 Oct 2018 19:34:32 -0400 (10 days ago)
+|           no duplicate articles - calvin kinateder
+* 20f172a - Sun, 28 Oct 2018 17:36:10 -0400 (10 days ago)
+|           changed screenshots - calvin kinateder
+* 0d42728 - Sun, 28 Oct 2018 17:33:55 -0400 (10 days ago)
+|           changed a lot - changed datastructure and started on python - calvin kinateder
+* ec2f079 - Sat, 27 Oct 2018 22:30:23 -0400 (11 days ago)
+|           sorting algorithm updated with multiple delimiters - calvin kinateder
+* cd31b0b - Fri, 26 Oct 2018 11:42:00 -0400 (12 days ago)
+|           database works, added compareTo to Link, but sorting algorithm isn't good - Calvin
+* a98ea26 - Fri, 26 Oct 2018 09:13:33 -0400 (13 days ago)
+|           added FinalLinks Derby database - Calvin
+* 0c716be - Tue, 16 Oct 2018 14:52:36 -0400 (3 weeks ago)
+|           tried to fix continuous errors on output - Calvin
+* 0546791 - Mon, 15 Oct 2018 19:33:27 -0400 (3 weeks ago)
+|           started migrating to ranking output by termFreq - calvin kinateder
+* e9d0b32 - Fri, 12 Oct 2018 00:53:45 -0400 (4 weeks ago)
+|           update ia - calvin kinateder
+* 51bc9bc - Thu, 11 Oct 2018 08:48:09 -0400 (4 weeks ago)
+|           started framework for modes array - Calvin
+* 530d7c6 - Thu, 11 Oct 2018 01:51:34 -0400 (4 weeks ago)
+|           update ia - calvin kinateder
+* 0f9e671 - Thu, 11 Oct 2018 01:27:02 -0400 (4 weeks ago)
+|           hit count works! - calvin kinateder
+* 5db03fb - Wed, 10 Oct 2018 19:56:55 -0400 (4 weeks ago)
+|           added error color codes - calvin kinateder
+* 962c7dd - Tue, 9 Oct 2018 21:36:32 -0400 (4 weeks ago)
+|           added search settings and error color flashing - calvin kinateder
+* 15562d5 - Tue, 9 Oct 2018 14:31:49 -0400 (4 weeks ago)
+|           CHANGED SOURCES TO VECTOR - Calvin
+*   47d0522 - Tue, 9 Oct 2018 08:06:32 -0400 (4 weeks ago)
+|\            Merge origin/master - Calvin
+| * d7de0f5 - Mon, 8 Oct 2018 21:35:08 -0400 (4 weeks ago)
+| |           added link and stuff - calvin kinateder
+| * a1e415c - Mon, 8 Oct 2018 20:55:08 -0400 (4 weeks ago)
+| |           delimit in comma csv - calvin kinateder
+| * 49944bb - Mon, 8 Oct 2018 16:43:28 -0400 (4 weeks ago)
+| |           Delete Mon Oct  8 13:49:14 EDT 2018.txt - Calvin Kinateder
+* | 6d92b7d - Mon, 8 Oct 2018 14:44:34 -0400 (4 weeks ago)
+|/            added purposes to each file, 10 - Calvin
+* f37ad39 - Mon, 8 Oct 2018 13:50:10 -0400 (4 weeks ago)
+|           added log_MAC.command - Calvin
+* b783566 - Mon, 8 Oct 2018 13:23:16 -0400 (4 weeks ago)
+|           fixed scroller not updating and added catch to prohibit source modification while running - Calvin
+* 0a75026 - Mon, 8 Oct 2018 00:30:39 -0400 (4 weeks ago)
+|           updated working tree - calvin kinateder
+* 39f540e - Sat, 6 Oct 2018 19:09:10 -0400 (5 weeks ago)
+|           updated IA.docx - calvin kinateder
+* 55dd6fd - Sat, 6 Oct 2018 16:23:17 -0400 (5 weeks ago)
+|           fixed some formatting - calvin kinateder
+* 30c34e2 - Sat, 6 Oct 2018 16:22:39 -0400 (5 weeks ago)
+|           fixed some formatting - calvin kinateder
+* cfaec09 - Sat, 6 Oct 2018 02:32:57 -0400 (5 weeks ago)
+|           about to migrate to full on LINK - calvin kinateder
+* 2de8e05 - Fri, 5 Oct 2018 21:51:26 -0400 (5 weeks ago)
+|           open out opens links.txt - calvin kinateder
+* bac4759 - Fri, 5 Oct 2018 20:59:10 -0400 (5 weeks ago)
+|           ICONS WORK!!! - calvin kinateder
+* 2637835 - Fri, 5 Oct 2018 14:56:28 -0400 (5 weeks ago)
+|           mainly just updated working tree - Calvin
+* 0d9b3d1 - Thu, 4 Oct 2018 13:03:31 -0400 (5 weeks ago)
+|           added tooltips - Calvin
+* f90af2b - Thu, 4 Oct 2018 10:55:29 -0400 (5 weeks ago)
+|           changed screenshot - Calvin
+* b7409a5 - Thu, 4 Oct 2018 09:37:18 -0400 (5 weeks ago)
+|           made some things more consistent - Calvin
+* 3b0a398 - Thu, 4 Oct 2018 09:23:44 -0400 (5 weeks ago)
+|           renamed variables and took out the trash - Calvin
+* 3959af7 - Wed, 3 Oct 2018 07:26:48 -0400 (5 weeks ago)
+|           update - calvin
+* 388ebbd - Tue, 2 Oct 2018 14:51:46 -0400 (5 weeks ago)
+|           improved quit time by 99% - Calvin
+* 60db300 - Tue, 2 Oct 2018 12:02:07 -0400 (5 weeks ago)
+|           source editor doesnt work but ok to revert to - Calvin
+* b45ce35 - Mon, 1 Oct 2018 20:30:13 -0400 (5 weeks ago)
+|           addasource sucks so were gonna fix that next - calvin
+* 002011f - Mon, 1 Oct 2018 17:48:13 -0400 (5 weeks ago)
+|           fixed scrolling stuff - calvin
+* 7e16521 - Mon, 1 Oct 2018 14:04:57 -0400 (5 weeks ago)
+|           more cosmetic - Calvin
+* b9d0c56 - Mon, 1 Oct 2018 12:24:05 -0400 (5 weeks ago)
+|           added constant for output size and formatted scroller a little - Calvin
+* 37f1337 - Sat, 29 Sep 2018 12:42:35 -0400 (6 weeks ago)
+|           Added automatic refresh plus complete notification - calvin
+* dd443f3 - Fri, 28 Sep 2018 22:13:54 -0400 (6 weeks ago)
+|           minor - calvin
+* 2881453 - Fri, 28 Sep 2018 16:25:35 -0400 (6 weeks ago)
+|           BIG ONE : THREAD STOP WORKS - calvin
+* d6c031f - Fri, 28 Sep 2018 14:50:45 -0400 (6 weeks ago)
+|           modified some names - Calvin
+* b5d8ef1 - Fri, 28 Sep 2018 11:22:07 -0400 (6 weeks ago)
+|           added uml project - Calvin
+* 1448d59 - Thu, 27 Sep 2018 13:29:10 -0400 (6 weeks ago)
+|           updated writeup - Calvin
+* b296504 - Wed, 26 Sep 2018 14:07:23 -0400 (6 weeks ago)
+|           added reuters - Calvin
+* a5be823 - Wed, 26 Sep 2018 10:10:55 -0400 (6 weeks ago)
+|           Added apache common codec - Calvin
+* 607ff35 - Tue, 25 Sep 2018 21:46:36 -0400 (6 weeks ago)
+|           change to vector - calvin kinateder
+* 420dd88 - Tue, 25 Sep 2018 16:59:47 -0400 (6 weeks ago)
+|           continuing linkset - Calvin
+* 2031f8e - Tue, 25 Sep 2018 13:56:05 -0400 (6 weeks ago)
+|           started linkset - Calvin
+* c808764 - Tue, 25 Sep 2018 10:35:54 -0400 (6 weeks ago)
+|           Added Link Class - Calvin
+* a659979 - Mon, 24 Sep 2018 11:45:51 -0400 (6 weeks ago)
+|           ADDED ia - Calvin
+* 476a949 - Wed, 19 Sep 2018 21:04:18 -0400 (7 weeks ago)
+|           replace datasets - calvin kinateder
+* ffde864 - Wed, 19 Sep 2018 17:01:07 -0400 (7 weeks ago)
+|           added files - Calvin
+* 8745104 - Tue, 18 Sep 2018 09:35:29 -0400 (7 weeks ago)
+|           fixed source updating problem and added datasets - Calvin
+* 471f20b - Mon, 17 Sep 2018 13:52:27 -0400 (7 weeks ago)
+|           update sc - Calvin
+* 84b7289 - Mon, 17 Sep 2018 13:50:25 -0400 (7 weeks ago)
+|           added verbose option - Calvin
+* 9e66540 - Sun, 16 Sep 2018 19:36:32 -0400 (7 weeks ago)
+|           updated scroller - calvin kinateder
+* 8608e6f - Fri, 14 Sep 2018 18:54:01 -0400 (8 weeks ago)
+|           added long out - calvin kinateder
+* b44c9e6 - Fri, 14 Sep 2018 15:02:52 -0400 (8 weeks ago)
+|           update - Calvin
+* 1802279 - Fri, 14 Sep 2018 14:13:55 -0400 (8 weeks ago)
+|           moved scroll to scroller - Calvin
+* 2d68635 - Fri, 14 Sep 2018 13:34:31 -0400 (8 weeks ago)
+|           disregard source changes, but scroll works - Calvin
+* 435771e - Fri, 14 Sep 2018 12:56:28 -0400 (8 weeks ago)
+|           finished message is good - Calvin
+* 58bbc80 - Thu, 13 Sep 2018 20:54:38 -0400 (8 weeks ago)
+|           fixed concurrency error when clicking extract when running - Calvin
+* 37bea48 - Thu, 13 Sep 2018 18:09:31 -0400 (8 weeks ago)
+|           MAJOR MAJOR MAJOR - STOP FINALLY WORKS OKAY - some sync probs tho - calvin kinateder
+* 7dd70ea - Thu, 13 Sep 2018 17:13:00 -0400 (8 weeks ago)
+|           update - Calvin
+* dfaec7b - Thu, 13 Sep 2018 16:22:56 -0400 (8 weeks ago)
+|           progress output works well - Calvin
+* 76a7beb - Thu, 13 Sep 2018 08:26:16 -0400 (8 weeks ago)
+|           Updated formatting - Calvin
+* 4c942a6 - Wed, 12 Sep 2018 20:53:19 -0400 (8 weeks ago)
+|           Extends thread not implements runnable. now can access extractor vars so cool - Calvin
+* d467dbf - Tue, 11 Sep 2018 08:06:09 -0400 (8 weeks ago)
+|           OK to revert - progress bar works great - Calvin
+* ea2f66e - Mon, 10 Sep 2018 17:01:37 -0400 (8 weeks ago)
+|           dont revert just updating progress - Calvin
+* f48b8d5 - Mon, 10 Sep 2018 15:11:48 -0400 (8 weeks ago)
+|           MAJOR. REVERT TO HERE.  Progress works! - Calvin
+* 3e489c3 - Mon, 10 Sep 2018 14:40:00 -0400 (8 weeks ago)
+|           background runner works well - Calvin
+* 51cf4cf - Mon, 10 Sep 2018 09:06:57 -0400 (8 weeks ago)
+|           extractorcontainer is replaced by background runner - Calvin
+* 49961df - Mon, 10 Sep 2018 08:43:23 -0400 (8 weeks ago)
+|           just backing up work DO NOT REVERT - Calvin
+* 7f73529 - Mon, 10 Sep 2018 07:26:13 -0400 (8 weeks ago)
+|           update working tree dont revert to here - calvin kinateder
+* 644b6e7 - Sat, 8 Sep 2018 17:30:14 -0400 (9 weeks ago)
+|           wouldn't necessarily revert to here, just updating tree for desktop - Calvin
+* 30c971f - Fri, 7 Sep 2018 09:17:17 -0400 (9 weeks ago)
+|           modified props and little ui change - Calvin
+* 3daad9b - Wed, 5 Sep 2018 09:50:20 -0400 (9 weeks ago)
+|           added sources and authentication - Calvin
+* 97c3158 - Mon, 3 Sep 2018 15:28:48 -0400 (9 weeks ago)
+|           added refresh src button - calvin kinateder
+* d2dd75a - Mon, 3 Sep 2018 15:23:55 -0400 (9 weeks ago)
+|           fixed readme.md - calvin kinateder
+* 299b280 - Mon, 3 Sep 2018 15:22:15 -0400 (9 weeks ago)
+|           Delete sgmain.PNG - Calvin Kinateder
+* 30caa0f - Mon, 3 Sep 2018 15:21:43 -0400 (9 weeks ago)
+|           Update README.md - Calvin Kinateder
+* 9d361cb - Mon, 3 Sep 2018 15:20:59 -0400 (9 weeks ago)
+|           fixed readme.md - calvin kinateder
+* 98e4982 - Mon, 3 Sep 2018 15:18:54 -0400 (9 weeks ago)
+|           fixed readme.md - calvin kinateder
+* bf4ef6f - Mon, 3 Sep 2018 15:17:31 -0400 (9 weeks ago)
+|           fixed readme.md - calvin kinateder
+* 13214a7 - Mon, 3 Sep 2018 15:14:40 -0400 (9 weeks ago)
+|           revisited main layout - calvin kinateder
+* de6b00d - Mon, 3 Sep 2018 14:47:34 -0400 (9 weeks ago)
+|           works about to change executor to larger scope ok to revert to - calvin kinateder
+* 5c88b89 - Sun, 2 Sep 2018 07:57:57 -0400 (10 weeks ago)
+|           about to change to executor.submit - OK TO REVERT - calvin kinateder
+* 0a3ba6e - Sat, 1 Sep 2018 17:44:33 -0400 (10 weeks ago)
+|           updated ok to revert - calvin kinateder
+* d5edead - Sat, 1 Sep 2018 17:34:47 -0400 (10 weeks ago)
+|           source editor works ok to revert still needs work though - calvin kinateder
+* fc762cd - Sat, 1 Sep 2018 15:14:23 -0400 (10 weeks ago)
+|           executerservice works just like thread rn. but added sources. multithreaded speed confirmed. - calvin kinateder
+* d212677 - Sat, 1 Sep 2018 10:57:40 -0400 (10 weeks ago)
+|           Added some functions for joining threads, still stuck. beginning port to executor service. ok to revert to - calvin kinateder
+* d4fd45c - Thu, 30 Aug 2018 20:20:23 -0400 (10 weeks ago)
+|           search works well now extract with threads still a little glitchy ok to revert to i guess - calvin kinateder
+* d6ffb98 - Thu, 30 Aug 2018 16:45:08 -0400 (10 weeks ago)
+|           multithread works but still dont revert yet - calvin kinateder
+* 4ff8515 - Thu, 30 Aug 2018 15:47:03 -0400 (10 weeks ago)
+|           DO NOT REVERT TO THIS COMMIT -- BETA -- ADDED EXTRACTOR CONTAINER - Calvin
+* c6578f6 - Thu, 30 Aug 2018 08:32:00 -0400 (2 months ago)
+|           single threaded works - Calvin
+* daa5669 - Wed, 29 Aug 2018 20:09:42 -0400 (2 months ago)
+|           added twitter custom checkbox - calvin kinateder
+* e9d3cc9 - Wed, 29 Aug 2018 14:50:13 -0400 (2 months ago)
+|           better code - Calvin
+* 083a00c - Wed, 29 Aug 2018 14:30:14 -0400 (2 months ago)
+|           attached remote javadoc to jtwitter: https://www.winterwell.com/software/jtwitter/javadoc/ - Calvin
+* f98f03b - Wed, 29 Aug 2018 14:11:31 -0400 (2 months ago)
+|           added libs - Calvin
+* fd8ae4b - Tue, 28 Aug 2018 20:36:58 -0400 (2 months ago)
+|           writes as it goes - calvin kinateder
+* e365048 - Tue, 28 Aug 2018 20:23:03 -0400 (2 months ago)
+|           writes as it goes - calvin kinateder
+* a75edc0 - Tue, 28 Aug 2018 15:25:26 -0400 (2 months ago)
+|           Changed main ui - Calvin
+* 0b2ffd9 - Tue, 28 Aug 2018 14:37:35 -0400 (2 months ago)
+|           Fixed broken project - Calvin
+* bc24ed3 - Tue, 28 Aug 2018 14:32:05 -0400 (2 months ago)
+|           Fixed broken project - Calvin
+* ea2d69a - Tue, 28 Aug 2018 14:21:17 -0400 (2 months ago)
+|           Delete project.xml - Calvin Kinateder
+* b96d615 - Tue, 28 Aug 2018 14:21:11 -0400 (2 months ago)
+|           Delete project.properties - Calvin Kinateder
+* e53896a - Tue, 28 Aug 2018 14:21:04 -0400 (2 months ago)
+|           Delete genfiles.properties - Calvin Kinateder
+* c5ee986 - Tue, 28 Aug 2018 14:20:52 -0400 (2 months ago)
+|           Delete build-impl.xml - Calvin Kinateder
+* 7ce2fd6 - Tue, 28 Aug 2018 14:20:39 -0400 (2 months ago)
+|           Delete manifest.mf - Calvin Kinateder
+* 4ac773d - Tue, 28 Aug 2018 14:20:31 -0400 (2 months ago)
+|           Delete links.txt - Calvin Kinateder
+* b83606c - Tue, 28 Aug 2018 14:20:18 -0400 (2 months ago)
+|           Delete build.xml - Calvin Kinateder
+* abbc215 - Tue, 28 Aug 2018 14:20:08 -0400 (2 months ago)
+|           Delete acountss.txt - Calvin Kinateder
+* 81ed1c3 - Tue, 28 Aug 2018 14:20:01 -0400 (2 months ago)
+|           Delete Java 8 Articles - Calvin Kinateder
+* cd7cd4d - Tue, 28 Aug 2018 14:18:33 -0400 (2 months ago)
+|           remove storygrab folder - Calvin
+* d2c516c - Tue, 28 Aug 2018 14:16:27 -0400 (2 months ago)
+|           tst - Calvin
+* 6509ccd - Tue, 28 Aug 2018 14:11:32 -0400 (2 months ago)
+|           extractor works recursively - Calvin
+* 32f04c5 - Tue, 28 Aug 2018 13:26:22 -0400 (2 months ago)
+|           changed extractor - Calvin
+* 8b9560b - Tue, 28 Aug 2018 08:25:48 -0400 (2 months ago)
+|           added links - Calvin
+* 32928d7 - Mon, 27 Aug 2018 21:23:03 -0400 (2 months ago)
+|           added nonfunct xtractor - calvin kinateder
+* 713fceb - Mon, 27 Aug 2018 20:37:33 -0400 (2 months ago)
+|           added period - calvin kinateder
+* d0def41 - Mon, 27 Aug 2018 17:00:19 -0400 (2 months ago)
+|           added help menu - calvin kinateder
+* bae6355 - Mon, 27 Aug 2018 09:16:20 -0400 (2 months ago)
+|           fixed last commit - Calvin
+* 1a828b3 - Mon, 27 Aug 2018 09:15:05 -0400 (2 months ago)
+|           Update README.md - Calvin Kinateder
+* dd77a32 - Mon, 27 Aug 2018 09:14:28 -0400 (2 months ago)
+|           Update README.md - Calvin Kinateder
+* ca3f5e8 - Mon, 27 Aug 2018 09:14:16 -0400 (2 months ago)
+|           Update README.md - Calvin Kinateder
+*   ed28358 - Mon, 27 Aug 2018 09:11:24 -0400 (2 months ago)
+|\            Merge origin/master - Calvin
+| * cb4d40b - Mon, 27 Aug 2018 08:55:14 -0400 (2 months ago)
+| |           Update README.md - Calvin Kinateder
+| * 0946599 - Mon, 27 Aug 2018 08:54:33 -0400 (2 months ago)
+| |           Update README.md - Calvin Kinateder
+* | bdc93de - Mon, 27 Aug 2018 09:11:00 -0400 (2 months ago)
+|/            BIG ONE: Removed access to create account panel-it was not necessary and it was insecure - Calvin
+* c58167b - Sun, 26 Aug 2018 20:52:02 -0400 (2 months ago)
+|           Update README.md - Calvin Kinateder
+* 627a131 - Sun, 26 Aug 2018 20:47:04 -0400 (2 months ago)
+|           added screenshots - calvin kinateder
+* 8eefafd - Sun, 26 Aug 2018 20:44:35 -0400 (2 months ago)
+|           added two icons - calvin kinateder
+* d0aee4f - Sat, 25 Aug 2018 20:35:12 -0400 (2 months ago)
+|           fixed corners by changing JFrame shape - calvin kinateder
+* 0663cf6 - Sat, 25 Aug 2018 19:11:21 -0400 (2 months ago)
+|           fixed mac issue with spawning pwdfield in create account - Calvin
+* 2bb0652 - Sat, 25 Aug 2018 23:07:07 -0400 (2 months ago)
+|           add logo - calvin kinateder
+* 7e02be6 - Sat, 25 Aug 2018 14:04:12 -0400 (2 months ago)
+|           change author from calvi to my actual name - calvin kinateder
+* 3b0c9e6 - Sat, 25 Aug 2018 14:02:18 -0400 (2 months ago)
+|           Cleaned up functions and improved create accounts screen - calvi
+* 37f5a7e - Sat, 25 Aug 2018 13:20:11 -0400 (2 months ago)
+|           Buttons and labels now work for release too - calvi
+* 2a7cff4 - Sat, 25 Aug 2018 12:15:02 -0400 (2 months ago)
+|           Big one: fixed buttons toggling and create account only works if it fields are filled all the way To do: pressed not clicked for buttons - calvi
+* a3ecd69 - Fri, 24 Aug 2018 22:22:40 -0400 (3 months ago)
+|           added writing accounts to file and loading - calvi
+* 694b1f3 - Fri, 24 Aug 2018 16:51:48 -0400 (3 months ago)
+|           added create account - calvi
+* b159377 - Fri, 24 Aug 2018 16:12:39 -0400 (3 months ago)
+|           update readme - calvi
+* 81733bc - Fri, 24 Aug 2018 16:12:01 -0400 (3 months ago)
+|           update readme - calvi
+* ce0b7fb - Fri, 24 Aug 2018 15:36:11 -0400 (3 months ago)
+|           Added Accountmanager and user classes. - Calvin
+* bd1a92c - Fri, 24 Aug 2018 13:52:04 -0400 (3 months ago)
+|           added checked and unchecked icons - may not be used - Calvin
+* 94521e8 - Fri, 24 Aug 2018 13:51:20 -0400 (3 months ago)
+|           login creates new screen - Calvin
+* 3b0946e - Fri, 24 Aug 2018 09:14:14 -0400 (3 months ago)
+|           Made it look nicer and added icons - Calvin
+* b55b0c3 - Fri, 24 Aug 2018 07:29:15 -0400 (3 months ago)
+|           add lib - calvi
+* 3030fbf - Fri, 24 Aug 2018 07:26:50 -0400 (3 months ago)
+|           update readme - calvi
+* 2e14007 - Fri, 24 Aug 2018 07:26:30 -0400 (3 months ago)
+|           update readme - calvi
+* 350a022 - Thu, 23 Aug 2018 20:33:16 -0400 (3 months ago)
+|           Create README.md - Calvin Kinateder
+* abb3afc - Thu, 23 Aug 2018 20:31:44 -0400 (3 months ago)
+|           Fixed opacity problem and added X - calvi
+* 29493ca - Thu, 23 Aug 2018 19:48:02 -0400 (3 months ago)
+            First commit - calvi
