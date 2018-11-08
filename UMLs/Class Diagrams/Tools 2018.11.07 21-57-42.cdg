@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Tools">
+  <ClassDiagramComponents>
+    <Class name="Tools" package="login" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="delim" type="String" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="writeToFile" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="fileName"/>
+          <Argument type="String" name="toWrite"/>
+          <Argument type="boolean" name="append"/>
+        </Method>
+        <Method name="saveToDB" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Vector&lt;Link&gt;" name="hitLinks"/>
+          <Argument type="String" name="DB_URL"/>
+        </Method>
+        <Method name="saveToCSV" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Vector&lt;Link&gt;" name="hitLinks"/>
+          <Argument type="String" name="forClassifier"/>
+        </Method>
+        <Method name="saveToHTML" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Vector&lt;Link&gt;" name="hitLinks"/>
+          <Argument type="String" name="finalHTML"/>
+          <Argument type="String" name="searchFor"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

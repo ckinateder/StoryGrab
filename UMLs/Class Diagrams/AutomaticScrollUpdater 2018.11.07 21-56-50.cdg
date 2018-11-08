@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AutomaticScrollUpdater">
+  <ClassDiagramComponents>
+    <Class name="AutomaticScrollUpdater" package="login" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="scroller" type="Scroller" visibility="package"/>
+        <Field name="WAIT" type="int" visibility="package" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Scroller" name="s"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createWorker" returnType="SwingWorker" visibility="public"/>
+        <Method name="waitFor" returnType="void" visibility="private">
+          <Argument type="int" name="iMillis"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

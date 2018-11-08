@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Scroller">
+  <ClassDiagramComponents>
+    <Class name="Scroller" package="login" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="modifiedLbl" type="JLabel" visibility="package"/>
+        <Field name="scrollStart" type="int" visibility="package"/>
+        <Field name="SCROLLSIZE" type="int" visibility="package"/>
+        <Field name="lblContainer" type="BackgroundRunner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="BackgroundRunner" name="lblContainer"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setLabel" returnType="void" visibility="public">
+          <Argument type="JLabel" name="l"/>
+        </Method>
+        <Method name="setWidth" returnType="void" visibility="public">
+          <Argument type="int" name="s"/>
+        </Method>
+        <Method name="scrollSources" returnType="void" visibility="public">
+          <Argument type="java.awt.event.MouseWheelEvent" name="mwheel"/>
+        </Method>
+        <Method name="updateSources" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

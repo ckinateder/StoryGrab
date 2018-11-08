@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Link">
+  <ClassDiagramComponents>
+    <Class name="Link" package="login" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="hyperlink" type="String" visibility="private"/>
+        <Field name="body" type="String" visibility="private"/>
+        <Field name="searchFor" type="String" visibility="private"/>
+        <Field name="relevance" type="double" visibility="private"/>
+        <Field name="linkDone" type="boolean" visibility="private"/>
+        <Field name="failed" type="boolean" visibility="private"/>
+        <Field name="errors" type="int" visibility="private"/>
+        <Field name="termFreq" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="hyperlink"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="hyperlink"/>
+          <Argument type="String" name="body"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="hyperlink"/>
+          <Argument type="String" name="body"/>
+          <Argument type="String" name="sf"/>
+          <Argument type="String" name="title"/>
+          <Argument type="int" name="f"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="title"/>
+          <Argument type="String" name="hyperlink"/>
+          <Argument type="double" name="relevance"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="getHyperlink" returnType="String" visibility="public"/>
+        <Method name="getText" returnType="String" visibility="public"/>
+        <Method name="getSearchFor" returnType="String" visibility="public"/>
+        <Method name="getRelevance" returnType="double" visibility="public"/>
+        <Method name="islinkDone" returnType="boolean" visibility="public"/>
+        <Method name="isFailed" returnType="boolean" visibility="public"/>
+        <Method name="errors" returnType="int" visibility="public"/>
+        <Method name="getTermFreq" returnType="int" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="t"/>
+        </Method>
+        <Method name="setText" returnType="void" visibility="public">
+          <Argument type="String" name="t"/>
+        </Method>
+        <Method name="setHyperlink" returnType="void" visibility="public">
+          <Argument type="String" name="t"/>
+        </Method>
+        <Method name="setSearchFor" returnType="void" visibility="public">
+          <Argument type="String" name="t"/>
+        </Method>
+        <Method name="setRelevance" returnType="void" visibility="public">
+          <Argument type="double" name="t"/>
+        </Method>
+        <Method name="setlinkDone" returnType="void" visibility="public">
+          <Argument type="boolean" name="t"/>
+        </Method>
+        <Method name="setFailed" returnType="void" visibility="public">
+          <Argument type="boolean" name="t"/>
+        </Method>
+        <Method name="setError" returnType="void" visibility="public">
+          <Argument type="int" name="t"/>
+        </Method>
+        <Method name="setTermFreq" returnType="void" visibility="public">
+          <Argument type="int" name="t"/>
+        </Method>
+        <Method name="incrementTermFreq" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="shortPrint" returnType="String" visibility="public"/>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="Link" name="o"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="login.Link" target="login.Link" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

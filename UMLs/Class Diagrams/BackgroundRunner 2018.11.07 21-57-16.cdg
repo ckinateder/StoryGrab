@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="BackgroundRunner">
+  <ClassDiagramComponents>
+    <Class name="BackgroundRunner" package="login" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="searchFor" type="String" visibility="package"/>
+        <Field name="currentusr" type="User" visibility="package"/>
+        <Field name="OUTSIZE" type="int" visibility="package" isFinal="true"/>
+        <Field name="extractors" type="ArrayList&lt;Extractor&gt;" visibility="package"/>
+        <Field name="sourcesFile" type="String" visibility="package"/>
+        <Field name="finalHTML" type="String" visibility="package"/>
+        <Field name="sources" type="Vector&lt;Link&gt;" visibility="package"/>
+        <Field name="maxDepth" type="int" visibility="package"/>
+        <Field name="isRunning" type="boolean" visibility="private"/>
+        <Field name="executor" type="ExecutorService" visibility="package"/>
+        <Field name="futures" type="List&lt;Future&lt;?&gt;&gt;" visibility="package"/>
+        <Field name="forClassifier" type="String" visibility="package"/>
+        <Field name="statusLblRef" type="JLabel" visibility="package"/>
+        <Field name="shouldStop" type="boolean" visibility="package"/>
+        <Field name="verbose" type="boolean" visibility="package"/>
+        <Field name="hitLinks" type="Vector&lt;Link&gt;" visibility="package"/>
+        <Field name="DB_URL" type="String" visibility="package" isFinal="true"/>
+        <Field name="dynamic" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="passVec" returnType="void" visibility="public">
+          <Argument type="Vector" name="h"/>
+        </Method>
+        <Method name="passLbl" returnType="void" visibility="public">
+          <Argument type="JLabel" name="l"/>
+        </Method>
+        <Method name="passInitializedOP" returnType="void" visibility="public">
+          <Argument type="JLabel" name="l"/>
+        </Method>
+        <Method name="passBigOut" returnType="void" visibility="package">
+          <Argument type="JLabel" name="l"/>
+        </Method>
+        <Method name="passHitsLbl" returnType="void" visibility="package">
+          <Argument type="JLabel" name="l"/>
+        </Method>
+        <Method name="setBefore" returnType="void" visibility="public">
+          <Argument type="String" name="s"/>
+          <Argument type="User" name="u"/>
+        </Method>
+        <Method name="updateSrc" returnType="void" visibility="public"/>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Extractor" name="e"/>
+        </Method>
+        <Method name="setMaxDepth" returnType="void" visibility="public">
+          <Argument type="int" name="m"/>
+        </Method>
+        <Method name="getMaxDepth" returnType="int" visibility="public"/>
+        <Method name="setSearchFor" returnType="void" visibility="public">
+          <Argument type="String" name="s"/>
+        </Method>
+        <Method name="createContainer" returnType="void" visibility="public">
+          <Argument type="User" name="u"/>
+        </Method>
+        <Method name="isRunning" returnType="boolean" visibility="public"/>
+        <Method name="setCreds" returnType="void" visibility="public">
+          <Argument type="User" name="u"/>
+        </Method>
+        <Method name="printExtractors" returnType="void" visibility="public"/>
+        <Method name="broStop" returnType="void" visibility="public"/>
+        <Method name="setVerbose" returnType="void" visibility="public">
+          <Argument type="boolean" name="j"/>
+        </Method>
+        <Method name="findSource" returnType="Link" visibility="public">
+          <Argument type="String" name="l"/>
+        </Method>
+        <Method name="totalErrors" returnType="int" visibility="public"/>
+        <Method name="setDynamic" returnType="void" visibility="package">
+          <Argument type="boolean" name="t"/>
+        </Method>
+        <Method name="cleanup" returnType="void" visibility="public"/>
+        <Method name="createWorker" returnType="SwingWorker" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
