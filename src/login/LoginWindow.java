@@ -1334,7 +1334,7 @@ public class LoginWindow extends javax.swing.JFrame {
     */
     String iconFile = "icons8-news-50.png";
     String sourceFile = "sources.txt";
-    String outputFile = "storygrab.html";
+    String outputFile = "out/storygrab.html";
     AccountManager mngr = new AccountManager();
     User currentusr;
     BackgroundRunner loader = new BackgroundRunner();
@@ -1485,7 +1485,7 @@ public class LoginWindow extends javax.swing.JFrame {
         loader.passInitializedOP(websitelbl6);//works within class.
         op.main(sg);*/ //no  
         
-        if(!loader.isRunning()){
+        
         File file = new File(outputFile);
         
         //first check if Desktop is supported by Platform or not
@@ -1495,7 +1495,7 @@ public class LoginWindow extends javax.swing.JFrame {
         }
         
         Desktop desktop = Desktop.getDesktop();
-        if(file.exists()) desktop.open(file);}
+        if(file.exists()) desktop.open(file);
     }
     public void sourcesEditor(){//open sources editor
         
