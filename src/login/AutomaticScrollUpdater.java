@@ -22,7 +22,7 @@ public class AutomaticScrollUpdater {
             @Override
             protected Boolean doInBackground() throws Exception {
                 // Start Progress
-                waitFor(1000);
+                waitFor(2000);
                 setProgress(0);
                 while(true){
                     scroller.updateSources();                    
