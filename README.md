@@ -6,3 +6,4 @@ Login screen:
 ![alt text](screenshots/sglogin.PNG "Login screen")
 Main screen (current):
 ![alt text](screenshots/sgmainwcolor.png "Main screen") 
+![alt text](op.gif)
