@@ -33,8 +33,7 @@ public class Extractor extends Thread {
     private HashSet<String> alreadySearched;
     private HashSet<String> bodiesSearched = new HashSet<>();
     private HashSet<String> titlesSearched = new HashSet<>();
-    public String searchFor = "";    
-    private String file="links.txt";
+    public String searchFor = "";
     public String webpage = "";
     public boolean done = false;
     private boolean stop = false;
@@ -154,7 +153,7 @@ public class Extractor extends Thread {
         }        
     }
     public String toString(){
-        return "Page: "+webpage+", Depth: "+maxDepth+", File: "+file;
+        return "Page: "+webpage+", Depth: "+maxDepth;
     }
 }
 
