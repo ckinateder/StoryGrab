@@ -49,13 +49,11 @@ public class LoginWindow extends javax.swing.JFrame {
         setVerbose(true);
         dynamicbtn.setSelected(true);
         dynamicbtn.setText("X");
-//        refresher.passV(loader.hitLinks);
         setIcon();
         panelSwitcher(1);        
         updateSources();
         refreshChild.execute();
-    }
-    
+    }    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1329,8 +1327,6 @@ public class LoginWindow extends javax.swing.JFrame {
     // </editor-fold> 
     /*
     Custom code here------------------------------------------------------------
-    ----------------------------------------------------------------------------
-    ----------------------------------------------------------------------------
     */
     String iconFile = "icons8-news-50.png";
     String sourceFile = "sources.txt";
@@ -1338,7 +1334,7 @@ public class LoginWindow extends javax.swing.JFrame {
     AccountManager mngr = new AccountManager();
     User currentusr;
     BackgroundRunner loader = new BackgroundRunner();
-    SwingWorker backburner = loader.createWorker(); //move these to extract.
+    SwingWorker backburner = loader.createWorker();
     Scroller sourceScroller = new Scroller(loader);
      //make static
     Vector<Link> linkset = new Vector<>(); //fill with links
@@ -1349,12 +1345,8 @@ public class LoginWindow extends javax.swing.JFrame {
     
     public void resetAllFields(){
         pwdfield.setText("");
-        //pwdfield2.setText("");
         userfield.setText("");
-        //userfield1.setText("");
-        //fullnamefield.setText("");
         nouserwithname.setText("");
-        //jLabel15.setText("");
         usertitlelbl.setText("");
         dynamicdepthlbl.setText(""+loader.getMaxDepth());
         statuslbl.setText("");
@@ -1425,24 +1417,20 @@ public class LoginWindow extends javax.swing.JFrame {
         resetAllFields();
         sourceScroller.setLabel(sourceslist);
         updateSources();
-        //1 for login,2 for main,3 for create account
+        //1 for login,2 for main
         switch(sw){
             case 1:
                 LoginPanel.setVisible(true);
                 MainPanel.setVisible(false);
-          //      CreateAccountPanel.setVisible(false);
                 break;
             case 2:
                 LoginPanel.setVisible(false);
                 MainPanel.setVisible(true);
- //               CreateAccountPanel.setVisible(false);
-                usertitlelbl.setText(currentusr.screenName);//this is temporary. probs change to a better place later
-                
+                usertitlelbl.setText(currentusr.screenName);                
                 break;
             case 3:
                 LoginPanel.setVisible(false);
                 MainPanel.setVisible(false);
-//                CreateAccountPanel.setVisible(true);
                 break;
         }
         
@@ -1451,24 +1439,6 @@ public class LoginWindow extends javax.swing.JFrame {
         currentusr = new User(userfield.getText(),
                 new String(pwdfield.getPassword()));        
         panelSwitcher(2);
-    }
-    public void loginwithcreate(boolean fromWhere){//created for a
-        if(fromWhere){
-            currentusr = mngr.users.get(mngr.users.size()-1);//get last made account            
-            //this is being called from create account page
-        }
-        else{
-            currentusr = //temporary, read only
-                    mngr.loginChecker(userfield.getText(),new String(pwdfield.getPassword()));        
-            //pwdfield returns only char[]
-        }
-        if(currentusr==null){
-            nouserwithname.setText("Sorry! Wrong password or that user doesn't exist.");            
-        }
-        else{
-            usertitlelbl.setText(currentusr.screenName);
-            panelSwitcher(2);
-        }
     }
     public void logout(){
         currentusr = null;
@@ -1479,21 +1449,13 @@ public class LoginWindow extends javax.swing.JFrame {
         String[] sg = new String[0];
         HelpMenu.main(sg);
     }
-    public void openOutput() throws IOException{/*
-        String[] sg = new String[0];
-        OptionalOutput op = new OptionalOutput();
-        loader.passInitializedOP(websitelbl6);//works within class.
-        op.main(sg);*/ //no  
-        
-        
-        File file = new File(outputFile);
-        
+    public void openOutput() throws IOException{        
+        File file = new File(outputFile);        
         //first check if Desktop is supported by Platform or not
         if(!Desktop.isDesktopSupported()){
             System.out.println("Desktop is not supported");
             return;
-        }
-        
+        }        
         Desktop desktop = Desktop.getDesktop();
         if(file.exists()) desktop.open(file);
     }
@@ -1521,12 +1483,10 @@ public class LoginWindow extends javax.swing.JFrame {
     
     public void stopExtract() throws InterruptedException{
         loader.broStop();
-        //System.out.println("Cancelling...");
     }
     public void updateSources(){        
         sourceScroller.updateSources();
-    }
-    
+    }    
     public void searchTwitter(){
         //TwitterSkimmer.skim();
     }

@@ -17,10 +17,8 @@ public class Scroller {
     int scrollStart = 0;
     int SCROLLSIZE = 10; //add note at bottom that there is more
     BackgroundRunner lblContainer;
-    //ArrayList<Link> sources;
     public Scroller(BackgroundRunner lblContainer){        
         this.lblContainer = lblContainer;
-        //sources = lblContainer.sources;
         if(lblContainer.sources.size()<=SCROLLSIZE){
             SCROLLSIZE = lblContainer.sources.size();
         }
@@ -44,8 +42,7 @@ public class Scroller {
     
     public void updateSources(){
         lblContainer.updateSrc(); 
-        //sort sources list with not done at the top...
-        
+        //sort sources list with not done at the top...        
         String finalOut = "<html>";
         if(scrollStart>0){
             finalOut+="...<br>";
@@ -56,16 +53,12 @@ public class Scroller {
         for(int i = scrollStart; i<SCROLLSIZE;i++){
             String se = "";
             Link tmpLink = lblContainer.sources.get(i);
-            //System.out.println(tmpLink);
-            if(tmpLink.islinkDone()){ //really done, maybe change var name
+            if(tmpLink.islinkDone()){
                 se = (i+1)+": <b><font color=31E13C>"+tmpLink.getHyperlink()+"</font></b>";
             }
             else if(!tmpLink.islinkDone()&&tmpLink.errors()>10){
                 se = (i+1)+": <b><font color=FF7777>"+tmpLink.getHyperlink()+"</font></b>";
-            }/*
-            else if(!tmpLink.islinkDone()&&tmpLink.errors()>5){
-                se = (i+1)+": <font color=FA8500>"+tmpLink.getHyperlink()+"</font>";
-            }*/
+            }
             else if(!tmpLink.islinkDone()&&tmpLink.errors()>0){
                 se = (i+1)+": <b><font color=FFD126>"+tmpLink.getHyperlink()+"</font></b>";
             }

@@ -48,9 +48,7 @@ public class BackgroundRunner {
     ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
     String finalHTML = "out/storygrab.html";
-    //ArrayList<Link> sources = new ArrayList<>();
     Vector<Link> sources = new Vector<>();
-    //ArrayList<Thread> extractors = new ArrayList<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
     ExecutorService executor;
@@ -67,8 +65,7 @@ public class BackgroundRunner {
         searchFor="";
         currentusr=new User();
         updateSrc();    
-        //saveToDB();
-        
+        //saveToDB();        
     }
     public void passVec(Vector h){
         hitLinks = h;
@@ -91,17 +88,8 @@ public class BackgroundRunner {
         searchFor = s; currentusr=u;
     }
     
-    public void updateSrc(){
-        //check if sources in proc
-        /*
-        boolean anyInProc = false;
-        for(Link l : sources){
-            if(l.islinkDone()){
-                anyInProc = true;
-            }
-        }*/
+    public void updateSrc(){        
         if(!isRunning){
-            //none in proc
             sources.clear();
             try {
                 // FileReader reads text files in the default encoding.
@@ -213,8 +201,6 @@ public class BackgroundRunner {
         return new SwingWorker<Boolean, String>() {
             @Override
             protected Boolean doInBackground() throws Exception {
-                // Start Progress setProgress(0);                
-                // Example Loop
                 //updateSrc();
                 System.out.println("Search for: "+searchFor+" User: "+currentusr);
                 statusLblRef.setText("Starting...");
@@ -239,16 +225,12 @@ public class BackgroundRunner {
                     for(int i = 0;i<extractors.size();i++){ 
                         Extractor t=extractors.get(i);
                         if(!t.isAlive()&&!used.contains(t)){
-                            //System.out.println("Done on "+t);
                             used.add(t);
                             leftToDo--;
                             //set tmp vars
                             double s = extractors.size();
                             double l = leftToDo;
                             double sm = s-l;
-                            //String wp = t.getWebpage();//send that somehow
-                            //search sources for t.getWeb
-                            //System.out.println(findSource(t.getWebpage()));
                             findSource(t.getWebpage()).setlinkDone(true);                            
                             System.out.println();
                             System.out.println("Done: ");
@@ -264,7 +246,6 @@ public class BackgroundRunner {
                         publish(t.toBG);//publish output to process   
                         if(!t.errorMsgs.equals("")){
                              publish("<font color=FFD126>"+t.errorMsgs+"</font>");
-                             //maybe find source and flash it for .2 s
                              findSource(t.getWebpage()).setError(t.errorCount);
                              //maybe have a waitfor
                         }
@@ -297,11 +278,9 @@ public class BackgroundRunner {
                 return true;
             }
             protected void process(List<String> chunks) {
-                // Get Info
-                //statusLblRef.setText(chunks.get(chunks.size()-1)+"%");                
+                // Get Info             
                 String currentOut = "";
                 currentOut = chunks.get(chunks.size()-1);
-                //currentOut+="</html>";
                 outputlbl.setText("<html>"+currentOut+"</html>");
                 int st = chunks.size()-OUTSIZE;
                 if(st<0){
@@ -335,7 +314,6 @@ public class BackgroundRunner {
                     } 
                     else{
                         publish("Finished");
-                        //System.out.println("Cancelled by user");
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
