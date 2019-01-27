@@ -19,7 +19,8 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author calvi
+ * @author calvin kinateder
+ * saving functions
  */
 public abstract class Tools {
     public static String delim ="---split---";
@@ -53,8 +54,7 @@ public abstract class Tools {
             PreparedStatement dlt = conn.prepareStatement("DELETE FROM LINKS WHERE 1=1");
             dlt.executeUpdate();
             PreparedStatement ps = conn.prepareStatement("insert into LINKS(RELEVANCE,URL)"
-                        + "values(?,?)");
-            
+                        + "values(?,?)");            
             for(Link l : hitLinks){                
                 ps.setDouble(1, l.getRelevance());                    
                 //ps.setInt(2, l.errors());
@@ -119,8 +119,7 @@ public abstract class Tools {
 "	</body>\n" +
 "</html>");
         Collections.sort(copy);
-        //sb.append("</body>\n</html>");
-        
+        //sb.append("</body>\n</html>");        
         FileWriter fileWriter =
                     null;
         try {
