@@ -24,14 +24,7 @@ public class Scroller {
         if(lblContainer.sources.size()<=SCROLLSIZE){
             SCROLLSIZE = lblContainer.sources.size();
         }
-    }/*
-    public Scroller(ArrayList lst, int size){
-        SCROLLSIZE = size;
-        sources = lst;
-        if(sources.size()<=SCROLLSIZE){
-            SCROLLSIZE = sources.size();
-        }
-    }*/
+    }
     public void setLabel(JLabel l){
         modifiedLbl = l;
     }
