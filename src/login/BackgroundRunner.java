@@ -253,6 +253,7 @@ public class BackgroundRunner {
                         if(shouldStop){
                             publish("Cancelled by user - syncing threads");
                             for(Extractor ts : extractors){
+                                publish("Extractor termination on "+ts.getWebpage());
                                 ts.setStop(true);
                             }
                             for(Thread tt : extractors){

@@ -147,7 +147,7 @@ public class Extractor extends Thread {
                 +maxDepth);
         done = searchPageLinks(webpage, 0, username, password);
         if(stop){
-            System.out.println("Extractor error finishing on "+webpage);
+            System.out.println("Extractor prematurely finished on "+webpage);
         }else{
             System.out.println("Extractor client successful on "+webpage);
         }        
