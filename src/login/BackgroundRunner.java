@@ -64,9 +64,15 @@ public class BackgroundRunner {
     public BackgroundRunner() {        
         searchFor="";
         currentusr=new User();
-        updateSrc();    
+        updateSrc();
         //saveToDB();        
     }
+    /**
+     * Resets all the variables in this class as an object so it can be reused 
+     *  without reinitialization
+     * Precondition: object has been initialized
+     * Postcondition: object can be used again
+     */
     public void res(){       
         extractors = new ArrayList<>();    
         sourcesFile = "sources.txt";

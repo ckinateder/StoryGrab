@@ -24,8 +24,8 @@ import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.lang.StringUtils;
 /**
- * This class is what searches the webpage
- * @author calvin kinateder
+ * Searches the webpage for a given keyword * 
+ * @author Calvin Kinateder
  */
 
 public class Extractor extends Thread {
@@ -53,29 +53,55 @@ public class Extractor extends Thread {
         webpage=w;
         dynamicSet = ps;
     }
-    public void setModes(boolean[] m){
-        modes = m;
-    }    
+    /**
+     * Returns the number of times a specified word appears in a
+     *  specified String. Uses .equals() instead of .contains()
+     * @param str the block of text needing to be searched
+     * @param word the word being searched for
+     * Precondition: str words are separated by " ",".", or ","
+     * @return the number of times the specified word appears in the 
+     *  specified str
+    */
     public int getFreq(String str, String word){
         String a[] = str.split(" |\\.|\\,"); 
         int count = 0; 
-        for (int i = 0; i < a.length; i++){ 
-        // if match found increase count 
+        for (int i = 0; i < a.length; i++){        
             if (word.toLowerCase().equals(a[i].toLowerCase())) 
-                count++; 
+                count++; // if match found increase count 
         } 
         return count; 
     }
+    /**
+     * Returns the number of times a specified word appears in a
+     *  specified String. Uses .contains() instead of .equals()
+     * @param str the block of text needing to be searched
+     * @param word the word being searched for
+     * Precondition: str words are separated by " ",".", or ","
+     * @return the number of times the specified word appears in the 
+     *  specified str
+    */
     public int getFreq2(String str, String word){
         String a[] = str.split(" |\\.|\\,"); 
         int count = 0; 
-        for (String i : a){ 
-        // if match found increase count 
+        for (String i : a){         
             if (i.toLowerCase().contains(word.toLowerCase())) 
-                count++; 
+                count++; // if match found increase count 
         } 
         return count; 
     }
+    /**
+     * Loads the webpage connected to the specified URL and, using getFreq(), 
+     *  recursively finds every link and webpage containing the universal search
+     *  term. 
+     * Precondition: the provided login credentials are correct and URL connects
+     *  successfully
+     * @param URL the URL of the webpage
+     * @param depth how many times the method will recursively search for the 
+     *  search term
+     * @param strUserId username to get past the firewall if it exists
+     * @param strPassword password to get past the firewall if it exists
+     * @return true if completed successfully, false if not
+    */
     public boolean searchPageLinks(String URL, int depth, String strUserId, 
             String strPassword) {//returns true when done        
         errorMsgs = "";            
@@ -117,6 +143,7 @@ public class Extractor extends Thread {
         return true;
     }
     
+    @Override
     public void run() {
         System.out.println("Extractor running on "+webpage+" at max depth "
                 +maxDepth);
@@ -127,10 +154,17 @@ public class Extractor extends Thread {
             System.out.println("Extractor client successful on "+webpage);
         }        
     }
+    
+    @Override
     public String toString(){
         return "Page: "+webpage+", Depth: "+maxDepth;
     }
-    
+    /*
+    Accessors and modifiers
+    */
+    public void setModes(boolean[] m){
+        modes = m;
+    } 
     public void setStop(boolean t) {
         stop = t;
     }
