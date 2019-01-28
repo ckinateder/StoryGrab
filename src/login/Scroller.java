@@ -19,6 +19,7 @@ public class Scroller {
     BackgroundRunner lblContainer;
     public Scroller(BackgroundRunner lblContainer){        
         this.lblContainer = lblContainer;
+        this.lblContainer.updateSrc();
         if(lblContainer.sources.size()<=SCROLLSIZE){
             SCROLLSIZE = lblContainer.sources.size();
         }

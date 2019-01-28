@@ -44,6 +44,7 @@ public class Extractor extends Thread {
     public Vector dynamicSet;
     public int errorCount = 0;
     public boolean[] modes = {false, false};
+    
     public Extractor() {
         alreadySearched = new HashSet<>();
     }
@@ -115,6 +116,21 @@ public class Extractor extends Thread {
         
         return true;
     }
+    
+    public void run() {
+        System.out.println("Extractor running on "+webpage+" at max depth "
+                +maxDepth);
+        done = searchPageLinks(webpage, 0, username, password);
+        if(stop){
+            System.out.println("Extractor prematurely finished on "+webpage);
+        }else{
+            System.out.println("Extractor client successful on "+webpage);
+        }        
+    }
+    public String toString(){
+        return "Page: "+webpage+", Depth: "+maxDepth;
+    }
+    
     public void setStop(boolean t) {
         stop = t;
     }
@@ -139,21 +155,6 @@ public class Extractor extends Thread {
     public void setCreds(String u, String p){
         username = u;
         password = p;
-    }
-   
-    @Override
-    public void run() {// l is link
-        System.out.println("Extractor running on "+webpage+" at max depth "
-                +maxDepth);
-        done = searchPageLinks(webpage, 0, username, password);
-        if(stop){
-            System.out.println("Extractor prematurely finished on "+webpage);
-        }else{
-            System.out.println("Extractor client successful on "+webpage);
-        }        
-    }
-    public String toString(){
-        return "Page: "+webpage+", Depth: "+maxDepth;
-    }
+    }   
 }
 
