@@ -24,7 +24,15 @@ import java.util.logging.Logger;
  */
 public abstract class Tools {
     public static String delim ="---split---";
-    public static void writeToFile(String fileName, String toWrite, boolean append){        
+    /**
+     * Writes String toWrite to a specified file.
+     * @param fileName the name of the file to write to
+     * @param toWrite the String to be written to the file
+     * @param append boolean determining whether the file should be overwritten
+     *  or appended to
+     */
+    public static void writeToFile(String fileName, String toWrite, 
+            boolean append){        
         try {
             // Assume default encoding.            
             FileWriter fileWriter =
@@ -46,6 +54,13 @@ public abstract class Tools {
             // ex.printStackTrace();
         }
     }
+    /**
+     * Saves the contents of hitLinks to a database
+     * @param hitLinks Vector containing all links that need to be written to
+     *  the database
+     * @param DB_URL String that holds the URL to the database
+     * @return String noting any completion or error messages
+     */
     public static String saveToDB(Vector<Link> hitLinks, String DB_URL) {
         //sort hitLinks
         Collections.sort(hitLinks);
@@ -70,6 +85,14 @@ public abstract class Tools {
         }
         
     }
+    /**
+     * Saves the contents of hitLinks to a CSV file.
+     * @param hitLinks Vector containing all links that need to be written to
+     *  the database
+     * @param forClassifier String to put at the beginning of the file for the
+     *  Python classifying algorithm- this is not in use
+     * @return String noting any completion or error messages
+     */
     public static String saveToCSV(Vector<Link> hitLinks, String forClassifier){
          FileWriter fileWriter =
                     null;
@@ -91,28 +114,37 @@ public abstract class Tools {
             return "Could not write to CSV";
         }
     }
+    /**
+     * Saves the contents of hitLinks to an HTML file to be viewed in a browser.
+     * @param hitLinks hitLinks Vector containing all links that need to be written to
+     *  the database
+     * @param finalHTML the final HTML file containing all the links sorted by
+     *  relevance for easy viewing
+     * @param searchFor the term that the links were searched for
+     * @return String noting any completion or error messages
+     */
     public static String saveToHTML(Vector<Link> hitLinks, String finalHTML, String searchFor){
         //Collections.sort(hitLinks);
         Vector<Link> copy = new Vector(hitLinks);
         Collections.sort(copy);
         StringBuilder sb = new StringBuilder();
         sb.append("<!DOCTYPE html>\n" +
-"<html>\n" +
-"	<head>\n" +
-"		<title>StoryGrab</title>\n" +
-"		<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">\n" +
-"	</head>\n" +
-"	<body>\n" +
-"		<div class=\"gee\">\n" +
-"			<span class=\"title1\">StoryGrab</span>\n" +
-                "<span class=\"hits\">Hits: "+copy.size()+" - Search Term: \""+
-                        searchFor+"\"</span>"+ 
-"		</div>\n" +
-"		<div class=\"heading\">			\n" +
-"			\n" +
-"		</div>\n" +
-"		<div class=\"out\">\n" +
-"			<span class=\"txt\">");
+        "<html>\n" +
+        "	<head>\n" +
+        "		<title>StoryGrab</title>\n" +
+        "		<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">\n" +
+        "	</head>\n" +
+        "	<body>\n" +
+        "		<div class=\"gee\">\n" +
+        "			<span class=\"title1\">StoryGrab</span>\n" +
+                        "<span class=\"hits\">Hits: "+copy.size()+" - Search Term: \""+
+                                searchFor+"\"</span>"+ 
+        "		</div>\n" +
+        "		<div class=\"heading\">			\n" +
+        "			\n" +
+        "		</div>\n" +
+        "		<div class=\"out\">\n" +
+        "			<span class=\"txt\">");
         Collections.reverse(copy);
         for(int i = 0; i<copy.size();i++){
             sb.append("Frequency: "+copy.get(i).getTermFreq()+
@@ -120,9 +152,9 @@ public abstract class Tools {
                     copy.get(i).getTitle()+"</a><br>\n");
         }
         sb.append("			</span>\n" +
-"		</div>\n" +
-"	</body>\n" +
-"</html>");
+        "		</div>\n" +
+        "	</body>\n" +
+        "</html>");
         Collections.sort(copy);
         //sb.append("</body>\n</html>");        
         FileWriter fileWriter =

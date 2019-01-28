@@ -138,11 +138,12 @@ public class Extractor extends Thread {
                 errorMsgs = "E:"+URL;
                 errorCount++;
             }
-        }
-        
-        return true;
+        }        
+        return true; //reached finish
     }
-    
+    /**
+     * Runs the whole class.
+     */
     @Override
     public void run() {
         System.out.println("Extractor running on "+webpage+" at max depth "
@@ -150,11 +151,16 @@ public class Extractor extends Thread {
         done = searchPageLinks(webpage, 0, username, password);
         if(stop){
             System.out.println("Extractor prematurely finished on "+webpage);
-        }else{
+        }
+        else{
             System.out.println("Extractor client successful on "+webpage);
         }        
-    }
+    }    
     
+    /**
+     * Returns the webpage and depth as a String.
+     * @return String including the page and depth
+     */
     @Override
     public String toString(){
         return "Page: "+webpage+", Depth: "+maxDepth;
