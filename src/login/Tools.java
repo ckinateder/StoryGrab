@@ -46,7 +46,7 @@ public abstract class Tools {
             // ex.printStackTrace();
         }
     }
-    public static void saveToDB(Vector<Link> hitLinks, String DB_URL) {
+    public static String saveToDB(Vector<Link> hitLinks, String DB_URL) {
         //sort hitLinks
         Collections.sort(hitLinks);
         try {
@@ -63,11 +63,14 @@ public abstract class Tools {
                 //System.out.println(ps.executeUpdate());
                 ps.executeUpdate();
             }
+            return "Succesfully wrote to database";
         } catch (SQLException ex) {
-            Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
+            return "Could not write to database";
         }
+        
     }
-    public static void saveToCSV(Vector<Link> hitLinks, String forClassifier){
+    public static String saveToCSV(Vector<Link> hitLinks, String forClassifier){
          FileWriter fileWriter =
                     null;
         try {
@@ -81,12 +84,14 @@ public abstract class Tools {
             }
             bufferedWriter.close();
             fileWriter.close();
+            return "Succesfully wrote to CSV";
         } 
         catch (IOException ex) {
-            Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
+            return "Could not write to CSV";
         }
     }
-    public static void saveToHTML(Vector<Link> hitLinks, String finalHTML, String searchFor){
+    public static String saveToHTML(Vector<Link> hitLinks, String finalHTML, String searchFor){
         //Collections.sort(hitLinks);
         Vector<Link> copy = new Vector(hitLinks);
         Collections.sort(copy);
@@ -129,9 +134,10 @@ public abstract class Tools {
             bufferedWriter.write(sb.toString());
             bufferedWriter.close();
             fileWriter.close();
+            return "Succesfully wrote to HTML";
         }
         catch (IOException ex){
-            System.out.println("no html");
+            return "Could not write to HTML"; 
         }
     }
 }

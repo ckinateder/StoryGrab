@@ -205,12 +205,14 @@ public class BackgroundRunner {
     void setDynamic(boolean t) {
         dynamic = t;
     }
-    public void cleanup(){
+    public String cleanup(){
         shouldStop = true;
+        String out = "";
         Collections.sort(hitLinks);
-        Tools.saveToCSV(hitLinks, forClassifier);
-        Tools.saveToHTML(hitLinks, finalHTML, searchFor);  
-        Tools.saveToDB(hitLinks, DB_URL);              
+        out+=Tools.saveToCSV(hitLinks, forClassifier)+"<br>";
+        out+=Tools.saveToHTML(hitLinks, finalHTML, searchFor)+"<br>";          
+        out+=Tools.saveToDB(hitLinks, DB_URL);
+        return out;
     }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
@@ -324,12 +326,13 @@ public class BackgroundRunner {
                 try {
                     bStatus = get();                   
                     statusLblRef.setText("");                    
-                    cleanup();
+                    publish(cleanup());
                     if(bStatus ==true){                        
                         System.out.println("Done on all!");
                     } 
                     else{
-                        publish("Finished");
+                        publish("<br><br>"
+                                + "Finished<br>");
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
