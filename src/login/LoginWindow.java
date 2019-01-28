@@ -1467,6 +1467,9 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void extract() throws InterruptedException{
         if(!loader.isRunning()){
+            //loader = new BackgroundRunner();
+            loader.res();
+            loader.setVerbose(true);
             backburner = loader.createWorker(); //move these to extract.
             loader.passVec(linkset);
             loader.passLbl(statuslbl);
@@ -1474,8 +1477,7 @@ public class LoginWindow extends javax.swing.JFrame {
             loader.passBigOut(largeoutput);
             loader.passHitsLbl(htslbl);
             updateSources();    
-            loader.setBefore(keywordfield.getText(),currentusr);//add depth here 
-            
+            loader.setBefore(keywordfield.getText(),currentusr);//add depth here             
             backburner.execute();
             statuslbl.setText("Extracting...");            
         }

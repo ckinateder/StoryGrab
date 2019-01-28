@@ -58,7 +58,7 @@ public class BackgroundRunner {
     boolean shouldStop = false;
     boolean verbose = false;
     Vector<Link> hitLinks;
-    final String DB_URL = "jdbc:derby://localhost:1527/FinalLinks";
+    String DB_URL = "jdbc:derby://localhost:1527/FinalLinks";
     private boolean dynamic = true;
     
     public BackgroundRunner() {        
@@ -66,6 +66,20 @@ public class BackgroundRunner {
         currentusr=new User();
         updateSrc();    
         //saveToDB();        
+    }
+    public void res(){       
+        extractors = new ArrayList<>();    
+        sourcesFile = "sources.txt";
+        String finalHTML = "out/storygrab.html";
+        Vector<Link> sources = new Vector<>();
+        int maxDepth = 2;
+        isRunning = false; //changes frequently
+        futures = new ArrayList<Future<?>>();
+        forClassifier = "src/login/datasets/links.csv";       
+        shouldStop = false;
+        verbose = false;
+        DB_URL = "jdbc:derby://localhost:1527/FinalLinks";
+        dynamic = true;
     }
     public void passVec(Vector h){
         hitLinks = h;
@@ -80,6 +94,7 @@ public class BackgroundRunner {
     }
     void passBigOut(JLabel l) {
         longout = l;
+        longout.setText("");
     }
     void passHitsLbl(JLabel l) {
         hitslbl = l;
