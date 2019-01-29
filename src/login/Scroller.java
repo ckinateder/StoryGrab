@@ -10,13 +10,17 @@ import javax.swing.JLabel;
 
 /**
  * Controls the scrolling methods
- * @author ckinateder
+ * @author Calvin Kinateder
  */
 public class Scroller {
     JLabel modifiedLbl;
     int scrollStart = 0;
     int SCROLLSIZE = 10; //add note at bottom that there is more
     BackgroundRunner lblContainer;
+    /**
+     * Constructor for Scroller
+     * @param lblContainer the BackgroundRunner containing the sources list
+     */
     public Scroller(BackgroundRunner lblContainer){        
         this.lblContainer = lblContainer;
         this.lblContainer.updateSrc();
@@ -24,26 +28,24 @@ public class Scroller {
             SCROLLSIZE = lblContainer.sources.size();
         }
     }
-    public void setLabel(JLabel l){
-        modifiedLbl = l;
-    }
-    public void setWidth(int s){
-        SCROLLSIZE = s;
-    }
+    /**
+     * Updates scrollStart and SCROLLSIZE for the finalOut pane on the GUI.
+     * @param mwheel the mousewheel event
+     */
     public void scrollSources(java.awt.event.MouseWheelEvent mwheel){
         int scAmount = mwheel.getWheelRotation();
-        //System.out.println(scAmount);
-        //add empty catch in here
         if(scrollStart+scAmount>=0 && SCROLLSIZE+scAmount<lblContainer.sources.size()+1){
             scrollStart+=scAmount;         
             SCROLLSIZE+=scAmount;
         }
         updateSources();        
     }
-    
+    /**
+     * Updates the HTML String for the finalOut pane on the GUI.
+     */
     public void updateSources(){
         lblContainer.updateSrc(); 
-        //sort sources list with not done at the top...        
+        //sort sources list with not done at the top
         String finalOut = "<html>";
         if(scrollStart>0){
             finalOut+="...<br>";
@@ -73,7 +75,14 @@ public class Scroller {
         }
         finalOut+="</html>";
         modifiedLbl.setText(finalOut);
-        
-        
+    }
+    /*
+     * Modifiers
+     */
+    public void setLabel(JLabel l){
+        modifiedLbl = l;
+    }
+    public void setWidth(int s){
+        SCROLLSIZE = s;
     }
 }

@@ -222,6 +222,12 @@ public class BackgroundRunner {
     }
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, String>() {
+            /**
+             * Collects all the Extractors and keeps track of them all to run
+             *  smoothly.
+             * @return true if finished successfully, false if failed
+             * @throws Exception for Thread.join()
+             */
             @Override
             protected Boolean doInBackground() throws Exception {
                 //updateSrc();
@@ -301,6 +307,10 @@ public class BackgroundRunner {
                 // Finished
                 return true;
             }
+            /**
+             * Part of formatting the output.
+             * @param chunks List of strings to publish to the output labels
+             */
             protected void process(List<String> chunks) {
                 // Get Info             
                 String currentOut = "";
@@ -326,6 +336,9 @@ public class BackgroundRunner {
                 hitslbl.setText(/*"Hits: "+*/hitLinks.size()+"");
                 if(dynamic){Tools.saveToHTML(hitLinks, finalHTML, searchFor);}  
             }
+            /**
+             * What to do when the processing is finished.
+             */
             @Override
             protected void done() {                
                 boolean bStatus = false;
@@ -333,7 +346,7 @@ public class BackgroundRunner {
                     bStatus = get();                   
                     statusLblRef.setText("");                    
                     publish(cleanup());
-                    if(bStatus ==true){                        
+                    if(bStatus ==true){
                         System.out.println("Done on all!");
                     } 
                     else{

@@ -28,6 +28,9 @@ public class User {
         password=p;
         screenName=username;
     }
+    /**
+     * Accessors and Modifiers
+     */
     public void setPassword(String p){
         password=p; 
     }    

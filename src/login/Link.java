@@ -53,6 +53,9 @@ public class Link implements Comparable<Link>{
         this.relevance = relevance;
     }
     // <editor-fold defaultstate="collapsed" desc="Accessors/Modifiers">
+    /**
+     * Accessors and Modifiers
+     */
     public String getTitle(){
         return title;
     }
@@ -112,14 +115,16 @@ public class Link implements Comparable<Link>{
         this.termFreq++;
     }
     // </editor-fold> 
+    /**
+     * Returns String of information to distinguish each link object.
+     * @return String containing hyperlink, relevance, # of errors, searchFor,
+     *  and termFreq
+     */
     @Override
     public String toString(){
         return "\nLink: "+hyperlink+""
                 + "\nRelevance: "+relevance+"\nErrors: "+errors+
                 "\nSearchFor: '"+searchFor+"'\nFrequency in body: "+termFreq;
-    }
-    public String shortPrint(){
-        return "--------\nLink: "+hyperlink+"\nTermFreq: "+termFreq;
     }
 
     @Override

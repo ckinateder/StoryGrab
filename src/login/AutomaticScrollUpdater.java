@@ -9,14 +9,22 @@ import java.util.List;
 import java.util.Vector;
 /**
  * Refreshes the state of Link objects once every WAIT ms
- * @author calvin
+ * @author Calvin Kinateder
  */
 public class AutomaticScrollUpdater {
     Scroller scroller;
-    final int WAIT = 200;    
+    final int WAIT = 200;  
+    /**
+     * Constructor for this class.
+     * @param s Scroller to be manipulated
+     */
     public AutomaticScrollUpdater(Scroller s){
         scroller = s;
     }    
+    /**
+     * Creates the worker for this class
+     * @return SwingWorker
+     */
     public SwingWorker createWorker() {
         return new SwingWorker<Boolean, Integer>() {
             @Override
