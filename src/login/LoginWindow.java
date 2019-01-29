@@ -1467,7 +1467,6 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void extract() throws InterruptedException{
         if(!loader.isRunning()){
-            //loader = new BackgroundRunner();
             loader.res();
             loader.setVerbose(true);
             backburner = loader.createWorker(); //move these to extract.

@@ -87,28 +87,10 @@ public class BackgroundRunner {
         DB_URL = "jdbc:derby://localhost:1527/FinalLinks";
         dynamic = true;
     }
-    public void passVec(Vector h){
-        hitLinks = h;
-    }
-    public void passLbl(JLabel l){
-        statusLblRef = l;
-        statusLblRef.setText("");        
-    }
-    public void passInitializedOP(JLabel l){
-        outputlbl = l;
-        outputlbl.setText("");
-    }
-    void passBigOut(JLabel l) {
-        longout = l;
-        longout.setText("");
-    }
-    void passHitsLbl(JLabel l) {
-        hitslbl = l;
-    }
-    public void setBefore(String s, User u){//set the variables relevant before running.
-        searchFor = s; currentusr=u;
-    }
-    
+    /**
+     * Updates the sources list from the file.
+     * Precondition: sourcesFile exists
+     */
     public void updateSrc(){        
         if(!isRunning){
             sources.clear();
@@ -142,18 +124,27 @@ public class BackgroundRunner {
             //send a message 
         }
     }
+    /**
+     * Add Extractor to the extractor list.
+     * @param e Extractor to add to the list
+     */
     public void add(Extractor e){
         extractors.add(e);
     }
+    /**
+     * Sets the recursion depth.
+     * @param m depth value to set
+     */
     public void setMaxDepth(int m){
         maxDepth = m;
         for(int i = 0; i<extractors.size();i++){           
             extractors.get(i).setMaxDepth(maxDepth);
         }
     }
-    public int getMaxDepth(){
-        return maxDepth;
-    }
+    /**
+     * Sets searchFor for every Extractor in the container list.
+     * @param s String to set
+     */
     public void setSearchFor(String s){ 
         //System.out.println(extractors.size());
         for(int i = 0; i<extractors.size();i++){           
@@ -161,6 +152,10 @@ public class BackgroundRunner {
             //System.out.println(extractors.get(i).searchFor);
         }
     }
+    /**
+     * Creates the container list holding all the Extractors.
+     * @param u User to setCreds with
+     */
     public void createContainer(User u){
         updateSrc();
         extractors.clear();
@@ -172,27 +167,43 @@ public class BackgroundRunner {
         setCreds(u);
         //System.out.println(extractors.toString());
     }
+    /**
+     * Gets whether the object is running.
+     * @return isRunning
+     */
     public boolean isRunning(){
         return isRunning;
     }
+    /**
+     * Sets all the credentials for each link.
+     * @param u User to pass the creds on
+     */
     public void setCreds(User u){        
         for(int i = 0; i<extractors.size();i++){           
             extractors.get(i).setCreds(u.getUser(), u.getPassword());
         }
     }
+    /**
+     * Prints all the Extractors in the list.
+     */
     public void printExtractors(){
         for(Extractor e : extractors){
             System.out.println(e);
         }
         System.out.println("");
     }
+    /**
+     * Sets shouldStop to true ands updates the sources.
+     */
     public void broStop(){
         shouldStop = true;
         updateSrc();
     }
-    public void setVerbose(boolean j){
-        verbose = j;
-    }
+    /**
+     * Finds Link with attached to source l.
+     * @param l String referencing the source to be found
+     * @return Link with l as the source.hyperlink
+     */
     public Link findSource(String l){
         for(int i = 0; i<sources.size(); i++){
             if(sources.get(i).getHyperlink().equals(l)){
@@ -201,15 +212,16 @@ public class BackgroundRunner {
         }
         return null;
     }
+    /**
+     * Counts the total number of errors for all Extractor objects.
+     * @return the sum of all errors
+     */
     public int totalErrors(){
         int l = 0;
         for(int i = 0; i<sources.size(); i++){
             l+=sources.get(i).errors();
         }
         return l;
-    }
-    void setDynamic(boolean t) {
-        dynamic = t;
     }
     public String cleanup(){
         shouldStop = true;
@@ -360,4 +372,38 @@ public class BackgroundRunner {
 
         };
     } // End of Method: createWorker()    
+    /**
+     * Accessors and modifers.
+     */
+    public void passVec(Vector h){
+        hitLinks = h;
+    }
+    
+    void setDynamic(boolean t) {
+        dynamic = t;
+    }
+    public void passLbl(JLabel l){
+        statusLblRef = l;
+        statusLblRef.setText("");        
+    }
+    public void passInitializedOP(JLabel l){
+        outputlbl = l;
+        outputlbl.setText("");
+    }
+    void passBigOut(JLabel l) {
+        longout = l;
+        longout.setText("");
+    }
+    void passHitsLbl(JLabel l) {
+        hitslbl = l;
+    }
+    public int getMaxDepth(){
+        return maxDepth;
+    }
+    public void setBefore(String s, User u){//set the variables relevant before running.
+        searchFor = s; currentusr=u;
+    }    
+    public void setVerbose(boolean j){
+        verbose = j;
+    }
 }
