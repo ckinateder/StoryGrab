@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package login;
 
 import static com.sun.javafx.scene.control.skin.Utils.getResource;
@@ -1243,14 +1238,12 @@ public class LoginWindow extends javax.swing.JFrame {
     String iconFile = "icons8-news-50.png";
     String sourceFile = "sources.txt";
     String outputFile = "out/storygrab.html";
-    AccountManager mngr = new AccountManager();
     User currentusr;
     BackgroundRunner loader = new BackgroundRunner();
     SwingWorker backburner = loader.createWorker();
     Scroller sourceScroller = new Scroller(loader);
      //make static
     Vector<Link> linkset = new Vector<>(); //fill with links
-    Analyzer an = new Analyzer(linkset);
     AutomaticScrollUpdater refresher =
             new AutomaticScrollUpdater(sourceScroller);
     SwingWorker refreshChild = refresher.createWorker();
@@ -1368,12 +1361,6 @@ public class LoginWindow extends javax.swing.JFrame {
         }        
         Desktop desktop = Desktop.getDesktop();
         if(file.exists()) desktop.open(file);
-    }
-    public void sourcesEditor(){//open sources editor
-        
-        String[] sg = new String[0];
-        SourceEditor.main(sg);
-        updateSources();
     }
     public void extract() throws InterruptedException{
         if(!loader.isRunning()){
