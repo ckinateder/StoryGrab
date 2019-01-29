@@ -97,9 +97,6 @@ public class LoginWindow extends javax.swing.JFrame {
         verbosepanel = new javax.swing.JPanel();
         cblbl2 = new javax.swing.JLabel();
         verbosebtn = new keeptoo.KButton();
-        twitterbtnpanel = new javax.swing.JPanel();
-        cblbl1 = new javax.swing.JLabel();
-        twitterbtn = new keeptoo.KButton();
         onelineout = new javax.swing.JLabel();
         websitelbl8 = new javax.swing.JLabel();
         dynamicbtnpanel = new javax.swing.JPanel();
@@ -634,64 +631,6 @@ public class LoginWindow extends javax.swing.JFrame {
 
         maincontrolpanel.add(verbosepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 90, -1));
 
-        twitterbtnpanel.setOpaque(false);
-
-        cblbl1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        cblbl1.setForeground(new java.awt.Color(255, 255, 255));
-        cblbl1.setText("Twitter");
-
-        twitterbtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        twitterbtn.setIconTextGap(0);
-        twitterbtn.setkAllowTab(false);
-        twitterbtn.setkEndColor(new java.awt.Color(0, 204, 51));
-        twitterbtn.setkHoverColor(new java.awt.Color(249, 153, 217));
-        twitterbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        twitterbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        twitterbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        twitterbtn.setkIndicatorThickness(0);
-        twitterbtn.setkPressedColor(new java.awt.Color(163, 62, 167));
-        twitterbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        twitterbtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        twitterbtn.setName(""); // NOI18N
-        twitterbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                twitterbtnMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                twitterbtnMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                twitterbtnMouseReleased(evt);
-            }
-        });
-        twitterbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                twitterbtnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout twitterbtnpanelLayout = new javax.swing.GroupLayout(twitterbtnpanel);
-        twitterbtnpanel.setLayout(twitterbtnpanelLayout);
-        twitterbtnpanelLayout.setHorizontalGroup(
-            twitterbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(twitterbtnpanelLayout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cblbl1)
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
-        twitterbtnpanelLayout.setVerticalGroup(
-            twitterbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(twitterbtnpanelLayout.createSequentialGroup()
-                .addGroup(twitterbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(twitterbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(cblbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
-
-        maincontrolpanel.add(twitterbtnpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 90, -1));
-
         onelineout.setFont(new java.awt.Font("Ubuntu Mono", 0, 14)); // NOI18N
         onelineout.setForeground(new java.awt.Color(255, 255, 255));
         maincontrolpanel.add(onelineout, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 410, 40));
@@ -1131,31 +1070,6 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_plusdepthbtnActionPerformed
 
-    private void twitterbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twitterbtnMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_twitterbtnMouseClicked
-
-    private void twitterbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twitterbtnMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_twitterbtnMousePressed
-
-    private void twitterbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twitterbtnMouseReleased
-        // TODO add your handling code here:
-       //make toggle btn
-        if(twitterbtn.isSelected()){
-            twitterbtn.setSelected(false);
-            twitterbtn.setText("");
-        }
-        else{
-            twitterbtn.setSelected(true);
-            twitterbtn.setText("X");
-        }
-    }//GEN-LAST:event_twitterbtnMouseReleased
-
-    private void twitterbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twitterbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_twitterbtnActionPerformed
-
     private void keywordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keywordfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_keywordfieldActionPerformed
@@ -1325,9 +1239,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_dynamicbtnActionPerformed
     
     // </editor-fold> 
-    /*
-    Custom code here------------------------------------------------------------
-    */
+    
     String iconFile = "icons8-news-50.png";
     String sourceFile = "sources.txt";
     String outputFile = "out/storygrab.html";
@@ -1388,7 +1300,6 @@ public class LoginWindow extends javax.swing.JFrame {
             depthtogglepanel.setToolTipText("Set how deep the extractor will "
                     + "recursively explore");
             verbosepanel.setToolTipText("Verbose output");
-            twitterbtn.setToolTipText("Include twitter in sources");
             extractbtn.setToolTipText("Start extracting");
             stopbtn.setToolTipText("Stop extracting");
             tipsbtnpanel.setToolTipText("Tips");
@@ -1404,7 +1315,6 @@ public class LoginWindow extends javax.swing.JFrame {
             keywordfield.setToolTipText(null);
             depthtogglepanel.setToolTipText(null);
             verbosepanel.setToolTipText(null);
-            twitterbtn.setToolTipText(null);
             extractbtn.setToolTipText(null);
             stopbtn.setToolTipText(null);
             tipsbtnpanel.setToolTipText(null);
@@ -1487,23 +1397,21 @@ public class LoginWindow extends javax.swing.JFrame {
     }
     public void updateSources(){        
         sourceScroller.updateSources();
-    }    
-    public void searchTwitter(){
-        //TwitterSkimmer.skim();
     }
+    /**
+     * Sets window icon.
+     */
     private void setIcon() {        
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource(iconFile)));
     }
+    /**
+     * Quits the program.
+     */
     public void quit(){
         dispose();
         //loader.cleanup();
         System.exit(0);
     }
-    /*
-    Custom code end------------------------------------------------------------
-    ----------------------------------------------------------------------------
-    ----------------------------------------------------------------------------
-    */
     /**
      * @param args the command line arguments
      */
@@ -1547,7 +1455,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KGradientPanel MainPanel;
     private keeptoo.KButton addsourcebtn;
     private keeptoo.KButton addsourcebtn2;
-    private javax.swing.JLabel cblbl1;
     private javax.swing.JLabel cblbl2;
     private javax.swing.JLabel cblbl3;
     private javax.swing.JLabel cblbl4;
@@ -1584,8 +1491,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KButton tipsbtn;
     private javax.swing.JPanel tipsbtnpanel;
     private keeptoo.KButton tocreateaccountpg;
-    private keeptoo.KButton twitterbtn;
-    private javax.swing.JPanel twitterbtnpanel;
     private javax.swing.JTextField userfield;
     private javax.swing.JLabel userlbl;
     private javax.swing.JLabel usertitlelbl;
