@@ -70,16 +70,16 @@ public class HelpMenu extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-cancel-32.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel8MouseReleased(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel8MouseEntered(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel8MouseReleased(evt);
             }
         });
         MainPanel.add(jLabel8);

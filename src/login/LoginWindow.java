@@ -169,7 +169,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         closelbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         closelbl.setForeground(new java.awt.Color(255, 255, 255));
-        closelbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
+        closelbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-cancel-32.png"))); // NOI18N
         closelbl.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 closelblMouseDragged(evt);
@@ -261,7 +261,7 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         LoginPanel.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 150, 40));
 
-        profilelblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
+        profilelblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-male-user-50.png"))); // NOI18N
         LoginPanel.add(profilelblicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
         nouserwithname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -275,7 +275,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         mainlogowithicon.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
         mainlogowithicon.setForeground(new java.awt.Color(255, 255, 255));
-        mainlogowithicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-news-50.png"))); // NOI18N
+        mainlogowithicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-news-50.png"))); // NOI18N
         mainlogowithicon.setText(" StoryGrab");
         LoginPanel.add(mainlogowithicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 60));
 
@@ -308,7 +308,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         closelbl1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         closelbl1.setForeground(new java.awt.Color(255, 255, 255));
-        closelbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-cancel-32.png"))); // NOI18N
+        closelbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-cancel-32.png"))); // NOI18N
         closelbl1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 closelbl1MouseReleased(evt);
@@ -322,7 +322,7 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         MainPanel.add(closelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
-        profileiconlbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons8-male-user-50.png"))); // NOI18N
+        profileiconlbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-male-user-50.png"))); // NOI18N
         MainPanel.add(profileiconlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         usertitlelbl.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
@@ -697,7 +697,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         sourceslbl.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         sourceslbl.setForeground(new java.awt.Color(255, 255, 255));
-        sourceslbl.setText("Sources:");
+        sourceslbl.setText("Sources");
         extractorpanel.add(sourceslbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 100, 30));
 
         MainPanel.add(extractorpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 810, 440));
@@ -717,14 +717,14 @@ public class LoginWindow extends javax.swing.JFrame {
         addsourcebtn2.setkSelectedColor(new java.awt.Color(163, 62, 167));
         addsourcebtn2.setName(""); // NOI18N
         addsourcebtn2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtn2MouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 addsourcebtn2MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 addsourcebtn2MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtn2MouseClicked(evt);
             }
         });
         addsourcebtn2.addActionListener(new java.awt.event.ActionListener() {
@@ -732,7 +732,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 addsourcebtn2ActionPerformed(evt);
             }
         });
-        MainPanel.add(addsourcebtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 550, 100, 40));
+        MainPanel.add(addsourcebtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 550, 100, 40));
 
         addsourcebtn.setText("Sources Editor");
         addsourcebtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
@@ -763,7 +763,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 addsourcebtnActionPerformed(evt);
             }
         });
-        MainPanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, 120, 40));
+        MainPanel.add(addsourcebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, 120, 40));
 
         tipsbtnpanel.setOpaque(false);
 
@@ -823,7 +823,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         MainPanel.add(tipsbtnpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, -1));
 
-        stopbtn1.setText("Search Settings");
+        stopbtn1.setText("Quit");
         stopbtn1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         stopbtn1.setkAllowTab(false);
         stopbtn1.setkBorderRadius(40);
@@ -837,14 +837,14 @@ public class LoginWindow extends javax.swing.JFrame {
         stopbtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
         stopbtn1.setName(""); // NOI18N
         stopbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                stopbtn1MouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 stopbtn1MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 stopbtn1MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stopbtn1MouseClicked(evt);
             }
         });
         stopbtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -852,7 +852,7 @@ public class LoginWindow extends javax.swing.JFrame {
                 stopbtn1ActionPerformed(evt);
             }
         });
-        MainPanel.add(stopbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 140, 40));
+        MainPanel.add(stopbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 550, 100, 40));
 
         getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
@@ -1190,23 +1190,6 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtnMouseClicked
 
-    private void stopbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stopbtn1MousePressed
-
-    private void stopbtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MouseReleased
-        // TODO add your handling code here:        
-        SearchSettings.main(null);
-    }//GEN-LAST:event_stopbtn1MouseReleased
-
-    private void stopbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stopbtn1MouseClicked
-
-    private void stopbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopbtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stopbtn1ActionPerformed
-
     private void dynamicbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dynamicbtnMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_dynamicbtnMouseClicked
@@ -1232,10 +1215,27 @@ public class LoginWindow extends javax.swing.JFrame {
     private void dynamicbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dynamicbtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dynamicbtnActionPerformed
+
+    private void stopbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopbtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtn1ActionPerformed
+
+    private void stopbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtn1MouseClicked
+
+    private void stopbtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MouseReleased
+        // TODO add your handling code here:
+        quit();
+    }//GEN-LAST:event_stopbtn1MouseReleased
+
+    private void stopbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopbtn1MousePressed
     
     // </editor-fold> 
     
-    String iconFile = "icons8-news-50.png";
+    String iconFile = "icons/icons8-news-50.png";
     String sourceFile = "sources.txt";
     String outputFile = "out/storygrab.html";
     User currentusr;
