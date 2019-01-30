@@ -32,8 +32,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingWorker;
 
 /**
- * This class is what controls all the extractors running in the background
- * @author calvin kinateder
+ * This class is what controls all the extractors running in the background.
+ * @author Calvin Kinateder
  */
 public class BackgroundRunner {
     

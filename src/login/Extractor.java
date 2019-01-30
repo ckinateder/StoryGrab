@@ -19,7 +19,7 @@ import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.lang.StringUtils;
 /**
- * Searches the webpage for a given keyword * 
+ * Searches the webpage for a given keyword.
  * @author Calvin Kinateder
  */
 

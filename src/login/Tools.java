@@ -13,9 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author calvin kinateder
- * saving functions
+ * Contains functions needed for saving data.
+ * @author Calvin Kinateder
  */
 public abstract class Tools {
     public static String delim ="---split---";

@@ -2,7 +2,7 @@ package login;
 
 /**
  * The link object stores the link, title, relevance constant
- * @author ckinateder
+ * @author Calvin Kinateder
  */
 public class Link implements Comparable<Link>{
     private String title;

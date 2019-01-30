@@ -2,7 +2,7 @@ package login;
 
 /**
  * Holds a user and their data
- * @author ckinateder
+ * @author Calvin Kinateder
  */
 public class User {
     public String username;//can access w/o method
