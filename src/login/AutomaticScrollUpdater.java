@@ -1,7 +1,5 @@
 package login;
 import javax.swing.*;
-import java.util.List;
-import java.util.Vector;
 /**
  * Refreshes the state of Link objects once every WAIT ms
  * @author Calvin Kinateder

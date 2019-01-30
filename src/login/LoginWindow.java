@@ -1,29 +1,16 @@
 package login;
 
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.awt.Color;
 import java.awt.Desktop;
-import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.management.Query;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.SwingWorker;
 import keeptoo.Drag;
-import winterwell.jtwitter.OAuthSignpostClient;
-import winterwell.jtwitter.Twitter;
 
 /**
  * Main class

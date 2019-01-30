@@ -1,23 +1,13 @@
 package login;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
 import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
-import org.apache.commons.lang.StringUtils;
 /**
  * Searches the webpage for a given keyword.
  * @author Calvin Kinateder
