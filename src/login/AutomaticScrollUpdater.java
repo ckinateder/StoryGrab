@@ -45,7 +45,7 @@ public class AutomaticScrollUpdater {
 
     /**
      * Wait the given time in milliseconds
-     * @param iMillis
+     * @param iMillis number of milliseconds to wait for
      */
     private void waitFor (int iMillis) {
         try {
