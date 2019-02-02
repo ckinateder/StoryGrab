@@ -1,5 +1,5 @@
 # StoryGrab
-Required libraries are all included in repository
+StoryGrab takes a list of news sources (no limit) and searches them for the specified keyword. Required libraries are all included in repository. <br>
 
 # Screenshots: 
 Login screen:
