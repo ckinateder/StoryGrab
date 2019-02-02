@@ -89,16 +89,46 @@ public class BackgroundRunner {
                 System.out.println(
                     "Unable to open file '" + 
                     sourcesFile + "'");
+                backupSrcs();
             }
             catch(IOException ex) {
                 System.out.println(
                     "Error reading file '" 
                     + sourcesFile + "'");
+                backupSrcs();
             }
         }
         else{
             //currently running, do nothing
             //send a message 
+        }
+        
+    }
+    /**
+     * In case sources.txt cannot be used, this holds the sources too.
+     */
+    private void backupSrcs(){
+        String bckup = "http://bbc.com/\n" +
+            "http://foxnews.com/\n" +
+            "http://www.huffingtonpost.com/\n" +
+            "http://www.nbcnews.com/\n" +
+            "http://www.nytimes.com/\n" +
+            "http://www.wsj.com/\n" +
+            "http://www.usatoday.com/\n" +
+            "http://news.google.com/\n" +
+            "http://www.rollcall.com\n" +
+            "http://www.latimes.com\n" +
+            "http://www.wired.com\n" +
+            "http://www.cnn.com\n" +
+            "http://www.npr.org\n" +
+            "http://abcnews.go.com/\n" +
+            "https://www.usnews.com/news\n" +
+            "http://www.yahoo.com/news/\n" +
+            "http://www.ap.org/en-us/\n" +
+            "http://www.pewresearch.org/\n";
+        String[] asArr = bckup.split("\n");
+        for(String src : asArr){
+            sources.add(new Link(src));
         }
     }
     /**
