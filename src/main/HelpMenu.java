@@ -1,4 +1,4 @@
-package login;
+package main;
 
 import java.awt.Color;
 import java.awt.geom.RoundRectangle2D;
@@ -62,14 +62,14 @@ public class HelpMenu extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("<html>Use your AEP username and password to login. This is to enable web traffic past the firewall. This data is not stored outside of the JVM and is as such destroyed after termination of the program.</html>");
+        jLabel4.setText("<html>Use your AEP username and password to main. This is to enable web traffic past the firewall. This data is not stored outside of the JVM and is as such destroyed after termination of the program.</html>");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         MainPanel.add(jLabel4);
         jLabel4.setBounds(20, 50, 330, 110);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-cancel-32.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/icons/icons8-cancel-32.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jLabel8MouseReleased(evt);
@@ -82,7 +82,7 @@ public class HelpMenu extends javax.swing.JFrame {
             }
         });
         MainPanel.add(jLabel8);
-        jLabel8.setBounds(320, 10, 30, 32);
+        jLabel8.setBounds(320, 10, 30, 0);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));

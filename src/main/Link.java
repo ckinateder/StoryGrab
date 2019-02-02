@@ -1,4 +1,4 @@
-package login;
+package main;
 
 /**
  * The link object stores the link, title, relevance constant

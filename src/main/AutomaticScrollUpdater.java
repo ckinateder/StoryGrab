@@ -1,4 +1,4 @@
-package login;
+package main;
 import javax.swing.*;
 /**
  * Refreshes the state of Link objects once every WAIT ms

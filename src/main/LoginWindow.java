@@ -1,4 +1,4 @@
-package login;
+package main;
 
 import java.awt.Color;
 import java.awt.Desktop;
@@ -154,7 +154,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         closelbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         closelbl.setForeground(new java.awt.Color(255, 255, 255));
-        closelbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-cancel-32.png"))); // NOI18N
+        closelbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-cancel-32.png"))); // NOI18N
         closelbl.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 closelblMouseDragged(evt);
@@ -241,7 +241,7 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         LoginPanel.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 150, 40));
 
-        profilelblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-male-user-50.png"))); // NOI18N
+        profilelblicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-male-user-50.png"))); // NOI18N
         LoginPanel.add(profilelblicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
         nouserwithname.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -255,7 +255,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         mainlogowithicon.setFont(new java.awt.Font("Ubuntu", 0, 28)); // NOI18N
         mainlogowithicon.setForeground(new java.awt.Color(255, 255, 255));
-        mainlogowithicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-news-50.png"))); // NOI18N
+        mainlogowithicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-news-50.png"))); // NOI18N
         mainlogowithicon.setText(" StoryGrab");
         LoginPanel.add(mainlogowithicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 60));
 
@@ -293,7 +293,7 @@ public class LoginWindow extends javax.swing.JFrame {
 
         closelbl1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         closelbl1.setForeground(new java.awt.Color(255, 255, 255));
-        closelbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-cancel-32.png"))); // NOI18N
+        closelbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-cancel-32.png"))); // NOI18N
         closelbl1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 closelbl1MouseReleased(evt);
@@ -307,13 +307,13 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         MainPanel.add(closelbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
-        profileiconlbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login/icons/icons8-male-user-50.png"))); // NOI18N
-        MainPanel.add(profileiconlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        profileiconlbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-news-50.png"))); // NOI18N
+        MainPanel.add(profileiconlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 60));
 
         usertitlelbl.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         usertitlelbl.setForeground(new java.awt.Color(255, 255, 255));
-        usertitlelbl.setText("Calvin J. Kinateder");
-        MainPanel.add(usertitlelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 200, 20));
+        usertitlelbl.setText("ckinateder");
+        MainPanel.add(usertitlelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 320, 30));
 
         logoutbtn1.setText("Logout");
         logoutbtn1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
@@ -733,14 +733,14 @@ public class LoginWindow extends javax.swing.JFrame {
         addsourcebtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
         addsourcebtn.setName(""); // NOI18N
         addsourcebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addsourcebtnMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 addsourcebtnMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 addsourcebtnMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addsourcebtnMouseClicked(evt);
             }
         });
         addsourcebtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1220,14 +1220,13 @@ public class LoginWindow extends javax.swing.JFrame {
     
     // </editor-fold> 
     
-    String iconFile = "icons/icons8-news-50.png";
+    String iconFile = "/icons/icons8-news-50.png";
     String sourceFile = "sources.txt";
     String outputFile = "out/storygrab.html";
     User currentusr;
     BackgroundRunner loader = new BackgroundRunner();
     SwingWorker backburner = loader.createWorker();
     Scroller sourceScroller = new Scroller(loader);
-     //make static
     Vector<Link> linkset = new Vector<>(); //fill with links
     AutomaticScrollUpdater refresher =
             new AutomaticScrollUpdater(sourceScroller);

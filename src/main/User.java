@@ -1,4 +1,4 @@
-package login;
+package main;
 
 /**
  * Holds a user and their data
