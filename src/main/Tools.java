@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Contains functions needed for saving data.
@@ -25,25 +27,18 @@ public abstract class Tools {
      */
     public static void writeToFile(String fileName, String toWrite, 
             boolean append){        
-        try {
-            // Assume default encoding.            
+        try {         
             FileWriter fileWriter =
                 new FileWriter(fileName,append);//add true to append
-            // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter =
                 new BufferedWriter(fileWriter);
-            // Note that write() does not automatically
-            // append a newline character.
             bufferedWriter.write(toWrite);
-            // Always close files.
             bufferedWriter.close();
         }
         catch(IOException ex) {
             System.out.println(
                 "Error writing to file '"
                 + fileName + "'");
-            // Or we could just do this:
-            // ex.printStackTrace();
         }
     }
     /**
@@ -63,11 +58,8 @@ public abstract class Tools {
             PreparedStatement ps = conn.prepareStatement("insert into LINKS(RELEVANCE,URL)"
                         + "values(?,?)");            
             for(Link l : hitLinks){                
-                ps.setDouble(1, l.getRelevance());                    
-                //ps.setInt(2, l.errors());
-                //ps.setBoolean(3, l.isFailed());
+                ps.setDouble(1, l.getRelevance());
                 ps.setString(2, l.getHyperlink());
-                //System.out.println(ps.executeUpdate());
                 ps.executeUpdate();
             }
             return "Succesfully wrote to database";
@@ -102,7 +94,7 @@ public abstract class Tools {
             return "Succesfully wrote to CSV";
         } 
         catch (IOException ex) {
-            //Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
             return "Could not write to CSV";
         }
     }

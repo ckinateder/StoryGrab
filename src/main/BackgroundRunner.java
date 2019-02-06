@@ -28,9 +28,7 @@ public class BackgroundRunner {
     Vector<Link> sources = new Vector<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
-    ExecutorService executor;
-    List<Future<?>> futures = new ArrayList<Future<?>>();
-    String forClassifier = "src/login/datasets/links.csv";
+    String forClassifier = "src/datasets/links.csv";
     JLabel statusLblRef, outputlbl, longout, hitslbl;
     boolean shouldStop = false;
     boolean verbose = false;
@@ -42,7 +40,6 @@ public class BackgroundRunner {
         searchFor="";
         currentusr=new User();
         updateSrc();
-        //saveToDB();        
     }
     /**
      * Resets all the variables in this class as an object so it can be reused 
@@ -57,8 +54,7 @@ public class BackgroundRunner {
         Vector<Link> sources = new Vector<>();
         int maxDepth = 2;
         isRunning = false; //changes frequently
-        futures = new ArrayList<Future<?>>();
-        forClassifier = "src/login/datasets/links.csv";       
+        forClassifier = "src/datasets/links.csv";       
         shouldStop = false;
         verbose = false;
         DB_URL = "jdbc:derby://localhost:1527/FinalLinks";
