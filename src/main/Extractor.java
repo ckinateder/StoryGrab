@@ -30,7 +30,7 @@ public class Extractor extends Thread {
     public int errorCount = 0;
     public boolean[] modes = {false, false};
     
-    public Extractor() {
+    public Extractor() {        
         alreadySearched = new HashSet<>();
     }
     public Extractor(String w, Vector ps){
@@ -131,6 +131,7 @@ public class Extractor extends Thread {
      */
     @Override
     public void run() {
+        Thread.currentThread().setName(webpage);
         System.out.println("Extractor running on "+webpage+" at max depth "
                 +maxDepth);
         done = searchPageLinks(webpage, 0, username, password);

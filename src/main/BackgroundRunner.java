@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
 import javax.swing.JLabel;
 import javax.swing.SwingWorker;
 
@@ -245,24 +243,22 @@ public class BackgroundRunner {
              */
             @Override
             protected Boolean doInBackground() throws Exception {
-                //updateSrc();
                 System.out.println("Search for: "+searchFor+" User: "+currentusr);
                 statusLblRef.setText("Starting...");
-                //Tools.writeToFile(extractorFile,"", false); //overwrite the file
                 createContainer(currentusr);
                 setSearchFor(searchFor);
                 printExtractors();//print all extractors
                 for(Extractor e : extractors){
                     e.setModes(new boolean[] {true, true});
                    e.start();//make new thread for each extractor
-                }               
+                }
                 boolean alldone=false;
                 int leftToDo = extractors.size();
                 int percent = 0;
                 ArrayList<Extractor> used = new ArrayList<>();
                 statusLblRef.setText("Extracting... "+percent+"%");
-                for(int i = 0; i<12;i++){
-                    publish("Starting..."); //fill chunks to ten
+                for(int i = 0; i<OUTSIZE;i++){
+                    publish("Starting..."); //fill chunks to OUTSIZE
                 }
                 while(!alldone){
                     isRunning = true;
@@ -376,7 +372,7 @@ public class BackgroundRunner {
         };
     } // End of Method: createWorker()    
     /**
-     * Accessors and modifers.
+     * Accessors and modifiers.
      */
     public void passVec(Vector h){
         hitLinks = h;
