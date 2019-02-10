@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.ExecutionException;
 import javax.swing.JLabel;
 import javax.swing.SwingWorker;
 
@@ -30,7 +31,7 @@ public class BackgroundRunner {
     JLabel statusLblRef, outputlbl, longout, hitslbl;
     boolean shouldStop = false;
     boolean verbose = false;
-    Vector<Link> hitLinks;
+    ArrayList<Link> hitLinks;
     String DB_URL = "jdbc:derby://localhost:1527/FinalLinks";
     private boolean dynamic = true;
     
@@ -49,7 +50,7 @@ public class BackgroundRunner {
         extractors = new ArrayList<>();    
         sourcesFile = "sources.txt";
         String finalHTML = "out/storygrab.html";
-        Vector<Link> sources = new Vector<>();
+        ArrayList<Link> sources = new ArrayList<>();
         int maxDepth = 2;
         isRunning = false; //changes frequently
         forClassifier = "src/datasets/links.csv";       
@@ -162,7 +163,7 @@ public class BackgroundRunner {
         extractors.clear();
         hitLinks.clear();
         for(Link src : sources){            
-            extractors.add(new Extractor(src.getHyperlink(), hitLinks));//make new extractor for each source
+            extractors.add(new Extractor(src.getHyperlink()));//make new extractor for each source
         }
         setMaxDepth(maxDepth);
         setCreds(u);
@@ -224,7 +225,20 @@ public class BackgroundRunner {
         }
         return l;
     }
+    public void combine(){ //only call when joined
+        for(Extractor e : extractors){
+            hitLinks.addAll(e.hits);
+        }
+    }
+    public int countAll(){
+        int ct = 0;
+        for(Extractor e : extractors){
+            ct+=e.hits.size();
+        }
+        return ct;
+    }
     public String cleanup(){
+        combine();
         shouldStop = true;
         String out = "";
         Collections.sort(hitLinks);
@@ -344,7 +358,7 @@ public class BackgroundRunner {
                 else{
                     longout.setText("");
                 }
-                hitslbl.setText(/*"Hits: "+*/hitLinks.size()+"");
+                hitslbl.setText(/*"Hits: "+*/countAll()+"");
                 if(dynamic){Tools.saveToHTML(hitLinks, finalHTML, searchFor);}  
             }
             /**
@@ -364,7 +378,7 @@ public class BackgroundRunner {
                         publish("<br><br>"
                                 + "Finished<br>");
                     }
-                } catch (Exception ex) {
+                } catch (InterruptedException | ExecutionException ex) {
                     ex.printStackTrace();
                 }
             }
@@ -374,7 +388,7 @@ public class BackgroundRunner {
     /**
      * Accessors and modifiers.
      */
-    public void passVec(Vector h){
+    public void passVec(ArrayList h){
         hitLinks = h;
     }
     

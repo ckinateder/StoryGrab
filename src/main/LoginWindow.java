@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,8 +30,6 @@ public class LoginWindow extends javax.swing.JFrame {
         verbosebtn.setSelected(true);
         verbosebtn.setText("X");
         setVerbose(true);
-        dynamicbtn.setSelected(true);
-        dynamicbtn.setText("X");
         setIcon();
         panelSwitcher(1);        
         updateSources();
@@ -79,9 +78,6 @@ public class LoginWindow extends javax.swing.JFrame {
         verbosebtn = new keeptoo.KButton();
         onelineout = new javax.swing.JLabel();
         websitelbl8 = new javax.swing.JLabel();
-        dynamicbtnpanel = new javax.swing.JPanel();
-        cblbl4 = new javax.swing.JLabel();
-        dynamicbtn = new keeptoo.KButton();
         sourceslbl = new javax.swing.JLabel();
         addsourcebtn2 = new keeptoo.KButton();
         addsourcebtn = new keeptoo.KButton();
@@ -620,64 +616,6 @@ public class LoginWindow extends javax.swing.JFrame {
         websitelbl8.setText("Keyword");
         maincontrolpanel.add(websitelbl8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, -1));
 
-        dynamicbtnpanel.setOpaque(false);
-
-        cblbl4.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        cblbl4.setForeground(new java.awt.Color(255, 255, 255));
-        cblbl4.setText("Dynamic");
-
-        dynamicbtn.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        dynamicbtn.setIconTextGap(0);
-        dynamicbtn.setkAllowTab(false);
-        dynamicbtn.setkEndColor(new java.awt.Color(0, 204, 51));
-        dynamicbtn.setkHoverColor(new java.awt.Color(249, 153, 217));
-        dynamicbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        dynamicbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        dynamicbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        dynamicbtn.setkIndicatorThickness(0);
-        dynamicbtn.setkPressedColor(new java.awt.Color(163, 62, 167));
-        dynamicbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        dynamicbtn.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        dynamicbtn.setName(""); // NOI18N
-        dynamicbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dynamicbtnMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                dynamicbtnMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                dynamicbtnMouseReleased(evt);
-            }
-        });
-        dynamicbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dynamicbtnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout dynamicbtnpanelLayout = new javax.swing.GroupLayout(dynamicbtnpanel);
-        dynamicbtnpanel.setLayout(dynamicbtnpanelLayout);
-        dynamicbtnpanelLayout.setHorizontalGroup(
-            dynamicbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dynamicbtnpanelLayout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(dynamicbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cblbl4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        dynamicbtnpanelLayout.setVerticalGroup(
-            dynamicbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dynamicbtnpanelLayout.createSequentialGroup()
-                .addGroup(dynamicbtnpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(dynamicbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(cblbl4, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
-
-        maincontrolpanel.add(dynamicbtnpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, 30));
-
         extractorpanel.add(maincontrolpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 780, 180));
 
         sourceslbl.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -720,6 +658,7 @@ public class LoginWindow extends javax.swing.JFrame {
         MainPanel.add(addsourcebtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 550, 100, 40));
 
         addsourcebtn.setText("Sources Editor");
+        addsourcebtn.setEnabled(false);
         addsourcebtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         addsourcebtn.setkAllowTab(false);
         addsourcebtn.setkBorderRadius(40);
@@ -1175,32 +1114,6 @@ public class LoginWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_addsourcebtnMouseClicked
 
-    private void dynamicbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dynamicbtnMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dynamicbtnMouseClicked
-
-    private void dynamicbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dynamicbtnMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dynamicbtnMousePressed
-
-    private void dynamicbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dynamicbtnMouseReleased
-        // TODO add your handling code here:
-        if(dynamicbtn.isSelected()){
-            dynamicbtn.setSelected(false);
-            dynamicbtn.setText("");
-            setDynamic(false);
-        }
-        else{
-            dynamicbtn.setSelected(true);
-            dynamicbtn.setText("X");
-            setDynamic(true);            
-        }
-    }//GEN-LAST:event_dynamicbtnMouseReleased
-
-    private void dynamicbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dynamicbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dynamicbtnActionPerformed
-
     private void stopbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopbtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stopbtn1ActionPerformed
@@ -1227,7 +1140,7 @@ public class LoginWindow extends javax.swing.JFrame {
     BackgroundRunner loader = new BackgroundRunner();
     SwingWorker backburner = loader.createWorker();
     Scroller sourceScroller = new Scroller(loader);
-    Vector<Link> linkset = new Vector<>(); //fill with links
+    ArrayList<Link> linkset = new ArrayList<>(); //fill with links
     AutomaticScrollUpdater refresher =
             new AutomaticScrollUpdater(sourceScroller);
     SwingWorker refreshChild = refresher.createWorker();
@@ -1255,13 +1168,6 @@ public class LoginWindow extends javax.swing.JFrame {
      */
     public void setVerbose(boolean t){
         loader.setVerbose(t);
-    }
-    /**
-     * Sets whether HTML output is dynamic or not.
-     * @param t boolean to set to
-     */
-    public void setDynamic(boolean t){
-        loader.setDynamic(t);
     }
     /**
      * Opens text file containing the sources to search.
@@ -1303,7 +1209,6 @@ public class LoginWindow extends javax.swing.JFrame {
             tipsbtnpanel.setToolTipText("Tips");
             logoutbtn1.setToolTipText("Logout");
             addsourcebtn.setToolTipText("Edit sources");
-            dynamicbtnpanel.setToolTipText("Continous, dynamic output");
         }
         else{
             userfield.setToolTipText(null);
@@ -1318,7 +1223,6 @@ public class LoginWindow extends javax.swing.JFrame {
             tipsbtnpanel.setToolTipText(null);
             logoutbtn1.setToolTipText(null);
             addsourcebtn.setToolTipText(null);
-            dynamicbtnpanel.setToolTipText(null);
         }
     }
     /**
@@ -1378,7 +1282,7 @@ public class LoginWindow extends javax.swing.JFrame {
             return;
         }        
         Desktop desktop = Desktop.getDesktop();
-        if(file.exists()) desktop.open(file);
+        if(file.exists()&&!loader.isRunning()) desktop.open(file);
     }/**
      * Starts the extraction process.
      * @throws InterruptedException if thread is interrupted
@@ -1472,13 +1376,10 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KButton addsourcebtn2;
     private javax.swing.JLabel cblbl2;
     private javax.swing.JLabel cblbl3;
-    private javax.swing.JLabel cblbl4;
     private javax.swing.JLabel closelbl;
     private javax.swing.JLabel closelbl1;
     private javax.swing.JLabel depthlbl;
     private javax.swing.JPanel depthtogglepanel;
-    private keeptoo.KButton dynamicbtn;
-    private javax.swing.JPanel dynamicbtnpanel;
     private javax.swing.JLabel dynamicdepthlbl;
     private keeptoo.KButton extractbtn;
     private javax.swing.JPanel extractorpanel;

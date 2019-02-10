@@ -7,7 +7,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,7 +50,7 @@ public abstract class Tools {
      * @param DB_URL String that holds the URL to the database
      * @return String noting any completion or error messages
      */
-    public static String saveToDB(Vector<Link> hitLinks, String DB_URL) {
+    public static String saveToDB(List<Link> hitLinks, String DB_URL) {
         //sort hitLinks
         Collections.sort(hitLinks);
         try {
@@ -77,7 +79,7 @@ public abstract class Tools {
      *  Python classifying algorithm- this is not in use
      * @return String noting any completion or error messages
      */
-    public static String saveToCSV(Vector<Link> hitLinks, String forClassifier){
+    public static String saveToCSV(List<Link> hitLinks, String forClassifier){
          FileWriter fileWriter =
                     null;
         try {
@@ -107,9 +109,9 @@ public abstract class Tools {
      * @param searchFor the term that the links were searched for
      * @return String noting any completion or error messages
      */
-    public static String saveToHTML(Vector<Link> hitLinks, String finalHTML, String searchFor){
+    public static String saveToHTML(List<Link> hitLinks, String finalHTML, String searchFor){
         //Collections.sort(hitLinks);
-        Vector<Link> copy = new Vector(hitLinks);
+        ArrayList<Link> copy = new ArrayList(hitLinks);
         Collections.sort(copy);
         StringBuilder sb = new StringBuilder();
         sb.append("<!DOCTYPE html>\n" +

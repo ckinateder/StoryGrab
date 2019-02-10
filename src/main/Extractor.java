@@ -5,6 +5,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashSet;
 import java.util.Vector;
@@ -26,17 +27,16 @@ public class Extractor extends Thread {
     private String password="";
     public String toBG = "";//to send to the backgroundrunner
     public String errorMsgs = "";//to send to bg too
-    public Vector dynamicSet;
+    public ArrayList<Link> hits = new ArrayList<>();
     public int errorCount = 0;
     public boolean[] modes = {false, false};
     
     public Extractor() {        
         alreadySearched = new HashSet<>();
     }
-    public Extractor(String w, Vector ps){
+    public Extractor(String w){
         alreadySearched = new HashSet<>();              
         webpage=w;
-        dynamicSet = ps;
     }
     /**
      * Returns the number of times a specified word appears in a
@@ -93,7 +93,7 @@ public class Extractor extends Thread {
         String authString = strUserId + ":" + strPassword;
         String encodedString = //need to authenticate for firewall
                 Base64.getEncoder().encodeToString(authString.getBytes());            
-        if ((!alreadySearched.contains(URL) && (depth < maxDepth))&&!stop) {                               
+        if ((!alreadySearched.contains(URL) && (depth < maxDepth))&&!stop) {
             toBG=""+URL+"\n";//add to toBG
             try {                    
                 alreadySearched.add(URL); //add link to the hashset
@@ -109,7 +109,7 @@ public class Extractor extends Thread {
                         &&!titlesSearched.contains(title)){ 
                     
                     int f = getFreq2(article, searchFor); 
-                    dynamicSet.add(new Link(URL, article,searchFor,title,f));
+                    hits.add(new Link(URL, article,searchFor,title,f));
                 }
                 bodiesSearched.add(article);
                 titlesSearched.add(title);
