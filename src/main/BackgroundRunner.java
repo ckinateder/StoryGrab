@@ -225,11 +225,18 @@ public class BackgroundRunner {
         }
         return l;
     }
+    /**
+     * Combines all the individual extractor links into one big ArrayList
+     */
     public void combine(){ //only call when joined
         for(Extractor e : extractors){
             hitLinks.addAll(e.hits);
         }
     }
+    /**
+     * Counts the total number of hits for all the extractors
+     * @return int count of all hits
+     */
     public int countAll(){
         int ct = 0;
         for(Extractor e : extractors){
@@ -237,6 +244,11 @@ public class BackgroundRunner {
         }
         return ct;
     }
+    /**
+     * Cleans up the remaining variables and saves everything. Sorts hitLinks 
+     *  too.
+     * @return String containing any error/finishing messages
+     */
     public String cleanup(){
         combine();
         shouldStop = true;
