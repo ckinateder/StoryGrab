@@ -192,7 +192,7 @@ public class BackgroundRunner {
         for(Extractor e : extractors){
             System.out.println(e);
         }
-        System.out.println("");
+        System.out.println();
     }
     /**
      * Sets shouldStop to true ands updates the sources.
@@ -303,7 +303,7 @@ public class BackgroundRunner {
                             for(Extractor e : used){
                                 System.out.println("\t"+e);
                             }
-                            System.out.println("");
+                            System.out.println();
                             
                             percent=(int) ((sm/s)*100);
                             statusLblRef.setText("Extracting... "+percent+"%"); //set label
@@ -383,7 +383,7 @@ public class BackgroundRunner {
                     bStatus = get();                   
                     statusLblRef.setText("");                    
                     publish(cleanup());
-                    if(bStatus ==true){
+                    if(bStatus){
                         System.out.println("Done on all!");
                     } 
                     else{

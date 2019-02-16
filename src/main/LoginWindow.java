@@ -1174,16 +1174,19 @@ public class LoginWindow extends javax.swing.JFrame {
      * @throws IOException if desktop not supported
      */
     public void openSources() throws IOException{
+        openFile(sourceFile);
+    }
+    public void openFile(String f) throws IOException {
         if(!loader.isRunning()){
-            File file = new File(sourceFile);        
+            File file = new File(f);
             //first check if Desktop is supported by Platform or not
             if(!Desktop.isDesktopSupported()){
                 System.out.println("Desktop is not supported");
                 return;
-            }        
+            }
             Desktop desktop = Desktop.getDesktop();
-            if(file.exists()) desktop.open(file); 
-        } 
+            if(file.exists()) desktop.open(file);
+        }
         else{
             //send messsage
         }
@@ -1275,14 +1278,7 @@ public class LoginWindow extends javax.swing.JFrame {
      * @throws IOException if desktop not supported
      */
     public void openOutput() throws IOException{        
-        File file = new File(outputFile);        
-        //first check if Desktop is supported by Platform or not
-        if(!Desktop.isDesktopSupported()){
-            System.out.println("Desktop is not supported");
-            return;
-        }        
-        Desktop desktop = Desktop.getDesktop();
-        if(file.exists()&&!loader.isRunning()) desktop.open(file);
+        openFile(outputFile);
     }/**
      * Starts the extraction process.
      * @throws InterruptedException if thread is interrupted
@@ -1334,7 +1330,7 @@ public class LoginWindow extends javax.swing.JFrame {
      * Main function.
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

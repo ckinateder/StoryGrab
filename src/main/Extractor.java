@@ -48,12 +48,12 @@ public class Extractor extends Thread {
      *  specified str
     */
     public int getFreq(String str, String word){
-        String a[] = str.split(" |\\.|\\,"); 
+        String[] a = str.split(" |\\.|\\,");
         int count = 0; 
         for (int i = 0; i < a.length; i++){        
             if (word.toLowerCase().equals(a[i].toLowerCase())) 
                 count++; // if match found increase count 
-        } 
+        }
         return count; 
     }
     /**
@@ -66,7 +66,7 @@ public class Extractor extends Thread {
      *  specified str
     */
     public int getFreq2(String str, String word){
-        String a[] = str.split(" |\\.|\\,"); 
+        String[] a = str.split(" |\\.|\\,");
         int count = 0; 
         for (String i : a){         
             if (i.toLowerCase().contains(word.toLowerCase())) 

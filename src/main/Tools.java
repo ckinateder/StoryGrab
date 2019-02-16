@@ -64,7 +64,7 @@ public abstract class Tools {
                 ps.setString(2, l.getHyperlink());
                 ps.executeUpdate();
             }
-            return "Succesfully wrote to database";
+            return "Successfully wrote to database";
         } catch (SQLException ex) {
             //Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
             return "Could not write to database";
@@ -93,7 +93,7 @@ public abstract class Tools {
             }
             bufferedWriter.close();
             fileWriter.close();
-            return "Succesfully wrote to CSV";
+            return "Successfully wrote to CSV";
         } 
         catch (IOException ex) {
             Logger.getLogger(BackgroundRunner.class.getName()).log(Level.SEVERE, null, ex);
@@ -152,7 +152,7 @@ public abstract class Tools {
             bufferedWriter.write(sb.toString());
             bufferedWriter.close();
             fileWriter.close();
-            return "Succesfully wrote to HTML";
+            return "Successfully wrote to HTML";
         }
         catch (IOException ex){
             return "Could not write to HTML"; 
