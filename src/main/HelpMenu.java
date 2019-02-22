@@ -33,7 +33,8 @@ public class HelpMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(400, 400));
         setUndecorated(true);
-        setShape(new RoundRectangle2D.Double(0, 0, 365, 245, 20, 20));
+        setPreferredSize(new java.awt.Dimension(500, 400));
+        setShape(new RoundRectangle2D.Double(0, 0, 500, 400, 20, 20));
 
         MainPanel.setBackground(new Color(0,0,0,0));
         MainPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -62,14 +63,28 @@ public class HelpMenu extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("<html>Use your AEP username and password to main. This is to enable web traffic past the firewall. This data is not stored outside of the JVM and is as such destroyed after termination of the program.</html>");
+        jLabel4.setText("<html>"
+            + "Use your AEP username and password to login. This is to"
+            + " enable web traffic past the firewall. This data is not stored outside of the"
+            + " JVM and is as such destroyed after termination of the program.<br>"
+            + "The sources in the left pane on the main screen contain all websites"
+            + " that will be searched in the program. Their colors will change depending "
+            + "on the status of the link. <br><br>"
+            + "<&nbsp>White, yellow, and red: in process<br>"
+            + "<&nbsp>Yellow: one or more errors<br>"
+            + "<&nbsp>Red: ten or more errors<br>"
+            + "<&nbsp>Green: finished<br><br>"
+            + "Check \"tips\" box and hover cursor over things you need help with. "
+            + "<br><br>To view the output, click on the Output button. Note that this will only work once the program is finished."+
+            "</html>"
+        );
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         MainPanel.add(jLabel4);
-        jLabel4.setBounds(20, 50, 330, 110);
+        jLabel4.setBounds(20, 50, 470, 280);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/icons/icons8-cancel-32.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-cancel-32.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jLabel8MouseReleased(evt);
@@ -82,7 +97,7 @@ public class HelpMenu extends javax.swing.JFrame {
             }
         });
         MainPanel.add(jLabel8);
-        jLabel8.setBounds(320, 10, 30, 0);
+        jLabel8.setBounds(460, 10, 30, 32);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -94,17 +109,17 @@ public class HelpMenu extends javax.swing.JFrame {
         userlbl.setForeground(new java.awt.Color(255, 255, 255));
         userlbl.setText("Program written by Calvin Kinateder, 2019");
         MainPanel.add(userlbl);
-        userlbl.setBounds(107, 220, 240, 15);
+        userlbl.setBounds(240, 370, 240, 15);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Vector;
 import java.util.concurrent.ExecutionException;
 import javax.swing.JLabel;
 import javax.swing.SwingWorker;
@@ -24,7 +23,7 @@ public class BackgroundRunner {
     ArrayList<Extractor> extractors = new ArrayList<>();    
     String sourcesFile = "sources.txt";
     String finalHTML = "out/storygrab.html";
-    Vector<Link> sources = new Vector<>();
+    ArrayList<Link> sources = new ArrayList<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
     String forClassifier = "src/datasets/links.csv";

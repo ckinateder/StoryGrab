@@ -47,7 +47,7 @@ public class LoginWindow extends javax.swing.JFrame {
         pwdfield = new javax.swing.JPasswordField();
         orlabel = new javax.swing.JLabel();
         closelbl = new javax.swing.JLabel();
-        tocreateaccountpg = new keeptoo.KButton();
+        helpbtn1 = new keeptoo.KButton();
         loginbtn = new keeptoo.KButton();
         profilelblicon = new javax.swing.JLabel();
         nouserwithname = new javax.swing.JLabel();
@@ -59,6 +59,7 @@ public class LoginWindow extends javax.swing.JFrame {
         profileiconlbl = new javax.swing.JLabel();
         usertitlelbl = new javax.swing.JLabel();
         logoutbtn1 = new keeptoo.KButton();
+        helpbtn = new keeptoo.KButton();
         extractorpanel = new javax.swing.JPanel();
         sourceslist = new javax.swing.JLabel();
         largeoutput = new javax.swing.JLabel();
@@ -172,40 +173,40 @@ public class LoginWindow extends javax.swing.JFrame {
         });
         LoginPanel.add(closelbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, 30, 30));
 
-        tocreateaccountpg.setText("Help");
-        tocreateaccountpg.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        tocreateaccountpg.setkAllowTab(false);
-        tocreateaccountpg.setkBackGroundColor(new java.awt.Color(255, 255, 255));
-        tocreateaccountpg.setkBorderRadius(40);
-        tocreateaccountpg.setkEndColor(new java.awt.Color(0, 204, 51));
-        tocreateaccountpg.setkHoverEndColor(new java.awt.Color(78, 160, 143));
-        tocreateaccountpg.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        tocreateaccountpg.setkHoverStartColor(new java.awt.Color(63, 167, 89));
-        tocreateaccountpg.setkIndicatorThickness(0);
-        tocreateaccountpg.setkPressedColor(new java.awt.Color(167, 69, 199));
-        tocreateaccountpg.setkSelectedColor(new java.awt.Color(163, 62, 167));
-        tocreateaccountpg.addMouseListener(new java.awt.event.MouseAdapter() {
+        helpbtn1.setText("Help");
+        helpbtn1.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        helpbtn1.setkAllowTab(false);
+        helpbtn1.setkBackGroundColor(new java.awt.Color(255, 255, 255));
+        helpbtn1.setkBorderRadius(40);
+        helpbtn1.setkEndColor(new java.awt.Color(0, 204, 51));
+        helpbtn1.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        helpbtn1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        helpbtn1.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        helpbtn1.setkIndicatorThickness(0);
+        helpbtn1.setkPressedColor(new java.awt.Color(167, 69, 199));
+        helpbtn1.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        helpbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                helpbtn1MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tocreateaccountpgMousePressed(evt);
+                helpbtn1MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                tocreateaccountpgMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tocreateaccountpgMouseClicked(evt);
+                helpbtn1MouseReleased(evt);
             }
         });
-        tocreateaccountpg.addActionListener(new java.awt.event.ActionListener() {
+        helpbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tocreateaccountpgActionPerformed(evt);
+                helpbtn1ActionPerformed(evt);
             }
         });
-        tocreateaccountpg.addKeyListener(new java.awt.event.KeyAdapter() {
+        helpbtn1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                tocreateaccountpgKeyPressed(evt);
+                helpbtn1KeyPressed(evt);
             }
         });
-        LoginPanel.add(tocreateaccountpg, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 150, 40));
+        LoginPanel.add(helpbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 150, 40));
 
         loginbtn.setText("Login");
         loginbtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
@@ -342,6 +343,41 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
         MainPanel.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 100, 40));
+
+        helpbtn.setText("Help");
+        helpbtn.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        helpbtn.setkAllowTab(false);
+        helpbtn.setkBackGroundColor(new java.awt.Color(255, 255, 255));
+        helpbtn.setkBorderRadius(40);
+        helpbtn.setkEndColor(new java.awt.Color(0, 204, 51));
+        helpbtn.setkHoverEndColor(new java.awt.Color(78, 160, 143));
+        helpbtn.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        helpbtn.setkHoverStartColor(new java.awt.Color(63, 167, 89));
+        helpbtn.setkIndicatorThickness(0);
+        helpbtn.setkPressedColor(new java.awt.Color(167, 69, 199));
+        helpbtn.setkSelectedColor(new java.awt.Color(163, 62, 167));
+        helpbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                helpbtnMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                helpbtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                helpbtnMouseReleased(evt);
+            }
+        });
+        helpbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpbtnActionPerformed(evt);
+            }
+        });
+        helpbtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                helpbtnKeyPressed(evt);
+            }
+        });
+        MainPanel.add(helpbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 550, 120, 40));
 
         extractorpanel.setOpaque(false);
         extractorpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -817,9 +853,9 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_closelblMouseEntered
 
-    private void tocreateaccountpgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tocreateaccountpgActionPerformed
+    private void helpbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpbtn1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tocreateaccountpgActionPerformed
+    }//GEN-LAST:event_helpbtn1ActionPerformed
 
     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
         // TODO add your handling code here:
@@ -856,15 +892,15 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_MainPanelKeyPressed
 
-    private void tocreateaccountpgKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tocreateaccountpgKeyPressed
+    private void helpbtn1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_helpbtn1KeyPressed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_tocreateaccountpgKeyPressed
+    }//GEN-LAST:event_helpbtn1KeyPressed
 
-    private void tocreateaccountpgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMouseClicked
+    private void helpbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpbtn1MouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_tocreateaccountpgMouseClicked
+    }//GEN-LAST:event_helpbtn1MouseClicked
 
     private void loginbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMousePressed
         // TODO add your handling code here:
@@ -886,16 +922,16 @@ public class LoginWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_closelblMouseReleased
 
-    private void tocreateaccountpgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMousePressed
+    private void helpbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpbtn1MousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tocreateaccountpgMousePressed
+    }//GEN-LAST:event_helpbtn1MousePressed
 
-    private void tocreateaccountpgMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tocreateaccountpgMouseReleased
+    private void helpbtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpbtn1MouseReleased
         // TODO add your handling code here:
         //resetAllFields();
         //panelSwitcher(3);
         help();
-    }//GEN-LAST:event_tocreateaccountpgMouseReleased
+    }//GEN-LAST:event_helpbtn1MouseReleased
 
     private void loginbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMouseReleased
         // TODO add your handling code here:
@@ -1130,6 +1166,27 @@ public class LoginWindow extends javax.swing.JFrame {
     private void stopbtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopbtn1MousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_stopbtn1MousePressed
+
+    private void helpbtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpbtnMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpbtnMousePressed
+
+    private void helpbtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpbtnMouseReleased
+        // TODO add your handling code here:
+        help();
+    }//GEN-LAST:event_helpbtnMouseReleased
+
+    private void helpbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpbtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpbtnMouseClicked
+
+    private void helpbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpbtnActionPerformed
+
+    private void helpbtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_helpbtnKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpbtnKeyPressed
     
     // </editor-fold> 
     
@@ -1379,6 +1436,8 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JLabel dynamicdepthlbl;
     private keeptoo.KButton extractbtn;
     private javax.swing.JPanel extractorpanel;
+    private keeptoo.KButton helpbtn;
+    private keeptoo.KButton helpbtn1;
     private javax.swing.JLabel htslbl;
     private javax.swing.JTextField keywordfield;
     private javax.swing.JLabel largeoutput;
@@ -1402,7 +1461,6 @@ public class LoginWindow extends javax.swing.JFrame {
     private keeptoo.KButton stopbtn1;
     private keeptoo.KButton tipsbtn;
     private javax.swing.JPanel tipsbtnpanel;
-    private keeptoo.KButton tocreateaccountpg;
     private javax.swing.JTextField userfield;
     private javax.swing.JLabel userlbl1;
     private javax.swing.JLabel usertitlelbl;

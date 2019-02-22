@@ -48,21 +48,23 @@ public class Scroller {
             finalOut+="<br>";
         }
         for(int i = scrollStart; i<SCROLLSIZE;i++){
-            String se = "";
-            Link tmpLink = lblContainer.sources.get(i);
-            if(tmpLink.islinkDone()){
-                se = (i+1)+": <b><font color=31E13C>"+tmpLink.getHyperlink()+"</font></b>";
+            if(i<lblContainer.sources.size()){
+                String se = "";
+                Link tmpLink = lblContainer.sources.get(i);
+                if(tmpLink.islinkDone()){
+                    se = (i+1)+": <b><font color=31E13C>"+tmpLink.getHyperlink()+"</font></b>";
+                }
+                else if(!tmpLink.islinkDone()&&tmpLink.errors()>10){
+                    se = (i+1)+": <b><font color=FF7777>"+tmpLink.getHyperlink()+"</font></b>";
+                }
+                else if(!tmpLink.islinkDone()&&tmpLink.errors()>0){
+                    se = (i+1)+": <b><font color=FFD126>"+tmpLink.getHyperlink()+"</font></b>";
+                }
+                else{
+                    se = (i+1)+": "+tmpLink.getHyperlink();
+                }
+                finalOut=finalOut+se+"<br>";
             }
-            else if(!tmpLink.islinkDone()&&tmpLink.errors()>10){
-                se = (i+1)+": <b><font color=FF7777>"+tmpLink.getHyperlink()+"</font></b>";
-            }
-            else if(!tmpLink.islinkDone()&&tmpLink.errors()>0){
-                se = (i+1)+": <b><font color=FFD126>"+tmpLink.getHyperlink()+"</font></b>";
-            }
-            else{
-                se = (i+1)+": "+tmpLink.getHyperlink();
-            }
-            finalOut=finalOut+se+"<br>";
         }
         if(lblContainer.sources.size()>SCROLLSIZE){
             finalOut+="...<br>";
