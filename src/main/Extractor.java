@@ -16,7 +16,7 @@ import java.util.Vector;
 
 public class Extractor extends Thread {
     public int maxDepth = 5; //initial depth
-    private HashSet<String> alreadySearched;
+    private HashSet<String> alreadySearched; //no double searching
     private HashSet<String> bodiesSearched = new HashSet<>();
     private HashSet<String> titlesSearched = new HashSet<>();
     public String searchFor = "";
