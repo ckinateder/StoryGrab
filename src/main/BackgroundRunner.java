@@ -312,9 +312,7 @@ public class BackgroundRunner {
                         if(!t.errorMsgs.equals("")){
                              publish("<font color=FFD126>"+t.errorMsgs+"</font>");
                              findSource(t.getWebpage()).setError(t.errorCount);
-                             //maybe have a waitfor
-                        }
-                       
+                        }                       
                         if(shouldStop){
                             publish("Cancelled by user - syncing threads");
                             for(Extractor ts : extractors){
