@@ -106,8 +106,7 @@ public class Extractor extends Thread {
                 String title = document.title();
                 if(getFreq(article, searchFor)>1
                         &&!bodiesSearched.contains(article)
-                        &&!titlesSearched.contains(title)){ 
-                    
+                        &&!titlesSearched.contains(title)){                     
                     int f = getFreq2(article, searchFor); 
                     hits.add(new Link(URL, article,searchFor,title,f));
                 }

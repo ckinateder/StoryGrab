@@ -69,7 +69,6 @@ public class BackgroundRunner {
                 // FileReader reads text files in the default encoding.
                 FileReader fileReader = 
                     new FileReader(sourcesFile);
-
                 BufferedReader bufferedReader = 
                     new BufferedReader(fileReader);
                 String line;
@@ -91,12 +90,7 @@ public class BackgroundRunner {
                     + sourcesFile + "'");
                 backupSrcs();
             }
-        }
-        else{
-            //currently running, do nothing
-            //send a message 
-        }
-        
+        }     
     }
     /**
      * In case sources.txt cannot be used, this holds the sources too.
@@ -275,7 +269,7 @@ public class BackgroundRunner {
                 printExtractors();//print all extractors
                 for(Extractor e : extractors){
                     e.setModes(new boolean[] {true, true});
-                   e.start();//make new thread for each extractor
+                    e.start();//make new thread for each extractor
                 }
                 boolean alldone=false;
                 int leftToDo = extractors.size();
@@ -302,8 +296,7 @@ public class BackgroundRunner {
                             for(Extractor e : used){
                                 System.out.println("\t"+e);
                             }
-                            System.out.println();
-                            
+                            System.out.println();                            
                             percent=(int) ((sm/s)*100);
                             statusLblRef.setText("Extracting... "+percent+"%"); //set label
                             
