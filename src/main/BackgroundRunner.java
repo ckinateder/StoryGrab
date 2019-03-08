@@ -247,9 +247,9 @@ public class BackgroundRunner {
         shouldStop = true;
         String out = "";
         Collections.sort(hitLinks);
-        out+=Tools.saveToCSV(hitLinks, forClassifier)+"<br>";
+        //out+=Tools.saveToCSV(hitLinks, forClassifier)+"<br>";
         out+=Tools.saveToHTML(hitLinks, finalHTML, searchFor)+"<br>";          
-        out+=Tools.saveToDB(hitLinks, DB_URL);
+        //out+=Tools.saveToDB(hitLinks, DB_URL);
         return out;
     }
     public SwingWorker createWorker() {
