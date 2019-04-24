@@ -38,6 +38,11 @@ public class Extractor extends Thread {
         alreadySearched = new HashSet<>();              
         webpage=w;
     }
+    public Extractor(String w, String s){
+        alreadySearched = new HashSet<>();              
+        webpage=w;
+        searchFor=s;
+    }
     /**
      * Returns the number of times a specified word appears in a
      *  specified String. Uses .equals() instead of .contains()
@@ -109,6 +114,7 @@ public class Extractor extends Thread {
                         &&!titlesSearched.contains(title)){                     
                     int f = getFreq2(article, searchFor); 
                     hits.add(new Link(URL, article,searchFor,title,f));
+                    System.out.println(hits.get(hits.size()-1));
                 }
                 bodiesSearched.add(article);
                 titlesSearched.add(title);

@@ -24,6 +24,7 @@ public class BackgroundRunner {
     String sourcesFile = "sources.txt";
     String finalHTML = "out/storygrab.html";
     ArrayList<Link> sources = new ArrayList<>();
+    //ArrayList<String> searchFors = new ArrayList<>();
     int maxDepth = 2;
     private boolean isRunning = false; //changes frequently
     String forClassifier = "src/datasets/links.csv";
@@ -155,8 +156,11 @@ public class BackgroundRunner {
         updateSrc();
         extractors.clear();
         hitLinks.clear();
-        for(Link src : sources){            
-            extractors.add(new Extractor(src.getHyperlink()));//make new extractor for each source
+        String[] searchFors = searchFor.split(",");
+        for(String s : searchFors){
+            for(Link src : sources){            
+                extractors.add(new Extractor(src.getHyperlink(),s));//make new extractor for each source
+            }
         }
         setMaxDepth(maxDepth);
         setCreds(u);
@@ -247,7 +251,7 @@ public class BackgroundRunner {
         shouldStop = true;
         String out = "";
         Collections.sort(hitLinks);
-        //out+=Tools.saveToCSV(hitLinks, forClassifier)+"<br>";
+        out+=Tools.saveToCSV(hitLinks, forClassifier)+"<br>";
         out+=Tools.saveToHTML(hitLinks, finalHTML, searchFor)+"<br>";          
         //out+=Tools.saveToDB(hitLinks, DB_URL);
         return out;
@@ -265,7 +269,6 @@ public class BackgroundRunner {
                 System.out.println("Search for: "+searchFor+" User: "+currentusr);
                 statusLblRef.setText("Starting...");
                 createContainer(currentusr);
-                setSearchFor(searchFor);
                 printExtractors();//print all extractors
                 for(Extractor e : extractors){
                     e.setModes(new boolean[] {true, true});
