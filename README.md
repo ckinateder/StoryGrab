@@ -2,7 +2,7 @@ StoryGrab
 =========
 
 StoryGrab takes a list of news sources (no limit) and searches them for the
-specified keyword. Required libraries are all included in repository.
+specified keyword. Required libraries are all included in repository. Keep in mind, I built this as a junior in high school.
 
 Screenshots:
 ============
